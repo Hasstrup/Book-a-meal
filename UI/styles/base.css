@@ -51,6 +51,7 @@ footer {
   display: flex;
   min-height: 100px;
   padding: 2% 3% 0 3%;
+  background-color: white;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
@@ -74,3 +75,19 @@ footer {
     footer .footer-log-right:hover {
       cursor: pointer;
       text-decoration: underline; }
+
+@font-face {
+  font-family: granary;
+  src: url("./fonts/granary.otf"); }
+
+@font-face {
+  font-family: gotham;
+  src: url("./fonts/gotham-b.ttf"); }
+
+@font-face {
+  font-family: acumin;
+  src: url("./fonts/acumin.otf"); }
+
+@font-face {
+  font-family: apercu;
+  src: url("./fonts/apercu.otf"); }
