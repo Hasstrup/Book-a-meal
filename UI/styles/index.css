@@ -191,7 +191,8 @@ body .image-grid .second-image-grid {
       top: -204px !important; }
 
 body .create-account-center {
-  margin-top: 8%; }
+  margin-top: 8%;
+  padding-right: 2%; }
   body .create-account-center .preamble-text {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -220,6 +221,80 @@ body .create-account-center {
       body .create-account-center .preamble-text .extras span {
         color: #ff183f; }
 
+body .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  position: relative;
+  right: -3%; }
+  body .form-group .form-input-group {
+    margin: 0 26px 20px 0; }
+  body .form-group .type-2 {
+    display: inline-block !important; }
+  body .form-group .section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly; }
+  body .form-group label {
+    font-family: 'granary';
+    font-size: 14px; }
+  body .form-group input {
+    margin-top: 15px;
+    width: 360px;
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+    height: 48px;
+    display: block;
+    color: #797D7F;
+    font-family: 'apercu';
+    font-size: 15px;
+    font-weight: lighter; }
+    body .form-group input:focus {
+      border-color: #d4d4d4;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      outline-color: #ECF0F1; }
+  body .form-group .submit-button {
+    margin-top: 20px;
+    background-color: #ff183f;
+    height: 35px;
+    color: white;
+    font-size: 19px;
+    font-family: 'gotham';
+    text-align: center;
+    border-radius: 3px;
+    width: 250px;
+    padding-top: 1.5%; }
+    body .form-group .submit-button:hover {
+      cursor: pointer;
+      background-color: #ff0e37; }
+  body .form-group .got-an-account-id {
+    margin-top: 40px;
+    font-family: 'acumin';
+    font-size: 13px;
+    color: #797D7F; }
+    body .form-group .got-an-account-id:hover {
+      color: #ff183f;
+      cursor: pointer;
+      text-decoration: underline; }
+
 body .fade-in {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -228,6 +303,38 @@ body .fade-in {
   animation-name: fadein;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
+
+body footer {
+  margin-top: 5%;
+  border-top: 1px solid #efefef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100px;
+  padding: 2% 3% 0 3%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+  body footer .footer-log-left {
+    font-size: 20px;
+    font-family: 'granary'; }
+  body footer .get-fed-button {
+    font-size: 14px;
+    font-family: 'apercu';
+    margin-top: -10px;
+    color: #7B7D7D; }
+    body footer .get-fed-button #i-heart {
+      position: relative;
+      bottom: -3px;
+      color: #ff183f;
+      margin-left: 2px; }
+  body footer .footer-log-right {
+    font-family: 'apercu';
+    font-size: 13px;
+    color: #7B7D7D; }
+    body footer .footer-log-right:hover {
+      cursor: pointer;
+      text-decoration: underline; }
 
 @font-face {
   font-family: granary;
