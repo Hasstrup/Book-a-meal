@@ -9,6 +9,8 @@
     flex-grow: 0;
     flex-basis: auto;
     margin: 0 3% 5% 0;
+    position: relative;
+    bottom: 0px;
     .img-item-and-description {
       position: relative;
       height: 200px;
@@ -20,6 +22,7 @@
       .content-item-description {
         position: absolute;
         z-index: 3;
+        opacity: 0;
         background-color: rgba(0,0,0, 0.2);
         color: white;
         height: 99%;
@@ -71,14 +74,7 @@
     }
     &:hover {
       cursor: pointer;
-      position: relative;
-      box-shadow: 0 0 15px 4px #F8F9F9;
-      // transform: translate(0, -10px);
-      animation-duration: 2s;
-      animation-name: scale-up;
-      top: -15px;
-
-
+      box-shadow: 0 0 10px 6px #F8F9F9;
     }
   }
 }

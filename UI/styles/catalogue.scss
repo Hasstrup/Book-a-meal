@@ -95,6 +95,12 @@ body {
 
   }
 
+  .fade-in {
+    display: flex;
+    animation-name: fadein;
+    animation-duration: 0.5s;
+  }
+
   //Overrides
   .header {
     margin: -10px 0 0 -5px;
