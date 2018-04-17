@@ -1,0 +1,241 @@
+body {
+  // Header styles
+  .header {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    div {
+      order: 6;
+      flex-grow: 1;
+    }
+    .home-tag {
+      padding-left: 3%;
+    .logo {
+        font-size: 23px;
+        font-family: 'gotham';
+      }
+      .logo:hover {
+        cursor: pointer;
+      }
+    }
+    .header-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding-top: 1%;
+      p {
+        font-size: 16px;
+        text-transform: capitalize;
+        font-family: 'apercu';
+      }
+      p:hover {
+        cursor: pointer;
+        color: #E74C3C;
+      }
+    }}
+  // End of header styles
+
+//enjoy-the really good things style
+.landing-jumbo {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 19%;
+
+  .text-landing {
+  font-family: 'granary';
+  font-size: 70px;
+  position: absolute;
+  z-index: 3;
+  }
+
+.dangling-shapes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-width: 100%;
+
+  .triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 35px solid transparent;
+	border-right: 35px solid transparent;
+	border-bottom: 70px solid #AF7AC5;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  position: relative;
+  left: -2em;
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 35px solid transparent;
+	border-right: 35px solid transparent;
+	border-top: 70px solid #58D68D;
+  position: relative;
+  bottom: -8.7em;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s
+}
+
+.cone {
+  width: 0;
+  height: 0;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 100px solid white;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+      }
+    }
+  }
+//end of landing jumbo styles
+
+// image grid styles;
+.image-grid {
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+  .menu-details {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #ff183f99;
+    z-index: 3;
+    top: -354px;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    &:hover {
+      cursor: pointer;
+    }
+    .show-title {
+      font-size: 32px;
+      font-family: 'granary';
+      color: white;
+    };
+    .meal-options {
+      color: white;
+      font-family: 'gotham';
+      font-size: 16px;
+    }
+    .caterers-name {
+      color: lighten(#E74C3C, 90%);
+      font-size: 14px;
+      font-family: 'apercu';
+    }
+  }
+
+  .first-image-grid {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 5% 0 6%;
+    margin-bottom: 2%;
+    .details-container {
+        height: 350px;
+        width:  600px;
+        margin-left: 15px;
+    }
+  }
+
+  .second-image-grid {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 1% 0 6%;
+    margin-bottom: 2%;
+    .details-container {
+      height: 200px;
+      width: 400px;
+      margin-left: 10px;
+      .menu-details {
+        top: -204px !important;
+      };
+    }
+  }
+
+}
+  // End of image grid Styles
+
+// Create account styles
+.create-account-center {
+  margin-top: 8%;
+  .preamble-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      .main-bold-text {
+        font-size: 34px;
+        font-family: 'granary'
+      }
+      .extras {
+        font-family: 'acumin';
+        font-size: 15px;
+        color: #797D7F;
+        width: 35%;
+        padding-left: 4%;
+        position: relative;
+        top: -15px;
+        span {
+          color: #ff183f;
+        }
+      }
+
+  }
+}
+
+.fade-in {
+  display: flex;
+  animation-name: fadein;
+  animation-duration: 0.5s;
+}
+
+}
+
+@font-face {
+  font-family: granary;
+  src: url('./fonts/granary.otf');
+}
+
+@font-face {
+  font-family: gotham;
+  src: url('./fonts/gotham-b.ttf');
+}
+
+@font-face {
+  font-family: acumin;
+  src: url('./fonts/acumin.otf');
+}
+@font-face {
+  font-family: apercu;
+  src: url('./fonts/apercu.otf');
+}
+
+@keyframes floating {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, 15px); }
+  to   { transform: translate(0, -0px); }
+}
+
+@keyframes fadein {
+    0% { opacity: 0}
+    25% { opacity: 0.25}
+    50% { opacity: 0.5}
+    75% { opacity: 0.75}
+    100% { opacity: 1}
+}
