@@ -1,48 +1,3 @@
-body .header {
-  background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
-  body .header div {
-    -webkit-box-ordinal-group: 7;
-    -ms-flex-order: 6;
-    order: 6;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1; }
-  body .header .home-tag {
-    padding-left: 3%; }
-    body .header .home-tag .logo {
-      font-size: 23px;
-      font-family: 'gotham'; }
-    body .header .home-tag .logo:hover {
-      cursor: pointer; }
-  body .header .header-buttons {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
-    padding-top: 1%; }
-    body .header .header-buttons p {
-      font-size: 16px;
-      text-transform: capitalize;
-      font-family: 'apercu'; }
-    body .header .header-buttons p:hover {
-      cursor: pointer;
-      color: #E74C3C; }
-
 body .landing-jumbo {
   min-height: 400px;
   display: -webkit-box;
@@ -303,38 +258,6 @@ body .fade-in {
   animation-name: fadein;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
-
-body footer {
-  margin-top: 5%;
-  border-top: 1px solid #efefef;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 100px;
-  padding: 2% 3% 0 3%;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between; }
-  body footer .footer-log-left {
-    font-size: 20px;
-    font-family: 'granary'; }
-  body footer .get-fed-button {
-    font-size: 14px;
-    font-family: 'apercu';
-    margin-top: -10px;
-    color: #7B7D7D; }
-    body footer .get-fed-button #i-heart {
-      position: relative;
-      bottom: -3px;
-      color: #ff183f;
-      margin-left: 2px; }
-  body footer .footer-log-right {
-    font-family: 'apercu';
-    font-size: 13px;
-    color: #7B7D7D; }
-    body footer .footer-log-right:hover {
-      cursor: pointer;
-      text-decoration: underline; }
 
 @font-face {
   font-family: granary;
