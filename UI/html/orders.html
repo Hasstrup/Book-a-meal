@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+     <title> Orders - Book A Meal </title>
+     <link href='../styles/base.css' type="text/css" rel='stylesheet'/>
+     <link href='../styles/orders.css' type="text/css" rel='stylesheet'/>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class='header'>
+        <div class='home-tag'>
+          <p class='logo'> Book <br/>
+            a meal </p>
+        </div>
+        <div class='header-buttons'>
+           <p class='h1-login-button'> Login </p>
+           <p> Sign Up</p>
+           <p class='h1-login-button'> Catalogue </p>
+        </div>
+      </div>
+    </header>
+    <!-- End of Header  -->
+
+    <div class='main-body-component'>
+      <div class='orders-page-side-one'>
+        <div class='orders-heading-and-desc'>
+          <p class='orders-page-heading'> Orders </p>
+          <p class='orders-page-desc'>
+            This is a page dedicated for you
+            to manage your orders as a regular
+            user or as a vendor. You can check your
+            monitor the current items in cart
+            and check with your previous order history.
+            Enjoy!
+          </p>
+        </div>
+        <div class='convey-account-details'>
+           <p class='convey-account-order'>
+             You are currently viewing this page as <br/>
+             <span id='user-details-init'> Hasstrup Ezekiel </span> <br/>
+           </p>
+           <div class='display-click-message'>
+              <p onclick='showAccountsMenu()'> Click to switch account </p>
+              <div class='display-current-user'>
+                <div class='user-list-item'> Hello Desi kitchen </div>
+                <div class='user-list-item'> Hasstrup Ezekiel </div>
+               </div>
+           </div>
+        </div>
+      </div>
+    </div>
+    <!--  Footer -->
+    <footer>
+      <div>
+        <p class='footer-log-left'> Eat fast, die ? okay.</p>
+        <p class='get-fed-button'> Get fed right away <span> <svg id="i-heart" viewBox="0 0 32 32" width="15" height="15" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <path d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
+    </svg></span>. </p>
+      </div>
+      <p class='footer-log-right'> Check the code on github</p>
+    </footer>
+    <script src="../scripts/orders.js" type="text/javascript"> </script>
+  </body>
+</html>

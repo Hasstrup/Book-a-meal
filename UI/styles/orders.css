@@ -1,0 +1,94 @@
+body {
+  background-color: white;
+  min-height: 600px;
+  position: relative; }
+  body .main-body-component {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap; }
+    body .main-body-component .orders-page-side-one {
+      -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      padding-top: 3%;
+      margin: 0 auto; }
+      body .main-body-component .orders-page-side-one .orders-heading-and-desc {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%; }
+        body .main-body-component .orders-page-side-one .orders-heading-and-desc .orders-page-heading {
+          font-family: 'granary';
+          font-size: 24px; }
+        body .main-body-component .orders-page-side-one .orders-heading-and-desc .orders-page-desc {
+          width: 40%;
+          font-family: 'apercu';
+          font-size: 13px;
+          color: #626567;
+          margin-top: -10px; }
+      body .main-body-component .orders-page-side-one .convey-account-details {
+        padding: 3% 0 0 0;
+        margin-left: -5%; }
+        body .main-body-component .orders-page-side-one .convey-account-details .convey-account-order {
+          font-size: 11.5px;
+          font-family: 'apercu';
+          color: rgba(0, 0, 0, 0.74); }
+          body .main-body-component .orders-page-side-one .convey-account-details .convey-account-order span {
+            color: #ff183f; }
+        body .main-body-component .orders-page-side-one .convey-account-details .display-click-message {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          position: relative;
+          font-family: 'apercu';
+          font-size: 11.5px;
+          margin-top: -6%; }
+          body .main-body-component .orders-page-side-one .convey-account-details .display-click-message p:hover {
+            cursor: pointer;
+            text-decoration: underline; }
+          body .main-body-component .orders-page-side-one .convey-account-details .display-click-message .display-current-user {
+            position: absolute;
+            top: 0;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            width: 80%;
+            min-height: 90px;
+            border-radius: 2px;
+            z-index: 3;
+            background-color: white;
+            display: none;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center; }
+            body .main-body-component .orders-page-side-one .convey-account-details .display-click-message .display-current-user div {
+              font-size: 12px;
+              color: #979A9A; }
+              body .main-body-component .orders-page-side-one .convey-account-details .display-click-message .display-current-user div:hover {
+                cursor: pointer;
+                color: #ff183f; }
+  body .header {
+    border-bottom: 1px solid #efefef; }
+  body footer {
+    position: absolute;
+    bottom: 0;
+    width: 90%; }
