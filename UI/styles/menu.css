@@ -27,7 +27,133 @@
     transform: translate(0, -15px); } }
 
 body {
-  background-color: white; }
+  background-color: white;
+  position: relative; }
+  body .activity-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    min-height: 200px;
+    background-color: white;
+    border-top: 1px solid #efefef;
+    min-width: 100%;
+    padding-bottom: 3%;
+    z-index: 10; }
+    body .activity-bar .activity-side-one {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-preferred-size: 80%;
+      flex-basis: 80%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+      padding-top: 1%; }
+      body .activity-bar .activity-side-one .point-to-items {
+        margin: 0 auto;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: 'acumin'; }
+      body .activity-bar .activity-side-one .summary-tab {
+        -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+        justify-content: space-evenly; }
+        body .activity-bar .activity-side-one .summary-tab .activity-tab-def {
+          font-size: 15px;
+          font-family: 'gotham';
+          color: #ff7262; }
+        body .activity-bar .activity-side-one .summary-tab p {
+          color: #A6ACAF;
+          font-family: 'apercu';
+          font-size: 11.5px; }
+          body .activity-bar .activity-side-one .summary-tab p:hover {
+            text-decoration: underline;
+            cursor: pointer; }
+        body .activity-bar .activity-side-one .summary-tab .move-down {
+          position: relative;
+          bottom: -2px; }
+        body .activity-bar .activity-side-one .summary-tab span {
+          color: #ff7262;
+          font-size: 10.5px;
+          position: relative;
+          bottom: -0.4px;
+          right: -3px; }
+      body .activity-bar .activity-side-one .items-currently-in-cart {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-left: 5%; }
+        body .activity-bar .activity-side-one .items-currently-in-cart .items-currently-in-stock {
+          min-height: 40px;
+          -ms-flex-preferred-size: 15%;
+          flex-basis: 15%;
+          width: 60%;
+          margin: 2% 1% 0 0;
+          color: #979A9A;
+          font-size: 14.5px;
+          font-family: 'apercu';
+          border-radius: 2px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center; }
+    body .activity-bar .activity-side-two {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-preferred-size: 20%;
+      flex-basis: 20%; }
+      body .activity-bar .activity-side-two .check-out-button {
+        width: 50%;
+        height: 30px;
+        background-color: #3ec28f;
+        color: white;
+        text-align: center;
+        padding-top: 3%;
+        border-radius: 2px;
+        font-family: 'apercu';
+        font-size: 13px; }
+      body .activity-bar .activity-side-two .close-item {
+        font-size: 10.5px;
+        font-family: 'apercu';
+        -ms-flex-item-align: end;
+        align-self: flex-end; }
+        body .activity-bar .activity-side-two .close-item:hover {
+          cursor: pointer;
+          color: #ff183f; }
   body .main-menu-page-body {
     min-height: 600px; }
     body .main-menu-page-body .menu-title-and-owner-grid {
@@ -199,6 +325,7 @@ body {
             flex-flow: column nowrap;
             border-radius: 3px;
             position: absolute;
+            background-color: white;
             top: 0;
             z-index: -1;
             opacity: 0;

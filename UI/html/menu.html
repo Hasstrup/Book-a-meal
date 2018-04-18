@@ -172,29 +172,7 @@
 <!--  End of main menu body -->
 
 
-<!-- Start of activity tab -->
- <section class='activity-bar'>
-   <div class='activity-side-one'>
-     <div class='summary-tab'>
-          <p class='activity-tab-def'> Activity </p>
-          <p class='current-orders-def'> Current orders  <span> 5 </span> </p>
-          <p class='display-total-def'> Total <span> N200 </span> </p>
-          <p class='go-to-cart-button'> Go to cart </p>
-          <p class='share-a-menu-button'> Share a menu </p>
-     </div>
-     <div class='items-currently-in-cart'>
-        <div class='items-currently-in-stock'> Of course! Jollof</div>
-        <div class='items-currently-in-stock'> Of course! Jollof</div>
-        <div class='items-currently-in-stock'> Of course! Jollof</div>
-        <div class='items-currently-in-stock'> Of course! Jollof</div>
-     </div>
-   </div>
-   <div class='activity-side-two'>
-     <div class='check-out-button'>
-        Check out
-     </div>
-   </div>
- </section>
+
 
  <footer>
    <div>
@@ -206,8 +184,34 @@
    <p class='footer-log-right'> Check the code on github</p>
  </footer>
 
- <script src='../scripts/show-menu.js' type="text/javascript" /></script>
+ <!-- Start of activity tab -->
+  <section class='activity-bar'>
+    <div class='activity-side-one'>
+      <div class='summary-tab'>
+           <p class='activity-tab-def'> Activity </p>
+           <p class='current-orders-def move-down'> Current orders  <span> 5 </span> </p>
+           <p class='display-total-def move-down'> Total <span> N2590 </span> </p>
+           <p class='go-to-cart-button move-down'> Go to cart </p>
+           <p class='share-a-menu-button move-down'> Share a menu </p>
+      </div>
+      <p class='point-to-items'>   Cart </p>
+      <div class='items-currently-in-cart'>
+         <div class='items-currently-in-stock'> Of course! Jollof</div>
+         <div class='items-currently-in-stock'> Of course! Jollof</div>
+         <div class='items-currently-in-stock'> Of course! Jollof</div>
+         <div class='items-currently-in-stock'> Of course! Jollof</div>
+      </div>
+    </div>
+    <div class='activity-side-two'>
+      <div class='check-out-button'>
+         Pay Now
+      </div>
+      <p class='close-item' onclick="closeActivity()"> close </p>
+    </div>
+  </section>
+  <!--  End of activity tab-->
 
+ <script src='../scripts/show-menu.js' type="text/javascript" /></script>
 
  </body>
 </html>

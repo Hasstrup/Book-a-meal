@@ -1,7 +1,10 @@
 @import './mixins/mixins';
+@import './mixins/activity';
 
 body {
   background-color: white;
+  position: relative;
+  @include activity-bar;
   .main-menu-page-body {
       min-height: 600px;
   .menu-title-and-owner-grid  {

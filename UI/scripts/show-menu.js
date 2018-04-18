@@ -28,5 +28,20 @@ const showCard = (name) => {
   })
 }
 
+const addOptionListener = () => {
+  const nodes = Array.from(document.getElementsByClassName('option-options'))
+  nodes.forEach((node) => {
+    node.addEventListener('click', () => {
+      console.log('clicked-me')
+      document.getElementsByClassName('activity-bar')[0].style.display = 'flex';
+    })
+  })
+}
+
+const closeActivity = () => {
+  document.getElementsByClassName('activity-bar')[0].style.display = 'none';
+}
+
 
 addListener()
+addOptionListener()
