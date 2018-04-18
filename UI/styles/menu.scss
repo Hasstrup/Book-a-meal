@@ -1,0 +1,172 @@
+@import './mixins/mixins';
+
+body {
+  background-color: white;
+  .main-menu-page-body {
+      min-height: 600px;
+  .menu-title-and-owner-grid  {
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
+      flex-flow: row wrap;
+      padding-top: 3%;
+      margin-bottom: 4%;
+  .content-details {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        width: 40%;
+  .content-avatar {
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+        position: relative;
+        top: 10px;
+        right: -15px;
+      }
+  .menu-details {
+      padding-left: 5%;
+      .menu-det-name {
+        font-size: 23px;
+        font-family: 'granary'
+      }
+      .menu-det-details {
+        width: 75%;
+        margin-top: -15px;
+        font-size: 13px;
+        font-family: 'apercu';
+        color: #626567;
+        }
+      }
+    }
+    .vendor-details-def {
+          display: flex;
+          width: 30%;
+          flex-flow: column;
+          .announce-vendor {
+            font-family: 'apercu';
+            font-size: 11.5px;
+            color: #ff183f;
+            position: relative;
+            left: 15%;
+          }
+          .vendor-details-main {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            .content-avatar {
+              height: 55px;
+              width: 55px;
+              border-radius: 50%;
+              position: relative;
+              bottom: -7px;
+              filter: grayscale(80%);
+            }
+            .vendor-details-brief {
+              position: relative;
+              margin-top: -15px;
+              padding-left: 8px;
+            }
+            .vendor-details-name {
+              font-family: 'granary';
+              font-size: 13.5px;
+            }
+            .vendor-details-bio-brief {
+              margin-top: -5px;
+              font-size: 11.5px;
+              font-family: 'apercu';
+              width: 75%;
+            };
+          }
+          .subscribe-button {
+            font-size: 11.5px;
+            font-family: 'apercu';
+            color: #979A9A;
+            margin-left: 15%;
+            margin-top: -5px;
+            &:hover {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          }
+
+        }
+      }
+      .main-meal-list {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        .main-meal-pointers {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-around;
+          width: 100%;
+          .items-pointer {
+            font-size: 14px;
+            font-family: 'apercu';
+            text-transform: uppercase;
+          }
+          .hover-pointer {
+            font-size: 10.5px;
+            font-family: 'apercu';
+            color: #7B7D7D;
+            position: relative;
+            right: 7%;
+          }
+        }
+        .main-menu-options-list {
+          display: flex;
+          flex-flow: column wrap;
+          width: 50%;
+          justify-content: space-evenly;
+          align-self: center;
+          position: relative;
+          padding-left: 3%;
+          left: -4%;
+          .hover-item {
+              position: relative;
+              display: flex;
+              flex-flow: column nowrap;
+              @include meal-item-card;
+            .hover-item-list {
+              display: flex;
+              width: 85%;
+              flex-flow: row nowrap;
+              flex-basis: 10%;
+              .hover-item-items {
+                flex-basis: 90%;
+                font-size: 14px;
+                font-family: 'apercu';
+                color: #626567;
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+              .hover-item-price {
+                flex-basis: 10%;
+                font-size: 13px;
+                font-family: 'granary';
+                color: black;
+              }
+            }
+          }
+        }
+
+      }
+
+  }
+  .fade-in {
+    display: flex;
+    animation-name: fadein;
+    animation-duration: 0.5s;
+    opacity: 1 !important;
+    z-index: 10 !important;
+  }
+
+  //overrides
+  .header {
+    border-bottom: 1px solid  #efefef;
+  }
+
+}

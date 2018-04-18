@@ -207,8 +207,8 @@ body {
     display: flex;
     -webkit-animation-name: fadein;
     animation-name: fadein;
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s; }
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s; }
   body .header {
     margin: -10px 0 0 -5px;
     width: 105%;

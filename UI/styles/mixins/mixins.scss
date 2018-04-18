@@ -79,6 +79,71 @@
   }
 }
 
+@mixin meal-item-card {
+    .display-menu-item {
+      width: 50%;
+      display: flex;
+      flex-flow: column nowrap;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      opacity: 0;
+      flex-basis: 90%;
+      box-shadow: 0 0 20px 7px #F2F3F4;
+      .main-meal-item-img {
+        flex-basis: 40%;
+        width: 100%;
+        height: 300px;
+      }
+      .item-title-and-description {
+        display: flex;
+        flex-flow: column nowrap;
+        padding-left: 4%;
+        .item-title-main {
+          font-family: 'gotham';
+          font-size: 16px;
+          margin-bottom: -6px;
+          color: #1D2129;
+          width: 90%;
+        }
+        .item-description {
+          font-family: 'apercu';
+          font-size: 13px;
+          width: 90%;
+          color: #4B4F56;
+        }
+      }
+      .buttons-array-and-togglers {
+        display: flex;
+        flex-flow: row nowrap;
+        flex-basis: 10%;
+        border-top: 1px solid #efefef;
+        p {
+          color: #90949C;
+          font-family: 'acumin';
+          font-size: 12.5px;
+          opacity: 0.6;
+        }
+        .option-options {
+          flex-basis: 85%;
+          padding-left: 5%;
+          &:hover {
+            cursor: pointer;
+            color: #ff183f;
+            opacity: 0.8;
+          }
+        }
+        .option-options2 {
+          flex-basis: 15%;
+          &:hover {
+            color: #4B4F56;
+          }
+        }
+      }
+    }
+}
+
 @keyframes scale-up {
   0% { transform:translate(0, 0);}
   50% { transform:translate(0, -5px);}

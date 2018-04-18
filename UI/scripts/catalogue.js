@@ -1,3 +1,4 @@
+
 const liftCard = (name) => {
   const node = document.getElementById(`${name}`)
   node.style.position = 'relative';
@@ -18,12 +19,14 @@ const liftCard = (name) => {
   return;
 }
 
+
 const intGen = (node) => {
   if(node.style.bottom.length === 3) {
     return parseInt(`${node.style.bottom.split('')[0]}`)
   }
   return parseInt(`${node.style.bottom.split('')[0]}${node.style.bottom.split('')[1]}`)
 }
+
 
 const dropCard = (name) => {
   const node = document.getElementById(`${name}`)
@@ -35,6 +38,7 @@ const dropCard = (name) => {
   Array.from(document.getElementsByName(`${name}`))[0].classList.remove('fade-in')
   Array.from(document.getElementsByName(`${name}`))[0].style.opacity = 0;
 }
+
 
 const addListener = () => {
   const nodes = Array.from(document.getElementsByClassName('content-item-description'))
