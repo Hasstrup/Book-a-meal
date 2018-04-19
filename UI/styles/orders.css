@@ -4,20 +4,21 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-flow: column nowrap;
     flex-flow: column nowrap;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    padding-top: 2%; }
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 2%;
+    width: 100%; }
     body .main-body-component .orders-page-side-one {
-      -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -92,14 +93,16 @@ body {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      padding-right: 6%;
-      margin: 0 auto;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
       flex-flow: column nowrap;
-      -ms-flex-preferred-size: 70%;
-      flex-basis: 70%; }
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+      width: 100%;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
       body .main-body-component .orders-page-side-one-main .display-current-order {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -107,18 +110,23 @@ body {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap; }
+        flex-flow: column nowrap;
+        width: 55%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin: 0 auto; }
         body .main-body-component .orders-page-side-one-main .display-current-order .display-current-order-heading {
           margin-bottom: 3%; }
           body .main-body-component .orders-page-side-one-main .display-current-order .display-current-order-heading .display-current-order-heading-head {
-            font-size: 16px;
+            font-size: 18px;
             font-family: 'gotham';
             color: #343434; }
           body .main-body-component .orders-page-side-one-main .display-current-order .display-current-order-heading .display-current-order-heading-desc {
             font-family: 'apercu';
-            font-size: 12px;
+            font-size: 12.5px;
             width: 40%;
-            margin-top: -2%; }
+            margin-top: -1%; }
             body .main-body-component .orders-page-side-one-main .display-current-order .display-current-order-heading .display-current-order-heading-desc span {
               color: #ff183f; }
         body .main-body-component .orders-page-side-one-main .display-current-order .current-order-stack {
@@ -227,5 +235,115 @@ body {
                   font-size: 12px;
                   color: #797D7F;
                   font-family: 'apercu'; }
+      body .main-body-component .orders-page-side-one-main .history-section {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        margin: 0 auto;
+        width: 55%;
+        margin-top: 5%; }
+        body .main-body-component .orders-page-side-one-main .history-section .introduce-history .introduce-history-main {
+          font-family: 'gotham';
+          font-size: 20px; }
+        body .main-body-component .orders-page-side-one-main .history-section .introduce-history .introduce-history-desc {
+          font-family: apercu;
+          font-size: 12.5px;
+          width: 40%; }
+        body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          padding-left: 15%; }
+          body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .today-text .today-introduction .today-intro {
+            font-family: 'granary';
+            font-size: 14.5px; }
+          body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .today-text .today-introduction .today-intro-desc {
+            font-family: 'apercu';
+            font-size: 12.5px;
+            width: 50%; }
+          body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            min-width: 750px;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+            -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+            margin: 3% 0 0 4%; }
+            body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card {
+              width: 30%;
+              height: 150px !important;
+              position: relative;
+              margin-bottom: 8%; }
+              body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card:hover {
+                -webkit-transform: scale(1.02);
+                -ms-transform: scale(1.02);
+                transform: scale(1.02); }
+              body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card .show-order-date {
+                font-family: 'acumin';
+                font-size: 12px;
+                color: #90949C; }
+                body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card .show-order-date span {
+                  color: black;
+                  margin-left: 2%; }
+              body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card .order-top {
+                border-radius: 5px; }
+                body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card .order-top .order-random-image {
+                  height: 150px;
+                  width: 100%;
+                  border-radius: 3px; }
+                body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card .order-top .order-main-details {
+                  background-color: rgba(0, 0, 0, 0.3);
+                  position: absolute;
+                  top: 0;
+                  height: 100%;
+                  width: 100%;
+                  display: -webkit-box;
+                  display: -ms-flexbox;
+                  display: flex;
+                  -webkit-box-orient: vertical;
+                  -webkit-box-direction: normal;
+                  -ms-flex-flow: column nowrap;
+                  flex-flow: column nowrap;
+                  -webkit-box-pack: center;
+                  -ms-flex-pack: center;
+                  justify-content: center;
+                  -webkit-box-align: center;
+                  -ms-flex-align: center;
+                  align-items: center;
+                  border-radius: 3px; }
+                  body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card .order-top .order-main-details:hover {
+                    cursor: pointer; }
+                  body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card .order-top .order-main-details .order-contents {
+                    font-family: 'granary';
+                    font-size: 13.5px;
+                    color: white; }
+                  body .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card .order-top .order-main-details .more-button {
+                    width: 30%;
+                    height: 25px;
+                    border: 1px solid #ff7262;
+                    border-radius: 10px;
+                    -ms-flex-item-align: center;
+                    align-self: center;
+                    text-align: center;
+                    padding-top: 3%;
+                    font-family: apercu;
+                    font-size: 12px;
+                    color: white; }
   body .header {
     border-bottom: 1px solid #efefef; }

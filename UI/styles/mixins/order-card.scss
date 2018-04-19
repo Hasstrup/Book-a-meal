@@ -96,3 +96,65 @@
     }
   }
 }
+
+@mixin tiny-order-card {
+  .order-story-card {
+    &:hover {
+      transform: scale(1.02);
+    }
+    width: 30%;
+    height: 150px !important;
+    position: relative;
+    margin-bottom: 8%;
+    .show-order-date {
+      font-family: 'acumin';
+      font-size: 12px;
+      color: #90949C;
+      span {
+        color: darken(#90949C, 80%);
+        margin-left: 2%;
+      }
+    }
+    .order-top {
+      border-radius: 5px;
+      .order-random-image {
+        height: 150px;
+        width: 100%;
+        border-radius: 3px;
+      }
+      .order-main-details {
+        background-color: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        &:hover {
+          cursor: pointer;
+        }
+        .order-contents {
+          font-family: 'granary';
+          font-size: 13.5px;
+          color: white;
+        }
+        .more-button {
+          width: 30%;
+          height: 25px;
+          border: 1px solid #ff7262;
+          border-radius: 10px;
+          align-self: center;
+          text-align: center;
+          padding-top: 3%;
+          font-family: apercu;
+          font-size: 12px;
+          color: white;
+
+        }
+      }
+    }
+  }
+}
