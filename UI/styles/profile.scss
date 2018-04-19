@@ -205,6 +205,8 @@ body {
             }
           }
           //end of overview
+
+          //menu of the day
           .menu-of-the-day {
             margin-bottom: 3%;
             .item-details-def {
@@ -255,6 +257,42 @@ body {
                 text-align: center;
                 padding-top: 2%;
                 font-size: 11.8px;
+                font-family: apercu;
+                color: rgba(0,0,0,.54)
+              }
+            }
+          }
+          //end of menu of the day;
+          .menu-options-def {
+            margin-bottom: 5%;
+            .menu-options-comp-two {
+              display: flex;
+              width: 80%;
+              flex-flow: column nowrap;
+              padding-left: 10%;
+              margin-top: 5%;
+              .list-grid {
+                p {
+                  font-size: 15px;
+                  font-family: apercu;
+                  color: rgba(0,0,0,.80);
+                  width: 100%;
+                  span {
+                    float: right;
+                    color: rgba(0,0,0,1)
+                  }
+                }
+              }
+              .edit-button {
+                margin-top: 4%;
+                align-self: center;
+                height: 35px;
+                width: 75px;
+                border: 1px solid rgba(0,0,0,.14);
+                border-radius: 2px;
+                text-align: center;
+                padding-top: 2%;
+                font-size: 12.5px;
                 font-family: apercu;
                 color: rgba(0,0,0,.54)
               }
