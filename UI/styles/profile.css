@@ -253,6 +253,76 @@ body .main-profile-body {
                   font-family: gotham;
                   font-size: 17px;
                   color: rgba(0, 0, 0, 0.89); }
+      body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day {
+        margin-bottom: 3%; }
+        body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          margin-top: 5%; }
+          body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .menu-of-the-day-main {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            width: 90%; }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .menu-of-the-day-main .small-avatar {
+              height: 300px;
+              width: 200px;
+              -ms-flex-preferred-size: 50%;
+              flex-basis: 50%; }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .menu-of-the-day-main .motd-card-def {
+              -ms-flex-preferred-size: 50%;
+              flex-basis: 50%;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center; }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .menu-of-the-day-main .motd-card-def .motd-name {
+                font-family: granary;
+                font-size: 19px; }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .menu-of-the-day-main .motd-card-def .motd-items {
+                width: 70%;
+                color: rgba(0, 0, 0, 0.48);
+                font-family: apercu;
+                font-size: 14px; }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .menu-of-the-day-main .motd-card-def .motd-desc {
+                width: 80%;
+                color: rgba(0, 0, 0, 0.66);
+                font-family: 'apercu';
+                font-size: 12.7px; }
+          body .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .motd-edit {
+            margin-top: 4%;
+            -ms-flex-item-align: end;
+            align-self: flex-end;
+            height: 30px;
+            width: 70px;
+            border: 1px solid rgba(0, 0, 0, 0.14);
+            border-radius: 2px;
+            text-align: center;
+            padding-top: 2%;
+            font-size: 11.8px;
+            font-family: apercu;
+            color: rgba(0, 0, 0, 0.54); }
 
 body .header {
   border-bottom: 1px solid #efefef; }
