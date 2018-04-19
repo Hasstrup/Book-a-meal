@@ -1,20 +1,21 @@
+@import "./mixins/order-card.scss";
+
 body {
   background-color: white;
-  min-height: 600px;
-  position: relative;
-
   .main-body-component {
     display: flex;
     justify-content: center;
     flex-flow: column nowrap;
-
+    align-items: flex-start;
+    padding-top: 2%;
+    //start heading
     .orders-page-side-one {
       flex-basis: 30%;
       display: flex;
       flex-flow: row wrap;
       justify-content: center;
-      padding-top: 3%;
       margin: 0 auto;
+      margin-bottom: 3%;
       .orders-heading-and-desc {
           flex-basis: 50%;
         .orders-page-heading {
@@ -77,15 +78,53 @@ body {
         }
       }
     }
+    //end heading
+    .orders-page-side-one-main {
+      display: flex;
+      padding-right: 6%;
+      margin: 0 auto;
+      flex-flow: column nowrap;
+      flex-basis: 70%;
+      .display-current-order {
+        display: flex;
+        flex-flow: column nowrap;
+        .display-current-order-heading {
+          margin-bottom: 3%;
+          .display-current-order-heading-head {
+            font-size: 16px;
+            font-family: 'gotham';
+            color: #343434;
+          }
+          .display-current-order-heading-desc {
+            font-family: 'apercu';
+            font-size: 12px;
+            width: 40%;
+            margin-top: -2%;
+            span {
+              color: #ff183f
+            }
+          }
+        }
+        .current-order-stack {
+          display: flex;
+          justify-content: center;
+          padding-left: 5%;
+          position: relative;
+          right: -5%;
+          @include large-order-card
+        }
+      }
+    }
+
   }
 
   //overrides
   .header {
     border-bottom: 1px solid #efefef;
   }
-  footer {
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-  }
+  // footer {
+  //   position: absolute;
+  //   bottom: 0;
+  //   width: 90%;
+  // }
 }

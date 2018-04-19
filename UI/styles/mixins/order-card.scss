@@ -1,0 +1,98 @@
+@mixin large-order-card {
+  .current-order-stack-main {
+    display: flex;
+    flex-flow: row wrap;
+    height: 380px;
+    width: 98%;
+    border: 1px solid #ECF0F1;
+    justify-content: space-evenly;
+    .current-order-stack-side-one {
+      flex-basis: 50%;
+      display: flex;
+      justify-content: center;
+      flex-flow: column nowrap;
+      text-align: center;
+      .content-item {
+        .content-item-key{
+          font-size: 13px;
+          font-family: 'apercu';
+          color: #979A9A
+        }
+        .content-item-value {
+          font-size: 14px;
+          font-family: 'granary';
+        }
+      }
+      #last-item {
+        margin-bottom: 2%;
+      }
+      .pay-button-large {
+        width: 40%;
+        height: 34px;
+        color: white;
+        padding-top: 3%;
+        background-color: #2ECC71;
+        border-radius: 2px;
+        margin: 0 auto;
+        font-family: 'apercu';
+        font-size: 14px;
+
+      }
+    }
+    .current-order-stack-main-card {
+      background-color:#ECF0F1;
+      flex-basis: 50%;
+      overflow-y: scroll;
+      position: relative;
+      display: flex;
+      padding: 4px 0 4px 0;
+      flex-flow: column nowrap;
+      align-items: center;
+      @include small-order-card;
+    }
+  }
+}
+
+@mixin small-order-card {
+  .card-order-level-1 {
+    min-height: 100px;
+    width: 80%;
+    border-radius: 2px;
+    flex-basis: content;
+    margin-top: 3px;
+    // display: flex;
+
+    .main-order-card-one {
+      background-color: white;
+      padding: 1% 0 1% 5%;
+      position: relative;
+      .main-order-meal-name {
+        font-size: 12px;
+        font-family:'gotham';
+      }
+      .main-order-menu-and-price {
+        font-family: 'apercu';
+        font-size: 12px;
+        #separator {
+          margin: 0 3px 0 3px;
+        }
+        #content-price {
+          color: #979A9A;
+        }
+      }
+      .main-order-vendor-name {
+        font-family: 'apercu';
+        font-size: 12px;
+        color: #ff183f;
+      }
+    }
+    .close-button {
+      position: absolute;
+      top: -5px;
+      right: 8px;
+      font-size: 12px;
+      color: #797D7F;
+      font-family: 'apercu'
+    }
+  }
+}
