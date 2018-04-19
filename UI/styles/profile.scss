@@ -1,0 +1,217 @@
+body {
+  .main-profile-body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    .show-user-and-kitchen-profile {
+      flex-basis: auto;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-evenly;
+      padding-top: 2%;
+      .show-user-profile {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        .profile-picture-user {
+          height: 70px;
+          width: 70px;
+          border-radius: 50%;
+          position: relative;
+          top: 10px;
+          right: -2%;
+        }
+        .user-text-details {
+          width: 65%;
+          display: flex;
+          flex-flow: column nowrap;
+          padding: 0 2% 0 3%;
+          .edit-button-fade {
+            height: 30px;
+            width: 80px;
+            border-radius: 3px;
+            padding-top: 6px;
+            border: 1px solid rgba(0,0,0,.15);
+            text-align: center;
+            font-family: apercu;
+            font-size: 12.8px;
+            align-self: flex-end;
+            position: relative;
+            left: -15%;
+            color: rgba(0,0,0,.54);
+          }
+          .user-name-text {
+            font-size: 17px;
+            font-family: 'gotham';
+          }
+          .user-email-text {
+            font-family: apercu;
+            font-size: 13.3px;
+            margin-top: -1%;
+          }
+          .user-digits-text {
+            font-family: apercu;
+            font-size: 13.3px;
+            margin-top: -1%;
+          }
+          .a-little-bio {
+            font-size: 12.5px;
+            font-family: apercu;
+            width: 70%;
+            margin-top: -1%;
+
+          }
+        }
+      }
+      //end pf user profile
+      .show-kitchen-profile {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 60%;
+        border: 1px solid #efefef;
+        border-radius: 3px;
+        align-self: center;
+        margin-top: 3%;
+        .profile-picture-kitchen {
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+          position: relative;
+          top: 7px;
+          right: -2%;
+        }
+        .kitchen-text-details {
+          width: 95%;
+          display: flex;
+          flex-flow: row nowrap;
+          padding: 2% 1% 2% 1%;
+          .kitchen-deets-column {
+            display: flex;
+            flex-flow: column nowrap;
+            padding-left: 4%;
+          }
+          .edit-button-fade {
+            height: 25px;
+            width: 70px;
+            border-radius: 3px;
+            padding-top: 6px;
+            border: 1px solid rgba(0,0,0,.15);
+            text-align: center;
+            font-family: apercu;
+            color: rgba(0,0,0,.54);
+            font-size: 12.8px;
+            align-self: flex-end;
+            position: relative;
+            left: -1%;
+          }
+          .kitchen-name-text {
+            font-size: 15px;
+            font-family: 'gotham';
+          }
+          .a-little-bio {
+            font-size: 11.8px;
+            font-family: apercu;
+            width: 60%;
+            margin-top: -1%;
+          }
+        }
+      }
+    }
+
+    //end of user and kitchen profile
+    .main-workstation {
+      display: flex;
+      width: 50%;
+      align-self: center;
+      flex-flow: column nowrap;
+      margin-top: 4%;
+      .announce-workstation {
+        text-align: center;
+        .announce-workstation-title {
+          font-family: gotham;
+          font-size: 18px;
+          color: rgba(0,0,0,.84)
+        }
+        .announce-workstation-desc {
+          font-family: apercu;
+          font-size: 14px;
+          color: rgba(0,0,0,.76)
+        }
+      }
+      .main-workstation-main {
+        display: flex;
+        flex-flow: column nowrap;
+
+          .announce-item {
+            border-bottom: 1px solid rgba(0,0,0,.05);
+              .announce-item-key {
+                font-size: 16.5px;
+                font-family: gotham;
+                color: rgba(0,0,0,.84);
+                margin-top: 5%;
+              }
+              .announce-item-description {
+                font-size: 13.4px;
+                font-family: apercu;
+                color: rgba(0,0,0,.70);
+                width: 50%;
+              }
+          }
+        
+          .overview {
+            display: flex;
+            flex-flow: column nowrap;
+            margin-bottom: 3%;
+            .main-overview-card-stack {
+              display: flex;
+              flex-flow: column nowrap;
+              align-self: center;
+              width: 80%;
+              margin-top: 3%;
+              border: 1px solid #ff183f40;
+              border-radius: 4px;
+              padding: 2% 0 2% 0;
+              .today-overview {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                .overview-heading {
+                  font-family: 'apercu';
+                  font-size: 16px;
+                  color: rgba(0,0,0,.86);
+                }
+                .overview-c-grid {
+                  display: flex;
+                  flex-flow: row wrap;
+                  justify-content: space-between;
+                  .overview-c-grid-element {
+                    flex-basis: 30%;
+                    text-align: center;
+                    .oc-grid-item-key {
+                      font-family: apercu;
+                      font-size: 15px;
+                      color: rgba(0,0,0,.7)
+                    }
+                    .oc-grid-item-value {
+                      font-family: gotham;
+                      font-size: 17px;
+                      color: rgba(0,0,0,.89)
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+      }
+    }
+
+  }
+
+  //over rides;
+  .header {
+    border-bottom: 1px solid #efefef;
+  }
+}
