@@ -325,6 +325,107 @@ body .main-profile-body {
             color: rgba(0, 0, 0, 0.54); }
       body .main-profile-body .main-workstation .main-workstation-main .menu-options-def {
         margin-bottom: 5%; }
+        body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form {
+          display: none;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+          margin-top: 3%; }
+          body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row {
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            border: 1px solid rgba(0, 0, 0, 0.1); }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-side-one {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+              -ms-flex-item-align: center;
+              align-self: center;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center; }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-side-one div {
+                margin-bottom: 8%; }
+                body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-side-one div:hover {
+                  outline: none;
+                  -webkit-box-shadow: 0 0 3px 3px #F4F6F7;
+                  box-shadow: 0 0 3px 3px #F4F6F7; }
+                body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-side-one div:focus {
+                  outline: none;
+                  -webkit-box-shadow: 0 0 3px 3px #F4F6F7;
+                  box-shadow: 0 0 3px 3px #F4F6F7; }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-title {
+              font-family: apercu;
+              font-size: 25px;
+              color: rgba(0, 0, 0, 0.3); }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-title:focus {
+                color: rgba(0, 0, 0, 0.7); }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-description {
+              -ms-flex-item-align: center;
+              align-self: center;
+              font-family: apercu;
+              color: rgba(0, 0, 0, 0.3);
+              font-size: 13px; }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-description:focus {
+                color: rgba(0, 0, 0, 0.6); }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-price {
+              font-family: granary;
+              font-size: 15px;
+              color: rgba(0, 0, 0, 0.3); }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-price:focus {
+                color: rgba(0, 0, 0, 0.6); }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .input-types {
+              height: 35px;
+              width: 85px;
+              border: 1px solid rgba(0, 0, 0, 0.14);
+              border-radius: 2px;
+              text-align: center;
+              font-size: 12.5px;
+              font-family: 'apercu';
+              position: relative; }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .input-types input {
+                opacity: 0;
+                z-index: 3;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0; }
+                body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .input-types input:hover {
+                  cursor: pointer; }
+              body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .input-types label {
+                position: relative;
+                top: 8px;
+                z-index: -1; }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .new-meal-side-one {
+              -ms-flex-preferred-size: 50%;
+              flex-basis: 50%; }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .new-meal-form .new-meal-row .preview-image {
+              -ms-flex-preferred-size: 30%;
+              flex-basis: 30%;
+              height: 320px;
+              width: 280px; }
         body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .menu-options-comp-two {
           display: -webkit-box;
           display: -ms-flexbox;
@@ -357,6 +458,10 @@ body .main-profile-body {
             font-size: 12.5px;
             font-family: apercu;
             color: rgba(0, 0, 0, 0.54); }
+            body .main-profile-body .main-workstation .main-workstation-main .menu-options-def .menu-options-comp-two .edit-button:hover {
+              cursor: pointer;
+              border-color: rgba(0, 0, 0, 0.45);
+              color: rgba(0, 0, 0, 0.76); }
 
 body .header {
   border-bottom: 1px solid #efefef; }

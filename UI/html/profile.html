@@ -183,7 +183,30 @@
                      <div class='show-item-card'></div>
                   </div>
                 </div>
-                <div class='edit-button '>
+                <!--  Meal form -->
+                <div class='new-meal-form'>
+                  <div class='new-meal-row'>
+                     <div class='new-meal-side-one'>
+                        <div contenteditable="true" onclick="nullify('new-meal-title')" class='new-meal-title'>
+                            Meal name
+                        </div>
+                        <div contenteditable="true" class='new-meal-description'>
+                            description
+                        </div>
+                        <div contenteditable="true" class='new-meal-price'>
+                            Price
+                        </div>
+                        <div  class='input-types'>
+                          <input type="file" accept=".jpg, .jpeg, .png" onchange="changePhoto()" name="input-file" id="file" class="inputfile" />
+                           <label for='input-file' class='label-input-file' /> Preview </label>
+                        </div>
+                     </div>
+                     <!--  End of side one-->
+                     <img class='preview-image' id='preview-image' src='test.jpg'/>
+                  </div>
+                </div>
+                <!--  meal-form-end -->
+                <div class='edit-button' id='show-menu' onclick='showForm()'>
                   New meal
                 </div>
              </div>
@@ -202,6 +225,7 @@
      </div>
      <p class='footer-log-right'> Check the code on github</p>
    </footer>
+   <script src='../scripts/profile.js' type='text/javascript'/></script>
    <!--  Beginning of footer -->
 
  </body>
