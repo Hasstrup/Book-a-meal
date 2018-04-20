@@ -86,8 +86,51 @@ const modify = (a, b, c) => {
   return aboutToModify = false;
 }
 
+const makeEditable = (a,b) => {
+  let target = document.getElementById(`${a}`)
+  let nodes = Array.from(document.getElementsByClassName(`${a}`));
+  let holder
+  if(target.innerText !== 'Save'){
+    nodes.forEach((node) => {
+        node.setAttribute('contenteditable', true)
+        target.innerText = 'Save';
+    })
+    nodes[0].focus()
+    if (b) {
+      nodes[1].setAttribute('contenteditable', false)
+      nodes[1].innerText = 'Click here to select meal options';
+      nodes[1].style.textDecoration = 'underline';
+      nodes[1].addEventListener('click',() => {
+        document.getElementsByClassName('modal-base')[0].style.display = 'flex';
+      })
+    }
+    return;
+  }
+
+  nodes.forEach((node) => {
+    node.setAttribute('contenteditable', false);
+    target.innerText = 'Edit'
+  });
+  if (b) {
+    nodes[1].innerText = 'Freid rice & chips, Sweet Sensation  (30)'
+    nodes[1].style.textDecoration = 'none';
+  }
+
+  // openModal();
+  return;
+}
 
 
 
+const clicker = (index) => {
+  let node = document.getElementsByClassName(`it-${index}`)[0]
+
+      node.style.opacity = 1;
+      node.style.height = '100%';
+      node.style.backgroundColor = 'black';
+      node.style.color = 'white';
+
+
+}
 
 addListener()

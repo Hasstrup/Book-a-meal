@@ -1,11 +1,18 @@
 @import './mixins/mixins';
 
 body {
+  position: relative;
   .main-profile-body {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    p:focus {
+      outline: none;
+    }
+    div:focus {
+      outline: none;
+    }
     .show-user-and-kitchen-profile {
       flex-basis: auto;
       display: flex;
@@ -42,6 +49,11 @@ body {
             position: relative;
             left: -15%;
             color: rgba(0,0,0,.54);
+            &:hover {
+              border-color: rgba(0,0,0,.45);
+              color: rgba(0,0,0,.68);
+              cursor: pointer;
+            }
           }
           .user-name-text {
             font-size: 17px;
@@ -107,6 +119,11 @@ body {
             align-self: flex-end;
             position: relative;
             left: -1%;
+            &:hover {
+              border-color: rgba(0,0,0,.45);
+              color: rgba(0,0,0,.68);
+              cursor: pointer;
+            }
           }
           .kitchen-name-text {
             font-size: 15px;
@@ -240,6 +257,9 @@ body {
                     color: rgba(0,0,0,.48);
                     font-family: apercu;
                     font-size: 14px;
+                    &:hover {
+                      cursor: pointer;
+                    }
                   }
                   .motd-desc {
                     width: 80%;
@@ -260,7 +280,12 @@ body {
                 padding-top: 2%;
                 font-size: 11.8px;
                 font-family: apercu;
-                color: rgba(0,0,0,.54)
+                color: rgba(0,0,0,.54);
+                &:hover {
+                  border-color: rgba(0,0,0,.45);
+                  color: rgba(0,0,0,.68);
+                  cursor: pointer;
+                }
               }
             }
           }
@@ -482,5 +507,95 @@ body {
   //over rides;
   .header {
     border-bottom: 1px solid #efefef;
+  }
+  .modal-base {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: rgba(17, 17, 17, .4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    .modal-content {
+      background-color: white;
+      width: 60%;
+      height: 70%;
+      display: flex;
+      flex-flow: column nowrap;
+      padding-bottom: 5%;
+      .content-head {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row nowrap;
+        flex-basis: 10%;
+        padding: 0 15% 0 15%;
+        .content-head-1 {
+          font-family: 'gotham';
+          font-size: 15.5px;
+
+        }
+        .content-head-2 {
+          font-family: 'apercu';
+          font-size: 12px;
+          position: relative;
+          bottom: -25%;
+          &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+      }
+      .main-modal-content{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        width: 85%;
+        height: 90%;
+        align-self: center;
+        .tiny-tiny-card {
+          height: 35%;
+          width: 40%;
+          position: relative;
+          flex-basis: 25%;
+          &:hover {
+            .containing-text {
+              opacity: 1;
+              height: 100%;
+              cursor: pointer;
+              background-color: white;
+            }
+          }
+          img {
+            height: 100%;
+            width: 100%;
+          }
+          .containing-text {
+            height: 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'apercu';
+            font-size: 13px;
+            opacity: 0;
+          }
+        }
+      }
+
+      @keyframes roll-up {
+          25% {opacity: 0.25; height: 0%};
+          50% {opacity: 0.5; height: 50%};
+          75% {opacity: 0.75; height: 75%};
+          100% {opacity: 1; height: 100%};
+      }
+
+    }
   }
 }
