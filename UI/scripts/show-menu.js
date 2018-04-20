@@ -38,6 +38,7 @@ const addOptionListener = () => {
   })
 }
 
+
 const closeActivity = () => {
   document.getElementsByClassName('activity-bar')[0].style.display = 'none';
 }

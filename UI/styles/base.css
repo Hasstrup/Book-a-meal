@@ -76,6 +76,17 @@ footer {
       cursor: pointer;
       text-decoration: underline; }
 
+.fade-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation-name: fadein;
+  animation-name: fadein;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  opacity: 1 !important;
+  z-index: 10 !important; }
+
 @font-face {
   font-family: granary;
   src: url("./fonts/granary.otf"); }

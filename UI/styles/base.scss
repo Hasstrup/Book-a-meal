@@ -66,6 +66,14 @@
         text-decoration: underline;
       }
     }
+
+  }
+  .fade-in {
+    display: flex;
+    animation-name: fadein;
+    animation-duration: 0.5s;
+    opacity: 1 !important;
+    z-index: 10 !important;
   }
 
   @font-face {
