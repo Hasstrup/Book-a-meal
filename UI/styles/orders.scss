@@ -27,7 +27,6 @@ body {
   }
   .main-body-component {
     display: flex;
-    justify-content: flex-end;
     flex-flow: column nowrap;
     align-items: center;
     padding-top: 2%;
@@ -198,9 +197,111 @@ body {
   .header {
     border-bottom: 1px solid #efefef;
   }
-  // footer {
-  //   position: absolute;
-  //   bottom: 0;
-  //   width: 90%;
-  // }
+}
+
+@media only screen and (max-width: 480px) {
+  .main-body-component {
+    .orders-page-side-one {
+      flex-flow: column nowrap !important;
+      .orders-heading-and-desc {
+        flex-basis: 100% !important;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        .orders-page-heading {
+          font-size: 22px !important;
+          position: relative;
+          left: -5%;
+        }
+        .orders-page-desc {
+          flex-basis: 100% !important;
+          width: 70% !important;
+          font-size: 12px !important;
+        }
+      }
+      .convey-account-details {
+        flex-basis: 100%;
+        margin: 0 auto !important
+      }
+    }
+    .orders-page-side-one-main {
+      flex-basis: 100% !important;
+      justify-content: center !important;
+      .display-current-order {
+        width: 100% !important;
+        margin: 0 0 0 0 !important;
+        .display-current-order-heading {
+          text-align: center;
+          .display-current-order-heading-desc {
+            width: 100% !important;
+            font-size: 11.5px !important;
+          }
+        }
+        .current-order-stack {
+          width: 100%;
+          height: 90% !important;
+          padding-left: 0 !important;
+          right: 0 !important;
+          .current-order-stack-main {
+            height: 90% !important
+          }
+        }
+      }
+      .history-section {
+        width: 100% !important;
+        .introduce-history {
+          display: flex;
+          align-items: center;
+          flex-flow: column nowrap;
+          .introduce-history-main {
+            position: relative;
+            left: -5%;
+          }
+          .introduce-history-desc {
+            width: 80% !important;
+            margin-top: -2.5%;
+          }
+        }
+        .main-history-storybook {
+            padding-left: 0 !important;
+            width: 100%;
+            .today-story {
+              display: flex;
+              flex-flow: column nowrap;
+              .today-text {
+                align-self: flex-end;
+                .today-introduction {
+                    position: relative;
+                    right: -40%;
+                    .today-intro {
+                      font-size: 17.5px !important
+                    }
+                    .today-intro-desc {
+                      width: 70% !important;
+                      position: relative;
+                      left: -20%;
+                    }
+                }
+              }
+              .order-story-grid {
+                min-width: inherit !important;
+                flex-flow: row wrap !important;
+                justify-content: space-between;
+                .order-story-card {
+                  flex-basis: 45% !important;
+                  width: 45% !important;
+                  margin-bottom: 15% !important;
+                }
+              }
+            }
+        }
+      }
+    }
+  }
+  .modal-base {
+    #modal-card {
+      width: 90% !important;
+      height: 53% !important
+    }
+  }
 }

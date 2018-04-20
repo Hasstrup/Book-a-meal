@@ -124,9 +124,6 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-flow: column nowrap;
@@ -469,3 +466,116 @@ body {
                     color: white; }
   body .header {
     border-bottom: 1px solid #efefef; }
+
+@media only screen and (max-width: 480px) {
+  .main-body-component .orders-page-side-one {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-flow: column nowrap !important;
+    flex-flow: column nowrap !important; }
+    .main-body-component .orders-page-side-one .orders-heading-and-desc {
+      -ms-flex-preferred-size: 100% !important;
+      flex-basis: 100% !important;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .main-body-component .orders-page-side-one .orders-heading-and-desc .orders-page-heading {
+        font-size: 22px !important;
+        position: relative;
+        left: -5%; }
+      .main-body-component .orders-page-side-one .orders-heading-and-desc .orders-page-desc {
+        -ms-flex-preferred-size: 100% !important;
+        flex-basis: 100% !important;
+        width: 70% !important;
+        font-size: 12px !important; }
+    .main-body-component .orders-page-side-one .convey-account-details {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+      margin: 0 auto !important; }
+  .main-body-component .orders-page-side-one-main {
+    -ms-flex-preferred-size: 100% !important;
+    flex-basis: 100% !important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important; }
+    .main-body-component .orders-page-side-one-main .display-current-order {
+      width: 100% !important;
+      margin: 0 0 0 0 !important; }
+      .main-body-component .orders-page-side-one-main .display-current-order .display-current-order-heading {
+        text-align: center; }
+        .main-body-component .orders-page-side-one-main .display-current-order .display-current-order-heading .display-current-order-heading-desc {
+          width: 100% !important;
+          font-size: 11.5px !important; }
+      .main-body-component .orders-page-side-one-main .display-current-order .current-order-stack {
+        width: 100%;
+        height: 90% !important;
+        padding-left: 0 !important;
+        right: 0 !important; }
+        .main-body-component .orders-page-side-one-main .display-current-order .current-order-stack .current-order-stack-main {
+          height: 90% !important; }
+    .main-body-component .orders-page-side-one-main .history-section {
+      width: 100% !important; }
+      .main-body-component .orders-page-side-one-main .history-section .introduce-history {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap; }
+        .main-body-component .orders-page-side-one-main .history-section .introduce-history .introduce-history-main {
+          position: relative;
+          left: -5%; }
+        .main-body-component .orders-page-side-one-main .history-section .introduce-history .introduce-history-desc {
+          width: 80% !important;
+          margin-top: -2.5%; }
+      .main-body-component .orders-page-side-one-main .history-section .main-history-storybook {
+        padding-left: 0 !important;
+        width: 100%; }
+        .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap; }
+          .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .today-text {
+            -ms-flex-item-align: end;
+            align-self: flex-end; }
+            .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .today-text .today-introduction {
+              position: relative;
+              right: -40%; }
+              .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .today-text .today-introduction .today-intro {
+                font-size: 17.5px !important; }
+              .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .today-text .today-introduction .today-intro-desc {
+                width: 70% !important;
+                position: relative;
+                left: -20%; }
+          .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid {
+            min-width: inherit !important;
+            -webkit-box-orient: horizontal !important;
+            -webkit-box-direction: normal !important;
+            -ms-flex-flow: row wrap !important;
+            flex-flow: row wrap !important;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between; }
+            .main-body-component .orders-page-side-one-main .history-section .main-history-storybook .today-story .order-story-grid .order-story-card {
+              -ms-flex-preferred-size: 45% !important;
+              flex-basis: 45% !important;
+              width: 45% !important;
+              margin-bottom: 15% !important; }
+  .modal-base #modal-card {
+    width: 90% !important;
+    height: 53% !important; } }
