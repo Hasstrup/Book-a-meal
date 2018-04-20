@@ -46,6 +46,9 @@ body {
       outline: none; }
     body .main-profile-body div:focus {
       outline: none; }
+    body .main-profile-body .kitchen-deets-column {
+      -ms-flex-preferred-size: 80%;
+      flex-basis: 80%; }
     body .main-profile-body .direct-order-history {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -144,7 +147,11 @@ body {
           body .main-profile-body .show-user-and-kitchen-profile .show-user-profile .user-text-details .user-digits-text {
             font-family: apercu;
             font-size: 13.3px;
-            margin-top: -1%; }
+            margin-top: -1%;
+            color: #ff183f; }
+            body .main-profile-body .show-user-and-kitchen-profile .show-user-profile .user-text-details .user-digits-text:hover {
+              cursor: pointer;
+              text-decoration: underline; }
           body .main-profile-body .show-user-and-kitchen-profile .show-user-profile .user-text-details .a-little-bio {
             font-size: 12.5px;
             font-family: apercu;
@@ -215,6 +222,73 @@ body {
             font-size: 15px;
             font-family: 'gotham'; }
           body .main-profile-body .show-user-and-kitchen-profile .show-kitchen-profile .kitchen-text-details .a-little-bio {
+            font-size: 11.8px;
+            font-family: apercu;
+            width: 60%;
+            margin-top: -1%; }
+      body .main-profile-body .show-user-and-kitchen-profile .new-kitchen {
+        display: none;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        width: 60%;
+        border: 1px solid #AF7AC560;
+        border-radius: 3px;
+        -ms-flex-item-align: center;
+        align-self: center;
+        margin-top: 3%; }
+        body .main-profile-body .show-user-and-kitchen-profile .new-kitchen .profile-picture-kitchen {
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+          position: relative;
+          top: 7px;
+          right: -2%; }
+        body .main-profile-body .show-user-and-kitchen-profile .new-kitchen .kitchen-text-details {
+          width: 95%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+          padding: 2% 1% 2% 1%; }
+          body .main-profile-body .show-user-and-kitchen-profile .new-kitchen .kitchen-text-details .kitchen-deets-column {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            padding-left: 4%; }
+          body .main-profile-body .show-user-and-kitchen-profile .new-kitchen .kitchen-text-details .edit-button-fade {
+            height: 25px;
+            width: 70px;
+            border-radius: 3px;
+            padding-top: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            text-align: center;
+            font-family: apercu;
+            color: rgba(0, 0, 0, 0.54);
+            font-size: 12.8px;
+            -ms-flex-item-align: end;
+            align-self: flex-end;
+            position: relative;
+            left: -1%; }
+            body .main-profile-body .show-user-and-kitchen-profile .new-kitchen .kitchen-text-details .edit-button-fade:hover {
+              border-color: rgba(0, 0, 0, 0.45);
+              color: rgba(0, 0, 0, 0.68);
+              cursor: pointer; }
+          body .main-profile-body .show-user-and-kitchen-profile .new-kitchen .kitchen-text-details .kitchen-name-text {
+            font-size: 15px;
+            font-family: 'gotham'; }
+          body .main-profile-body .show-user-and-kitchen-profile .new-kitchen .kitchen-text-details .a-little-bio {
             font-size: 11.8px;
             font-family: apercu;
             width: 60%;

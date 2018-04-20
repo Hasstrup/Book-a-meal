@@ -5,6 +5,19 @@ const nullify = (name) => {
   document.getElementsByClassName(`${name}`)[0].innerText = ''
 }
 
+const showKitchen = () => {
+  let node = document.getElementsByClassName('new-kitchen')[0]
+  node.style.display = 'flex';
+  console.log(node.style)
+  let target = document.getElementsByClassName('new-kitchen-d')[0];
+  target.focus();
+}
+
+const saveKitchen = () => {
+  //do some flash message here;
+  document.getElementsByClassName('new-kitchen')[0].style.display = 'none';
+}
+
 const changePhoto = (args) => {
     let value
     let node

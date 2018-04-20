@@ -32,7 +32,7 @@
            <div class='user-text-details'>
               <p class='user-name-text head1'> Hasstrup Ezekiel </p>
               <p class='user-email-text head1'> hasstrup.ezekiel@gmail.com</p>
-              <p class='user-digits-text head1'> +234817108574 </p>
+              <p class='user-digits-text head1' onclick="showKitchen()"> Add Kitchen </p>
               <p class='a-little-bio head1'>
                 Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille
                 frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
@@ -44,6 +44,21 @@
         </div>
         <!--  User-profile ends-->
         <!-- Kitchen profile begins -->
+        <div class='show-kitchen-profile new-kitchen'>
+          <div class='kitchen-text-details'>
+              <img src='test.jpg' class='profile-picture-kitchen'/>
+              <div class='kitchen-deets-column'>
+                <p class='kitchen-name-text new-kitchen-d kitchen1' contenteditable="true"> Kitchen Name</p>
+                <p class='a-little-bio new-kitchen-d kitchen1' contenteditable="true">
+                  Description
+                  </p>
+                  <div class='edit-button-fade' id='kitchen1' onclick="saveKitchen()">
+                    Save
+                  </div>
+              </div>
+          </div>
+        </div>
+
         <div class='show-kitchen-profile'>
           <div class='kitchen-text-details'>
               <img src='test.jpg' class='profile-picture-kitchen'/>
