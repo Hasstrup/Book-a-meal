@@ -5,6 +5,7 @@ const nullify = (name) => {
   document.getElementsByClassName(`${name}`)[0].innerText = ''
 }
 
+
 const showKitchen = () => {
   let node = document.getElementsByClassName('new-kitchen')[0]
   node.style.display = 'flex';
@@ -13,10 +14,13 @@ const showKitchen = () => {
   target.focus();
 }
 
+
 const saveKitchen = () => {
   //do some flash message here;
   document.getElementsByClassName('new-kitchen')[0].style.display = 'none';
 }
+
+
 
 const changePhoto = (args) => {
     let value
@@ -31,6 +35,8 @@ const changePhoto = (args) => {
   node.setAttribute('src', URL.createObjectURL(value));
 }
 
+
+
 const addListener = () => {
   let nodes = Array.from(document.getElementsByClassName('display-item-button'))
   nodes.forEach((node) => {
@@ -41,6 +47,8 @@ const addListener = () => {
     });
   })
 }
+
+
 
 const showCard = (name) => {
   let node = document.getElementById(`${name}`)
@@ -57,6 +65,8 @@ const showCard = (name) => {
   })
 }
 
+
+
 const showForm = () => {
   let node = document.getElementsByClassName('new-meal-form')[0]
   let target = document.getElementById('show-menu')
@@ -70,6 +80,8 @@ const showForm = () => {
   target.innerText = 'New Meal';
   return aboutToSave = false
 }
+
+
 
 const modify = (a, b, c) => {
   let nodes = Array.from(document.getElementsByClassName(`${a}`))
@@ -99,6 +111,8 @@ const modify = (a, b, c) => {
   return aboutToModify = false;
 }
 
+
+
 const makeEditable = (a,b) => {
   let target = document.getElementById(`${a}`)
   let nodes = Array.from(document.getElementsByClassName(`${a}`));
@@ -119,7 +133,6 @@ const makeEditable = (a,b) => {
     }
     return;
   }
-
   nodes.forEach((node) => {
     node.setAttribute('contenteditable', false);
     target.innerText = 'Edit'
@@ -128,8 +141,6 @@ const makeEditable = (a,b) => {
     nodes[1].innerText = 'Freid rice & chips, Sweet Sensation  (30)'
     nodes[1].style.textDecoration = 'none';
   }
-
-  // openModal();
   return;
 }
 
@@ -137,13 +148,10 @@ const makeEditable = (a,b) => {
 
 const clicker = (index) => {
   let node = document.getElementsByClassName(`it-${index}`)[0]
-
       node.style.opacity = 1;
       node.style.height = '100%';
       node.style.backgroundColor = 'black';
       node.style.color = 'white';
-
-
-}
+    }
 
 addListener()

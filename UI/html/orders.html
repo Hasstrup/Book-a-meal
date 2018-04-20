@@ -174,7 +174,7 @@
                   <!--  start today grid -->
                   <div class='order-story-grid'>
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -185,7 +185,7 @@
                     </div>
                     <!-- end card -->
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -220,7 +220,7 @@
                   <!--  start today grid -->
                   <div class='order-story-grid'>
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -231,7 +231,7 @@
                     </div>
                     <!-- end card -->
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -242,7 +242,7 @@
                     </div>
                     <!-- end card -->
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -278,7 +278,7 @@
                   <!--  start today grid -->
                   <div class='order-story-grid'>
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -289,7 +289,7 @@
                     </div>
                     <!-- end card -->
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -300,7 +300,7 @@
                     </div>
                     <!-- end card -->
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -311,7 +311,7 @@
                     </div>
                     <!-- end card -->
                     <!--  begin card-->
-                    <div class='order-story-card'>
+                    <div class='order-story-card' onclick='modal()'>
                       <div class='order-top'>
                         <img src='test.jpg' class='order-random-image'/>
                         <div class='order-main-details'>
@@ -346,5 +346,75 @@
       <p class='footer-log-right'> Check the code on github</p>
     </footer>
     <script src="../scripts/orders.js" type="text/javascript"> </script>
+    <div class='modal-base'>
+
+      <!--  Current order- main stack -->
+        <div class='current-order-stack-main'>
+          <!-- side containing text -->
+          <div class='current-order-stack-side-one'>
+              <div class='content-item'>
+                <p class='content-item-key'> Items ordered </p>
+                <p class='content-item-value'> 3 </p>
+              </div>
+                <div class='content-item'>
+                  <p class='content-item-key'> Total Amount</p>
+                  <p class='content-item-value'> N2500 </p>
+                </div>
+                <div class='content-item' id='last-item'>
+                  <p class='content-item-key'> Date </p>
+                  <p class='content-item-value'> Monday, 25/08/2018 </p>
+                </div>
+                <div class='pay-button-large' onclick="modal('close')">
+                    Close
+                </div>
+          </div>
+          <!-- End of side containing text -->
+          <!--  Side containing cards-->
+          <div class='current-order-stack-main-card'>
+            <!-- Start of tiny card -->
+             <div class='card-order-level-1'>
+                <div class='main-order-card-one'>
+                   <p class='main-order-meal-name'> Carrot Potato </p>
+                   <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                   <p class='main-order-vendor-name'> Hello Desi </p>
+                  <p class='close-button'> x </p>
+                </div>
+
+             </div>
+             <div class='card-order-level-1'>
+                <div class='main-order-card-one'>
+                   <p class='main-order-meal-name'> Carrot Potato </p>
+                   <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                   <p class='main-order-vendor-name'> Hello Desi </p>
+                  <p class='close-button'> x </p>
+                </div>
+
+             </div>
+             <div class='card-order-level-1'>
+                <div class='main-order-card-one'>
+                   <p class='main-order-meal-name'> Carrot Potato </p>
+                   <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                   <p class='main-order-vendor-name'> Hello Desi </p>
+                  <p class='close-button'> x </p>
+                </div>
+
+             </div>
+             <div class='card-order-level-1'>
+                <div class='main-order-card-one'>
+                   <p class='main-order-meal-name'> Carrot Potato </p>
+                   <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                   <p class='main-order-vendor-name'> Hello Desi </p>
+                  <p class='close-button'> x </p>
+                </div>
+
+             </div>
+             <!-- End of Card -->
+          </div>
+          <!--  End of side containing cards -->
+        </div>
+        <!-- End of current order main card -->
+    </div>
+    <!-- End of current order big card -->
+    </div>
   </body>
 </html>

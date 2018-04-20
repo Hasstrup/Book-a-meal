@@ -2,6 +2,29 @@
 
 body {
   background-color: white;
+  .modal-base {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: rgba(17, 17, 17, .4);
+    @include large-order-card
+    .current-order-stack-main {
+      width: 50% !important;
+      height: 50% !important;
+      .current-order-stack-side-one {
+        background-color: white;
+      }
+      .current-order-main-card{
+          padding: 3% 0 3% 0;
+      }
+    }
+  }
   .main-body-component {
     display: flex;
     justify-content: flex-end;

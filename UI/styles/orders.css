@@ -1,5 +1,125 @@
 body {
   background-color: white; }
+  body .modal-base {
+    position: fixed;
+    display: none;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: rgba(17, 17, 17, 0.4); }
+    body .modal-base .current-order-stack-main {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+      height: 380px;
+      width: 98%;
+      border: 1px solid #ECF0F1;
+      -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+      justify-content: space-evenly; }
+      body .modal-base .current-order-stack-main .current-order-stack-side-one {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        text-align: center; }
+        body .modal-base .current-order-stack-main .current-order-stack-side-one .content-item .content-item-key {
+          font-size: 13px;
+          font-family: 'apercu';
+          color: #979A9A; }
+        body .modal-base .current-order-stack-main .current-order-stack-side-one .content-item .content-item-value {
+          font-size: 14px;
+          font-family: 'granary'; }
+        body .modal-base .current-order-stack-main .current-order-stack-side-one #last-item {
+          margin-bottom: 2%; }
+        body .modal-base .current-order-stack-main .current-order-stack-side-one .pay-button-large {
+          width: 40%;
+          height: 34px;
+          color: white;
+          padding-top: 3%;
+          background-color: #2ECC71;
+          border-radius: 2px;
+          margin: 0 auto;
+          font-family: 'apercu';
+          font-size: 14px; }
+          body .modal-base .current-order-stack-main .current-order-stack-side-one .pay-button-large:hover {
+            cursor: pointer; }
+      body .modal-base .current-order-stack-main .current-order-stack-main-card {
+        background-color: #ECF0F1;
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+        overflow-y: scroll;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 4px 0 4px 0;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        body .modal-base .current-order-stack-main .current-order-stack-main-card .card-order-level-1 {
+          min-height: 100px;
+          width: 80%;
+          border-radius: 2px;
+          -ms-flex-preferred-size: content;
+          flex-basis: content;
+          margin-top: 3px; }
+          body .modal-base .current-order-stack-main .current-order-stack-main-card .card-order-level-1 .main-order-card-one {
+            background-color: white;
+            padding: 1% 0 1% 5%;
+            position: relative; }
+            body .modal-base .current-order-stack-main .current-order-stack-main-card .card-order-level-1 .main-order-card-one .main-order-meal-name {
+              font-size: 12px;
+              font-family: 'gotham'; }
+            body .modal-base .current-order-stack-main .current-order-stack-main-card .card-order-level-1 .main-order-card-one .main-order-menu-and-price {
+              font-family: 'apercu';
+              font-size: 12px; }
+              body .modal-base .current-order-stack-main .current-order-stack-main-card .card-order-level-1 .main-order-card-one .main-order-menu-and-price #separator {
+                margin: 0 3px 0 3px; }
+              body .modal-base .current-order-stack-main .current-order-stack-main-card .card-order-level-1 .main-order-card-one .main-order-menu-and-price #content-price {
+                color: #979A9A; }
+            body .modal-base .current-order-stack-main .current-order-stack-main-card .card-order-level-1 .main-order-card-one .main-order-vendor-name {
+              font-family: 'apercu';
+              font-size: 12px;
+              color: #ff183f; }
+          body .modal-base .current-order-stack-main .current-order-stack-main-card .card-order-level-1 .close-button {
+            position: absolute;
+            top: -5px;
+            right: 8px;
+            font-size: 12px;
+            color: #797D7F;
+            font-family: 'apercu'; }
+    body .modal-base .current-order-stack-main {
+      width: 50% !important;
+      height: 50% !important; }
+      body .modal-base .current-order-stack-main .current-order-stack-side-one {
+        background-color: white; }
+      body .modal-base .current-order-stack-main .current-order-main-card {
+        padding: 3% 0 3% 0; }
   body .main-body-component {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -186,6 +306,8 @@ body {
                 margin: 0 auto;
                 font-family: 'apercu';
                 font-size: 14px; }
+                body .main-body-component .orders-page-side-one-main .display-current-order .current-order-stack .current-order-stack-main .current-order-stack-side-one .pay-button-large:hover {
+                  cursor: pointer; }
             body .main-body-component .orders-page-side-one-main .display-current-order .current-order-stack .current-order-stack-main .current-order-stack-main-card {
               background-color: #ECF0F1;
               -ms-flex-preferred-size: 50%;
