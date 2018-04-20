@@ -38,6 +38,28 @@
   100% {
     opacity: 1; } }
 
+@-webkit-keyframes floating {
+  from {
+    -webkit-transform: translate(0, 0px);
+    transform: translate(0, 0px); }
+  65% {
+    -webkit-transform: translate(0, 15px);
+    transform: translate(0, 15px); }
+  to {
+    -webkit-transform: translate(0, 0px);
+    transform: translate(0, 0px); } }
+
+@keyframes floating {
+  from {
+    -webkit-transform: translate(0, 0px);
+    transform: translate(0, 0px); }
+  65% {
+    -webkit-transform: translate(0, 15px);
+    transform: translate(0, 15px); }
+  to {
+    -webkit-transform: translate(0, 0px);
+    transform: translate(0, 0px); } }
+
 .header {
   background-color: white;
   display: -webkit-box;
@@ -127,7 +149,7 @@ footer {
   opacity: 1 !important;
   z-index: 10 !important; }
 
-@media only screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (max-width: 480px) {
   .header .logo {
     font-size: 18px !important; }
   .header .header-buttons p {

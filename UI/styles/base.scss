@@ -24,6 +24,11 @@
     75% { opacity: 0.75}
     100% { opacity: 1}
 }
+@keyframes floating {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, 15px); }
+  to   { transform: translate(0, -0px); }
+}
 
 .header {
   background-color: white;
@@ -103,7 +108,7 @@
     z-index: 10 !important;
   }
 
-  @media only screen and (min-width: 320px) and (max-width: 767px) {
+  @media  screen and (max-width: 480px)  {
     .header {
       .logo {
         font-size: 18px !important;
