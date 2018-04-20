@@ -146,6 +146,8 @@ body {
         border-radius: 2px;
         font-family: 'apercu';
         font-size: 13px; }
+        body .activity-bar .activity-side-two .check-out-button:hover {
+          cursor: pointer; }
       body .activity-bar .activity-side-two .close-item {
         font-size: 10.5px;
         font-family: 'apercu';
@@ -520,7 +522,7 @@ body {
         position: relative; }
         .main-menu-page-body .main-meal-list .main-menu-options-list .hover-item-price {
           position: relative;
-          left: -5% !important; }
+          left: -15% !important; }
         .main-menu-page-body .main-meal-list .main-menu-options-list .hover-item .display-menu-item {
           width: 70% !important; }
         .main-menu-page-body .main-meal-list .main-menu-options-list .hover-item-list {

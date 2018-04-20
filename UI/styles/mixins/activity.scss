@@ -90,6 +90,9 @@
         border-radius: 2px;
         font-family: 'apercu';
         font-size: 13px;
+        &:hover {
+          cursor: pointer;
+        }
       }
       .close-item {
         font-size: 10.5px;

@@ -765,9 +765,7 @@ body {
     top: 0;
     position: fixed;
     background-color: rgba(17, 17, 17, 0.4);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
