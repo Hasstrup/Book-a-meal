@@ -1,3 +1,43 @@
+@font-face {
+  font-family: granary;
+  src: url("./fonts/granary.otf"); }
+
+@font-face {
+  font-family: gotham;
+  src: url("./fonts/gotham-b.ttf"); }
+
+@font-face {
+  font-family: acumin;
+  src: url("./fonts/acumin.otf"); }
+
+@font-face {
+  font-family: apercu;
+  src: url("./fonts/apercu.otf"); }
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 0.25; }
+  50% {
+    opacity: 0.5; }
+  75% {
+    opacity: 0.75; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadein {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 0.25; }
+  50% {
+    opacity: 0.5; }
+  75% {
+    opacity: 0.75; }
+  100% {
+    opacity: 1; } }
+
 .header {
   background-color: white;
   display: -webkit-box;
@@ -87,42 +127,15 @@ footer {
   opacity: 1 !important;
   z-index: 10 !important; }
 
-@font-face {
-  font-family: granary;
-  src: url("./fonts/granary.otf"); }
-
-@font-face {
-  font-family: gotham;
-  src: url("./fonts/gotham-b.ttf"); }
-
-@font-face {
-  font-family: acumin;
-  src: url("./fonts/acumin.otf"); }
-
-@font-face {
-  font-family: apercu;
-  src: url("./fonts/apercu.otf"); }
-
-@-webkit-keyframes fadein {
-  0% {
-    opacity: 0; }
-  25% {
-    opacity: 0.25; }
-  50% {
-    opacity: 0.5; }
-  75% {
-    opacity: 0.75; }
-  100% {
-    opacity: 1; } }
-
-@keyframes fadein {
-  0% {
-    opacity: 0; }
-  25% {
-    opacity: 0.25; }
-  50% {
-    opacity: 0.5; }
-  75% {
-    opacity: 0.75; }
-  100% {
-    opacity: 1; } }
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .header .logo {
+    font-size: 18px !important; }
+  .header .header-buttons p {
+    font-size: 14px !important; }
+  footer .footer-log-left {
+    font-size: 17px !important; }
+  footer .get-fed-button span {
+    display: none; }
+  footer .footer-log-right {
+    font-size: 12px !important;
+    width: 30%; } }
