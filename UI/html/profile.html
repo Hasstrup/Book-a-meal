@@ -4,18 +4,20 @@
     <title> Profile - Book A Meal </title>
     <link href='../styles/base.css' type="text/css" rel='stylesheet'/>
     <link href='../styles/profile.css' type="text/css" rel='stylesheet'/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
  </head>
  <body>
    <!-- Header -->
    <header>
      <div class='header'>
        <div class='home-tag'>
-         <p class='logo' onclick="window.open('index.html')"> Book <br/> a meal </p>
+         <p class='logo' onclick="window.location.href='index.html'"> Book <br/> a meal </p>
        </div>
        <div class='header-buttons'>
-          <p class='h1-login-button' onclick="window.open('orders.html')"> Cart & Orders </p>
-          <p onclick="window.open('profile.html')"> workstation </p>
-          <p class='h1-login-button' onclick="window.open('catalogue.html')"> Catalogue </p>
+          <p class='h1-login-button' onclick="window.location.href='orders.html'"> Cart & Orders </p>
+          <p onclick="window.location.href='profile.html'"> workstation </p>
+          <p class='h1-login-button' onclick="window.location.href='catalogue.html'"> Catalogue </p>
        </div>
      </div>
    </header>
@@ -300,7 +302,7 @@
                    roles while in that page so you can see your orders
                    as a regular user or as a caterer. Each comes with a different
                    suite of capabilities. Enjoy!<br/>
-                    <span onclick="window.open('orders.html')" class='order-history'> Visit order history</span>
+                    <span onclick="window.location.href='orders.html'" class='order-history'> Visit order history</span>
                 </p>
              </div>
           </div>
