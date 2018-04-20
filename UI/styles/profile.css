@@ -765,7 +765,9 @@ body {
     top: 0;
     position: fixed;
     background-color: rgba(17, 17, 17, 0.4);
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -889,3 +891,84 @@ body {
   100% {
     opacity: 1;
     height: 100%; } }
+
+@media only screen and (max-width: 480px) {
+  .main-profile-body .show-user-and-kitchen-profile .show-user-profile .profile-picture-user {
+    height: 60px !important;
+    width: 60px !important; }
+  .main-profile-body .show-user-and-kitchen-profile .show-user-profile .user-text-details {
+    width: 100% !important;
+    padding-left: 5% !important; }
+  .main-profile-body .show-user-and-kitchen-profile .show-user-profile .edit-button-fade {
+    height: 25px !important;
+    width: 75px !important; }
+  .main-profile-body .show-user-and-kitchen-profile .show-user-profile .user-name-text {
+    font-size: 15px !important; }
+  .main-profile-body .show-user-and-kitchen-profile .show-user-profile .user-email-text {
+    margin-top: -1.5% !important; }
+  .main-profile-body .show-user-and-kitchen-profile .show-user-profile .user-digits-text {
+    margin-top: -1.5% !important; }
+  .main-profile-body .show-user-and-kitchen-profile .show-user-profile .a-little-bio {
+    width: 90% !important; }
+  .main-profile-body .show-user-and-kitchen-profile .show-kitchen-profile {
+    width: 90% !important;
+    margin-top: 10% !important; }
+    .main-profile-body .show-user-and-kitchen-profile .show-kitchen-profile .profile-picture-kitchen {
+      height: 55px !important;
+      width: 55px !important; }
+    .main-profile-body .show-user-and-kitchen-profile .show-kitchen-profile .a-little-bio {
+      width: 90% !important;
+      margin-top: -1.5% !important; }
+  .main-profile-body .main-workstation {
+    width: 100% !important; }
+    .main-profile-body .main-workstation .main-workstation-main .announce-item {
+      -ms-flex-item-align: center;
+      align-self: center;
+      text-align: center;
+      margin-bottom: 5% !important; }
+      .main-profile-body .main-workstation .main-workstation-main .announce-item .announce-item-description {
+        width: 80% !important;
+        font-size: 12px !important;
+        padding-left: 13%;
+        margin-top: -1%; }
+    .main-profile-body .main-workstation .main-workstation-main .overview {
+      margin-bottom: 6% !important; }
+      .main-profile-body .main-workstation .main-workstation-main .overview .main-overview-card-stack .oc-grid-item-key {
+        font-size: 13px !important; }
+      .main-profile-body .main-workstation .main-workstation-main .overview .main-overview-card-stack .oc-grid-item-value {
+        font-size: 12px !important; }
+    .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day {
+      margin-bottom: 6% !important; }
+      .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .motd-edit {
+        height: 25px !important;
+        width: 65px !important;
+        position: relative;
+        left: -7% !important; }
+      .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def {
+        height: 60%;
+        width: 100%; }
+        .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .small-avatar {
+          width: 50% !important;
+          height: 100% !important; }
+        .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .motd-card-def {
+          width: 50% !important; }
+          .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .motd-card-def .motd-name {
+            font-size: 14px !important; }
+          .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .motd-card-def .motd-items {
+            width: 90%;
+            font-size: 12.5px !important; }
+          .main-profile-body .main-workstation .main-workstation-main .menu-of-the-day .item-details-def .motd-card-def .motd-desc {
+            width: 100% !important;
+            font-size: 12px !important;
+            padding-left: 6%;
+            position: relative;
+            right: -4%; }
+  .modal-base .modal-content {
+    width: 90% !important;
+    height: 50% !important; }
+    .modal-base .modal-content .content-head-1 {
+      font-size: 13.5px !important; }
+    .modal-base .modal-content .content-head-2 {
+      text-decoration: underline; }
+    .modal-base .modal-content .main-modal-content {
+      height: 80% !important; } }
