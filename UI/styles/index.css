@@ -193,17 +193,17 @@ body .form-group {
   position: relative;
   right: -3%; }
   body .form-group .form-input-group {
-    margin: 0 26px 20px 0; }
-  body .form-group .type-2 {
-    display: inline-block !important; }
+    margin: 0 26px 20px 0;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%; }
   body .form-group .section {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -ms-flex-direction: row wrap;
+    flex-direction: row wrap;
     -webkit-box-pack: space-evenly;
     -ms-flex-pack: space-evenly;
     justify-content: space-evenly; }
@@ -263,60 +263,52 @@ body .fade-in {
   font-family: granary;
   src: url("./fonts/granary.otf"); }
 
-@font-face {
-  font-family: gotham;
-  src: url("./fonts/gotham-b.ttf"); }
-
-@font-face {
-  font-family: acumin;
-  src: url("./fonts/acumin.otf"); }
-
-@font-face {
-  font-family: apercu;
-  src: url("./fonts/apercu.otf"); }
-
-@-webkit-keyframes floating {
-  from {
-    -webkit-transform: translate(0, 0px);
-    transform: translate(0, 0px); }
-  65% {
-    -webkit-transform: translate(0, 15px);
-    transform: translate(0, 15px); }
-  to {
-    -webkit-transform: translate(0, 0px);
-    transform: translate(0, 0px); } }
-
-@keyframes floating {
-  from {
-    -webkit-transform: translate(0, 0px);
-    transform: translate(0, 0px); }
-  65% {
-    -webkit-transform: translate(0, 15px);
-    transform: translate(0, 15px); }
-  to {
-    -webkit-transform: translate(0, 0px);
-    transform: translate(0, 0px); } }
-
-@-webkit-keyframes fadein {
-  0% {
-    opacity: 0; }
-  25% {
-    opacity: 0.25; }
-  50% {
-    opacity: 0.5; }
-  75% {
-    opacity: 0.75; }
-  100% {
-    opacity: 1; } }
-
-@keyframes fadein {
-  0% {
-    opacity: 0; }
-  25% {
-    opacity: 0.25; }
-  50% {
-    opacity: 0.5; }
-  75% {
-    opacity: 0.75; }
-  100% {
-    opacity: 1; } }
+@media only screen and (max-width: 480px) {
+  .landing-jumbo .text-landing {
+    font-size: 40px !important;
+    position: relative;
+    width: 90%; }
+  .landing-jumbo .dangling-shapes {
+    display: none !important; }
+  .image-grid img {
+    height: 90% !important;
+    width: 90% !important; }
+  .image-grid .menu-details {
+    height: 90% !important;
+    width: 90% !important;
+    top: -320px !important; }
+    .image-grid .menu-details .show-title {
+      font-size: 28px !important; }
+    .image-grid .menu-details .meal-options {
+      font-size: 14px !important; }
+    .image-grid .menu-details .caterers-name {
+      font-size: 12.5px !important; }
+  .image-grid .second-image-grid #id-2 {
+    top: -184px !important; }
+  .create-account-center .main-bold-text {
+    font-size: 30px !important; }
+  .create-account-center .extras {
+    width: 60% !important;
+    font-size: 13px !important;
+    font-family: 'apercu' !important;
+    margin-top: -0.2%; }
+  .create-account-center .form-group .section {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-flow: column !important;
+    flex-flow: column !important;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: space-evenly;
+    -ms-flex-align: space-evenly;
+    align-items: space-evenly; }
+    .create-account-center .form-group .section .form-input-group {
+      -ms-flex-preferred-size: 50% !important;
+      flex-basis: 50% !important; }
+    .create-account-center .form-group .section input {
+      width: 250px !important; }
+  .create-account-center .submit-button {
+    font-size: 16px !important;
+    width: 200px !important;
+    padding-top: 3% !important; } }

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang='en'>
+ <head>
+    <title> Profile - Book A Meal </title>
+    <link href='../styles/base.css' type="text/css" rel='stylesheet'/>
+    <link href='../styles/profile.css' type="text/css" rel='stylesheet'/>
+ </head>
+ <body>
+   <!-- Header -->
+   <header>
+     <div class='header'>
+       <div class='home-tag'>
+         <p class='logo' onclick="window.open('index.html')"> Book <br/> a meal </p>
+       </div>
+       <div class='header-buttons'>
+          <p class='h1-login-button' onclick="window.open('orders.html')"> Cart & Orders </p>
+          <p onclick="window.open('profile.html')"> workstation </p>
+          <p class='h1-login-button' onclick="window.open('catalogue.html')"> Catalogue </p>
+       </div>
+     </div>
+   </header>
+   <!-- End of Header  -->
+
+
+   <div class='main-profile-body'>
+     <!--  Start of user and kitchen profile -->
+     <div class='show-user-and-kitchen-profile'>
+       <!--  User-profile begin -->
+        <div class='show-user-profile'>
+            <img  src='test.jpg' class='profile-picture-user'/>
+           <div class='user-text-details'>
+              <p class='user-name-text head1'> Hasstrup Ezekiel </p>
+              <p class='user-email-text head1'> hasstrup.ezekiel@gmail.com</p>
+              <p class='user-digits-text head1' onclick="showKitchen()"> Add Kitchen </p>
+              <p class='a-little-bio head1'>
+                Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille
+                frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+                </p>
+                <div class='edit-button-fade' id='head1' onclick="makeEditable('head1')">
+                  Edit
+                </div>
+           </div>
+        </div>
+        <!--  User-profile ends-->
+        <!-- Kitchen profile begins -->
+        <div class='show-kitchen-profile new-kitchen'>
+          <div class='kitchen-text-details'>
+              <img src='test.jpg' class='profile-picture-kitchen'/>
+              <div class='kitchen-deets-column'>
+                <p class='kitchen-name-text new-kitchen-d kitchen1' contenteditable="true"> Kitchen Name</p>
+                <p class='a-little-bio new-kitchen-d kitchen1' contenteditable="true">
+                  Description
+                  </p>
+                  <div class='edit-button-fade' id='kitchen1' onclick="saveKitchen()">
+                    Save
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class='show-kitchen-profile'>
+          <div class='kitchen-text-details'>
+              <img src='test.jpg' class='profile-picture-kitchen'/>
+              <div class='kitchen-deets-column'>
+                <p class='kitchen-name-text kitchen1'> Hello Desi Kitchen </p>
+                <p class='a-little-bio kitchen1'>
+                  Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille
+                  frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+                  </p>
+                  <div class='edit-button-fade' id='kitchen1' onclick="makeEditable('kitchen1')">
+                    Edit
+                  </div>
+              </div>
+          </div>
+        </div>
+     </div>
+     <!--  End user and kitchen profile  -->
+
+     <div class='main-workstation'>
+
+       <div class='announce-workstation'>
+          <p class='announce-workstation-title'> Workstation </p>
+          <p class='announce-workstation-desc'> Control center for Hello Desi Kitchen</p>
+       </div>
+
+       <div class='main-workstation-main'>
+         <!--  overview-->
+          <div class='overview'>
+            <!--   Announce overview -->
+              <div class='announce-item item-overview'>
+                 <p class='announce-item-key overview-main'> Overview </p>
+                 <p class='announce-item-description overview-description'>
+                    Here are some insights on how you've fared
+                    today, it updates real time, so best believe we've got you!
+                    Enjoy
+                 </p>
+              </div>
+              <!-- End  -->
+              <div class='main-overview-card-stack'>
+                <!--  Today's details -->
+                <div class='overview-c today-overview'>
+
+                  <div class='overview-c-grid'>
+
+                     <div class='overview-c-grid-element'>
+                        <p class='oc-grid-item-key'> Revenue </p>
+                        <p class='oc-grid-item-value'> N2000</p>
+                     </div>
+
+                     <div class='overview-c-grid-element'>
+                        <p class='oc-grid-item-key'> Orders </p>
+                        <p class='oc-grid-item-value'> 34 </p>
+                     </div>
+
+                     <div class='overview-c-grid-element'>
+                        <p class='oc-grid-item-key'> Unprocessed </p>
+                        <p class='oc-grid-item-value'> 12 </p>
+                     </div>
+
+                     <div class='overview-c-grid-element'>
+                        <p class='oc-grid-item-key'> Top Selling </p>
+                        <p class='oc-grid-item-value'> Hello lagos</p>
+                     </div>
+
+                     <div class='overview-c-grid-element'>
+                        <p class='oc-grid-item-key'> Impressions </p>
+                        <p class='oc-grid-item-value'> 4000 </p>
+                     </div>
+
+                     <div class='overview-c-grid-element'>
+                        <p class='oc-grid-item-key'> Subscribers </p>
+                        <p class='oc-grid-item-value'> 10</p>
+                     </div>
+
+                  </div>
+                </div>
+                <!--  End of today's details -->
+              </div>
+              <!-- End of overview grid -->
+          </div>
+          <!--  End of overview -->
+          <div class='menu-of-the-day'>
+            <!-- announce motd -->
+            <div class='announce-item item-motd'>
+              <p class='announce-item-key motd-main'> Menu of the day </p>
+              <p class='announce-item-description motd-description'>
+                 Here are some insights on how you've fared
+                 today and generally how well you've done so far
+                 with us! Enjoy
+              </p>
+            </div>
+            <!-- End anounce-motd -->
+            <!-- motd-main -->
+            <div class='menu-of-the-day-details item-details-def'>
+              <div class='menu-of-the-day-main'>
+                 <img class='small-avatar' src='https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c75e0437e819afdceeb3050a6bcdd71b&auto=format&fit=crop&w=653&q=80' />
+                 <div class='motd-card-def'>
+                    <p class='motd-name motd1'> Good morning burrito </p>
+                    <p class='motd-items motd1'> Freid rice & chips, Sweet Sensation <span class='motd-count'> (30) </span></p>
+                    <p class='motd-desc motd1'>
+                      Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille
+                      frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+                    </p>
+                 </div>
+              </div>
+              <!-- start motd-edit button -->
+              <div class='motd-edit edit-button' id='motd1' onclick="makeEditable('motd1', 'b')">
+                 Change
+              </div>
+            </div>
+            <!--  end - motd-details main -->
+          </div>
+          <!-- end-motd -->
+          <div class='menu-options-def'>
+            <!-- announce m-o-def-->
+            <div class='announce-item item-menu-options'>
+              <p class='announce-item-key motd-main'> Meal Options </p>
+              <p class='announce-item-description motd-description'>
+                 Here are some insights on how you've fared
+                 today and generally how well you've done so far
+                 with us! Enjoy
+              </p>
+            </div>
+            <!-- End anounce m-o-def -->
+             <div class='menu-options-comp-two'>
+                <div class='menu-options-grid list-grid'>
+                  <div class='menu-options-grid grid-item'>
+                     <p name='item-3' class='display-item-button'> Frid rice apple and chips <span> 3000</span></p>
+                     <div class='display-menu-item' id='item-1'>
+                       <div class='order-add-item'>
+                         <img src='https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dd8da96be0724ab84e4147d428f6bba&auto=format&fit=crop&w=500&q=60' id='image-3'class='main-meal-item-img'/>
+                         <div class='change-preview-image modifiable1'>
+                           <p class='label-for-input'> Click to change Image </p>
+                           <input type='file' class='input-file image-1' name='input-file' onchange="changePhoto('image-1')"  accept='.jpg, .png, .jpeg'/>
+                         </div>
+                       </div>
+                        <div class='item-details'>
+                          <div class='item-title-and-description'>
+                            <p class='item-title-main editable editable1'> It's not ghanaian</p>
+                            <p class='item-description editable editable1'> Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille
+                            frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.</p>
+                          </div>
+                          <div class='buttons-array-and-togglers'>
+                            <p class='option-options'> <span class='edit-meal-option' onclick="modify('editable1', 'modifiable1', 'target1')" id='target1'> Modify </span> <span class='delete-meal-option'> Delete </span> </p>
+                            <p class='option-options2' > N3000 </p>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class='menu-options-grid grid-item'>
+                     <p name='item-3' class='display-item-button'> Frid rice apple and chips <span> 3000</span></p>
+                     <div class='display-menu-item' id='item-2'>
+                       <div class='order-add-item'>
+                         <img src='https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dd8da96be0724ab84e4147d428f6bba&auto=format&fit=crop&w=500&q=60' id='image-3'class='main-meal-item-img'/>
+                         <div class='change-preview-image modifiable2'>
+                           <p class='label-for-input'> Click to change Image </p>
+                           <input type='file' class='input-file image-2' name='input-file' onchange="changePhoto('image-2')"  accept='.jpg, .png, .jpeg'/>
+                         </div>
+                       </div>
+                        <div class='item-details'>
+                          <div class='item-title-and-description'>
+                            <p class='item-title-main editable editable2'> It's not ghanaian</p>
+                            <p class='item-description editable editable2'> Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille
+                            frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.</p>
+                          </div>
+                          <div class='buttons-array-and-togglers'>
+                            <p class='option-options'> <span class='edit-meal-option' onclick="modify('editable2', 'modifiable2', 'target2')" id='target2'> Modify </span> <span class='delete-meal-option'> Delete </span> </p>
+                            <p class='option-options2' > N3000 </p>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class='menu-options-grid grid-item'>
+                     <p name='item-3' class='display-item-button'> Frid rice apple and chips <span> 3000</span></p>
+                     <div class='display-menu-item' id='item-3'>
+                       <div class='order-add-item'>
+                         <img src='https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dd8da96be0724ab84e4147d428f6bba&auto=format&fit=crop&w=500&q=60' id='image-3'class='main-meal-item-img'/>
+                         <div class='change-preview-image modifiable3'>
+                           <p class='label-for-input'> Click to change Image </p>
+                           <input type='file' class='input-file image-3' name='input-file' onchange="changePhoto('image-3')"  accept='.jpg, .png, .jpeg'/>
+                         </div>
+                       </div>
+                        <div class='item-details'>
+                          <div class='item-title-and-description'>
+                            <p class='item-title-main editable editable3'> It's not ghanaian</p>
+                            <p class='item-description editable editable3'> Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille
+                            frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.</p>
+                          </div>
+                          <div class='buttons-array-and-togglers'>
+                            <p class='option-options'> <span class='edit-meal-option' onclick="modify('editable3', 'modifiable3', 'target3')" id='target3'> Modify </span> <span class='delete-meal-option'> Delete </span> </p>
+                            <p class='option-options2' > N3000 </p>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+                <!--  Meal form -->
+                <div class='new-meal-form'>
+                  <div class='new-meal-row'>
+                     <div class='new-meal-side-one'>
+                        <div contenteditable="true" onclick="nullify('new-meal-title')" class='new-meal-title'>
+                            Meal name
+                        </div>
+                        <div contenteditable="true" class='new-meal-description'>
+                            description
+                        </div>
+                        <div contenteditable="true" class='new-meal-price'>
+                            Price
+                        </div>
+                        <div  class='input-types'>
+                          <input type="file" accept=".jpg, .jpeg, .png" onchange="changePhoto()" name="input-file" id="file" class="inputfile" />
+                           <label for='input-file' class='label-input-file' /> Preview </label>
+                        </div>
+                     </div>
+                     <!--  End of side one-->
+                     <img class='preview-image' id='preview-image' src='test.jpg'/>
+                  </div>
+                </div>
+                <!--  meal-form-end -->
+                <div class='edit-button' id='show-menu' onclick='showForm()'>
+                  New meal
+                </div>
+             </div>
+          </div>
+          <!--  End of menu options  -->
+          <!-- Start of Order-history  -->
+          <div class='direct-order-history'>
+            <div class='announce-item item-order-history'>
+               <p class='announce-item-key order-history-heading'> Order history </p>
+               <p class='announce-item-description order-history-description'>
+                  Here are some insights on how you've fared
+                  today, it updates real time, so best believe we've got you!
+                  Enjoy
+               </p>
+            </div>
+             <div class='direct-to-order-page'>
+                <p class='main-order-text'>
+                   Hey! so we built a whole new page for you
+                   to explore your orders on the fly. You can switch
+                   roles while in that page so you can see your orders
+                   as a regular user or as a caterer. Each comes with a different
+                   suite of capabilities. Enjoy!<br/>
+                    <span onclick="window.open('orders.html')" class='order-history'> Visit order history</span>
+                </p>
+             </div>
+          </div>
+          <div>
+
+          </div>
+       </div>
+     </div>
+   </div>
+
+   <!--  Beginning of footer -->
+   <footer>
+     <div>
+       <p class='footer-log-left'> Eat fast, die ? okay.</p>
+       <p class='get-fed-button'> Get fed right away <span> <svg id="i-heart" viewBox="0 0 32 32" width="15" height="15" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+       <path d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
+   </svg></span>. </p>
+     </div>
+     <p class='footer-log-right'> Check the code on github</p>
+   </footer>
+   <script src='../scripts/profile.js' type='text/javascript'/></script>
+   <!--  Beginning of footer -->
+   <div class='modal-base'>
+      <div class='modal-content'>
+         <div class='content-head'>
+           <p class='content-head-1'> Select Meals </p>
+           <div class='content-head-2' onclick="document.getElementsByClassName('modal-base')[0].style.display = 'none'"> close </div>
+         </div>
+         <div class='main-modal-content'>
+           <div class='tiny-tiny-card' onclick="clicker('1')">
+              <img src='https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=33b0e638540ff8ab1325e2ed73bafd58&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-1'>
+                 Fried Rice and that
+              </div>
+           </div>
+           <div class='tiny-tiny-card' onclick="clicker('2')">
+              <img src='https://images.unsplash.com/photo-1503810473512-f64b56827964?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cb44a21c4469e257a39f30949c81931d&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-2'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('3')">
+              <img src='https://images.unsplash.com/photo-1454334281609-87a89762912c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b94887cb7166b4f15e25c4e42956853c&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-3'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('4')">
+              <img src='https://images.unsplash.com/photo-1432139509613-5c4255815697?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=616fc216eff2732910545ebd5d5018b6&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-4'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('5')">
+              <img src='https://images.unsplash.com/photo-1478369402113-1fd53f17e8b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ce2ce5f948a3c323c6fcac20a45e8780&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-5'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('6')">
+              <img src='https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=82203e4d57fc0d3bdd8ffc0f66d09763&auto=format&fit=crop&w=925&q=80' class='container-image'/>
+              <div class='containing-text it-6'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('7')">
+              <img src='https://images.unsplash.com/photo-1501959915551-4e8d30928317?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=afc5d8f90598eafe4667e19d3d3db791&auto=format&fit=crop&w=634&q=80' class='container-image'/>
+              <div class='containing-text it-7'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('8')">
+              <img src='https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0a9cacdd6a4e7e408b8ba89d3d6e91d3&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-8'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('9')">
+              <img src='https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=86c8c1fd5e9e5b384696472a095c42ac&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-9'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('10')">
+              <img src='https://images.unsplash.com/photo-1504185945330-7a3ca1380535?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2d35c4ea30a81e428e66c653748f91&auto=format&fit=crop&w=621&q=80' class='container-image'/>
+              <div class='containing-text it-10'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('11')">
+              <img src='https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=af920b383b3a7b889beb1dd53998ecd3&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-11'>
+                 Fried Rice and that
+              </div>
+           </div><div class='tiny-tiny-card' onclick="clicker('12')">
+              <img src='https://images.unsplash.com/photo-1470324161839-ce2bb6fa6bc3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=66cb215ae9bf2b0faac134c9214238d3&auto=format&fit=crop&w=500&q=60' class='container-image'/>
+              <div class='containing-text it-12'>
+                 Fried Rice and that
+              </div>
+           </div>
+         </div>
+      </div>
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+     <title> Orders - Book A Meal </title>
+     <link href='../styles/base.css' type="text/css" rel='stylesheet'/>
+     <link href='../styles/orders.css' type="text/css" rel='stylesheet'/>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class='header'>
+        <div class='home-tag'>
+          <p class='logo' onclick="window.open('index.html')"> Book <br/> a meal </p>
+        </div>
+        <div class='header-buttons'>
+           <p class='h1-login-button' onclick="window.open('orders.html')"> Cart & Orders </p>
+           <p onclick="window.open('profile.html')"> workstation </p>
+           <p class='h1-login-button' onclick="window.open('catalogue.html')"> Catalogue </p>
+        </div>
+      </div>
+    </header>
+    <!-- End of Header  -->
+
+    <div class='main-body-component'>
+      <!-- Start of heading/ top-one -->
+      <div class='orders-page-side-one'>
+        <div class='orders-heading-and-desc'>
+          <p class='orders-page-heading'> Orders </p>
+          <p class='orders-page-desc'>
+            This is a page dedicated for you
+            to manage your orders as a regular
+            user or as a vendor. You can check your
+            monitor the current items in cart
+            and check with your previous order history.
+            Enjoy!
+          </p>
+        </div>
+        <div class='convey-account-details'>
+           <p class='convey-account-order'>
+             You are currently viewing this page as <br/>
+             <span id='user-details-init'> Hasstrup Ezekiel </span> <br/>
+           </p>
+           <div class='display-click-message'>
+              <p onclick='showAccountsMenu()'> Click to switch account </p>
+              <div class='display-current-user'>
+                <div class='user-list-item'> Hello Desi kitchen </div>
+                <div class='user-list-item'> Hasstrup Ezekiel </div>
+               </div>
+           </div>
+        </div>
+      </div>
+      <!--  End od heading -->
+
+      <!-- Start of orders -->
+      <div class='orders-page-side-one-main'>
+
+        <!-- Current order -->
+         <div class='display-current-order'>
+           <!--  Heading -->
+            <div class='display-current-order-heading'>
+               <p class='display-current-order-heading-head'> Current Order </p>
+               <p class='display-current-order-heading-desc'>
+                 This contains all the meal options you have placed
+                 orders for in this current session. Your first order
+                 was placed at <span> 2:08pm</span>.
+               </p>
+            </div>
+            <!--  End of Heading -->
+            <div class='current-order-stack'>
+              <!--  Current order- main stack -->
+                <div class='current-order-stack-main'>
+                  <!-- side containing text -->
+                  <div class='current-order-stack-side-one'>
+                      <div class='content-item'>
+                        <p class='content-item-key'> Items in cart </p>
+                        <p class='content-item-value'> 3 </p>
+                      </div>
+                        <div class='content-item'>
+                          <p class='content-item-key'> Total Amount</p>
+                          <p class='content-item-value'> N2500 </p>
+                        </div>
+                        <div class='content-item' id='last-item'>
+                          <p class='content-item-key'> Menus </p>
+                          <p class='content-item-value'> 4 </p>
+                        </div>
+                        <div class='pay-button-large'>
+                            Pay Now
+                        </div>
+                  </div>
+                  <!-- End of side containing text -->
+                  <!--  Side containing cards-->
+                  <div class='current-order-stack-main-card'>
+                    <!-- Start of tiny card -->
+                     <div class='card-order-level-1'>
+                        <div class='main-order-card-one'>
+                           <p class='main-order-meal-name'> Carrot Potato </p>
+                           <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                           <p class='main-order-vendor-name'> Hello Desi </p>
+                          <p class='close-button'> x </p>
+                        </div>
+
+                     </div>
+                     <div class='card-order-level-1'>
+                        <div class='main-order-card-one'>
+                           <p class='main-order-meal-name'> Carrot Potato </p>
+                           <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                           <p class='main-order-vendor-name'> Hello Desi </p>
+                          <p class='close-button'> x </p>
+                        </div>
+
+                     </div>
+                     <div class='card-order-level-1'>
+                        <div class='main-order-card-one'>
+                           <p class='main-order-meal-name'> Carrot Potato </p>
+                           <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                           <p class='main-order-vendor-name'> Hello Desi </p>
+                          <p class='close-button'> x </p>
+                        </div>
+
+                     </div>
+                     <div class='card-order-level-1'>
+                        <div class='main-order-card-one'>
+                           <p class='main-order-meal-name'> Carrot Potato </p>
+                           <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                           <p class='main-order-vendor-name'> Hello Desi </p>
+                          <p class='close-button'> x </p>
+                        </div>
+
+                     </div>
+                     <!-- End of Card -->
+                  </div>
+                  <!--  End of side containing cards -->
+                </div>
+                <!-- End of current order main card -->
+            </div>
+            <!-- End of current order big card -->
+         </div>
+         <!-- End of current order -->
+
+         <!--   Start of History -->
+         <div class='history-section'>
+           <div>
+             <!--  history introduction-->
+             <div class='introduce-history'>
+                <p class='introduce-history-main'> History </p>
+                <p class='introduce-history-desc'>
+                  So we've been trying to help you enjoy the experience on
+                  this service, that's why we took the time to stack all
+                  your orders together, so you have some insights on things
+                  you like. Enjoy
+                 </p>
+             </div>
+             <!-- End of history introduction  -->
+             <div class='main-history-storybook'>
+
+               <!--  New History Item -->
+               <div class='today-story'>
+                 <!--  Heading -->
+                  <div class='today-text'>
+                    <!--  today intro -->
+                     <div class='today-introduction'>
+                        <p class='today-intro'> Today </p>
+                        <p class='today-intro-desc'>
+                          This is a collection of all the batches of items
+                          you paid for today. Had dinner yet?
+                        </p>
+                     </div>
+                     <!--  -->
+                     <!-- you should implement something here -->
+                  </div>
+                  <!--  End of Heading -->
+
+                  <!--  start today grid -->
+                  <div class='order-story-grid'>
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+                  </div>
+               </div>
+               <!-- History Item ends Here -->
+
+               <!--  New History Item -->
+               <div class='today-story'>
+                 <!--  Heading -->
+                  <div class='today-text'>
+                    <!--  today intro -->
+                     <div class='today-introduction'>
+                        <p class='today-intro'> Yesterday </p>
+                        <p class='today-intro-desc'>
+                          This is a collection of all the batches of items
+                          you paid for today. Had dinner yet?
+                        </p>
+                     </div>
+                     <!--  -->
+                     <!-- you should implement something here -->
+                  </div>
+                  <!--  End of Heading -->
+
+
+                  <!--  start today grid -->
+                  <div class='order-story-grid'>
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+                  </div>
+               </div>
+               <!-- History Item ends Here -->
+
+
+
+               <!--  New History Item -->
+               <div class='today-story'>
+                 <!--  Heading -->
+                  <div class='today-text'>
+                    <!--  today intro -->
+                     <div class='today-introduction'>
+                        <p class='today-intro'> This week </p>
+                        <p class='today-intro-desc'>
+                          This is a collection of all the batches of items
+                          you paid for today. Had dinner yet?
+                        </p>
+                     </div>
+                     <!--  -->
+                     <!-- you should implement something here -->
+                  </div>
+                  <!--  End of Heading -->
+
+                  <!--  start today grid -->
+                  <div class='order-story-grid'>
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+                    <!--  begin card-->
+                    <div class='order-story-card' onclick='modal()'>
+                      <div class='order-top'>
+                        <img src='test.jpg' class='order-random-image'/>
+                        <div class='order-main-details'>
+                          <p class='order-contents'> Fried Rice & Pringles </p>
+                        </div>
+                      </div>
+                      <p class='show-order-date'> 27/08/2018. <span> 20:18am </span></p>
+                    </div>
+                    <!-- end card -->
+
+                  </div>
+               </div>
+               <!-- History Item ends Here -->
+
+             </div>
+           </div>
+
+
+         </div>
+
+      </div>
+            <!-- Start of orders -->
+    </div>
+    <!--  Footer -->
+    <footer>
+      <div>
+        <p class='footer-log-left'> Eat fast, die ? okay.</p>
+        <p class='get-fed-button'> Get fed right away <span> <svg id="i-heart" viewBox="0 0 32 32" width="15" height="15" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <path d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
+    </svg></span>. </p>
+      </div>
+      <p class='footer-log-right'> Check the code on github</p>
+    </footer>
+    <script src="../scripts/orders.js" type="text/javascript"> </script>
+    <div class='modal-base'>
+
+      <!--  Current order- main stack -->
+        <div class='current-order-stack-main' id='modal-card'>
+          <!-- side containing text -->
+          <div class='current-order-stack-side-one'>
+              <div class='content-item'>
+                <p class='content-item-key'> Items ordered </p>
+                <p class='content-item-value'> 3 </p>
+              </div>
+                <div class='content-item'>
+                  <p class='content-item-key'> Total Amount</p>
+                  <p class='content-item-value'> N2500 </p>
+                </div>
+                <div class='content-item' id='last-item'>
+                  <p class='content-item-key'> Date </p>
+                  <p class='content-item-value'> Monday, 25/08/2018 </p>
+                </div>
+                <div class='pay-button-large' onclick="modal('close')">
+                    Close
+                </div>
+          </div>
+          <!-- End of side containing text -->
+          <!--  Side containing cards-->
+          <div class='current-order-stack-main-card'>
+            <!-- Start of tiny card -->
+             <div class='card-order-level-1'>
+                <div class='main-order-card-one'>
+                   <p class='main-order-meal-name'> Carrot Potato </p>
+                   <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                   <p class='main-order-vendor-name'> Hello Desi </p>
+                  <p class='close-button'> x </p>
+                </div>
+
+             </div>
+             <div class='card-order-level-1'>
+                <div class='main-order-card-one'>
+                   <p class='main-order-meal-name'> Carrot Potato </p>
+                   <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                   <p class='main-order-vendor-name'> Hello Desi </p>
+                  <p class='close-button'> x </p>
+                </div>
+
+             </div>
+             <div class='card-order-level-1'>
+                <div class='main-order-card-one'>
+                   <p class='main-order-meal-name'> Carrot Potato </p>
+                   <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                   <p class='main-order-vendor-name'> Hello Desi </p>
+                  <p class='close-button'> x </p>
+                </div>
+
+             </div>
+             <div class='card-order-level-1'>
+                <div class='main-order-card-one'>
+                   <p class='main-order-meal-name'> Carrot Potato </p>
+                   <p class='main-order-menu-and-price'> Desi Kitchen <span id='separator'> | </span> <span id='content-price'> N2000 </span> </p>
+                   <p class='main-order-vendor-name'> Hello Desi </p>
+                  <p class='close-button'> x </p>
+                </div>
+
+             </div>
+             <!-- End of Card -->
+          </div>
+          <!--  End of side containing cards -->
+        </div>
+        <!-- End of current order main card -->
+    </div>
+    <!-- End of current order big card -->
+    </div>
+  </body>
+</html>

@@ -172,14 +172,13 @@ body {
   position: relative;
   right: -3%;
   .form-input-group {
-    margin: 0 26px 20px 0
+    margin: 0 26px 20px 0;
+    flex-basis: 50%;
   }
-  .type-2 {
-    display: inline-block !important;
-  }
+
   .section {
     display: flex;
-    flex-direction: row;
+    flex-direction: row wrap;
     justify-content: space-evenly;
   }
   label {
@@ -249,30 +248,70 @@ body {
   src: url('./fonts/granary.otf');
 }
 
-@font-face {
-  font-family: gotham;
-  src: url('./fonts/gotham-b.ttf');
-}
 
-@font-face {
-  font-family: acumin;
-  src: url('./fonts/acumin.otf');
-}
-@font-face {
-  font-family: apercu;
-  src: url('./fonts/apercu.otf');
-}
-
-@keyframes floating {
-  from { transform: translate(0,  0px); }
-  65%  { transform: translate(0, 15px); }
-  to   { transform: translate(0, -0px); }
-}
-
-@keyframes fadein {
-    0% { opacity: 0}
-    25% { opacity: 0.25}
-    50% { opacity: 0.5}
-    75% { opacity: 0.75}
-    100% { opacity: 1}
+@media only screen and (max-width: 480px) {
+  .landing-jumbo {
+    .text-landing {
+      font-size: 40px !important;
+      position: relative;
+      width: 90%;
+    }
+    .dangling-shapes {
+      display: none !important;
+    }
+  }
+  .image-grid {
+    img {
+      height: 90% !important;
+      width: 90% !important;
+    }
+    .menu-details {
+      height: 90% !important;
+      width: 90% !important;
+      top: -320px !important;
+      .show-title {
+        font-size: 28px !important;
+      }
+      .meal-options {
+        font-size: 14px !important;
+      }
+      .caterers-name {
+        font-size: 12.5px !important;
+      }
+    }
+    .second-image-grid {
+      #id-2 {
+        top: -184px !important;
+      }
+    }
+  }
+  .create-account-center {
+    .main-bold-text {
+        font-size: 30px !important;
+    }
+    .extras {
+      width: 60% !important;
+      font-size: 13px !important;
+      font-family: 'apercu' !important;
+      margin-top: -0.2%;
+    }
+    .form-group {
+      .section {
+        flex-flow: column !important;
+        justify-content: center;
+        align-items: space-evenly;
+        .form-input-group {
+          flex-basis: 50% !important;
+        }
+        input {
+          width: 250px !important;
+        }
+      }
+    }
+    .submit-button {
+      font-size: 16px !important;
+      width: 200px !important;
+      padding-top: 3% !important;
+    }
+  }
 }

@@ -2,7 +2,7 @@ const addListener = () => {
   let nodes = Array.from(document.getElementsByClassName('hover-item-items'))
   nodes.forEach((node) => {
     let name = node.attributes.getNamedItem('name').value
-    node.addEventListener('mouseover', () => {
+    node.addEventListener('click', () => {
       console.log(`mouse in`)
       showCard(name)
     });
@@ -37,6 +37,7 @@ const addOptionListener = () => {
     })
   })
 }
+
 
 const closeActivity = () => {
   document.getElementsByClassName('activity-bar')[0].style.display = 'none';

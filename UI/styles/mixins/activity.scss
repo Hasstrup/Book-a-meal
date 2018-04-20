@@ -90,6 +90,9 @@
         border-radius: 2px;
         font-family: 'apercu';
         font-size: 13px;
+        &:hover {
+          cursor: pointer;
+        }
       }
       .close-item {
         font-size: 10.5px;
@@ -99,6 +102,34 @@
           cursor: pointer;
           color: #ff183f;
         }
+      }
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .activity-bar {
+      flex-flow: column nowrap !important;
+      .activity-side-one {
+        .point-to-items {
+          font-size: 13px !important;
+          font-family: apercu !important;
+        }
+        .items-currently-in-cart {
+          justify-content: space-evenly !important;
+          margin-top: 4%;
+          .items-currently-in-stock {
+            font-size: 12px !important;
+          }
+        }
+      }
+      .activity-side-two {
+        flex-basis: 100% !important;
+        flex-flow: column nowrap;
+        margin-top: 5%;
+      }
+      .close-item {
+        position: relative;
+        left: -5%;
+        text-decoration: underline;
       }
     }
   }

@@ -111,7 +111,7 @@ body {
             text-transform: uppercase;
           }
           .hover-pointer {
-            font-size: 10.5px;
+            font-size: 12.5px;
             font-family: 'apercu';
             color: #7B7D7D;
             position: relative;
@@ -172,4 +172,88 @@ body {
     border-bottom: 1px solid  #efefef;
   }
 
+}
+@media only screen and (max-width: 480px) {
+  .main-menu-page-body {
+    padding-top: 3%;
+    .menu-title-and-owner-grid {
+      flex-flow: column nowrap !important;
+      .content-details {
+        width: 100% !important;
+        .content-avatar {
+          height: 80px !important;
+          width: 80px !important
+         }
+         .menu-details {
+           padding-left: 8% !important;
+           .menu-det-name {
+             font-size: 19px !important
+           }
+           .menu-det-details {
+             width: 98% !important;
+             font-size: 11.5px !important
+           }
+         }
+      }
+      .vendor-details-def {
+        width: 100% !important;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0 !important;
+        position: relative;
+        left: -5%;
+        .announce-vendor {
+          left: -14.5% !important;
+        }
+        .vendor-details-main {
+          align-self: center;
+          align-items: center;
+          padding-left: 15%;
+          .vendor-details-bio-brief {
+            width: 100% !important;
+          }
+        }
+        .subscribe-button {
+          margin-left: -24% !important
+        }
+      }
+    }
+    .main-meal-list {
+      margin: 16% 0 0 0 !important;
+      .main-meal-pointers {
+        flex-flow: column nowrap !important;
+        padding-left: 6.5%;
+        .hover-pointer {
+          right: 0 !important;
+          margin-top: -2%;
+        }
+      }
+      .main-menu-options-list {
+        width: 100% !important;
+        left: 5% !important;
+        justify-content: center !important;
+        align-items: space-evenly !important;
+        position: relative;
+        .hover-item-price {
+          position: relative;
+          left: -15% !important;
+        }
+        .hover-item {
+          .display-menu-item {
+            width: 70% !important
+          }
+        }
+        .hover-item-list {
+          width: 100% !important;
+          .hover-item-items {
+            width: 100% !important
+          }
+        }
+
+      }
+    }
+  }
+  .activity-bar {
+
+  }
 }
