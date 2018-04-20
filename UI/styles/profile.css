@@ -46,6 +46,34 @@ body {
       outline: none; }
     body .main-profile-body div:focus {
       outline: none; }
+    body .main-profile-body .direct-order-history {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap; }
+      body .main-profile-body .direct-order-history .direct-to-order-page {
+        -ms-flex-item-align: center;
+        align-self: center;
+        margin-top: 5%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+        body .main-profile-body .direct-order-history .direct-to-order-page p {
+          font-family: apercu;
+          width: 60%;
+          font-size: 13px;
+          color: rgba(0, 0, 0, 0.56); }
+          body .main-profile-body .direct-order-history .direct-to-order-page p span {
+            text-decoration: underline;
+            color: #ff183f; }
+            body .main-profile-body .direct-order-history .direct-to-order-page p span:hover {
+              cursor: pointer; }
     body .main-profile-body .show-user-and-kitchen-profile {
       -ms-flex-preferred-size: auto;
       flex-basis: auto;

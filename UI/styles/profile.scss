@@ -13,6 +13,29 @@ body {
     div:focus {
       outline: none;
     }
+    .direct-order-history {
+      display: flex;
+      flex-flow: column nowrap;
+      .direct-to-order-page {
+          align-self: center;
+          margin-top: 5%;
+          display: flex;
+          justify-content: center;
+          p {
+            font-family: apercu;
+            width: 60%;
+            font-size: 13px;
+            color: rgba(0,0,0,.56);
+            span {
+              text-decoration: underline;
+              color: #ff183f;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+      }
+    }
     .show-user-and-kitchen-profile {
       flex-basis: auto;
       display: flex;
