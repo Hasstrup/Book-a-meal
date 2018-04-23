@@ -1,0 +1,319 @@
+body {
+
+//enjoy-the really good things style
+.landing-jumbo {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 19%;
+
+  .text-landing {
+  font-family: 'granary';
+  font-size: 70px;
+  position: absolute;
+  z-index: 3;
+  }
+
+.dangling-shapes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-width: 100%;
+
+  .triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 35px solid transparent;
+	border-right: 35px solid transparent;
+	border-bottom: 70px solid #AF7AC5;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  position: relative;
+  left: -2em;
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 35px solid transparent;
+	border-right: 35px solid transparent;
+	border-top: 70px solid #58D68D;
+  position: relative;
+  bottom: -8.7em;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s
+}
+
+.cone {
+  width: 0;
+  height: 0;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 100px solid white;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+      }
+    }
+  }
+//end of landing jumbo styles
+
+// image grid styles;
+.image-grid {
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+  .menu-details {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #ff183f99;
+    z-index: 3;
+    top: -354px;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    &:hover {
+      cursor: pointer;
+    }
+    .show-title {
+      font-size: 32px;
+      font-family: 'granary';
+      color: white;
+    };
+    .meal-options {
+      color: white;
+      font-family: 'gotham';
+      font-size: 16px;
+    }
+    .caterers-name {
+      color: lighten(#E74C3C, 90%);
+      font-size: 14px;
+      font-family: 'apercu';
+    }
+  }
+
+  .first-image-grid {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 5% 0 6%;
+    margin-bottom: 2%;
+    .details-container {
+        height: 350px;
+        width:  600px;
+        margin-left: 15px;
+    }
+  }
+
+  .second-image-grid {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 1% 0 6%;
+    margin-bottom: 2%;
+    .details-container {
+      height: 200px;
+      width: 400px;
+      margin-left: 10px;
+      .menu-details {
+        top: -204px !important;
+      };
+    }
+  }
+
+}
+  // End of image grid Styles
+
+// Create account styles
+.create-account-center {
+  margin-top: 8%;
+  padding-right: 2%;
+  .preamble-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      .main-bold-text {
+        font-size: 34px;
+        font-family: 'granary'
+      }
+      .extras {
+        font-family: 'acumin';
+        font-size: 15px;
+        color: #797D7F;
+        width: 35%;
+        padding-left: 4%;
+        position: relative;
+        top: -15px;
+        span {
+          color: #ff183f;
+        }
+      }
+  }
+}
+
+.form-group {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  position: relative;
+  right: -3%;
+  .form-input-group {
+    margin: 0 26px 20px 0;
+    flex-basis: 50%;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-evenly;
+  }
+  label {
+    font-family: 'granary';
+    font-size: 14px;
+
+  }
+
+  input {
+    margin-top: 15px;
+    width: 360px;
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+    height: 48px;
+    display: block;
+    color: #797D7F;
+    font-family: 'apercu';
+    font-size: 15px;
+    font-weight: lighter;
+    &:focus {
+      border-color: #d4d4d4;
+      box-shadow: none;
+      outline-color: #ECF0F1;
+    }
+  }
+  .submit-button {
+    margin-top: 20px;
+    background-color: #ff183f;
+    height: 35px;
+    color: white;
+    font-size: 19px;
+    font-family: 'gotham';
+    text-align: center;
+    border-radius: 3px;
+    width: 250px;
+    padding-top: 1.5%;
+    &:hover {
+      cursor: pointer;
+      background-color: darken(#ff183f, 2%);
+    }
+  }
+
+  .got-an-account-id {
+    margin-top: 40px;
+    font-family: 'acumin';
+    font-size: 13px;
+    color: #797D7F;
+    &:hover {
+      color: #ff183f;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+}
+
+.fade-in {
+  display: flex;
+  animation-name: fadein;
+  animation-duration: 0.5s;
+}
+
+}
+
+@font-face {
+  font-family: granary;
+  src: url('./fonts/granary.otf');
+}
+
+
+@media only screen and (max-width: 480px) {
+  .landing-jumbo {
+    .text-landing {
+      font-size: 40px !important;
+      position: relative;
+      width: 90%;
+    }
+    .dangling-shapes {
+      display: none !important;
+    }
+  }
+  .image-grid {
+    img {
+      height: 90% !important;
+      width: 90% !important;
+    }
+    .menu-details {
+      height: 90% !important;
+      width: 90% !important;
+      top: -320px !important;
+      opacity: 1 !important;
+      background-color: rgba(0,0,0,.34) !important;
+      .show-title {
+        font-size: 28px !important;
+      }
+      .meal-options {
+        font-size: 14px !important;
+      }
+      .caterers-name {
+        font-size: 12.5px !important;
+      }
+    }
+    .second-image-grid {
+      #id-2 {
+        top: -184px !important;
+      }
+    }
+  }
+  .create-account-center {
+    .main-bold-text {
+        font-size: 30px !important;
+    }
+    .extras {
+      width: 60% !important;
+      font-size: 13px !important;
+      font-family: 'apercu' !important;
+      margin-top: -0.2%;
+    }
+    .form-group {
+      .section {
+        flex-flow: column !important;
+        justify-content: center;
+        align-items: space-evenly;
+        .form-input-group {
+          flex-basis: 50% !important;
+        }
+        input {
+          width: 250px !important;
+        }
+      }
+    }
+    .submit-button {
+      font-size: 16px !important;
+      width: 200px !important;
+      padding-top: 3% !important;
+    }
+  }
+}
