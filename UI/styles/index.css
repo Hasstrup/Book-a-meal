@@ -75,7 +75,9 @@ body .landing-jumbo {
 
 body .image-grid img {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover; }
 
 body .image-grid .menu-details {
   position: relative;
