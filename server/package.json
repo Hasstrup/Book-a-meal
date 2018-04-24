@@ -7,7 +7,7 @@
     "test": "  mocha  --timeout 15000 --compilers js:babel-core/register /tests --recursive",
     "build": "babel ./server -d ./build/server",
     "start": "npm run build && node ./build/server",
-    "dev": "nodemon --exec babel-node index"
+    "dev": "NODE_ENV=Developemt nodemon --exec babel-node index"
   },
   "keywords": [],
   "author": "",
