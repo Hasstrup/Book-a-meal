@@ -98,9 +98,9 @@ describe('DatahHandler Class constructor', () => {
 
       it('should throw an error when a key thats not in the schema is passed across', async () => {
         try {
-          return await User.findOne({unknown: 'User'})
-        } catch(err) {
-           expect(err.message).to.equal('unknown is not contained in the schema of this model');
+          return await User.findOne({ unknown: 'User' })
+        } catch (err) {
+          expect(err.message).to.equal('unknown is not contained in the schema of this model');
         }
       });
 
