@@ -14,12 +14,11 @@ describe('DatahHandler Class constructor', () => {
   });
 
   it('should have methods findbyKey findOne returnAll pushData removeData findByKeyAndDelete findByKeyAndUpdate', () => {
-    expect(dataParser.findByKey).to.be.a('function');
     expect(dataParser.findOne).to.be.a('function');
     expect(dataParser.all).to.be.a('function');
     expect(dataParser.pushData).to.be.a('function');
-    expect(dataParser.findByKeyAndDelete).to.be.a('function');
-    expect(dataParser.findByKeyAndUpdate).to.be.a('function');
+    expect(dataParser.findOneAndDelete).to.be.a('function');
+    expect(dataParser.findOneAndUpdate).to.be.a('function');
     expect(dataParser.validateInput).to.be.a('function');
   });
 
@@ -88,40 +87,41 @@ describe('DatahHandler Class constructor', () => {
     });
 
     describe('Datahandler findOne method', () => {
-      it('should throw an error with invalid args', () => {
+      it('should throw an error with invalid args', async () => {
         try {
           return await User.findOne(123);
         } catch(err) {
           expect(err).to.exist;
-          expect(err.message).to.equal('invalid argument 123')
+          expect(err.message).to.equal('Invalid query passed, must be an object')
         }
       });
 
-      it('should throw an error when a key thats not in the schema is passed across', () => {
+      it('should throw an error when a key thats not in the schema is passed across', async () => {
         try {
-          return await User.findOne({unkown: 'User'})
+          return await User.findOne({unknown: 'User'})
         } catch(err) {
-           expect(err.message).to.equal('There is no such field unknown in the schema');
+           expect(err.message).to.equal('unknown is not contained in the schema of this model');
         }
       });
 
-      it('should throw an error with the wrong datatype for the field in the schema', () => {
+      it('should throw an error with the wrong datatype for the field in the schema', async () => {
         try {
           return await User.findOne({username: 1234});
-        } catch(err) {
-          expect(err).to.exist
+        } catch (err) {
+          expect(err).to.exist;
+          expect(err.message).to.equal('Invalid datatype passed to username')
         }
       });
 
-      it('should return the valid user given the right params', () => {
+      it('should return the valid user given the right params', async () => {
         try {
           const user = await User.findOne({username: 'ChisomRes'})
-          expect(user.id).to.equal(2);
-          expect(user).to.be.an('object')
-        } catch(err) {
-          expect(err).to.be.not.exists
+          expect(user.id).to.equal(1);
+          expect(user).to.be.an('object');
+        } catch (err) {
+          expect(err).to.not.exist;
         }
-      })
-    })
+      });
+    });
   })
 });

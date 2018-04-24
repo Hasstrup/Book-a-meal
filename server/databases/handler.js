@@ -1,5 +1,3 @@
-
-
 class DataHandler {
   constructor(initData) {
     if ((typeof initData) !== 'object') {
@@ -27,13 +25,30 @@ class DataHandler {
     this.keys = input;
   }
 
-    findByKey (key) {
 
-   }
+  findOne(query) {
+    if(this.validateQuery(query)) {
+      const data = Object.values(this.data);
+      const value = data.filter(item => item[`${Object.keys(query)[0]}`] === Object.values(query)[0]);
+      console.log(value)
+      return value[0]
+    }
+  }
 
-   findOne (list) {
 
-   }
+/*  This method checks if the query is an object, after doing that,
+ it checks if the field is registered in the schema,  */
+  validateQuery(query) {
+    if ((typeof query) !== 'object') {
+      throw new TypeError('Invalid query passed, must be an object');
+    } else if (!Object.keys(this.keys).includes(Object.keys(query)[0])) {
+      throw new TypeError(`${Object.keys(query)[0]} is not contained in the schema of this model`);
+    } else if (Object.values(query)[0].constructor !== this.keys[`${Object.keys(query)[0]}`]) {
+      throw new TypeError(`Invalid datatype passed to ${Object.keys(query)[0]}`)
+    } else {
+      return true
+    }
+  }
 
    all () {
 
@@ -61,7 +76,6 @@ class DataHandler {
   async validateInput(input) {
     const keys = Object.keys(this.keys);
     let validata = {};
-
     // mapping through the keys to check the input
     keys.forEach((key) => {
       if (input[`${key}`] && input[`${key}`].constructor === this.keys[`${key}`]) {
@@ -73,11 +87,11 @@ class DataHandler {
     return validata;
   }
 
-   findByKeyAndUpdate () {
+   findOneAndUpdate () {
 
    }
 
-   findByKeyAndDelete () {
+   findOneAndDelete () {
 
    }
 }
