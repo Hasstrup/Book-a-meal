@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import { expect } from 'chai'
 import DataHandler from '../../../databases/handler';
+import mocks from './mock'
 
 /* eslint no-unused-expressions: 0 */
 
@@ -27,7 +28,7 @@ describe('DatahHandler Class constructor', () => {
     it('should reject input if args is not an object', () => {
       try {
         const invalid = [1, 'hello', []];
-        const Parser = new DataHandler(invalid[Math.floor(Math.random() * invalid.length)]);
+        return new DataHandler(invalid[Math.floor(Math.random() * invalid.length)]);
       } catch (err) {
         expect(err).to.exist;
         expect(err.message).to.equal('invalid input passed into datahandler');
@@ -41,17 +42,17 @@ describe('DatahHandler Class constructor', () => {
           password: 'thisisatestpassword',
           large: String
         };
-        const Parser = new DataHandler(invalidUser);
+        return new DataHandler(invalidUser);
       } catch (err) {
         expect(err).to.exist;
       }
     });
   });
 
-  describe('DataHandler pushDataMethod methods', () => {
+  describe('DataHandler pushdata method', () => {
     const schema = { username: String, password: String, email: String, kitchens: Array }
 
-    it('should not return a valid instance with invlaid input cases', async () => {
+    it('should throw an error with invalid input cases', async () => {
       try {
         const testuser = { username: 'hasstrup', password: 1234, email: 'hasstrup.ezekiel@gmail.com' };
         const User = new DataHandler(schema);
@@ -62,10 +63,10 @@ describe('DatahHandler Class constructor', () => {
       }
     });
 
-    it('should return a valid user object', async () => {
+    it('should return a valid user object with valid input', async () => {
       try {
         const Parser = new DataHandler(schema);
-        const data = { username: 'hasstrupezekiel', password: '1234', email: 'hasstrup.ezekiel@gmail.com', kitchens: [1, 2, 3] };
+        const data = {username: 'hasstrupezekiel', password: '1234', email: 'hasstrup.ezekiel@gmail.com', kitchens: [1, 2, 3] };
         let user = await Parser.pushData(data);
         expect(user).to.have.property('username');
         expect(user.username).to.equal('hasstrupezekiel');
@@ -75,7 +76,52 @@ describe('DatahHandler Class constructor', () => {
         expect(err).to.not.exist;
       }
     });
-
-
   });
+
+  describe('DataHandler findData methods', () => {
+    const schema = { username: String, password: String, email: String, subscribers: Array };
+    const User = new DataHandler(schema)
+    before(() => {
+      mocks.forEach(async (mock) => {
+        return await User.pushData(mock)
+      });
+    });
+
+    describe('Datahandler findOne method', () => {
+      it('should throw an error with invalid args', () => {
+        try {
+          return await User.findOne(123);
+        } catch(err) {
+          expect(err).to.exist;
+          expect(err.message).to.equal('invalid argument 123')
+        }
+      });
+
+      it('should throw an error when a key thats not in the schema is passed across', () => {
+        try {
+          return await User.findOne({unkown: 'User'})
+        } catch(err) {
+           expect(err.message).to.equal('There is no such field unknown in the schema');
+        }
+      });
+
+      it('should throw an error with the wrong datatype for the field in the schema', () => {
+        try {
+          return await User.findOne({username: 1234});
+        } catch(err) {
+          expect(err).to.exist
+        }
+      });
+
+      it('should return the valid user given the right params', () => {
+        try {
+          const user = await User.findOne({username: 'ChisomRes'})
+          expect(user.id).to.equal(2);
+          expect(user).to.be.an('object')
+        } catch(err) {
+          expect(err).to.be.not.exists
+        }
+      })
+    })
+  })
 });
