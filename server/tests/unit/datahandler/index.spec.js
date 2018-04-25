@@ -122,6 +122,14 @@ describe('DatahHandler Class constructor', () => {
           expect(err).to.not.exist;
         }
       });
+
+      describe('Users checkForRefs method', () => {
+        it('should return the an array of refs', () => {
+          const newschema = {hasstrup: 123, hasstruip: {refs: "User"}, data: { refs: 1243}, boom: { refs: "string"}, array: [{ refs: 'User'}]}
+          User.checkForRefs(newschema)
+          console.log(User.checkForRefs(newschema))
+        });
+      });
     });
   })
 });
