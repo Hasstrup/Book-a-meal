@@ -1,4 +1,6 @@
 # Book A Meal
+[![Build Status](https://travis-ci.org/Hasstrup/Book-a-meal.svg?branch=Feature-api--setup-1)](https://travis-ci.org/Hasstrup/Book-a-meal)
+
 
 An application that allows customers sign up and create kitchens and start selling meal options batched into menus.
 ## Features
