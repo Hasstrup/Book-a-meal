@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "  mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive",
+    "test": "  cd server && mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive",
     "build": "babel ./server -d ./build/server",
     "start": "npm run build && node ./build/server",
-    "dev": "NODE_ENV=Developemt nodemon --exec babel-node index"
+    "dev": " cd server && NODE_ENV=Developemt nodemon --exec babel-node index"
   },
   "keywords": [],
   "author": "",
