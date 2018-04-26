@@ -1,6 +1,9 @@
-language: node_js
+language:
+    - node_js
 node_js:
-  - "stable"
-  after_success:
+    - stable
+
+
+after_success:
     - npm run coverage
     - npm run report
