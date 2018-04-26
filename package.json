@@ -7,7 +7,19 @@
     "test": "  cd server && mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive",
     "build": "babel ./server -d ./build/server",
     "start": "npm run build && node ./build/server",
-    "dev": " cd server && NODE_ENV=Developemt nodemon --exec babel-node index"
+    "dev": " cd server && NODE_ENV=Developemt nodemon --exec babel-node index",
+    "coverage": "cross-env NODE_ENV=test && cd server  && nyc mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "keywords": [],
   "author": "",
@@ -21,18 +33,23 @@
     "morgan": "^1.9.0",
     "sinon": "^4.5.0"
   },
+
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
+    "babel-plugin-istanbul": "^4.1.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-runtime": "^6.26.0",
+    "codeclimate-test-reporter": "^0.5.0",
+    "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
+    "nyc": "^11.7.1",
     "supertest": "^3.0.0"
   }
 }
