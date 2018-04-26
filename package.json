@@ -9,7 +9,8 @@
     "start": "npm run build && node ./build/server",
     "dev": " cd server && NODE_ENV=Developemt nodemon --exec babel-node index",
     "coverage": "cross-env NODE_ENV=test && cd server  && nyc mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive",
-    "report": "npm run coverage && CODECLIMATE_REPO_TOKEN=31ab9bd61c1a98bd654d10c26f1ec24b5ae2af6939190a3d14660784bd3eecd4 codeclimate-test-reporter < ./coverage/lcov.info"
+    "report": "npm run coverage && CODECLIMATE_REPO_TOKEN=31ab9bd61c1a98bd654d10c26f1ec24b5ae2af6939190a3d14660784bd3eecd4 codeclimate-test-reporter < ./coverage/lcov.info",
+    "report:travis": " npm run coverage && codeclimate-test-reporter < ./coverage/lcov.info"
   },
   "nyc": {
     "require": [
