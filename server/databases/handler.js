@@ -2,12 +2,13 @@
 
 
 class DataHandler {
-  constructor(initData) {
+  constructor(initData, required = []) {
     if ((typeof initData) !== 'object') {
       throw new TypeError('invalid input passed into datahandler');
     }
     this.validateInit(initData);
     this.data = {};
+    this.required = required
     /* Strip the values from the initializing data and check if they occur in this.hooks  */
   }
 
