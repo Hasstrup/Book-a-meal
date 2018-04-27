@@ -1,7 +1,7 @@
 # Book A Meal
 [![Build Status](https://travis-ci.org/Hasstrup/Book-a-meal.svg?branch=157022198-Feature-Auth)](https://travis-ci.org/Hasstrup/Book-a-meal)
 [![Maintainability](https://api.codeclimate.com/v1/badges/52333b02f50a4b171959/maintainability)](https://codeclimate.com/github/Hasstrup/Book-a-meal/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/52333b02f50a4b171959/test_coverage)](https://codeclimate.com/github/Hasstrup/Book-a-meal/test_coverage)
+[![Coverage Status](https://coveralls.io/repos/github/Hasstrup/Book-a-meal/badge.svg?branch=157022198-Feature-Auth)](https://coveralls.io/github/Hasstrup/Book-a-meal?branch=157022198-Feature-Auth)
 
 
 An application that allows customers sign up and create kitchens and start selling meal options batched into menus.
