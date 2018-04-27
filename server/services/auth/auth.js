@@ -36,7 +36,29 @@ class AuthModule {
       });
       return await model.create(baseData);
     }
-  };
+  }
+
+  static authenticate(user, baseModel = this.model) {
+    /* check for missing fields in the user input */
+    let data;
+    let target;
+    let validuser;
+
+    if (Object.values(user).length >= 2) {
+      // check the data in the baseModel;
+      data = baseModel.getAll();
+      target = data.filter(item => item.username === user.username);
+      if (target.length < 1) {
+        throw new ValidatorError('No record found with such user', 404);
+      }
+      validuser = target[0];
+      if (validuser.password === user.password) {
+        return true;
+      }
+      throw new ValidatorError('Invalid username and password combination', 403);
+    }
+    throw new ValidatorError('incomplete or misssing fields', 422);
+  }
 }
 
 export default AuthModule;

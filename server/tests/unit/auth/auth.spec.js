@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import { expect } from 'chai';
-import AuthModule from '../../../services/auth/auth'
+import AuthModule from '../../../services/auth/auth';
 import DataHandler from '../../../databases/handler';
 
 const BaseModel = new DataHandler({
@@ -40,7 +40,7 @@ describe('Authentication Module', () => {
       }
     });
 
-    it('should return the correct data with the password encrypted', async () => {
+    it('should return the correct data with the password encrypted(Success case)', async () => {
       validData = {
         username: 'hasstrupezekiel',
         password: '123456',
@@ -49,6 +49,47 @@ describe('Authentication Module', () => {
       const newuser = await AuthModule.signUp(validData, BaseModel);
       expect(newuser.kitchen).to.be.null;
       expect(newuser.username).to.equal('hasstrupezekiel');
+    });
+  });
+
+  describe('Auth login method', () => {
+
+    before(() => {
+      const test = [
+        {
+          username: 'hasstrup',
+          password: 'Onosetale',
+          email: 'hasstrup@gmail.com'
+        },
+        {
+          username: 'chisomezekeil',
+          password: 'thisisatestpassword',
+          email: 'hasstrup.ezekiel@gmail.com'
+        }
+      ];
+      test.forEach(async (item) => {
+        await BaseModel.create(item);
+      });
+    });
+
+    it('should return throw an error when passed an invalid login details', () => {
+      try {
+        invalidData = { username: 'hasstrupezekiel', password: 'Onosetale32' };
+        return AuthModule.authenticate(invalidData, BaseModel)
+      } catch (e) {
+        expect(e).to.exist;
+        expect(e.status).to.equal(403);
+      }
+    });
+
+    it('should return the valid user with a valid user', () => {
+      try {
+        validData = { username: 'hasstrup', password: 'Onosetale' };
+        const auth = AuthModule.authenticate(validData, BaseModel);
+        expect(auth).to.be.true;
+      } catch (e) {
+        expect(e).to.not.exist;
+      }
     });
   });
 });
