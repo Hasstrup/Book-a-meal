@@ -16,7 +16,7 @@ app
 // api versioning;
 .use('/api/v1', api)
 
-.get('/*', (_, res) => res.send('Cant find resource').status(400))
+.get('/*', (_, res) => res.send('Cant find resource').status(400));
 
 
 

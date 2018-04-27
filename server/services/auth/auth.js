@@ -10,7 +10,7 @@ class AuthModule {
   static async signUp(body, model = this.model) {
     /* This method checks for null values that are required,
       then checks that the corresponding value matches the constructor */
-    let baseData = {};
+    const baseData = {};
     model.required.forEach((key) => {
       if (body[`${key}`] && JSON.stringify(body[`${key}`]).split('').length > 0 && body[`${key}`].constructor === model.keys[`${key}`]) {
         return;
@@ -34,7 +34,7 @@ class AuthModule {
         }
         baseData[`${key}`] = null;
       });
-      return await model.create(baseData);
+      await model.create(baseData);
     }
   }
 
