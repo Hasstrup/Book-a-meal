@@ -75,7 +75,7 @@ describe('Authentication Module', () => {
     it('should return throw an error when passed an invalid login details', () => {
       try {
         invalidData = { username: 'hasstrupezekiel', password: 'Onosetale32' };
-        return AuthModule.authenticate(invalidData, BaseModel)
+        return AuthModule.authenticate(invalidData, BaseModel);
       } catch (e) {
         expect(e).to.exist;
         expect(e.status).to.equal(403);
