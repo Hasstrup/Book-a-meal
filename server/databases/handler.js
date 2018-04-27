@@ -121,11 +121,13 @@ class DataHandler {
     const validata = {};
     // mapping through the keys to check the input
     keys.forEach((key) => {
-      if (input[`${key}`] && input[`${key}`].constructor === this.keys[`${key}`]) {
+      if (input[`${key}`] === null) {
+        validata[`${key}`] = null;
+      } else if (input[`${key}`] && input[`${key}`].constructor === this.keys[`${key}`]) {
         validata[`${key}`] = input[`${key}`];
       } else if (input[`${key}`] && ((input[`${key}`].constructor === this.keys[`${key}`].constructor) || (input[`${key}`].constructor === Number && this.keys[`${key}`].constructor === Object))) {
         validata[`${key}`] = input[`${key}`];
-      } else if (input[`${key}`] && input[`${key}`].constructor !== this.keys[`${key}`]) {
+      } else if (input[`${key}`] && input[`${key}`].constructor !== this.keys[`${key}`] && input[`${key}`] !== null) {
         throw new TypeError(`Wrong datatype for field ${key}`);
       }
     });
