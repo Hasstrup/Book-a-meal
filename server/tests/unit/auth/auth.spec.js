@@ -19,7 +19,6 @@ let validData;
 
 describe('Authentication Module', () => {
   describe('Auth sign up method  cases', () => {
-
     it('should throw an error with incomplete Data', async () => {
       try {
         invalidData = { username: 'hasstrup', email: 'hasstrup.ezekiel@gmail.com' };
@@ -28,7 +27,7 @@ describe('Authentication Module', () => {
         expect(e.status).to.equal(422);
       }
     });
-
+    /* eslint no-unused-expressions: 0 */
     it('should throw an error with a misatched datatype', async () => {
       try {
         invalidData = {
@@ -52,7 +51,6 @@ describe('Authentication Module', () => {
           firstname: 'HasstrupEzekiel'
         };
         const newuser = await AuthModule.signUp(validData);
-        console.log(newuser);
         expect(newuser.kitchen).to.be.null;
         expect(newuser.username).to.equal('hasstrupezekielbro');
       } catch (e) {
@@ -62,7 +60,6 @@ describe('Authentication Module', () => {
   });
 
   describe('Auth login method', () => {
-
     before(() => {
       const test = [
         {
@@ -97,7 +94,6 @@ describe('Authentication Module', () => {
         const auth = await AuthModule.authenticate(validData);
         expect(auth).to.be.true;
       } catch (e) {
-        console.log(e)
         expect(e).to.not.exist;
       }
     });

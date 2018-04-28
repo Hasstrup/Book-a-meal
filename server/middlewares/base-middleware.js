@@ -3,7 +3,6 @@ import { isEmail } from 'validator';
 let err;
 
 class BaseMiddleware {
-
   static checkForNullInput(req, res, next) {
     const body = Object.keys(req.body);
     if (body.length) {

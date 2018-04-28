@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 const router = Router();
 
 /* These routes are written with the following assumptions
@@ -18,36 +19,33 @@ router.get('/', () => {
 });
 
 // this should get the order contained in the id
-router.get('/:orderId', () => {})
+router.get('/:orderId', () => {});
 
 /* this route is exclusive to only type=1 as only users should be able to make new orders */
-router.post('/', (req, res) => {
+router.post('/', () => {
   // set the menu of the day for the subject kitchen
 });
 
 
 //  this method should only allow kitchens change the processed key from false to true;
-router.put('/:orderId', (req, res) => {
+router.put('/:orderId', () => {
 // send a particular user, check the query to know how much detail to send;
 });
 
 // this should create a new menu and expects the kitchenId in the query;
-router.post('/new', (req, res) => {
+router.post('/new', () => {
   // add a new menu
 });
 
 // Edits menu contained in the mealID after checking the query for the kitchenID;
-router.put('/:menuID', (req, res) => {
+router.put('/:menuID', () => {
   // edit a new resource
 });
 
 // delete a menu also checks for the kitchen in the query object
-router.delete('/:menuId', (req, res) => {
+router.delete('/:menuId', () => {
 
 });
-
-
-
 
 
 export default router;

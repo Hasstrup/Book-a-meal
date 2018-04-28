@@ -4,11 +4,8 @@ import kitchens from './routes/kitchens';
 import users from './routes/user';
 import meals from './routes/meals';
 import orders from './routes/orders';
-import menus from './routes/menu'
-// import BaseMiddleware from './middlewares/base-middleware';
-// import AuthMiddleware from './middlewares/auth/';
-// import AuthController from './controllers/auth/';
-// import ErrorHandler from './middlewares/error/'
+import menus from './routes/menu';
+
 
 const api = Router();
 
@@ -21,11 +18,7 @@ api
   .use('/menus', menus)
   .use('/orders', orders);
 
-api.use((err, req, res, next) => {
-  res.status(500).send(err.message);
-});
-
 // No routes matched? 404.
-api.use((req, res) => res.status(404).end());
+api.use((req, res) => res.status(404).send('Sorry that route/method doesnt exist'));
 
 export default api;

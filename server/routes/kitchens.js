@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 const router = Router();
 
 /* These routes are written following the structure of a user
@@ -15,29 +16,29 @@ router.get('/', () => {
 });
 
 /* this checks for the user_id in the query and creates the new kitchen, forbids if there isnt */
-router.post('/', (req, res) => {
+router.post('/', () => {
 // send a particular user, check the query to know how much detail to send;
 });
 
- /* this checks for the user_id in the query and edits the new kitchen, forbids if there isnt */
-router.put('/', (req, res) => {
+/* this checks for the user_id in the query and edits the new kitchen, forbids if there isnt */
+router.put('/', () => {
   // crete a new kitchen
 });
 
 // this route seeks for the user_id query and then deletes the target if the resource is found
-router.delete('/', (req, res) => {
+router.delete('/', () => {
 
 });
 
 // this route subscribes the user embedded in the uid query params to the kitchen
-router.put('/subscribe/:kithchenid', (req, res) => {
+router.put('/subscribe/:kithchenid', () => {
   // edit a new resource
 });
 
 // This gets the subscribers of a particular kitchen belonging to a kitchen;
-router.get('/subscribers', (req, res) => {
+router.get('/subscribers', () => {
 
-})
+});
 
 
 export default router;

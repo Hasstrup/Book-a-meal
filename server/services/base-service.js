@@ -1,4 +1,4 @@
-import ValidatorError from './auth/errors/validation'
+import ValidatorError from './auth/errors/validation';
 
 /* eslint class-methods-use-this: 0 */
 class BaseService {
@@ -10,18 +10,18 @@ class BaseService {
     this.throwError(message, 401);
   }
 
-   badRequest = (message) => {
+  badRequest = (message) => {
     this.throwError(message, 400);
   }
 
   noPermissions = (message) => {
     this.throwError(message, 403);
   }
- resourceNotFound = (message) => {
+  resourceNotFound = (message) => {
     this.throwError(message, 404);
   }
 
-   unprocessableEntity(message) {
+  unprocessableEntity(message) {
     this.throwError(message, 422);
   }
 }

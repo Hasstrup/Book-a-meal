@@ -15,9 +15,9 @@ describe('API - Authentication routes', () => {
       expect(res.statusCode).to.equal(422);
       expect(res.body.error).to.exist;
     });
-
+    /* eslint object-curly-newline: 0 */
     it('should respond with the current user and 201 with validData', async () => {
-      validData = { username: 'testUsername', password: 'Onosetale32', email: 'hasstrup.eze@gmail.com', firstname: 'HasstrupEzekiel' }
+      validData = { username: 'testUsername', password: 'Onosetale32', email: 'hasstrup.eze@gmail.com', firstname: 'HasstrupEzekiel' };
       res = await request(app).post('/api/v1/auth/signup').send(validData);
       expect(res.statusCode).to.equal(201);
       expect(res.body.data.username).to.equal('testUsername');

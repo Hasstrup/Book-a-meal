@@ -1,19 +1,17 @@
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import BaseMiddlewareClass from '../../../middlewares/base-middleware'
+import BaseMiddlewareClass from '../../../middlewares/base-middleware';
 import DataHandler from '../../../databases/handler';
 
 let mockRes;
-let mockReq
+let mockReq;
 let BaseModel;
-let spy1;
 let spy2;
-const BaseMiddleware = new BaseMiddlewareClass()
+const BaseMiddleware = new BaseMiddlewareClass();
 
 /* eslint no-unused-expressions: 0 */
 describe('Middleware base class', () => {
   mockRes = { json: obj => ({ obj, status: stats => stats }) };
-  spy1 = spy(mockRes, 'json');
   spy2 = spy();
 
   describe('class methods', () => {
