@@ -1,7 +1,7 @@
 import DataHandler from '../../databases/handler';
 import users from '../../databases/data/users';
 
-class UserModel extends DataHandler {
+export class UserModel extends DataHandler {
   /* eslint global-require: 0 */
   /* eslint class-methods-use-this: 0 */
   getOrders(node) {

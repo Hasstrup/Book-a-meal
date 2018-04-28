@@ -82,6 +82,8 @@ class DataHandler {
   validateQuery(query) {
     if ((typeof query) !== 'object') {
       throw new TypeError('Invalid query passed, must be an object');
+    } else if (Object.keys(query)[0] === 'id' && Object.values(query)[0].constructor === Number) {
+      return true
     } else if (!Object.keys(this.keys).includes(Object.keys(query)[0])) {
       throw new TypeError(`${Object.keys(query)[0]} is not contained in the schema of this model`);
     } else if (Object.values(query)[0].constructor !== this.keys[`${Object.keys(query)[0]}`]) {
@@ -189,7 +191,7 @@ class DataHandler {
           newState[`${node.id}`] = node;
         });
         this.data = newState;
-        return;
+        return true;
       }
       throw new Error('No record found with that query');
     }

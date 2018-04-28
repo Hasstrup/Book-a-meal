@@ -90,7 +90,7 @@ describe('DatahHandler Class constructor', () => {
       it('should throw an error with invalid args', async () => {
         try {
           return await User.findOne(123);
-        } catch(err) {
+        } catch (err) {
           expect(err).to.exist;
           expect(err.message).to.equal('Invalid query passed, must be an object')
         }
@@ -98,7 +98,7 @@ describe('DatahHandler Class constructor', () => {
 
       it('should throw an error when a key thats not in the schema is passed across', async () => {
         try {
-          return await User.findOne({ unknown: 'User' })
+          return await User.findOne({ unknown: 'User' });
         } catch (err) {
           expect(err.message).to.equal('unknown is not contained in the schema of this model');
         }
