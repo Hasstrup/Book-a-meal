@@ -34,7 +34,7 @@ class AuthModule {
         }
         baseData[`${key}`] = null;
       });
-      await model.create(baseData);
+      return await model.create(baseData);
     }
   }
 

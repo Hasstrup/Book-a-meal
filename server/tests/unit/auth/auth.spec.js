@@ -41,14 +41,18 @@ describe('Authentication Module', () => {
     });
 
     it('should return the correct data with the password encrypted(Success case)', async () => {
-      validData = {
-        username: 'hasstrupezekiel',
-        password: '123456',
-        email: 'hasstrup.ezekiel@gmail.com'
-      };
-      const newuser = await AuthModule.signUp(validData, BaseModel);
-      expect(newuser.kitchen).to.be.null;
-      expect(newuser.username).to.equal('hasstrupezekiel');
+      try {
+        validData = {
+          username: 'hasstrupezekiel',
+          password: '123456',
+          email: 'hasstrup.ezekiel@gmail.com'
+        };
+        const newuser = await AuthModule.signUp(validData, BaseModel);
+        expect(newuser.kitchen).to.be.null;
+        expect(newuser.username).to.equal('hasstrupezekiel');
+      } catch (e) {
+        console.log(e)
+      }
     });
   });
 

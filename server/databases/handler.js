@@ -14,7 +14,7 @@ class DataHandler {
 
 
   validateInit(input) {
-    this.hooks = [String, Number, Object, Array, Date];
+    this.hooks = [String, Number, Object, Array, Date, Boolean];
     const vals = Object.values(input);
     const StringHooks = this.hooks.map(item => JSON.stringify(item));
     const mappedValues = vals.map((value) => {
