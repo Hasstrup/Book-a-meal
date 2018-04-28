@@ -6,60 +6,75 @@ import DataHandler from '../../../databases/handler';
 let mockRes;
 let mockReq
 let BaseModel;
-let TestMiddleware;
 let spy1;
 let spy2;
 
+/* eslint no-unused-expressions: 0 */
 describe('Middleware base class', () => {
-  mockRes = {
-    json: (obj) => {
-      return {
-        obj,
-        status: stats => stats
-      };
-    }
-  }
+  mockRes = { json: obj => ({ obj, status: stats => stats }) };
   spy1 = spy(mockRes, 'json');
   spy2 = spy();
-  before(() => {
-    BaseModel = new DataHandler({
-      username: String,
-      password: String,
-      email: String,
-      confirmed: true
-    }, ['username', 'password', 'email']);
-    TestMiddleware = new DataHandler(BaseModel);
-  });
 
   describe('class methods', () => {
-
     it('checkForNullInput should make sure there is the no response', () => {
-      try {
-        mockReq = { body: { username: '', password: 'thisisatestpassword' } };
-        BaseMiddleware.checkForNullInput(mockReq, mockRes);
-        expect(spy1.calledWith(400)).to.be.true;
-      } catch (e) {
-        expect(e.message).to.equal('Empty value for username');
-      }
+      mockReq = { body: { username: '', password: 'thisisatestpassword' } };
+      BaseMiddleware.checkForNullInput(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
+
+    it('checkForEmail should skip body if there is no email', () => {
+      mockReq = { body: { username: 'bro', password: 'thisisatestpassword' } };
+      BaseMiddleware.checkForEmail(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
+
+    it('checkForEmail should fail the body if the email is present and is not email', () => {
+      mockReq = { body: { email: 'email', password: 'thisisatestpassword' } };
+      BaseMiddleware.checkForEmail(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
+
+    it('checkForEamil should call the next agrs if everything passes', () => {
+      mockReq = { body: { email: 'hasstrp.ezekiel@email.com', password: 'Hasstrup.ezekiel@gmail' } };
+      BaseMiddleware.checkForEmail(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
     });
   });
 
-  it('checkForEmail should skip body if there is no email', () => {
-    mockReq = { body: { username: 'bro', password: 'thisisatestpassword' } };
-    BaseMiddleware.checkForEmail(mockReq, mockRes, spy2);
-    expect(spy1.called).to.be.true;
-  });
+  describe('BaseMiddleware model specific methods', () => {
+    before(() => {
+      BaseModel = new DataHandler({
+        username: String,
+        email: String,
+        password: String,
+        confirmedMail: Boolean
+      }, ['username', 'password', 'email']);
+      BaseModel.setMasterKey({ key: 'user_id', type: Number });
+      BaseMiddleware.setModel(BaseModel);
+    });
 
-  it('checkForEmail should fail the body if the email is present and is not email', () => {
-    mockReq = { body: { email: 'email', password: 'thisisatestpassword' } };
-    BaseMiddleware.checkForEmail(mockReq, mockRes, spy2);
-    expect(spy1.called).to.be.true;
-  });
+    it('checkRequired should ensure the required fields of a model are present', () => {
+      mockReq = { body: { username: '', password: 'this is a test password', email: 'anothertestemail' } };
+      BaseMiddleware.checkRequired(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
 
-  it('checkForEamil should call the next agrs if everything passes', () => {
-    mockReq = { body: { email: 'hasstrp.ezekiel@email.com', password:'Hasstrup.ezekiel@gmail' } };
-    BaseMiddleware.checkForEmail(mockReq, mockRes, spy2);
-    expect(spy2.called).to.be.true;
-  });
+    it('checkRequired should ensure the required fields of a model are present and call next if they are', () => {
+      mockReq = { body: { username: 'hasstrupezekiel', password: 'this is a test password', email: 'anothertestemail' } };
+      BaseMiddleware.checkRequired(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
 
+    it('checkMasterKey should make sure the query string value is present and matches the type of the id(fail case)', () => {
+      mockReq = { body: { username: '', password: 'this is a test password', email: 'anothertestemail' }, query: { user_id: 'wrongType' } };
+      BaseMiddleware.checkMasterKey(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
+
+    it('should move on to the next middleware if there is no problem with the query', () => {
+      mockReq = { body: { username: '', password: 'this is a test password', email: 'anothertestemail' }, query: { user_id: 'wrongType' } };
+      BaseMiddleware.checkMasterKey(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
+  });
 });

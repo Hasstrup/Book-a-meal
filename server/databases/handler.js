@@ -31,6 +31,14 @@ class DataHandler {
     this.refs = this.checkForRefs(input);
   }
 
+  setMasterKey(key) {
+    // ensure that key is a number;
+    if (!key || (typeof key) !== 'object' || !key.key || !key.type) {
+      throw TypeError('The key has to be present and has to have a value and type');
+    }
+    this.masterKey = key;
+  }
+
 
   /* eslint class-methods-use-this: 0 */
   checkForRefs(input) {

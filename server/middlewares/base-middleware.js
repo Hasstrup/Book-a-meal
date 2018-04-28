@@ -1,28 +1,83 @@
 import { isEmail } from 'validator';
+import DataHandler from '../databases/handler';
+
+let err;
 
 class BaseMiddleware {
-  constructor(item) {
-    }
 
-  static checkForNullInput (req, res, next) {
-    let body
-    body = Object.keys(req.body);
+  static checkForNullInput(req, res, next) {
+    const body = Object.keys(req.body);
     if (body.length) {
-      Object.keys(req.body).forEach((key, index) => {
+      if (!Object.keys(req.body).some((key, index) => {
         if (Object.values(req.body)[`${index}`].toString().length < 1) {
-          res.json({ message: `Empty value for ${key}` }).status(400);
-          throw new TypeError(`Empty value for ${key}`);
-        }
-      });
+          return false;
+        } return true;
+      })) {
+        err = new Error('Incomplete values in the body');
+        err.status = 400;
+        next(err);
+      }
     }
-    next()
+    err = new Error('Theres no content in the body');
+    err.status = 400;
+    next(err);
   }
 
   static checkForEmail(req, res, next) {
     if (req.body.email && req.body.email.toString().length > 1 && isEmail(req.body.email)) {
       next();
     }
-    res.json({ message: 'Invalid email passed' }).status(400);
+    err = new Error('ensure  the email is present for this to work');
+    err.status = 400;
+    next(err);
+  }
+
+/* check if the model is valid and assing to */
+  static setModel(model) {
+    if (!model || model.constructor !== DataHandler) {
+      throw new Error('The model has to be a DataHandler instance');
+    }
+    this.model = model;
+    return this;
+  }
+
+  /* get the required fields from the model and their types from the model's keys */
+  static checkRequired(req, res, next) {
+    if (!this.model) {
+      err = new Error('No model present for the checkRequired middleware');
+      err.status = 500;
+      next(err);
+    }
+    const { model } = this;
+    if (!this.model.required.some((key) => {
+      if (!req.body[`${key}`] || req.body[`${key}`].constructor !== model.keys[`${key}`]) {
+        return false;
+      } return true;
+    })) {
+      err = new Error('A required field is missing');
+      err.status = 400;
+      next(err);
+    }
+    next();
+  }
+
+
+  static checkMasterKey(req, res, next) {
+    if (!this.model.masterKey || !this.model.masterKey.key || !this.model.masterKey.type) {
+      err = new Error('No masterkey set for this model');
+      err.status = 500;
+      next(err);
+    }
+    const { key } = this.model.masterKey;
+    const { type } = this.model.masterKey;
+    // check the query for the key && pass the query as req.`${key}`
+    if (req.query[`${key}`] && req.query[`${key}`].constructor === type) {
+      req[`${key}`] = req.query[`${key}`];
+      next();
+    }
+    err = new Error('There is no identifier for this request');
+    err.status = 401;
+    next(err);
   }
 }
 
