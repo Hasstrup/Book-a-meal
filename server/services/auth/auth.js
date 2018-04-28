@@ -1,13 +1,14 @@
-import ValidatorError from './errors/validation';
+import BaseService from '../base-service';
 
-class AuthModule {
+class AuthModule extends BaseService {
   constructor(model) {
+    super();
     if (model) {
       this.model = model;
     }
   }
 
-  static async signUp(body, model = this.model) {
+  signUp = async (body, model = this.model) => {
     /* This method checks for null values that are required,
       then checks that the corresponding value matches the constructor */
     const baseData = {};
@@ -15,11 +16,8 @@ class AuthModule {
       if (body[`${key}`] && JSON.stringify(body[`${key}`]).split('').length > 0 && body[`${key}`].constructor === model.keys[`${key}`]) {
         return;
       }
-      throw new ValidatorError(`${key} is either missing or invalid`, 422);
+      this.unprocessableEntity(`${key} is either missing or invalid`);
     });
-
-    /* then attempts to create the user after matching
-     the datatypes and checking the required fields */
     if (model.keys && model.create) {
       Object.keys(model.keys).forEach((key) => {
         if (body[`${key}`] && body[`${key}`].constructor === model.keys[`${key}`]) {
@@ -34,11 +32,12 @@ class AuthModule {
         }
         baseData[`${key}`] = null;
       });
+      /* eslint no-return-await: 0 */
       return await model.create(baseData);
     }
   }
 
-  static authenticate(user, baseModel = this.model) {
+  authenticate = async (user, baseModel = this.model) => {
     /* check for missing fields in the user input */
     let data;
     let target;
@@ -49,16 +48,18 @@ class AuthModule {
       data = baseModel.getAll();
       target = data.filter(item => item.username === user.username);
       if (target.length < 1) {
-        throw new ValidatorError('No record found with such user', 404);
+        this.unprocessableEntity('No record found with such user');
       }
+      /* eslint prefer-destructuring: 0 */
       validuser = target[0];
       if (validuser.password === user.password) {
         return true;
       }
-      throw new ValidatorError('Invalid username and password combination', 403);
+      this.noPermissions('Invalid username and password combination');
     }
-    throw new ValidatorError('incomplete or misssing fields', 422);
+    this.unprocessableEntity('Certain required fields are missing');
   }
 }
+
 
 export default AuthModule;

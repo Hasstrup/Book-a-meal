@@ -1,5 +1,4 @@
-
-
+import 'babel-polyfill';
 
 class DataHandler {
   constructor(initData, required = []) {
@@ -8,8 +7,7 @@ class DataHandler {
     }
     this.validateInit(initData);
     this.data = {};
-    this.required = required
-    /* Strip the values from the initializing data and check if they occur in this.hooks  */
+    this.required = required;
   }
 
 
@@ -41,6 +39,7 @@ class DataHandler {
 
 
   /* eslint class-methods-use-this: 0 */
+  /* eslint no-new-object: 0 */
   checkForRefs(input) {
     const vals = Object.values(input);
     const values = Object.keys(input).map((item, index) => {
@@ -64,7 +63,7 @@ class DataHandler {
     const vals = Object.values(input);
     const values = Object.keys(input).map((item, index) => {
       if (vals[index].constructor === Array && vals[index][0].refs) {
-        const log = new Object()
+        const log = new Object();
         log[`${item}`] = vals[index];
         return log;
       }
@@ -148,13 +147,14 @@ class DataHandler {
     and setting the new item in the object state. Spewing an error if an invalid query is
     passed or the record isnt found on the schema;
   */
+  /* eslint prefer-destructuring: 0 */
   async findOneAndUpdate(query, changes) {
     let target;
     let data;
     if (this.validateQuery(query) && this.validateInput(changes)) {
+      // find the target from the query;
       data = Object.values(this.data);
       target = data.filter(item => item[`${Object.keys(query)[0]}`] === Object.values(query)[0])[0];
-
       if (target) {
         // check that the input keys  matches the correct datatype
         const { validata } = await this.validateInput(changes);
@@ -179,7 +179,7 @@ class DataHandler {
     let target;
     let data;
     let filterTray;
-    let newState = {};
+    const newState = {};
     if (this.validateQuery(query)) {
       data = Object.values(this.data);
       target = data.filter(item => item[`${Object.keys(query)[0]}`] === Object.values(query)[0])[0];
@@ -189,7 +189,7 @@ class DataHandler {
           newState[`${node.id}`] = node;
         });
         this.data = newState;
-        return
+        return;
       }
       throw new Error('No record found with that query');
     }
@@ -220,6 +220,8 @@ class DataHandler {
   /* this method should populate both single and multiple fields by checking for the data path and requiring
   the matching refs value in the data folder;
    */
+  /* eslint global-require: 0 */
+  /* eslint import/no-dynamic-require: 0  */
   getData(data = this.data) {
     if (Object.keys(this.refs).length > 0 || Object.keys(this.refsMultiple).length > 0) {
       let Source;

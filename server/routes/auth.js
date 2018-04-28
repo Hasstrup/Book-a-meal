@@ -1,14 +1,14 @@
-import { Router } from "express";
+import { Router } from 'express';
+import AuthMiddleware from '../middlewares/auth/';
+import AuthController from '../controllers/auth/'
+import ErrorHandler from '../middlewares/error/';
+import BaseMiddleware from '../middlewares/base-middleware';
 
 const router = Router();
 
-router.post('/signup', (req, res) => {
-  // call the sign up method of the auth controller
-});
+router.post('/signup', BaseMiddleware.checkForNullInput, AuthMiddleware.checkRequired, AuthController.signUp, ErrorHandler.dispatch);
 
-router.post('/login', (req, res) => {
-  // call the login method on the auth controller;
-});
+router.post('/login', BaseMiddleware.checkForNullInput, AuthController.authenticate, ErrorHandler.dispatch);
 
 
 

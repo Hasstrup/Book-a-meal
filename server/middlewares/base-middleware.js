@@ -1,5 +1,4 @@
 import { isEmail } from 'validator';
-import DataHandler from '../databases/handler';
 
 let err;
 
@@ -17,13 +16,14 @@ class BaseMiddleware {
         err.status = 400;
         next(err);
       }
+      return next();
     }
     err = new Error('Theres no content in the body');
     err.status = 400;
     next(err);
   }
 
-  static checkForEmail(req, res, next) {
+  static checkForEmail = (req, res, next) => {
     if (req.body.email && req.body.email.toString().length > 1 && isEmail(req.body.email)) {
       next();
     }
@@ -32,21 +32,21 @@ class BaseMiddleware {
     next(err);
   }
 
-/* check if the model is valid and assing to */
-  static setModel(model) {
-    if (!model || model.constructor !== DataHandler) {
+  /* check if the model is valid and and bind the model to this */
+  setModel = (model) => {
+    if (!model) {
       throw new Error('The model has to be a DataHandler instance');
     }
     this.model = model;
-    return this;
   }
 
   /* get the required fields from the model and their types from the model's keys */
-  static checkRequired(req, res, next) {
+  checkRequired = (req, res, next) => {
     if (!this.model) {
       err = new Error('No model present for the checkRequired middleware');
       err.status = 500;
       next(err);
+      return;
     }
     const { model } = this;
     if (!this.model.required.some((key) => {
@@ -62,7 +62,7 @@ class BaseMiddleware {
   }
 
 
-  static checkMasterKey(req, res, next) {
+  checkMasterKey = (req, res, next) => {
     if (!this.model.masterKey || !this.model.masterKey.key || !this.model.masterKey.type) {
       err = new Error('No masterkey set for this model');
       err.status = 500;
@@ -81,4 +81,4 @@ class BaseMiddleware {
   }
 }
 
-export default BaseMiddleware
+export default BaseMiddleware;

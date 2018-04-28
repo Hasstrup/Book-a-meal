@@ -4,48 +4,24 @@
 
 /* eslint class-methods-use-this: 0 */
 class BaseController {
-
-  async wrapInTryCatch(func) {
+  async wrapInTryCatch(func, next) {
     try {
       return await func();
     } catch (e) {
-      throw e.message;
+      next(e);
     }
   }
 
-  invalidRequest(res, message) {
-    res.json({ message }).status(400);
+  resourceCreated(res, data) {
+    res.status(201).json({ data });
   }
 
-  ForbiddenRequest(res, message) {
-    res.json({ message }).status(403);
+  responseOkay(res, message) {
+    res.status(200).json({ message });
   }
 
-  unauthorizedRequest(res, message) {
-    res.json({ message }).status(401);
-  }
-
-  resourceNotFound(res, message) {
-    res.json({ message }).status(404);
-  }
-
-  internalServerError(res, message) {
-    res.json({ message }).status(500);
-  }
-
-  creaatedSuccessfully(res, data) {
-    res.json({ data }).status(201);
-  }
-
-  requestProcessed(res, data) {
-    if (data) {
-      return res.json({ data }).status(200);
-    }
-    res.json({}).status(200);
-  }
-
-  processedButNoContent(res) {
-    res.json({}).status(204);
+  returnNoContent(res, message) {
+    res.status(204).json({ message });
   }
 }
 export default BaseController;

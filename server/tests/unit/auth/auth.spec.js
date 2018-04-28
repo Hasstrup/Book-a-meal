@@ -1,7 +1,10 @@
 import 'babel-polyfill';
 import { expect } from 'chai';
-import AuthModule from '../../../services/auth/auth';
+import AuthClass from '../../../services/auth/auth';
 import DataHandler from '../../../databases/handler';
+import UserModel from '../../../models/v1/user';
+
+const AuthModule = new AuthClass(UserModel);
 
 const BaseModel = new DataHandler({
   username: String,
@@ -17,23 +20,23 @@ let validData;
 describe('Authentication Module', () => {
   describe('Auth sign up method  cases', () => {
 
-    it('should throw an error with incomplete Data', () => {
+    it('should throw an error with incomplete Data', async () => {
       try {
         invalidData = { username: 'hasstrup', email: 'hasstrup.ezekiel@gmail.com' };
-        AuthModule.signUp(invalidData, BaseModel);
+        await AuthModule.signUp(invalidData, BaseModel);
       } catch (e) {
         expect(e.status).to.equal(422);
       }
     });
 
-    it('should throw an error with a misatched datatype', () => {
+    it('should throw an error with a misatched datatype', async () => {
       try {
         invalidData = {
           username: 1,
           password: 'String',
           email: 'h@user.com',
         };
-        AuthModule.signUp(invalidData, BaseModel);
+        await AuthModule.signUp(invalidData);
       } catch (e) {
         expect(e).to.exist;
         expect(e.status).to.equal(422);
@@ -43,15 +46,17 @@ describe('Authentication Module', () => {
     it('should return the correct data with the password encrypted(Success case)', async () => {
       try {
         validData = {
-          username: 'hasstrupezekiel',
+          username: 'hasstrupezekielbro',
           password: '123456',
-          email: 'hasstrup.ezekiel@gmail.com'
+          email: 'hasstrup.ezekiel@gmail.com',
+          firstname: 'HasstrupEzekiel'
         };
-        const newuser = await AuthModule.signUp(validData, BaseModel);
+        const newuser = await AuthModule.signUp(validData);
+        console.log(newuser);
         expect(newuser.kitchen).to.be.null;
-        expect(newuser.username).to.equal('hasstrupezekiel');
+        expect(newuser.username).to.equal('hasstrupezekielbro');
       } catch (e) {
-        console.log(e)
+        expect(e).to.not.exist;
       }
     });
   });
@@ -76,22 +81,23 @@ describe('Authentication Module', () => {
       });
     });
 
-    it('should return throw an error when passed an invalid login details', () => {
+    it('should return throw an error when passed an invalid login details', async () => {
       try {
         invalidData = { username: 'hasstrupezekiel', password: 'Onosetale32' };
-        return AuthModule.authenticate(invalidData, BaseModel);
+        await AuthModule.authenticate(invalidData);
       } catch (e) {
         expect(e).to.exist;
         expect(e.status).to.equal(403);
       }
     });
 
-    it('should return the valid user with a valid user', () => {
+    it('should return the valid user with a valid user', async () => {
       try {
-        validData = { username: 'hasstrup', password: 'Onosetale' };
-        const auth = AuthModule.authenticate(validData, BaseModel);
+        validData = { username: 'hasstrupezekielbro', password: '123456' };
+        const auth = await AuthModule.authenticate(validData);
         expect(auth).to.be.true;
       } catch (e) {
+        console.log(e)
         expect(e).to.not.exist;
       }
     });
