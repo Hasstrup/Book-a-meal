@@ -66,7 +66,7 @@ describe('DatahHandler Class constructor', () => {
       try {
         const Parser = new DataHandler(schema);
         const data = {username: 'hasstrupezekiel', password: '1234', email: 'hasstrup.ezekiel@gmail.com', kitchens: [1, 2, 3] };
-        let user = await Parser.create(data);
+        const user = await Parser.create(data);
         expect(user).to.have.property('username');
         expect(user.username).to.equal('hasstrupezekiel');
         expect(user.kitchens).to.be.an('array');
@@ -79,10 +79,10 @@ describe('DatahHandler Class constructor', () => {
 
   describe('DataHandler findData methods', () => {
     const schema = { username: String, password: String, email: String, subscribers: Array };
-    const User = new DataHandler(schema)
+    const User = new DataHandler(schema);
     before(() => {
       mocks.forEach(async (mock) => {
-        return await User.create(mock)
+        return await User.create(mock);
       });
     });
 
@@ -92,7 +92,7 @@ describe('DatahHandler Class constructor', () => {
           return await User.findOne(123);
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.equal('Invalid query passed, must be an object')
+          expect(err.message).to.equal('Invalid query passed, must be an object');
         }
       });
 
@@ -106,17 +106,17 @@ describe('DatahHandler Class constructor', () => {
 
       it('should throw an error with the wrong datatype for the field in the schema', async () => {
         try {
-          return await User.findOne({username: 1234});
+          return await User.findOne({ username: 1234 });
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.equal('Invalid datatype passed to username')
+          expect(err.message).to.equal('Invalid datatype passed to username');
         }
       });
 
       it('should return the valid user given the right params', async () => {
         try {
           const user = await User.findOne({username: 'ChisomRes'})
-          expect(user.id).to.equal(1);
+          expect(user.id).to.equal(2);
           expect(user).to.be.an('object');
         } catch (err) {
           expect(err).to.not.exist;
@@ -143,7 +143,7 @@ describe('DatahHandler Class constructor', () => {
             name: 'Hasstrup Ezekiel',
             vendor: 1,
             kitchens: [1,2] });
-          const result = Caterer.getData()[0];
+          const result = Caterer.getData()[1];
           expect(result.kitchens).to.be.an('array');
           expect(result.vendor.name).to.equal('Fried fish');
           expect(result.kitchens[0].name).to.equal('akpobor kitchen')

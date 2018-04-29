@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import UserService from '../../../services/users/';
+import UserService from '../../../services/users/'
 
 describe('User service object', () => {
   it('Get all users, should return all the content in the models store', () => {
@@ -9,11 +9,11 @@ describe('User service object', () => {
   });
 
   it('Get a particular user when fed a query', () => {
-    const data = UserService.fetchSingle('id', 4);
+    const data = UserService.fetchSingle('id', 5);
     expect(data.username).to.equal('beyhouston');
     expect(data.kitchen).to.equal(5);
   });
-
+  /* eslint no-unused-expressions: 0 */
   it('updateSingle should update the particuler user', async () => {
     try {
       const changes = { username: 'ohmydearariana' };
@@ -31,5 +31,4 @@ describe('User service object', () => {
       expect(e).to.not.exist;
     }
   });
-
 });

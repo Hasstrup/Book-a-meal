@@ -83,7 +83,7 @@ class DataHandler {
     if ((typeof query) !== 'object') {
       throw new TypeError('Invalid query passed, must be an object');
     } else if (Object.keys(query)[0] === 'id' && Object.values(query)[0].constructor === Number) {
-      return true
+      return true;
     } else if (!Object.keys(this.keys).includes(Object.keys(query)[0])) {
       throw new TypeError(`${Object.keys(query)[0]} is not contained in the schema of this model`);
     } else if (Object.values(query)[0].constructor !== this.keys[`${Object.keys(query)[0]}`]) {
@@ -113,10 +113,10 @@ class DataHandler {
       if (Object.values(validata).length === 0) {
         throw new Error('Sorry that was unsucessful');
       }
-      const id = Object.values(this.data).length;
+      const id = Object.values(this.data).length + 1;
       const otherdata = { ...validata, id };
       this.data[`${id}`] = otherdata;
-      return this.data[`${(Object.keys(this.data).length) - 1}`];
+      return this.data[`${id}`];
     } catch (err) {
       throw err;
     }

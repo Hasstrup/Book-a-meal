@@ -1,4 +1,5 @@
 import { isEmail } from 'validator';
+import Encrypt from '../helpers/encrypt/';
 
 let err;
 
@@ -29,6 +30,14 @@ class BaseMiddleware {
     err = new Error('ensure  the email is present for this to work');
     err.status = 400;
     next(err);
+  }
+
+  static checkPopulateQuery = (req, res, next) => {
+    if (req.query && req.query.populate && req.query.populate === 'populate') {
+      req.populate = true;
+      next();
+    }
+    next();
   }
 
   /* check if the model is valid and and bind the model to this */
@@ -75,8 +84,27 @@ class BaseMiddleware {
       next();
     }
     err = new Error('There is no identifier for this request');
-    err.status = 401;
+    err.status = 40.1;
     next(err);
+  }
+
+  static checkAuthorization = (req, res, next) => {
+    if (!req.headers || !req.headers.authorization) {
+      err = new Error('You need to be authorized to do this');
+      err.status = 403;
+      return next(err);
+    }
+    next();
+  }
+
+  static revokeAccess = (req, res, next) => {
+    const target = Object.keys(req.params)[0];
+    if (req.headers.authorization.toString() === Encrypt.hashStr(`Hellothere${req.params[`${target}`]}`).toString()) {
+      return next();
+    }
+    err = new Error('You need to be authorized to do this');
+    err.status = 403;
+    return next(err);
   }
 }
 

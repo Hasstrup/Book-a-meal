@@ -2,9 +2,9 @@ import 'babel-polyfill';
 import { expect } from 'chai';
 import AuthClass from '../../../services/auth/auth';
 import DataHandler from '../../../databases/handler';
-import UserModel from '../../../models/v1/user';
+import UserModelB from '../../../models/v1/user';
 
-const AuthModule = new AuthClass(UserModel);
+const AuthModule = new AuthClass(UserModelB);
 
 const BaseModel = new DataHandler({
   username: String,
@@ -51,7 +51,6 @@ describe('Authentication Module', () => {
           firstname: 'HasstrupEzekiel'
         };
         const newuser = await AuthModule.signUp(validData);
-        expect(newuser.kitchen).to.be.null;
         expect(newuser.username).to.equal('hasstrupezekielbro');
       } catch (e) {
         expect(e).to.not.exist;

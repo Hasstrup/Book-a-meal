@@ -1,5 +1,5 @@
 import BaseService from '../base-service';
-import User from '../../models/v1/user'
+import User from '../../models/v1/user';
 
 const ref = {};
 

@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { spy } from 'sinon';
 import BaseMiddlewareClass from '../../../middlewares/base-middleware';
 import DataHandler from '../../../databases/handler';
+import Encrypt from '../../../helpers/encrypt/';
 
 let mockRes;
 let mockReq;
@@ -36,6 +37,12 @@ describe('Middleware base class', () => {
     it('checkForEamil should call the next agrs if everything passes', () => {
       mockReq = { body: { email: 'hasstrp.ezekiel@email.com', password: 'Hasstrup.ezekiel@gmail' } };
       BaseMiddlewareClass.checkForEmail(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
+
+    it('checkPopulate should check the req for the populate args and will pass it on', () => {
+      mockReq = { body: { email: 'hasstrp.ezekiel@email.com', password: 'Hasstrup.ezekiel@gmail' }, query: { populate: 'true' } };
+      BaseMiddlewareClass.checkPopulateQuery(mockReq, mockRes, spy2);
       expect(spy2.called).to.be.true;
     });
   });
@@ -73,6 +80,12 @@ describe('Middleware base class', () => {
     it('should move on to the next middleware if there is no problem with the query', () => {
       mockReq = { body: { username: '', password: 'this is a test password', email: 'anothertestemail' }, query: { user_id: 'wrongType' } };
       BaseMiddleware.checkMasterKey(mockReq, mockRes, spy2);
+      expect(spy2.called).to.be.true;
+    });
+
+    it('AccessControl should forbid requests without the masterKey in the headers', () => {
+      mockReq = { headers: { authorization: Encrypt.hashStr(8) }, params: { user_id: 8 } };
+      BaseMiddlewareClass.revokeAccess(mockReq, mockRes, spy2);
       expect(spy2.called).to.be.true;
     });
   });
