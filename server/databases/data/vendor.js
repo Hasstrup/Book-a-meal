@@ -7,5 +7,5 @@ const meals = {
     name: 'Look at this meal take',
     consumering: 'looking nice'
   }
-}
-export default meals
+};
+export default meals;
