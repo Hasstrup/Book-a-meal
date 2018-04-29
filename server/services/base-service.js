@@ -24,6 +24,12 @@ class BaseService {
   unprocessableEntity(message) {
     this.throwError(message, 422);
   }
+
+  checkArguments(...params) {
+    if (params.length < 2 || params.length > 3 || params[0].constructor !== String) {
+      return this.badRequest('Please pass in the right arguments');
+    }
+  }
 }
 
 export default BaseService;

@@ -7,5 +7,5 @@ describe('Kitchen model', () => {
     expect(Kitchen.masterKey).to.be.an('object');
     expect(Kitchen.data).to.be.an('object');
     expect(Kitchen.data[1].name).to.be.equal('Yet another smaple kitchen');
-  })
+  });
 })
