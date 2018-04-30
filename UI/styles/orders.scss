@@ -13,10 +13,19 @@ body {
     top: 0;
     position: fixed;
     background-color: rgba(17, 17, 17, .4);
+    .main-modal-backdrop-ui {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      z-index: 1
+    }
     @include large-order-card
     .current-order-stack-main {
       width: 50% !important;
       height: 50% !important;
+      position: relative;
+      z-index: 20;
       .current-order-stack-side-one {
         background-color: white;
       }
