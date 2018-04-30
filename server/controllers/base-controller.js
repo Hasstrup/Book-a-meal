@@ -16,6 +16,10 @@ class BaseController {
     res.status(201).json({ data });
   }
 
+  returnContent(res, data) {
+    res.status(200).json({ data });
+  }
+
   responseOkay(res, message) {
     res.status(200).json({ message });
   }

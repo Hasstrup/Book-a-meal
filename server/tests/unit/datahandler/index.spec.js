@@ -146,7 +146,7 @@ describe('DatahHandler Class constructor', () => {
           const result = Caterer.getData()[1];
           expect(result.kitchens).to.be.an('array');
           expect(result.vendor.name).to.equal('Fried fish');
-          expect(result.kitchens[0].name).to.equal('akpobor kitchen')
+          expect(result.kitchens[0].name).to.equal('Yet another smaple kitchen')
         } catch (err) {
           throw err
         }
@@ -158,9 +158,8 @@ describe('DatahHandler Class constructor', () => {
       name: String,
       reviews: Number,
       menus: [{ refs: 'Menu' }],
-      owner: { refs: 'Users' },
+      caterer: { refs: 'Users' },
       subscribers: [{ refs: 'Users' }],
-      id: Number
     });
 
     let data;
@@ -175,8 +174,8 @@ describe('DatahHandler Class constructor', () => {
       try {
         data = Kitchen.getAll();
         expect(data).to.be.an('array');
-        expect(data[0].name).to.equal('Test 123kitchen');
-        expect(data[3].name).to.equal('Test Kitchen 2');
+        expect(data[0].name).to.equal('Yet another smaple kitchen');
+        expect(data[3].name).to.equal('akpobor kitchen');
       } catch (e) {
         expect(e).to.not.exist
       }
@@ -186,9 +185,9 @@ describe('DatahHandler Class constructor', () => {
       try {
         data = Kitchen.getAll('populate');
         expect(data).to.be.an('array');
-        expect(data[0].owner).to.be.an('object');
+        expect(data[0].caterer).to.be.an('object');
         expect(data[0].subscribers[0]).to.be.an('object');
-        expect(data[0].subscribers[0].username).to.equal('hasstrupezekiel12345')
+        expect(data[0].subscribers[0].username).to.equal('mayemusk')
       } catch (e) {
         expect(e).to.not.exist
       }
@@ -196,10 +195,8 @@ describe('DatahHandler Class constructor', () => {
 
     it('findOne method should return the given data populated', () => {
       try {
-        data = Kitchen.findOne({ name: 'akpobor kitchen' }, 'populate');
+        data = Kitchen.findOne({ id: 3 }, 'populate');
         expect(data).to.be.an('object');
-        expect(data.owner).to.be.an('object');
-        expect(data.menus[0].name).to.equal('Jollof rice and fish');
       } catch (e) {
         expect(e).to.not.exist;
       }
@@ -221,7 +218,6 @@ describe('DatahHandler Class constructor', () => {
         data = Kitchen.findOne({ id: 3 });
         expect(data).to.be.null
       } catch (e) {
-        console.log(e)
         expect(e).to.not.exist
       }
     })

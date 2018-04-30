@@ -84,11 +84,14 @@ class DataHandler {
       throw new TypeError('Invalid query passed, must be an object');
     } else if (Object.keys(query)[0] === 'id' && Object.values(query)[0].constructor === Number) {
       return true;
+    } else if (this.refs[`${Object.keys(query)}`] && Object.values(query)[0].constructor === Number) {
+      return true
     } else if (!Object.keys(this.keys).includes(Object.keys(query)[0])) {
       throw new TypeError(`${Object.keys(query)[0]} is not contained in the schema of this model`);
-    } else if (Object.values(query)[0].constructor !== this.keys[`${Object.keys(query)[0]}`]) {
+    } else if (Object.values(query)[0].constructor !== this.keys[`${Object.keys(query)[0]}`] ) {
       throw new TypeError(`Invalid datatype passed to ${Object.keys(query)[0]}`);
-    } else {
+    }
+     else {
       return true;
     }
   }
@@ -136,7 +139,9 @@ class DataHandler {
         validata[`${key}`] = input[`${key}`];
       } else if (input[`${key}`] && ((input[`${key}`].constructor === this.keys[`${key}`].constructor) || (input[`${key}`].constructor === Number && this.keys[`${key}`].constructor === Object))) {
         validata[`${key}`] = input[`${key}`];
-      } else if (input[`${key}`] && input[`${key}`].constructor !== this.keys[`${key}`] && input[`${key}`] !== null) {
+      } else if (input[`${key}`] && this.refsMultiple[`${key}`] && input[`${key}`].constructor === Array) {
+        validata[`${key}`] = input[`${key}`];
+      }else if (input[`${key}`] && input[`${key}`].constructor !== this.keys[`${key}`] && input[`${key}`] !== null) {
         throw new TypeError(`Wrong datatype for field ${key}`);
       }
     });
@@ -209,7 +214,7 @@ class DataHandler {
       const value = data.filter(item => item[`${Object.keys(query)[0]}`] === Object.values(query)[0])[0];
       if (value) {
         if (populate && populate === 'populate') {
-          return this.getData(value);
+          return this._populateMain(value);
         }
         return value;
       }
@@ -226,34 +231,38 @@ class DataHandler {
   /* eslint import/no-dynamic-require: 0  */
   getData(data = this.data) {
     if (Object.keys(this.refs).length > 0 || Object.keys(this.refsMultiple).length > 0) {
-      let Source;
       Object.values(data).forEach((node) => {
-        // find the single associations by searching the matching ref file;
-        Object.keys(this.refs).forEach((key) => {
-          if (node[`${key}`]) {
-            Source = require(`./data/${this.refs[`${key}`].toLowerCase()}.js`).default;
-            node[`${key}`] = Source[`${node[`${key}`]}`];
-          }
-        });
-
-        // secondly multiple relations
-        Object.keys(this.refsMultiple).forEach((key) => {
-          if (node[`${key}`] && node[`${key}`].constructor === Array) {
-            Source = require(`./data/${this.refsMultiple[`${key}`].toLowerCase()}.js`).default;
-
-            /* eslint max-len: 0 */
-            /* looping through all the values in the refs field and fetching them from the source file */
-            node[`${key}`].forEach((item, index) => {
-              node[`${key}`][index] = Source[`${item}`];
-            });
-          }
-        });
-        // Final replacement of the node in th data position
-        data[`${node.id}`] = node;
+        data[`${node.id}`] = this._populateMain(node);
       });
     }
     return data;
   }
+
+  _populateMain(node) {
+    let Source;
+    Object.keys(this.refs).forEach((key) => {
+      if (node[`${key}`]) {
+        Source = require(`./data/${this.refs[`${key}`].toLowerCase()}.js`).default;
+        node[`${key}`] = Source[`${node[`${key}`]}`];
+      }
+    });
+
+    // secondly multiple relations
+    Object.keys(this.refsMultiple).forEach((key) => {
+      if (node[`${key}`] && node[`${key}`].constructor === Array) {
+        Source = require(`./data/${this.refsMultiple[`${key}`].toLowerCase()}.js`).default;
+
+        /* eslint max-len: 0 */
+        /* looping through all the values in the refs field and fetching them from the source file */
+        node[`${key}`].forEach((item, index) => {
+          node[`${key}`][index] = Source[`${item}`];
+        });
+      }
+    });
+
+    return node;
+  }
+
 }
 
 export default DataHandler;
