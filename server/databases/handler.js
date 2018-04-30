@@ -141,7 +141,9 @@ class DataHandler {
         validata[`${key}`] = input[`${key}`];
       } else if (input[`${key}`] && this.refsMultiple[`${key}`] && input[`${key}`].constructor === Array) {
         validata[`${key}`] = input[`${key}`];
-      }else if (input[`${key}`] && input[`${key}`].constructor !== this.keys[`${key}`] && input[`${key}`] !== null) {
+      } else if (input[`${key}`] && this.refs[`${key}`] && input[`${key}`].constructor === Number){
+        validata[`${key}`] = input[`${key}`];
+      } else if (input[`${key}`] && input[`${key}`].constructor !== this.keys[`${key}`] && input[`${key}`] !== null) {
         throw new TypeError(`Wrong datatype for field ${key}`);
       }
     });

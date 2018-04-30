@@ -14,7 +14,7 @@ const Kitchen = new KitchenModel({
   ofTheDay: { refs: 'Menu' },
   subscribers: [{ refs: 'Users' }],
   description: String,
-  image: String
+  image: String,
 }, [
   'name',
   'description'
