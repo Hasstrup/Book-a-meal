@@ -610,11 +610,20 @@ body {
     align-items: center;
     justify-content: center;
     flex-flow: column nowrap;
+    .main-modal-backdrop-ui {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      z-index: 1
+    }
     .modal-content {
       background-color: white;
-      width: 60%;
-      height: 70%;
+      width: 50%;
+      height: 60%;
       display: flex;
+      z-index: 10;
+      position: relative;
       flex-flow: column nowrap;
       padding-bottom: 5%;
       .content-head {
@@ -644,13 +653,14 @@ body {
         flex-flow: row wrap;
         justify-content: center;
         width: 85%;
-        height: 90%;
+        height: 70%;
         align-self: center;
         .tiny-tiny-card {
           height: 35%;
           width: 40%;
           position: relative;
           flex-basis: 25%;
+          margin: 3px 3px 0 0;
           &:hover {
             .containing-text {
               opacity: 1;

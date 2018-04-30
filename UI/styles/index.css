@@ -121,8 +121,8 @@ body .image-grid .first-image-grid {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
   padding: 0 5% 0 6%;
   margin-bottom: 2%; }
   body .image-grid .first-image-grid .details-container {
@@ -136,9 +136,9 @@ body .image-grid .second-image-grid {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  padding: 0 1% 0 6%;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  padding: 0 6% 0 7%;
   margin-bottom: 2%; }
   body .image-grid .second-image-grid .details-container {
     height: 200px;
@@ -272,6 +272,16 @@ body .fade-in {
     width: 90%; }
   .landing-jumbo .dangling-shapes {
     display: none !important; }
+  .first-image-grid {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-flow: row wrap !important;
+    flex-flow: row wrap !important; }
+  .second-image-grid {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-flow: row wrap !important;
+    flex-flow: row wrap !important; }
   .image-grid img {
     height: 90% !important;
     width: 90% !important; }
