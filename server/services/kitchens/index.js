@@ -15,6 +15,14 @@ class KitchenService extends BaseService {
     this.model = model;
   }
 
+  create = async (id, body) => {
+    if (!id || !body || isNaN(id) || (typeof body) !== 'object') {
+      return this.badRequest('please pass in the right values :)');
+    }
+    data = Object.assign({}, body, { owner: id });
+    return await this.model.create(data);
+  }
+
   fetchAll(populate) {
     if (populate && populate === 'populate') {
       return this.model.getAll('populate');
@@ -89,6 +97,7 @@ class KitchenService extends BaseService {
     }
     let ref = {};
     ref[`${key}`] = value;
+    console.log(ref)
     return await this.model.findOneAndUpdate(ref, changes);
   }
 

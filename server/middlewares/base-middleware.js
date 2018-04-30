@@ -20,7 +20,7 @@ class BaseMiddleware {
     }
     err = new Error('Theres no content in the body');
     err.status = 400;
-    next(err);
+    return next(err);
   }
 
   static checkForEmail = (req, res, next) => {
@@ -29,15 +29,15 @@ class BaseMiddleware {
     }
     err = new Error('ensure  the email is present for this to work');
     err.status = 400;
-    next(err);
+    return next(err);
   }
 
   static checkPopulateQuery = (req, res, next) => {
     if (req.query && req.query.populate && req.query.populate === 'populate') {
       req.populate = true;
-      next();
+      return next();
     }
-    next();
+    return next();
   }
 
   /* check if the model is valid and and bind the model to this */
@@ -64,12 +64,12 @@ class BaseMiddleware {
     })) {
       err = new Error('A required field is missing');
       err.status = 400;
-      next(err);
+      return next(err);
     }
-    next();
+    return next();
   }
 
-
+  /* eslint no-restricted-globals: 0, radix: 0 */
   checkMasterKey = (req, res, next) => {
     if (!this.model.masterKey || !this.model.masterKey.key || !this.model.masterKey.type) {
       err = new Error('No masterkey set for this model');
@@ -81,11 +81,14 @@ class BaseMiddleware {
     // check the query for the key && pass the query as req.`${key}`
     if (req.query[`${key}`] && req.query[`${key}`].constructor === type) {
       req[`${key}`] = req.query[`${key}`];
-      next();
+      return next();
+    } else if (req.query[`${key}`] && type === Number && !isNaN(parseInt(req.query[`${key}`]))) {
+      req[`${key}`] = req.query[`${key}`];
+      return next();
     }
     err = new Error('There is no identifier for this request');
     err.status = 40.1;
-    next(err);
+    return next(err);
   }
 
   static checkAuthorization = (req, res, next) => {
@@ -94,7 +97,7 @@ class BaseMiddleware {
       err.status = 403;
       return next(err);
     }
-    next();
+    return next();
   }
 
   static revokeAccess = (req, res, next) => {
@@ -106,6 +109,8 @@ class BaseMiddleware {
     err.status = 403;
     return next(err);
   }
+
+   hashString = str => Encrypt.hashStr(str);
 }
 
 export default BaseMiddleware;

@@ -1,6 +1,6 @@
 import BaseMiddleware from '../base-middleware';
-import UserModel from '../../models/v1/user';
+import UserModelB from '../../models/v1/user';
 
 const AuthMiddleware = new BaseMiddleware();
-AuthMiddleware.setModel(UserModel);
+AuthMiddleware.setModel(UserModelB);
 export default AuthMiddleware;

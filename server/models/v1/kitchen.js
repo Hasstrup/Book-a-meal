@@ -9,15 +9,14 @@ class KitchenModel extends DataHandler {
 
 const Kitchen = new KitchenModel({
   name: String,
-  caterer: {refs: 'Users'},
+  caterer: { refs: 'Users' },
   meals: [{ refs: 'Users' }],
   ofTheDay: { refs: 'Menu' },
-  subscribers: [{refs: 'Users'}],
+  subscribers: [{ refs: 'Users' }],
   description: String,
   image: String
 }, [
   'name',
-  'owner',
   'description'
 ]);
 

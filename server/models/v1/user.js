@@ -36,4 +36,5 @@ Object.values(users).forEach(async (user) => {
   await User.create(user);
 });
 
+User.setMasterKey({ key: 'uuid', type: Number });
 export default User;
