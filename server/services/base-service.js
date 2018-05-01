@@ -2,7 +2,7 @@ import ValidatorError from './auth/errors/validation';
 
 let data;
 
-/* eslint class-methods-use-this: 0 */
+/* eslint class-methods-use-this: 0, no-return-await: 0, no-restricted-globals: 0 */
 class BaseService {
   constructor(model) {
     this.model = model;
