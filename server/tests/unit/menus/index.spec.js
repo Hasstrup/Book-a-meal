@@ -24,8 +24,8 @@ describe('Menu Service Object', () => {
   });
 
   it('deleteOne should delete specfied object', () => {
-    MenuServiceObject.deleteOne('owner', 2);
-    expect(MenuServiceObject.fetchOne('owner', 2)).to.be.null;
+    MenuServiceObject.deleteOne('owner', 9);
+    expect(MenuServiceObject.fetchOne('owner', 9)).to.be.null;
   });
 
   it('getCatalogue should return an array of menus of the day', () => {

@@ -7,14 +7,13 @@ let source;
 let data;
 let target;
 let orders = [];
-let obj = {};
-let refs = {}
+let refs = {};
 
 
-/* eslint global-require: 0, class-methods-use-this: 0 */
+/* eslint global-require: 0, class-methods-use-this: 0, prefer-const: 0, no-return-await: 0, no-underscore-dangle: 0, no-restricted-globals: 0 */
 class KitchenService extends BaseService {
   constructor(model) {
-    super()
+    super();
     this.model = model;
   }
 

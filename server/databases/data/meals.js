@@ -50,7 +50,7 @@ const data = {
     description: 'This is the data of the guy',
   },
   13: {
-    name: 'Fried Rice and Menu + how amazigng', 
+    name: 'Fried Rice and Menu + how amazigng',
     description: 'This is the data of the guy',
   },
   14: {
@@ -79,3 +79,5 @@ const data = {
     description: 'This is the la'
   }
 }
+
+export default data;

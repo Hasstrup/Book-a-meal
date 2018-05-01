@@ -74,7 +74,7 @@ class BaseService {
   }
 
   checkArguments(...params) {
-    if (params.length < 2 || params.length > 3 || params[0].constructor !== String) {
+    if (params.length < 2 || params.length > 5 || params[0].constructor !== String) {
       return this.badRequest('Please pass in the right arguments');
     }
   }

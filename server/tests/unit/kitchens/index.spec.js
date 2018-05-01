@@ -40,8 +40,8 @@ describe('Kitchen Service Object', () => {
   });
 
   it('deleteOne should delete specfied object', () => {
-    KitchenService.deleteOne('caterer', 2);
-    expect(KitchenService.fetchOne('caterer', 2)).to.be.null;
+    KitchenService.deleteOne('caterer', 6);
+    expect(KitchenService.fetchOne('caterer', 6)).to.be.null;
   });
 
   it('Set menu of the day should change the menu of the day', async () => {
