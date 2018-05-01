@@ -1,4 +1,9 @@
 import { Router } from 'express';
+import MenuController from '../controllers/menus/';
+import ErrorHandler from '../middlewares/error/';
+import BaseMiddleware from '../middlewares/base-middleware';
+import MenuMiddleware from '../middlewares/menu';
+import AuthMiddleware from '../middlewares/auth'
 
 const router = Router();
 
@@ -14,27 +19,14 @@ const router = Router();
   to the subject kitchen
  */
 
-router.get('/', () => {
-  // send all the kitchens
-});
-
-
-router.get('/catalogue', () => {
-  // fetches all the menus of the day from the mock data store;
-});
+router.get('/catalogue', MenuController.fetchCatalogue, ErrorHandler.dispatch);
 
 /* the kitchen id is absolutely important and
 will forbid if there isnt one */
+router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, AuthMiddleware.checkMasterKey, MenuMiddleware.revokeAccess, MenuController.setMenuOfTheDay, ErrorHandler.dispatch);
 
-router.post('/', () => {
-  // set the menu of the day for the subject kitchen
-});
-
-
-//  get the menu of a particular kitchen
-router.get('/:kitchenId', () => {
-// send a particular user, check the query to know how much detail to send;
-});
+//get a particular menu; should return the
+router.get('/:mmid', MenuMiddleware.checkRequiredParams, MenuController.fetchSingle, ErrorHandler.dispatch)
 
 // this should create a new menu and expects the kitchenId in the query;
 router.post('/new', () => {
@@ -42,12 +34,12 @@ router.post('/new', () => {
 });
 
 // Edits menu contained in the mealID after checking the query for the kitchenID;
-router.put('/:menuID', () => {
+router.put('/:mmid', () => {
   // edit a new resource
 });
 
 // delete a menu also checks for the kitchen in the query object
-router.delete('/:menuId', () => {
+router.delete('/:mmid', () => {
 
 });
 

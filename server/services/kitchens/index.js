@@ -1,17 +1,19 @@
 import BaseService from '../base-service';
 import KitchenModel from '../../models/v1/kitchen';
+import Menu from '../../models/v1/menu';
+
 
 let source;
 let data;
 let target;
 let orders = [];
-let obj = {};
+let refs = {};
 
 
-/* eslint global-require: 0, class-methods-use-this: 0 */
+/* eslint global-require: 0, class-methods-use-this: 0, prefer-const: 0, no-return-await: 0, no-underscore-dangle: 0, no-restricted-globals: 0 */
 class KitchenService extends BaseService {
   constructor(model) {
-    super()
+    super();
     this.model = model;
   }
 
@@ -97,7 +99,6 @@ class KitchenService extends BaseService {
     }
     let ref = {};
     ref[`${key}`] = value;
-    console.log(ref)
     return await this.model.findOneAndUpdate(ref, changes);
   }
 
@@ -108,7 +109,19 @@ class KitchenService extends BaseService {
     return this.model.findOneAndDelete(ref);
   }
 
-
+  setMenuOfTheDay = async (key, value, newMenu) => {
+    this.checkArguments(key, value);
+    // check the owner;
+    let ref = {};
+    ref[`${key}`] = value;
+    refs.id = newMenu.ofTheDay;
+    data = Menu.findOne(refs);
+    target = this.model.findOne(ref);
+    if (data && target && data.owner === target.id) {
+      return await this.model.findOneAndUpdate(ref, newMenu);
+    }
+    this.noPermissions('You do not have permissions to do that');
+  }
 }
 //
 const KitchenServiceObject = new KitchenService(KitchenModel);

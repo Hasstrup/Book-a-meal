@@ -48,6 +48,9 @@ class BaseMiddleware {
     this.model = model;
   }
 
+  _checkAuthenticity = (str1, str2) => str1.toString() === this.hashString(`HellothereKanye${str2}`).toString();
+
+
   /* get the required fields from the model and their types from the model's keys */
   checkRequired = (req, res, next) => {
     if (!this.model) {
@@ -67,6 +70,16 @@ class BaseMiddleware {
       return next(err);
     }
     return next();
+  }
+
+  checkRequiredParams = (req, res, next) => {
+    const { key } = this.model.masterKey;
+    if (req.params[`${key}`]) {
+      return next();
+    }
+    err = new Error('A required param is missing');
+    err.status = 400;
+    return next(err);
   }
 
   /* eslint no-restricted-globals: 0, radix: 0 */
