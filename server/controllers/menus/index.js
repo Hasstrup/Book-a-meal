@@ -5,7 +5,6 @@ let data;
 
 /* eslint radix: 0 */
 class MenuControllerBase extends BaseController {
-
   fetchCatalogue = (req, res, next) => {
     this.wrapInTryCatch(() => {
       data = MenuServiceObject.fetchCatalogue();

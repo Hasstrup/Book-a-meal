@@ -3,7 +3,7 @@ import MenuController from '../controllers/menus/';
 import ErrorHandler from '../middlewares/error/';
 import BaseMiddleware from '../middlewares/base-middleware';
 import MenuMiddleware from '../middlewares/menu';
-import AuthMiddleware from '../middlewares/auth'
+import AuthMiddleware from '../middlewares/auth';
 
 const router = Router();
 
@@ -27,7 +27,6 @@ router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthoriza
 
 // get a particular menu; should return the
 router.get('/:mmid', MenuMiddleware.checkRequiredParams, MenuController.fetchSingle, ErrorHandler.dispatch);
-
 
 
 export default router;

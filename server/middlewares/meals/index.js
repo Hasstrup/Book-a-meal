@@ -3,10 +3,8 @@ import MealModel from '../../models/v1/meal';
 import ValidatorError from '../../services/auth/errors/validation';
 import KitchenModel from '../../models/v1/kitchen';
 
-let data;
-let target;
 let source;
-let ref = {};
+const ref = {};
 
 /* eslint radix: 0, no-underscore-dangle: 0 */
 class MealMiddlewareBase extends BaseMiddleware {

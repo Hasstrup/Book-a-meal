@@ -4,17 +4,18 @@ import User from '../../models/v1/user';
 import ValidatorError from '../../services/auth/errors/validation';
 
 let target;
-let ref = {}
+const ref = {};
 
 class MenuMiddlewareBase extends BaseMiddleware {
   constructor(model) {
     super();
-    this.model = model
+    this.model = model;
   }
   /* the logic is that the user requests to setthe menu of the ay for his kitchen;
   so we check the userid query and find the user, then check the salted hash of his kitchen
   if it matches the hash provided in the req.authorization;
    */
+  /* eslint max-len: 0, radix: 0, no-underscore-dangle: 0 */
   revokeAccess = (req, res, next) => {
     ref.id = parseInt(req.query.uuid);
     target = User.findOne(ref);
@@ -22,9 +23,9 @@ class MenuMiddlewareBase extends BaseMiddleware {
       return next(new ValidatorError('You do not have permissions to do that', 401));
     }
     req.user = target;
-    return next()
+    return next();
   };
 }
 
-const MenuMiddleware = new MenuMiddlewareBase(Menu)
-export default MenuMiddleware
+const MenuMiddleware = new MenuMiddlewareBase(Menu);
+export default MenuMiddleware;

@@ -3,7 +3,7 @@ import ValidatorError from '../../services/auth/errors/validation';
 import KitchenModel from '../../models/v1/kitchen';
 
 let kitchen;
-let ref = {};
+const ref = {};
 
 /* eslint radix: 0, no-underscore-dangle: 0, no-restricted-globals: 0 */
 export class KitchenMiddleWareParent extends BaseMiddleware {

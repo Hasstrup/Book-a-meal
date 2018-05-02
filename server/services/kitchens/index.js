@@ -79,7 +79,7 @@ class KitchenService extends BaseService {
   _getOrders = async (node) => {
     target = Object.values(require('../../databases/data/orders').default);
     this._getMenus(node).forEach((menu) => {
-      const ordersC = target.filter(order => Object.keys(order.content).includes(( menu.id.toString())));
+      const ordersC = target.filter(order => Object.keys(order.content).includes((menu.id.toString())));
       orders = [...ordersC];
       return orders;
     });

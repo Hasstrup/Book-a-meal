@@ -3,15 +3,15 @@ const orders = {
     created: Date.now(),
     content: {
       1: {
-        items: [1,3,4],
+        items: [1, 3, 4],
         processed: true
       },
       2: {
-        items: [1,2,3],
+        items: [1, 2, 3],
         processed: true
       },
       5: {
-        items: [1,2],
+        items: [1, 2],
         processed: true
       }
     },
@@ -21,7 +21,7 @@ const orders = {
     created: Date.now(),
     content: {
       1: {
-        items: [1,2,3],
+        items: [1, 2, 3],
         processed: true
       },
     }
@@ -33,6 +33,6 @@ const orders = {
       },
     }
   }
-}
+};
 
-export default orders
+export default orders;
