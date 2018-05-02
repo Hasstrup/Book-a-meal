@@ -28,8 +28,8 @@ describe('Kitchen Service Object', () => {
     expect(data).to.be.an('array');
   });
 
-  it('Get menus should return all the menus belonging to a user', () => {
-    data = KitchenService.fetchMenus('caterer', 1);
+  it('Get menus should return all the menus belonging to a user', async () => {
+    data = await KitchenService.fetchMenus('caterer', 1);
     expect(data).to.be.an('array');
     expect(data[0].name).to.equal('Fried rice and fish');
   });
