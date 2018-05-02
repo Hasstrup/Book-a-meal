@@ -100,7 +100,7 @@ class BaseMiddleware {
       return next();
     }
     err = new Error('There is no identifier for this request');
-    err.status = 40.1;
+    err.status = 401;
     return next(err);
   }
 

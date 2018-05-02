@@ -36,7 +36,7 @@ const data = {
     description: 'This is the data of the guy',
 
   },
-  10 : {
+  10: {
     name: 'Fried Rice and Menu and thats amazing',
     description: 'This is the data of the guy',
 
@@ -78,6 +78,6 @@ const data = {
     name: 'How great this is',
     description: 'This is the la'
   }
-}
+};
 
 export default data;

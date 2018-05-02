@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 
+/* eslint no-underscore-dangle: 0 */
 class DataHandler {
   constructor(initData, required = []) {
     if ((typeof initData) !== 'object') {
@@ -85,13 +86,12 @@ class DataHandler {
     } else if (Object.keys(query)[0] === 'id' && Object.values(query)[0].constructor === Number) {
       return true;
     } else if (this.refs[`${Object.keys(query)}`] && Object.values(query)[0].constructor === Number) {
-      return true
+      return true;
     } else if (!Object.keys(this.keys).includes(Object.keys(query)[0])) {
       throw new TypeError(`${Object.keys(query)[0]} is not contained in the schema of this model`);
-    } else if (Object.values(query)[0].constructor !== this.keys[`${Object.keys(query)[0]}`] ) {
+    } else if (Object.values(query)[0].constructor !== this.keys[`${Object.keys(query)[0]}`]) {
       throw new TypeError(`Invalid datatype passed to ${Object.keys(query)[0]}`);
-    }
-     else {
+    } else {
       return true;
     }
   }
@@ -141,7 +141,7 @@ class DataHandler {
         validata[`${key}`] = input[`${key}`];
       } else if (input[`${key}`] && this.refsMultiple[`${key}`] && input[`${key}`].constructor === Array) {
         validata[`${key}`] = input[`${key}`];
-      } else if (input[`${key}`] && this.refs[`${key}`] && input[`${key}`].constructor === Number){
+      } else if (input[`${key}`] && this.refs[`${key}`] && input[`${key}`].constructor === Number) {
         validata[`${key}`] = input[`${key}`];
       } else if (input[`${key}`] && input[`${key}`].constructor !== this.keys[`${key}`] && input[`${key}`] !== null) {
         throw new TypeError(`Wrong datatype for field ${key}`);
@@ -264,7 +264,6 @@ class DataHandler {
 
     return node;
   }
-
 }
 
 export default DataHandler;

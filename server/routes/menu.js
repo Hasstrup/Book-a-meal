@@ -3,7 +3,7 @@ import MenuController from '../controllers/menus/';
 import ErrorHandler from '../middlewares/error/';
 import BaseMiddleware from '../middlewares/base-middleware';
 import MenuMiddleware from '../middlewares/menu';
-import AuthMiddleware from '../middlewares/auth'
+import AuthMiddleware from '../middlewares/auth';
 
 const router = Router();
 
@@ -25,23 +25,8 @@ router.get('/catalogue', MenuController.fetchCatalogue, ErrorHandler.dispatch);
 will forbid if there isnt one */
 router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, AuthMiddleware.checkMasterKey, MenuMiddleware.revokeAccess, MenuController.setMenuOfTheDay, ErrorHandler.dispatch);
 
-//get a particular menu; should return the
-router.get('/:mmid', MenuMiddleware.checkRequiredParams, MenuController.fetchSingle, ErrorHandler.dispatch)
-
-// this should create a new menu and expects the kitchenId in the query;
-router.post('/new', () => {
-  // add a new menu
-});
-
-// Edits menu contained in the mealID after checking the query for the kitchenID;
-router.put('/:mmid', () => {
-  // edit a new resource
-});
-
-// delete a menu also checks for the kitchen in the query object
-router.delete('/:mmid', () => {
-
-});
+// get a particular menu; should return the
+router.get('/:mmid', MenuMiddleware.checkRequiredParams, MenuController.fetchSingle, ErrorHandler.dispatch);
 
 
 export default router;
