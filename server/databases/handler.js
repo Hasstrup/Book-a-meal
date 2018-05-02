@@ -147,6 +147,9 @@ class DataHandler {
         throw new TypeError(`Wrong datatype for field ${key}`);
       }
     });
+    if (input.content && this._checkContent) {
+      this._checkContent(input);
+    }
     return { passing: true, validata };
   }
 
