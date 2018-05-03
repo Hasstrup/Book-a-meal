@@ -28,6 +28,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "cors": "^2.8.4",
@@ -35,10 +36,13 @@
     "express": "^4.16.3",
     "mocha": "^5.1.1",
     "morgan": "^1.9.0",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.37.6",
+    "sequelize-cli": "^4.0.0",
     "sinon": "^4.5.0",
-    "validator": "^9.4.1",
     "supertest": "^3.0.0",
-    "babel-polyfill": "^6.26.0"
+    "validator": "^9.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
