@@ -1,0 +1,24 @@
+import { Router } from 'express';
+import auth from './routes/auth';
+import kitchens from './routes/kitchens';
+import users from './routes/user';
+import meals from './routes/meals';
+import orders from './routes/orders';
+import menus from './routes/menu';
+
+
+const api = Router();
+
+api
+  .get('/heartbeat', (req, res) => res.send({ ok: true }))
+  .use('/auth', auth)
+  .use('/users', users)
+  .use('/kitchens', kitchens)
+  .use('/meals', meals)
+  .use('/menus', menus)
+  .use('/orders', orders);
+
+// No routes matched? 404.
+api.use((req, res) => res.status(404).send('Sorry that route/method doesnt exist'));
+
+export default api;

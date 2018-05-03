@@ -71,6 +71,7 @@ body {
     img {
       height: 100%;
       width: 100%;
+      object-fit: cover;
     }
 
   .menu-details {
@@ -107,7 +108,7 @@ body {
 
   .first-image-grid {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     padding: 0 5% 0 6%;
     margin-bottom: 2%;
     .details-container {
@@ -119,8 +120,8 @@ body {
 
   .second-image-grid {
     display: flex;
-    flex-flow: row wrap;
-    padding: 0 1% 0 6%;
+    flex-flow: row nowrap;
+    padding: 0 6% 0 7%;
     margin-bottom: 2%;
     .details-container {
       height: 200px;
@@ -259,6 +260,12 @@ body {
     .dangling-shapes {
       display: none !important;
     }
+  }
+  .first-image-grid {
+    flex-flow: row wrap !important
+  }
+  .second-image-grid {
+    flex-flow: row wrap !important
   }
   .image-grid {
     img {

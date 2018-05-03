@@ -347,8 +347,10 @@
       <p class='footer-log-right'> Check the code on github</p>
     </footer>
     <script src="../scripts/orders.js" type="text/javascript"> </script>
-    <div class='modal-base'>
+    <div class='modal-base' >
+      <div class='main-modal-backdrop-ui' onclick="modal('close')">
 
+      </div>
       <!--  Current order- main stack -->
         <div class='current-order-stack-main' id='modal-card'>
           <!-- side containing text -->
@@ -365,7 +367,7 @@
                   <p class='content-item-key'> Date </p>
                   <p class='content-item-value'> Monday, 25/08/2018 </p>
                 </div>
-                <div class='pay-button-large' onclick="modal('close')">
+                <div class='pay-button-large'>
                     Close
                 </div>
           </div>

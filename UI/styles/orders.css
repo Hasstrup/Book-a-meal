@@ -15,6 +15,12 @@ body {
     top: 0;
     position: fixed;
     background-color: rgba(17, 17, 17, 0.4); }
+    body .modal-base .main-modal-backdrop-ui {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      z-index: 1; }
     body .modal-base .current-order-stack-main {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -115,7 +121,9 @@ body {
             font-family: 'apercu'; }
     body .modal-base .current-order-stack-main {
       width: 50% !important;
-      height: 50% !important; }
+      height: 50% !important;
+      position: relative;
+      z-index: 20; }
       body .modal-base .current-order-stack-main .current-order-stack-side-one {
         background-color: white; }
       body .modal-base .current-order-stack-main .current-order-main-card {
