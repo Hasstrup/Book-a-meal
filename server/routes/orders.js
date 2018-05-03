@@ -1,4 +1,10 @@
 import { Router } from 'express';
+import BaseMiddleware from '../middlewares/base-middleware';
+import OrdersMiddleware from '../middlewares/orders';
+import AuthMiddleware from '../middlewares/auth/';
+import KitchenMiddleware from '../middlewares/kitchen/';
+import OrdersController from '../controllers/orders';
+import ErrorHandler from '../middlewares/error';
 
 const router = Router();
 
@@ -10,42 +16,18 @@ const router = Router();
   4 type=1 means it's a user's request, type=2 means it's a kitchen's request;
 */
 
+/* this route expects that the request comes
+  with a type key indicating whether it's for a user or a kitchen */
+router.get('/', BaseMiddleware.checkAuthorization, AuthMiddleware.checkMasterKey, OrdersMiddleware.checkType, BaseMiddleware.restrictAccess, OrdersController.fetchOrders, ErrorHandler.dispatch);
 
-/* this fetches all the orders in the database,
-if the type & did query keys are supplied, it fetches all the orders
-made BY the user or all the orders made TO the kitchen */
-router.get('/', () => {
-  // send all the kitchens
-});
-
-// this should get the order contained in the id
-router.get('/:orderId', () => {});
-
-/* this route is exclusive to only type=1 as only users should be able to make new orders */
-router.post('/', () => {
-  // set the menu of the day for the subject kitchen
-});
-
+/* this route is exclusive to only type=user as only users should be able to make new orders */
+router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, AuthMiddleware.checkMasterKey, BaseMiddleware.restrictAccess, OrdersMiddleware.appendOwner, OrdersController.create, ErrorHandler.dispatch);
 
 //  this method should only allow kitchens change the processed key from false to true;
-router.put('/:orderId', () => {
-// send a particular user, check the query to know how much detail to send;
-});
+router.put('/:ooid', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, KitchenMiddleware.checkMasterKey, KitchenMiddleware.revokeAccess, OrdersMiddleware.revokeAccess, OrdersController.updateOne, ErrorHandler.dispatch);
 
-// this should create a new menu and expects the kitchenId in the query;
-router.post('/new', () => {
-  // add a new menu
-});
 
-// Edits menu contained in the mealID after checking the query for the kitchenID;
-router.put('/:menuID', () => {
-  // edit a new resource
-});
 
-// delete a menu also checks for the kitchen in the query object
-router.delete('/:menuId', () => {
-
-});
 
 
 export default router;
