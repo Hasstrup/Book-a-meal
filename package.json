@@ -57,6 +57,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
+    "jsdoc": "^3.5.5",
     "nyc": "^11.7.1"
   }
 }
