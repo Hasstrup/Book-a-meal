@@ -116,9 +116,12 @@ class DataHandler {
       if (Object.values(validata).length === 0) {
         throw new Error('Sorry that was unsucessful');
       }
-      const id = Object.values(this.data).length + 1;
+      // LFA suggestion
+      let target
+      target = Object.values(this.data)
+      const id = (target.length > 0) ? (target[target.length - 1].id + 1) : 1;
       const otherdata = { ...validata, id };
-      this.data[`${id}`] = otherdata;
+      this.data[`${id}`] = this._addTimeStamps(otherdata);
       return this.data[`${id}`];
     } catch (err) {
       throw err;
@@ -147,6 +150,7 @@ class DataHandler {
         throw new TypeError(`Wrong datatype for field ${key}`);
       }
     });
+    // this is for validating orders;
     if (input.content && this._checkContent) {
       this._checkContent(input);
     }
@@ -267,6 +271,8 @@ class DataHandler {
 
     return node;
   }
+
+  _addTimeStamps = data => Object.assign({}, data, { created: Date.now() })
 }
 
 export default DataHandler;

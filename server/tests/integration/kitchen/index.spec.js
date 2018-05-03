@@ -14,9 +14,9 @@ describe('Kitchen endpoints', () => {
   });
 
   it('should get the specific user Get/:ktid', async () => {
-    res = await request(app).get('/api/v1/kitchens/3').query({ uuid: '2', populate: 'populate' });
+    res = await request(app).get('/api/v1/kitchens/2').query({ uuid: '1', populate: 'populate' });
     expect(res.statusCode).to.equal(200);
-    expect(res.body.data.name).to.equal('Hasstrups Kitchen');
+    expect(res.body.data.name).to.equal('Yet another smaple kitchen2');
     expect(res.body.data.caterer).to.be.an('object');
   });
 
@@ -29,7 +29,7 @@ describe('Kitchen endpoints', () => {
 
   it('call to the kitchen put endpoint should', async () => {
     data = { subscribers: [3, 2] };
-    res = await request(app).put('/api/v1/kitchens/2').send(data).set('authorization', `${Encrypt.hashStr('HellothereKanye2')}`);
+    res = await request(app).put('/api/v1/kitchens/1').send(data).set('authorization', `${Encrypt.hashStr('HellothereKanye1')}`);
     expect(res.statusCode).to.equal(201);
     expect(res.body.data.subscribers).to.include(3);
   });

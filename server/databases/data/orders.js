@@ -4,15 +4,15 @@ const orders = {
     content: {
       1: {
         items: [2, 3],
-        processed: true
+        processed: false
       },
       2: {
         items: [4,3],
-        processed: true
+        processed: false
       },
       5: {
         items: [3, 3],
-        processed: true
+        processed: false
       }
     },
     client: 1,

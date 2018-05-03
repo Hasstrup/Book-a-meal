@@ -15,7 +15,7 @@ class MealControllerBase extends BaseController {
 
   create = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await MealServiceObject.create(parseInt(req.kitchen.id), req.body);
+      data = await MealServiceObject.create(parseInt(req.params.ktid), req.body);
       this.resourceCreated(res, data);
     }, next);
   }

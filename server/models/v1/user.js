@@ -21,7 +21,8 @@ const User = new UserModel(
     lastname: String,
     kitchen: { refs: 'Kitchens' },
     orders: [{ refs: 'Orders' }],
-    phone: Number
+    phone: Number,
+    created: Date
   },
   [
     'username',

@@ -63,7 +63,8 @@ class BaseMiddleware {
     if (!this.model.required.some((key) => {
       if (!req.body[`${key}`] || req.body[`${key}`].constructor !== model.keys[`${key}`]) {
         return false;
-      } return true;
+      }
+      return true;
     })) {
       err = new Error('A required field is missing');
       err.status = 400;
@@ -122,6 +123,16 @@ class BaseMiddleware {
     err.status = 403;
     return next(err);
   }
+  static restrictAccess = (req, res, next) => {
+    const target = Object.keys(req.query)[0];
+    if (req.headers.authorization.toString() === Encrypt.hashStr(`HellothereKanye${req.query[`${target}`]}`).toString()) {
+      return next();
+    }
+    err = new Error('You need to be authorized to do this');
+    err.status = 403;
+    return next(err);
+  }
+
 
    hashString = str => Encrypt.hashStr(str);
 }

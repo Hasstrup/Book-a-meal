@@ -36,28 +36,30 @@ class OrderModelBase extends DataHandler {
 
   /* this method checks  */
   _populateContent = (order) => {
-    if (!order.content || order.content.constructor !== Object || !order.content.items || !order.content.items.constructor === Array) {
+    if (!order.content) {
       err = new Error('The content passed in might be wrong');
       err.status = 500;
       throw err;
     }
-    data = order.content.items.map((key) => {
-      source = require('../../databases/data/meals').default;
-      return source[`${key}`];
+    // this works for fetching users
+    const iterator = order.content.constructor === Array ? order.content : Object.values(order.content);
+    iterator.forEach((content, index) => {
+      data = content.items.map((key) => {
+        source = require('../../databases/data/meals').default;
+        return source[`${key}`];
+      });
+      content.items = data;
+      order.content[`${index + 1}`] = content;
     });
-    // final replacement of the content in the order;
-    order.content.items = data;
     return order;
   }
 }
 
 const OrderModel = new OrderModelBase({
-  created: Date,
   content: Object,
   client: { refs: 'Users' }
 }, [
   'content',
-  'client',
 ]);
 
 // set the masterKey of the model
