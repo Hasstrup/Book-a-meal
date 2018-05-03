@@ -27,8 +27,4 @@ describe('Orders endpoints', () => {
     expect(res.body.data).to.be.an('object');
     expect(res.body.data.client).to.equal(1);
   });
-
-  it('Update one should', async () => {
-
-  })
 });
