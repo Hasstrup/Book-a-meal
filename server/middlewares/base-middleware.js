@@ -4,6 +4,15 @@ import Encrypt from '../helpers/encrypt/';
 let err;
 
 class BaseMiddleware {
+
+  /**
+   * @static checkForNullInput - This method checks for null input in the request body
+   *
+   * @param  {type} req  This is the express request object
+   * @param  {type} res  This is the express response object
+   * @param  {type} next description
+   * @return {type}      description
+   */
   static checkForNullInput(req, res, next) {
     const body = Object.keys(req.body);
     if (body.length) {
@@ -23,6 +32,10 @@ class BaseMiddleware {
     return next(err);
   }
 
+
+  /**
+   *
+   */
   static checkForEmail = (req, res, next) => {
     if (req.body.email && req.body.email.toString().length > 1 && isEmail(req.body.email)) {
       next();
@@ -32,6 +45,10 @@ class BaseMiddleware {
     return next(err);
   }
 
+
+  /**
+   *
+   */
   static checkPopulateQuery = (req, res, next) => {
     if (req.query && req.query.populate && req.query.populate === 'populate') {
       req.populate = true;
@@ -52,6 +69,12 @@ class BaseMiddleware {
 
 
   /* get the required fields from the model and their types from the model's keys */
+
+
+
+  /**
+   *
+   */
   checkRequired = (req, res, next) => {
     if (!this.model) {
       err = new Error('No model present for the checkRequired middleware');
@@ -73,6 +96,11 @@ class BaseMiddleware {
     return next();
   }
 
+
+
+  /**
+   *
+   */
   checkRequiredParams = (req, res, next) => {
     const { key } = this.model.masterKey;
     if (req.params[`${key}`]) {
