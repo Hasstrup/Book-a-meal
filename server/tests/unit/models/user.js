@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import faker from 'faker';
-import { User } from '../../../models/user';
+import  User  from '../../../models/user';
 import { validuser } from '../factories/user';
 
 let data;

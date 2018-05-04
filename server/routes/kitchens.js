@@ -29,11 +29,6 @@ router.put('/:ktid', BaseMiddleware.checkForNullInput, KitchenMiddleware.checkKi
 // this route seeks for the user_id query and then deletes the target if the resource is found
 router.delete('/:ktid', KitchenMiddleware.checkKitchenParams, BaseMiddleware.checkAuthorization, KitchenMiddleware.revokeAccess, KitchenController.deleteOne, ErrorHandler.dispatch);
 
-// this route subscribes the user embedded in the uid query params to the kitchen
-// router.put('/subscribe/:kithchenid', () => {
-//   // edit a new resource
-// });
-
 // This gets the subscribers of a particular kitchen belonging to a kitchen;
 router.get('/fetch/subscribers', AuthMiddleware.checkMasterKey, BaseMiddleware.checkAuthorization, KitchenMiddleware.checkMasterKey, KitchenMiddleware.restrictAccess, KitchenController.fetchSubscribers, ErrorHandler.dispatch);
 
