@@ -31,4 +31,4 @@ An application that allows customers sign up and create kitchens and start selli
 Project is being developed with the Project Management Tool, Pivotal Tracker. Check out the template here [https://www.pivotaltracker.com/n/projects/2165532](https://www.pivotaltracker.com/n/projects/2165532)
 
 ### Template
-The template is currently in development.
+The template is done and is currently hosted [here](https://hasstrup.github.io/Book-a-meal/UI/html/index.html).
