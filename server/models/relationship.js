@@ -4,7 +4,6 @@ import Menu from './menu';
 import Order from './order';
 import Meal from './meal';
 
-let models;
 
 // user to kitchen;
 Kitchen.belongsTo(User);
@@ -25,5 +24,5 @@ Meal.belongsTo(Kitchen);
 User.hasMany(Order);
 Order.belongsTo(User);
 
-models = { Kitchen, User }
-export default models
+const models = { Kitchen, User };
+export default models;

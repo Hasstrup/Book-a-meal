@@ -13,6 +13,12 @@ export const validuser = () => {
   };
 };
 
+export const invaliduser = {
+  username: 1243,
+  password: 124,
+  email: 'thisisanemailthatshouldfail'
+}
+
 export const validKitchen = {
   name: 'Hasstrups Test Kitchen',
   description: 'Hasstrup really likes cool kitchen'
