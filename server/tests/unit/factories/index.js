@@ -13,4 +13,12 @@ export const validuser = () => {
   };
 };
 
-export const invalidata = {};
+export const validKitchen = {
+  name: 'Hasstrups Test Kitchen',
+  description: 'Hasstrup really likes cool kitchen'
+};
+
+export const invalidKitchen = {
+  name: 12,
+  description: 123
+}

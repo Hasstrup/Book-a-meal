@@ -4,7 +4,14 @@ import { sequelize } from './';
 const Kitchen = sequelize.define('Kitchen', {
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      isString(value) {
+        if (value.constructor !== String) {
+          throw new Error('name must be string');
+        }
+      }
+    }
   },
   description: {
     type: DataTypes.STRING,
@@ -12,6 +19,11 @@ const Kitchen = sequelize.define('Kitchen', {
   },
   image: {
     type: DataTypes.STRING
+  },
+  id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    primaryKey: true
   }
 })
 

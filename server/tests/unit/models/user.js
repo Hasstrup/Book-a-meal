@@ -1,7 +1,6 @@
 import { expect } from 'chai'
-import faker from 'faker';
-import  User  from '../../../models/user';
-import { validuser } from '../factories/user';
+import  User from '../../../models/user';
+import { validuser } from '../factories/';
 
 let data;
 let res;
@@ -13,7 +12,7 @@ let res;
 */
 
 //
-describe('User model', () => {
+describe('User model POSTGRES', () => {
   it('should successfully create a user and cast it to the DB', async () => {
     res = await User.create(validuser());
     expect(res.username).to.exist;
