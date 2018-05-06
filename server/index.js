@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import api from './api';
 import config from './config/config.json';
-import db from './models/'
+
 
 
 

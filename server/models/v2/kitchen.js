@@ -24,6 +24,10 @@ const Kitchen = sequelize.define('Kitchen', {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true
+  },
+  UserId: {
+    type: DataTypes.UUID,
+    allowNull: false
   }
 })
 

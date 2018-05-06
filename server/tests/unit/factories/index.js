@@ -1,10 +1,10 @@
 import faker from 'faker';
-
 /**
   * User factory
   *@return {Object} An object to build for the user test;
   *@desc
 */
+
 export const validuser = () => {
   return {
     username: faker.name.firstName(),
@@ -21,7 +21,7 @@ export const invaliduser = {
 
 export const validKitchen = {
   name: 'Hasstrups Test Kitchen',
-  description: 'Hasstrup really likes cool kitchen'
+  description: 'Hasstrup really likes cool kitchen',
 };
 
 export const invalidKitchen = {
