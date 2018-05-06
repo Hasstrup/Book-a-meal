@@ -3,8 +3,7 @@ import User from './user';
 import Menu from './menu';
 import Order from './order';
 import Meal from './meal';
-
-
+import MealOrders from './meal-order-join'
 // user to kitchen;
 Kitchen.belongsTo(User);
 User.hasOne(Kitchen);
@@ -21,9 +20,14 @@ Meal.belongsTo(Kitchen);
 Meal.belongsTo(Menu);
 Menu.hasMany(Meal);
 
-// Orders
+// Orders, should orders have manu meals?
 User.hasMany(Order);
 Order.belongsTo(User);
 
-const models = { Kitchen, User, Menu, Meal };
+// An order should have many meals and a meal can have many meals
+Order.belongsToMany(Meal, { through: MealOrders });
+Meal.belongsToMany(Order, { through: MealOrders });
+
+/* eslint object-curly-newline: 0 */
+const models = { Kitchen, User, Menu, Meal, Order };
 export default models;

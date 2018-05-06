@@ -2,14 +2,14 @@ import { expect } from 'chai';
 import models from '../../../models/v2/relationship';
 
 const { Meal, Kitchen, Menu } = models;
-let res;
 let source;
 let target;
 let data;
+
 /* eslint object-curly-newline: 0, no-unused-expressions: 0 */
 describe('Meal model Postgres', () => {
   before(async () => {
-    await Meal.sync({ force: true })
+    await Meal.sync({ force: true });
   });
 
   describe('Create function', () => {
@@ -68,6 +68,4 @@ describe('Meal model Postgres', () => {
       expect(await a.getMeals()).to.be.an('array');
     });
   });
-
-
-})
+});

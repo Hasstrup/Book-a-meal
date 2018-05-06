@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import  models from '../../../models/v2/relationship';
+import models from '../../../models/v2/relationship';
 import { validKitchen, invalidKitchen } from '../factories/';
 
 const { Kitchen, User } = models;
@@ -40,7 +40,7 @@ describe('Kitchen model POSTGRES', () => {
   describe('Kitchen find method', () => {
     it('Find One method should retrieve an object from the db', async () => {
       try {
-        data = await Kitchen.findOne({ where: { name: 'Hasstrups Test Kitchen' }});
+        data = await Kitchen.findOne({ where: { name: 'Hasstrups Test Kitchen' } });
         expect(data).to.exist;
       } catch (e) {
         expect(e).to.not.exist;
@@ -60,10 +60,9 @@ describe('Kitchen model POSTGRES', () => {
 
   describe('Kitchen relationships and population', () => {
     it('Should return the user object related to a user', async () => {
-      data = await Kitchen.findOne({ where: { name: 'Hasstrups Test Kitchen' }, include: [ User ]});
+      data = await Kitchen.findOne({ where: { name: 'Hasstrups Test Kitchen' }, include: [User] });
       expect(data).to.exist;
       expect(data.User).to.be.an('object');
     });
-});
-
+  });
 });
