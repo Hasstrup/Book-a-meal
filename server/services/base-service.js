@@ -2,12 +2,18 @@ import ValidatorError from './auth/errors/validation';
 
 let data;
 
-/* eslint class-methods-use-this: 0, no-return-await: 0, no-restricted-globals: 0 */
+/* eslint class-methods-use-this: 0, no-return-await: 0, no-restricted-globals: 0, no-underscore-dangle: 0 */
 class BaseService {
-  constructor(model) {
+  constructor(model, __model) {
     this.model = model;
+    this.__model = __model;
   }
-
+  /**
+   * [create creates a new item int]
+   * @param  {Integer}  id   [description]
+   * @param  {Object}  body [description]
+   * @return {Object}  n    [description]
+   */
   create = async (id, body) => {
     if (!id || !body || isNaN(id) || (typeof body) !== 'object') {
       return this.badRequest('please pass in the right values :)');
@@ -71,6 +77,10 @@ class BaseService {
 
   unprocessableEntity(message) {
     this.throwError(message, 422);
+  }
+
+  databaseError(message) {
+    this.throwError(message, 409); 
   }
 
   checkArguments(...params) {
