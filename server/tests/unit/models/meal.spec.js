@@ -9,7 +9,6 @@ let data;
 /* eslint object-curly-newline: 0, no-unused-expressions: 0 */
 describe('Meal model Postgres', () => {
   before(async () => {
-    // sync the Meal schema into the database into the id;
     await Meal.sync({ force: true })
   });
 
@@ -18,7 +17,7 @@ describe('Meal model Postgres', () => {
       source = await Kitchen.findAll();
       target = await Meal.create({ name: 'Fried Rice and Banku', description: 'This is the FriedRice andd Banku ting', KitchenId: source[0].id, price: 2000 });
       expect(target).to.be.an('object');
-      expect(target.name).to.equal('Fried Rice and Banku')
+      expect(target.name).to.equal('Fried Rice and Banku');
     });
   });
 
@@ -39,18 +38,18 @@ describe('Meal model Postgres', () => {
     it('Find One should return an object of meal', async () => {
       data = await Meal.findOne({ where: { id: target.id } });
       expect(data).to.be.an('object');
-      expect(data.name)
+      expect(data.name).to.equal('Fried Rice and Banku');
     });
   });
 
   describe('Relationships of the meal', () => {
     it('Get Kitchen(owner) of the meal Bi-directional', async () => {
-      data = await Meal.findOne({ where: { id: target.id }, include: [Kitchen]});
+      data = await Meal.findOne({ where: { id: target.id }, include: [Kitchen] });
       expect(data.Kitchen).to.be.an('object');
     });
 
     it('The Kitchen should have meals Bi-directional', async () => {
-      data = await Kitchen.findOne({ where: { id: source[0].id }, include: [ Menu, Meal ]});
+      data = await Kitchen.findOne({ where: { id: source[0].id }, include: [Menu, Meal] });
       expect(data.Menus).to.be.an('array');
       expect(data.Meals).to.be.an('array');
       expect(data.Meals.length).to.be.above(0);
@@ -68,7 +67,7 @@ describe('Meal model Postgres', () => {
       expect(await data.getMenu()).to.be.an('object');
       expect(await a.getMeals()).to.be.an('array');
     });
-  })
+  });
 
 
 })
