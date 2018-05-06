@@ -20,6 +20,12 @@ const Menu = sequelize.define('Menu', {
       model: 'Kitchens',
       key: 'id'
     }
+  },
+  id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    primaryKey: true,
+    unique: true
   }
 });
 

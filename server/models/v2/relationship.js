@@ -17,12 +17,13 @@ Menu.belongsTo(Kitchen);
 Kitchen.hasMany(Meal);
 Meal.belongsTo(Kitchen);
 
-// menu to meal
-// menu should have an array of meals - no relationship
+// menu should have an array of meals - no relationship;
+Meal.belongsTo(Menu);
+Menu.hasMany(Meal);
 
 // Orders
 User.hasMany(Order);
 Order.belongsTo(User);
 
-const models = { Kitchen, User, Menu };
+const models = { Kitchen, User, Menu, Meal };
 export default models;
