@@ -24,6 +24,11 @@ export const validKitchen = {
   description: 'Hasstrup really likes cool kitchen',
 };
 
+export const validmenu = {
+  name: 'This is pretty awesome menu',
+  description: 'Do you know how nice this menu is?', 
+}
+
 export const invalidKitchen = {
   name: 12,
   description: 123

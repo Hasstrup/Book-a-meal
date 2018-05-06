@@ -24,5 +24,5 @@ Meal.belongsTo(Kitchen);
 User.hasMany(Order);
 Order.belongsTo(User);
 
-const models = { Kitchen, User };
+const models = { Kitchen, User, Menu };
 export default models;
