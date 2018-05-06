@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import models from '../../../models/v2/relationship';
 import { validmenu } from '../factories/'
 
-const { Menu, Kitchen } = models;
+const { Menu, Kitchen, User } = models;
 let data;
 let source;
 let res;
@@ -31,5 +31,40 @@ describe(' Menu model postgres', () => {
         expect(e).to.exist;
       }
     });
+  });
+
+  describe('Menu finder methods', () => {
+    it('Find all should return an array of menus', async () => {
+      data = await Menu.findAll();
+      expect(data).to.be.an('array');
+    });
+
+    it('Find one should return an object of data', async () => {
+      data = await Menu.findOne({ where: { name: 'This is pretty awesome menu' } });
+      expect(data).to.be.an('object');
+      expect(data.KitchenId).to.be.a('string');
+    });
+
+    describe('Menu relationships and population', async () => {
+      // create a kitchen and include it in the query
+      before(async () => {
+        [res] = await Kitchen.findAll();
+        await Menu.create({ name: 'This is Hasstrups sexy kitchen', description: 'This is a pretty great ting', KitchenId: res.id });
+        return await Menu.create({ name: 'This is another sexy Hasstrup Kitchen', description: 'This another pretty great ting', KitchenId: res.id });
+      });
+
+      it('Find one should populate the menu with content', async () => {
+        data = await Menu.findOne({ where: { name: 'This is Hasstrups sexy kitchen' }, include: [Kitchen] });
+        expect(data.Kitchen).to.be.an('object');
+      });
+
+      it('Kitchen should have an array of menus', async () => {
+        data = await Kitchen.findOne({ where: { id: res.id }, include: [Menu] });
+        expect(data.Menus).to.be.an('array');
+        expect(data.Menus.length).to.equal(3);
+      });
+    });
+
+
   });
 });

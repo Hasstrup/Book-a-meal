@@ -75,7 +75,7 @@ describe('User model POSTGRES', () => {
     });
 
     it('User hasstrup ezekiel should be able to get his kitchen', async () => {
-      data = await User.findOne({ where: { username: 'hasstrupezekiel' }, include: [ Kitchen ] });
+      data = await User.findOne({ where: { username: 'hasstrupezekiel' }, include: [Kitchen] });
       expect(data.Kitchen).to.be.an('object');
       expect(data.Kitchen.name).to.be.equal('This is Hasstrups test kitchen');
     });

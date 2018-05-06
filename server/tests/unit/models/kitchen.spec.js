@@ -5,7 +5,7 @@ import { validKitchen, invalidKitchen } from '../factories/';
 const { Kitchen, User } = models;
 let data;
 let res;
-let mockdata
+let mockdata;
 /* eslint no-unused-expressions: 0 */
 describe('Kitchen model POSTGRES', () => {
   before(async () => {
@@ -64,5 +64,6 @@ describe('Kitchen model POSTGRES', () => {
       expect(data).to.exist;
       expect(data.User).to.be.an('object');
     });
-  });
+});
+
 });
