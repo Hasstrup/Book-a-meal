@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-import configjson from '../config/config.json'
+import configjson from '../../config/config.json';
+
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cd server && NODE_ENV=test mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit",
+    "test": "npm run test:migrate && cd server && NODE_ENV=test mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit",
     "build": "babel ./server -d ./build/server && cd build/server && node index.js",
     "start": "npm run build && node ./build/server",
     "dev": " cd server && NODE_ENV=development nodemon --exec babel-node index",
@@ -12,7 +12,8 @@
     "report": "npm run coverage &&  codeclimate-test-reporter < ./coverage/lcov.info",
     "report:travis": " npm run coverage && codeclimate-test-reporter < ./coverage/lcov.info",
     "cover": "nyc report --reporter=text-lcov | coveralls",
-    "test:migrate": "NODE_ENV=test sequelize db:migrate"
+    "test:migrate": "NODE_ENV=test sequelize db:migrate",
+    "migrate": "sequelize db:migrate"
   },
   "nyc": {
     "require": [
