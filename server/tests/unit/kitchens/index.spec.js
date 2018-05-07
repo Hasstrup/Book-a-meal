@@ -35,17 +35,17 @@ describe('Kitchen Service Object', () => {
   // });
 
   it('fetch Orders should return the orders contaiing the kitchen', async () => {
-    data = await KitchenService.fetchOrders('id', test.id);
+    data = await KitchenService.__fetchOrders('id', test.id);
     expect(data).to.be.an('array');
   });
 
   it('Get menus should return all the menus belonging to a user', async () => {
-    data = await KitchenService.fetchMenus('id', test.id);
+    data = await KitchenService.__fetchMenus('id', test.id);
     expect(data).to.be.an('array');
   });
 
   it('updateone should update the details of a kitchen', async () => {
-    data = await KitchenService.updateOne('id', test.id, { name: 'Otse CookSpot'});
+    data = await KitchenService.__updateOne('id', test.id, { name: 'Otse CookSpot' });
     expect(data.name).to.equal('Otse CookSpot');
   });
 
@@ -56,8 +56,8 @@ describe('Kitchen Service Object', () => {
   });
 
   it('deleteOne should delete specfied object', async () => {
-    await KitchenService.deleteOne('id', test.id);
-    expect(await KitchenService.fetchOne('id', test.id)).to.be.null;
+    await KitchenService.__deleteOne('id', test.id);
+    expect(await KitchenService.__fetchOne('id', test.id)).to.be.null;
   });
 
 });

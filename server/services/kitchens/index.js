@@ -50,7 +50,7 @@ class KitchenService extends BaseService {
   }
 
 // The logic should be to fetch all the orders and include
-  fetchOrders = async (key, value) => {
+  __fetchOrders = async (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
     target = await this.__model.findOne({ where: ref });
@@ -62,12 +62,12 @@ class KitchenService extends BaseService {
     return dataTree;
   }
 
-  fetchMenus = async (key, value) => {
+  __fetchMenus = async (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;
     target = await this.__model.findOne({ where: ref, include: [Menu] });
-    return target.Menus
+    return target.Menus;
   }
 
   _getMenus = (node) => {
@@ -96,18 +96,18 @@ class KitchenService extends BaseService {
   }
 
 
-  updateOne = async (key, value, changes) => {
+  __updateOne = async (key, value, changes) => {
     this.checkArguments(key, value, changes);
     if ((typeof changes) !== 'object') {
       return this.unprocessableEntity('Invalid object thrown to the center');
     }
     let ref = {};
     ref[`${key}`] = value;
-    data = await this.__model.findOne({ where: ref })
+    data = await this.__model.findOne({ where: ref });
     return await data.update(changes);
   }
 
-  deleteOne = async (key, value) => {
+  __deleteOne = async (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;

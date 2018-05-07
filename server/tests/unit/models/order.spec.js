@@ -14,8 +14,8 @@ const { Order, User, Meal, Kitchen } = models;
 describe(' Order model POSTGRES', () => {
   before(async () => {
     await Order.sync({ force: true });
-    tree = await Kitchen.findAll();
-    test = tree[0];
+    const kitchens = await Kitchen.findAll();
+    test = kitchens[0];
   });
 
   describe('Create Method', () => {

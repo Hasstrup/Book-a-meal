@@ -1,6 +1,9 @@
 import MealModel from '../../models/v1/meal';
 import BaseService from '../base-service';
 import Kitchen from '../../models/v1/kitchen';
+import models from '../../models/v2/relationship';
+
+const { Meal } = models;
 
 let data;
 let target;
@@ -27,7 +30,15 @@ class MealServiceObject extends BaseService {
     await this._updateKitchen(id, source.id);
     return source;
   }
+
+  __create = async (KitchenId, body) => {
+    if (!KitchenId || !body || (typeof body) !== 'object') {
+      return this.badRequest('please pass in the right values :)');
+    }
+    data = await this.__model.create({ ...body, KitchenId });
+    return data;
+  }
 }
 
-const MealService = new MealServiceObject(MealModel);
+const MealService = new MealServiceObject(MealModel, Meal);
 export default MealService;
