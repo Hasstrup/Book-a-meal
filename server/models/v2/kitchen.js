@@ -1,5 +1,8 @@
-import { DataTypes } from 'sequelize'
+import { DataTypes } from 'sequelize';
 import { sequelize } from './';
+import Menu from './menu';
+import Meal from './meal';
+
 
 const Kitchen = sequelize.define('Kitchen', {
   name: {
@@ -12,6 +15,9 @@ const Kitchen = sequelize.define('Kitchen', {
         }
       }
     }
+  },
+  ofTheDay: {
+    type: DataTypes.UUID
   },
   description: {
     type: DataTypes.STRING,
@@ -29,6 +35,15 @@ const Kitchen = sequelize.define('Kitchen', {
     type: DataTypes.UUID,
     allowNull: false
   }
-})
+}, {
+
+});
+
+/* eslint func-names: 0, no-return-await: 0 */
+Kitchen.prototype.getMenuOfTheDay = async function () {
+  const value = this.getDataValue('ofTheDay');
+  return await Menu.findOne({ where: { id: value }, include: [Meal] });
+};
+
 
 export default Kitchen;
