@@ -2,14 +2,13 @@ import { expect } from 'chai';
 import MenuServiceObject from '../../../services/menu';
 import models from '../../../models/v2/relationship';
 
-const { Kitchen, User } = models
+const { Kitchen, User } = models;
 
 let data;
 let target;
-let testKitchen
+let testKitchen;
 
 describe('Menu Service Object', () => {
-
   it('Get All should return all the menus in the mock store', async () => {
     data = await MenuServiceObject.fetchAll();
     expect(data[0]).to.be.an('object');
@@ -23,7 +22,7 @@ describe('Menu Service Object', () => {
   });
 
   it('updateone should update the details of a kitchen', async () => {
-    data = await MenuServiceObject.updateOne('owner', 7, {name: 'Otse CookSpot'});
+    data = await MenuServiceObject.updateOne('owner', 7, { name: 'Otse CookSpot' });
     expect(data.name).to.equal('Otse CookSpot');
   });
 
@@ -39,7 +38,7 @@ describe('Menu Service Object', () => {
   });
 
   it('create a menu should return the menu with the valid input', async () => {
-    data = { name: 'This is Hasstrups kitchen', description: 'This is actually an awesome meal'}
+    data = { name: 'This is Hasstrups kitchen', description: 'This is actually an awesome meal' };
     target = await MenuServiceObject.create(5, data);
     expect(target).to.be.an('object');
     expect(target.name).to.equal('This is Hasstrups kitchen');
@@ -77,10 +76,10 @@ describe('Menu Service Object', () => {
       expect(data.name).to.equal('Hasstrups awesome menu');
     });
 
-    it('__deleteOne should delete the specified items in the table', async() => {
+    it('__deleteOne should delete the specified items in the table', async () => {
       data = await MenuServiceObject.__deleteOne('name', 'Hasstrups awesome menu');
       target = await MenuServiceObject.__fetchOne('name', 'Hasstrups awesome menu');
       expect(target).to.be.null;
-    })
+    });
   });
 });

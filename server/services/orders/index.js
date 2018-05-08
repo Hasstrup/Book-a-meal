@@ -8,7 +8,7 @@ let data;
 let target;
 
 const { Order } = models;
-/* eslint no-underscore-dangle: 0, radix: 0, max-len: 0, no-return-await: 0 */
+/* eslint no-underscore-dangle: 0, radix: 0, max-len: 0, no-return-await: 0, no-shadow: 0, prefer-const: 0 */
 class OrderServiceBase extends BaseService {
   constructor(model, __model) {
     super(model, __model);
@@ -34,7 +34,7 @@ class OrderServiceBase extends BaseService {
       this.unprocessableEntity('Cant complete this operation, the query is wrong');
     }
   }
-  
+
   fetchAll = async (type, id) => {
     this._validateFetchAllArgs(type, id);
     if (type === 'kitchen') {
@@ -65,7 +65,7 @@ class OrderServiceBase extends BaseService {
 
   // Persistent Methods
   __create = async (UserId, body) => {
-    if (!UserId || !body || (typeof body) !== 'object' || !body.status || !body.meals ) {
+    if (!UserId || !body || (typeof body) !== 'object' || !body.status || !body.meals) {
       this.badRequest('The input isnt complete :(');
     }
     // assuming there is a list of meals that comes in the body of the request;
@@ -82,6 +82,7 @@ class OrderServiceBase extends BaseService {
     return Object.assign({}, data.get({ plain: true }), { meals });
   }
 
+
   __updateOne = async (key, value, kitchenId) => {
     this.checkArguments(key, value, kitchenId);
     let ref = {};
@@ -94,8 +95,6 @@ class OrderServiceBase extends BaseService {
     return data.get({ plain: true });
   }
 }
-
-
 
 const OrderService = new OrderServiceBase(OrderModel, Order);
 

@@ -7,7 +7,7 @@ let target;
 let source;
 let testkitchen;
 
-/* eslint no-unused-expressions: 0, no-underscore-dangle: 0 */
+/* eslint no-unused-expressions: 0, no-underscore-dangle: 0, prefer-destructuring: 0, prefer-const: 0, max-len: 0 */
 const { Kitchen, User, Meal } = models;
 
 describe('Order service object', () => {
@@ -19,7 +19,7 @@ describe('Order service object', () => {
 
   it('should update one should only update the processed part of the order owned by the kitchen', async () => {
     data = await OrderService.updateOne('id', 1, 2);
-    expect(data.content['2'].processed).to.be.true
+    expect(data.content['2'].processed).to.be.true;
   });
 
   it('create method should return the valid data fail case', async () => {
@@ -61,6 +61,5 @@ describe('Order service object', () => {
       data = await OrderService.__updateOne('id', data.id, testkitchen.id);
       expect(data.status[`${testkitchen.id}`]).to.equal(true);
     });
-
   });
 });

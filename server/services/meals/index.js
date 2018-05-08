@@ -11,9 +11,8 @@ let ref = {};
 let meals;
 let source;
 
-/* eslint radix: 0, no-restricted-globals: 0, no-return-await: 0 , no-underscore-dangle: 0 */
+/* eslint radix: 0, no-restricted-globals: 0, no-return-await: 0 , no-underscore-dangle: 0, prefer-const: 0, max-len: 0 */
 class MealServiceObject extends BaseService {
-
   _updateKitchen = async (id, body) => {
     ref.id = id;
     target = await Kitchen.findOne(ref);

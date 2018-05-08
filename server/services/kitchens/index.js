@@ -1,9 +1,8 @@
 import BaseService from '../base-service';
 import KitchenModel from '../../models/v1/kitchen';
-import MenuModel from '../../models/v1/menu';
-import models from '../../models/v2/relationship'
+import models from '../../models/v2/relationship';
 
-const { Kitchen, Menu, Order, Meal } = models
+const { Kitchen, Menu, Order, Meal } = models;
 
 let source;
 let data;
@@ -13,9 +12,8 @@ let orders = [];
 let refs = {};
 
 
-/* eslint global-require: 0, class-methods-use-this: 0, prefer-const: 0, no-return-await: 0, no-underscore-dangle: 0, no-restricted-globals: 0 */
+/* eslint global-require: 0, class-methods-use-this: 0, prefer-const: 0, no-return-await: 0, no-underscore-dangle: 0, no-restricted-globals: 0, object-curly-newline: 0 */
 class KitchenService extends BaseService {
-
   create = async (id, body) => {
     if (!id || !body || isNaN(id) || (typeof body) !== 'object') {
       return this.badRequest('please pass in the right values :)');
@@ -49,7 +47,7 @@ class KitchenService extends BaseService {
     return this.model.findOne(ref).subscribers;
   }
 
-// The logic should be to fetch all the orders and include
+  // The logic should be to fetch all the orders and include
   __fetchOrders = async (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
