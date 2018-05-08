@@ -1,7 +1,7 @@
 import BaseService from '../base-service';
 import DummyMenuModel from '../../models/v1/menu';
 import KitchenModel from '../../models/v1/kitchen';
-import KitchenServiceObject from '../kitchens'
+import KitchenServiceObject from '../kitchens';
 import models from '../../models/v2/relationship';
 
 const { Menu, Kitchen, Meal } = models
@@ -14,6 +14,22 @@ let ref = {};
 
 /* eslint radix: 0, no-underscore-dangle: 0, max-len: 0, no-return-await: 0, arrow-body-style: 0 */
 class MenuService extends BaseService {
+
+  // ================== methods that matter in challenge 3 ===================
+  __fetchCatalogue = async () => {
+    data = await Kitchen.findAll();
+    data = data.map(async (kitchen) => {
+      return await Menu.findOne({ where: { id: kitchen.ofTheDay }, include: [Meal, Kitchen] });
+    });
+    return data;
+  }
+
+  __setMenuOfTheDay = async (kitchen, menu) => {
+    return await KitchenServiceObject.__setMenuOfTheDay('id', kitchen.id, menu);
+  }
+
+
+  // ==================== methods that matter in challenge 2 ====================
 
   fetchCatalogue = () => {
     source = KitchenModel.getAll();
@@ -46,18 +62,6 @@ class MenuService extends BaseService {
     data = await Menu.create(Object.assign({}, menu, { owner: parseInt(user.kitchen) }));
     target = await Kitchen.findOneAndUpdate({ id: parseInt(user.kitchen) }, { ofTheDay: parseInt(data.id) });
     return Kitchen.findOne({ id: parseInt(target.id) }, 'populate');
-  }
-
-  __fetchCatalogue = async () => {
-    data = await Kitchen.findAll();
-    data = data.map(async (kitchen) => {
-      return await Menu.findOne({ where: { id: kitchen.ofTheDay }, include: [Meal, Kitchen] });
-    });
-    return data;
-  }
-
-  __setMenuOfTheDay = async (kitchen, menu) => {
-    return await KitchenServiceObject.__setMenuOfTheDay('id', kitchen.id, menu);
   }
 }
 

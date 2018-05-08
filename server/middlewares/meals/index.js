@@ -17,13 +17,11 @@ class MealMiddlewareBase extends BaseMiddleware {
   }
 
   // ============ methods that matter in challenge 3 ===========
+
   __revokeAccess = (req, res, next) => {
-    if (!req.kitchen) {
-      return next(new ValidatorError('You do not have a kitchen, please set up one', 409));
-    }
-    Meal.findOne({ where: { id: req.params.mmid } })
+    Meal.findOne({ where: { id: req.params.mealId } })
       .then((meal) => {
-        if (!meal || meal.Kitchen === req.kitchen.id) {
+        if (!meal || meal.KitchenId !== req.kitchen.id) {
           return next(new ValidatorError('You do not have permissions to do that', 401));
         }
         return next();

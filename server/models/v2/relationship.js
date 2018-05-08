@@ -30,5 +30,5 @@ Order.belongsToMany(Meal, { through: MealOrders });
 Meal.belongsToMany(Order, { through: MealOrders });
 
 /* eslint object-curly-newline: 0 */
-const models = { Kitchen, User, Menu, Meal, Order };
+const models = { Kitchen, User, Menu, Meal, Order, MealOrders };
 export default models;

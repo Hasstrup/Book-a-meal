@@ -43,7 +43,6 @@ const Kitchen = sequelize.define('Kitchen', {
 Kitchen.prototype.getMenuOfTheDay = async function () {
   const value = this.getDataValue('ofTheDay');
   const menu = await Menu.findOne({ where: { id: value }, include: [Meal] });
-  console.log(await menu.getMeals());
   return menu;
 };
 

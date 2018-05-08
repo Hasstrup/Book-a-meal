@@ -21,6 +21,11 @@ const Meal = sequelize.define('Meal', {
   price: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    primaryKey: true
   }
 });
 

@@ -3,33 +3,40 @@ import BaseController from '../base-controller';
 
 let data;
 
-/* eslint radix: 0 */
+/* eslint radix: 0, no-underscore-dangle: 0 */
 
 class MealControllerBase extends BaseController {
   fetchSingle = (req, res, next) => {
-    this.wrapInTryCatch(() => {
-      data = MealServiceObject.fetchOne('id', parseInt(req.params.mealId));
+    this.wrapInTryCatch(async () => {
+      data = await MealServiceObject.__fetchOne('id', req.params.mealId);
+      this.returnContent(res, data);
+    }, next);
+  }
+
+  fetchMealsForKitchen = (req, res, next) => {
+    this.wrapInTryCatch(async () => {
+      data = await MealServiceObject.__fetchMealsForKitchen(req.kitchen);
       this.returnContent(res, data);
     }, next);
   }
 
   create = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await MealServiceObject.create(parseInt(req.params.ktid), req.body);
+      data = await MealServiceObject.__create(req.kitchen.id, req.body);
       this.resourceCreated(res, data);
     }, next);
   }
 
   updateContent = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await MealServiceObject.updateOne('id', parseInt(req.query.mealId), req.body);
+      data = await MealServiceObject.__updateOne('id', req.params.mealId, req.body);
       this.resourceCreated(res, data);
     }, next);
   }
 
   deleteContent = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      await MealServiceObject.deleteOne('id', parseInt(req.query.mealId));
+      await MealServiceObject.__deleteOne('id', req.params.mealId);
       this.returnNoContent(res);
     }, next);
   }

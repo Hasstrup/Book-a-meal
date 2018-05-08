@@ -120,17 +120,11 @@ class KitchenService extends BaseService {
     this.noPermissions('You do not have permissions to do that');
   }
 
-  /**
-     * __setMenuOfTheDay This takes in the menu object and tries to find it or create it. and sets it to the kitchen
-     * @param  {String}  key     The key to be used in querying the db
-     * @param  {String}  value   The value of the key that will be used
-     * @param  {Object}  newMenu The new/old menu object;
-     * @return {Kitchen Object}  Menu of the day for the queried kitchen
-     */
   __setMenuOfTheDay = async (key, value, newMenu) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;
+
     // find the kitchen
     source = await this.__model.findOne({ where: ref });
     if (source) {

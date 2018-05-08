@@ -41,7 +41,7 @@ class BaseMiddleware {
       .then(async (payload) => {
         data = await this.getCurrentUser(payload, next);
         req.user = data.get({ plain: true });
-        req.kitchen = data.Kitchen ? data.Kitchen.get({ plain: true }) : null;
+        req.kitchen = data.Kitchen ? data.Kitchen : null;
         return next();
       })
       .catch(() => next(new ValidatorError('Something went wrong trying to grant you access', 401)));
