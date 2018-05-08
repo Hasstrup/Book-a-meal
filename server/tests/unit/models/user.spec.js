@@ -47,6 +47,7 @@ describe('User model POSTGRES', () => {
           res = { username: 'hasstrupezekiel', email: 'hass@gmail.com', password: 'testpassword' };
           return await User.create(res);
         } catch (e) {
+          console.log(e.errors[0].message)
           expect(e).to.exist;
         }
       });

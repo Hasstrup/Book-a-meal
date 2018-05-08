@@ -1,6 +1,9 @@
 import BaseService from '../base-service';
-import Menu from '../../models/v1/menu';
+import DummyMenuModel from '../../models/v1/menu';
 import Kitchen from '../../models/v1/kitchen';
+import models from '../../models/v2/relationship';
+
+const { Menu } = models
 
 
 let source;
@@ -10,10 +13,6 @@ let ref = {};
 
 /* eslint radix: 0, no-underscore-dangle: 0, max-len: 0 */
 class MenuService extends BaseService {
-  constructor(model) {
-    super(model);
-    this.model = model;
-  }
 
   fetchCatalogue = () => {
     source = Kitchen.getAll();
@@ -50,6 +49,6 @@ class MenuService extends BaseService {
 
 }
 
-const MenuServiceObject = new MenuService(Menu);
+const MenuServiceObject = new MenuService(DummyMenuModel, Menu);
 
 export default MenuServiceObject;

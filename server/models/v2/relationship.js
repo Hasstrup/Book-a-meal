@@ -1,9 +1,10 @@
-import Kitchen from './kitchen';
+import Kitchen from './kitchen'
 import User from './user';
 import Menu from './menu';
 import Order from './order';
 import Meal from './meal';
 import MealOrders from './meal-order-join'
+
 // user to kitchen;
 Kitchen.belongsTo(User);
 User.hasOne(Kitchen);

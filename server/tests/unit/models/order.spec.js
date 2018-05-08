@@ -4,19 +4,24 @@ import models from '../../../models/v2/relationship';
 let data;
 let target;
 let source;
+let test;
+let status = {};
 
-const { Order, User, Meal } = models;
+const { Order, User, Meal, Kitchen } = models;
 
-/* eslint no-unused-expresions: 0 */
+/* eslint no-unused-expresions: 0, prefer-destructuring: 0, prefer-const: 0, object-curly-newline: 0, max-len: 0 */
 describe(' Order model POSTGRES', () => {
   before(async () => {
     await Order.sync({ force: true });
+    const kitchens = await Kitchen.findAll();
+    test = kitchens[0];
   });
 
   describe('Create Method', () => {
     before('Should return an order with valid user input', async () => {
       source = await User.findAll();
-      data = { status: { }, UserId: source[0].id };
+      status[`${test.name}`] = false;
+      data = { status, UserId: source[0].id };
     });
 
     it('Should return a order with valid user input', async () => {

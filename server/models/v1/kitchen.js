@@ -15,6 +15,7 @@ const Kitchen = new KitchenModel({
   subscribers: [{ refs: 'Users' }],
   description: String,
   image: String,
+  id: String
 }, [
   'name',
   'description'

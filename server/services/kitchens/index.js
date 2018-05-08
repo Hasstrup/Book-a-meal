@@ -1,69 +1,71 @@
 import BaseService from '../base-service';
 import KitchenModel from '../../models/v1/kitchen';
-import Menu from '../../models/v1/menu';
+import models from '../../models/v2/relationship';
 
+const { Kitchen, Menu, Order, Meal } = models;
 
 let source;
 let data;
+let dataTree;
 let target;
 let orders = [];
 let refs = {};
 
 
-/* eslint global-require: 0, class-methods-use-this: 0, prefer-const: 0, no-return-await: 0, no-underscore-dangle: 0, no-restricted-globals: 0 */
+/* eslint global-require: 0, class-methods-use-this: 0, prefer-const: 0, no-return-await: 0, no-underscore-dangle: 0, no-restricted-globals: 0, object-curly-newline: 0 */
 class KitchenService extends BaseService {
-  constructor(model) {
-    super();
-    this.model = model;
-  }
-
   create = async (id, body) => {
     if (!id || !body || isNaN(id) || (typeof body) !== 'object') {
       return this.badRequest('please pass in the right values :)');
     }
-    data = Object.assign({}, body, { owner: id });
-    return await this.model.create(data);
+    data = Object.assign({}, body, { UserId: id });
+    return await this.__model.create(data);
   }
 
-  fetchAll(populate) {
+  fetchAll = async (populate) => {
     if (populate && populate === 'populate') {
-      return this.model.getAll('populate');
+      return await this.__model.findAll({ include: [{ all: true }] });
     }
-    return this.model.getAll();
+    return await await this.__model.findAll();
   }
 
-  fetchOne = (key, value, populate) => {
+  fetchOne = async (key, value, populate) => {
     this.checkArguments(key, value, populate);
     let ref = {};
     ref[`${key}`] = value;
     if (populate && populate === 'populate') {
-      return this.model.findOne(ref, populate);
+      return await this.__model.findOne({ where: ref, include: [{ all: true }] });
     }
-    return this.model.findOne(ref);
+    return await this.__model.findOne({ where: ref });
   }
 
   getSubscribers = (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;
-
+    // this test should fail till i do something about it;
     return this.model.findOne(ref).subscribers;
   }
 
-  fetchOrders = async (key, value) => {
+  // The logic should be to fetch all the orders and include
+  __fetchOrders = async (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
+    target = await this.__model.findOne({ where: ref });
     ref[`${key}`] = value;
-    target = this.model.findOne(ref);
-    return await this._getOrders(target);
+    source = await Order.findAll({ include: { model: Meal, include: [Kitchen] } });
+    // so source  returns an array of Meals in the Meals field since it's 1:m rel
+    dataTree = source.filter(order => Object.keys(order.status).includes(target.name));
+    // remember to filter the order's content
+    return dataTree;
   }
 
-  fetchMenus = (key, value) => {
+  __fetchMenus = async (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;
-    target = this.model.findOne(ref);
-    return this._getMenus(target);
+    target = await this.__model.findOne({ where: ref, include: [Menu] });
+    return target.Menus;
   }
 
   _getMenus = (node) => {
@@ -92,21 +94,23 @@ class KitchenService extends BaseService {
   }
 
 
-  updateOne = async (key, value, changes) => {
+  __updateOne = async (key, value, changes) => {
     this.checkArguments(key, value, changes);
     if ((typeof changes) !== 'object') {
       return this.unprocessableEntity('Invalid object thrown to the center');
     }
     let ref = {};
     ref[`${key}`] = value;
-    return await this.model.findOneAndUpdate(ref, changes);
+    data = await this.__model.findOne({ where: ref });
+    return await data.update(changes);
   }
 
-  deleteOne = (key, value) => {
+  __deleteOne = async (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;
-    return this.model.findOneAndDelete(ref);
+    data = await this.__model.findOne({ where: ref });
+    return await data.destroy();
   }
 
   setMenuOfTheDay = async (key, value, newMenu) => {
@@ -122,8 +126,44 @@ class KitchenService extends BaseService {
     }
     this.noPermissions('You do not have permissions to do that');
   }
+
+  /**
+     * __setMenuOfTheDay This takes in the menu object and tries to find it or create it. and sets it to the kitchen
+     * @param  {String}  key     The key to be used in querying the db
+     * @param  {String}  value   The value of the key that will be used
+     * @param  {Object}  newMenu The new/old menu object;
+     * @return {Kitchen Object}  Menu of the day for the queried kitchen
+     */
+  __setMenuOfTheDay = async (key, value, newMenu) => {
+    this.checkArguments(key, value);
+    let ref = {};
+    ref[`${key}`] = value;
+    // find the kitchen
+    source = await this.__model.findOne({ where: ref });
+    if (source) {
+      data = {};
+      // filter out the unique fields to avoid a conflict when it tries to create;
+      Object.keys(newMenu).forEach((item) => {
+        const arr = ['id', 'createdAt', 'updatedAt'];
+        if (!arr.includes(item)) {
+          data[`${item}`] = newMenu[`${item}`];
+        }
+      });
+      // Try finding or creating the menu;
+      await Menu.findOrCreate({
+        where: { name: data.name, KitchenId: source.id },
+        defaults: { ...data, KitchenId: source.id }
+      }).spread(async (menu) => {
+        await source.update({ ofTheDay: menu.id });
+      });
+
+      return await source.getMenuOfTheDay();
+    }
+    // throw an error if there is no kitchen like that
+    this.unprocessableEntity('Sorry we couldnt find any kitchen like that');
+  }
 }
-//
-const KitchenServiceObject = new KitchenService(KitchenModel);
+
+const KitchenServiceObject = new KitchenService(KitchenModel, Kitchen);
 
 export default KitchenServiceObject;
