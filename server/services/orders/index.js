@@ -3,6 +3,7 @@ import KitchenService from '../kitchens/';
 import OrderModel from '../../models/v1/orders';
 import models from '../../models/v2/relationship';
 
+
 let ref = {};
 let data;
 let target;
@@ -15,7 +16,7 @@ class OrderServiceBase extends BaseService {
     this.model = model;
   }
   _validateFetchAllArgs = (...args) => {
-    if (args.length !== 2 || args[0].constructor !== String || args[1].constructor !== Number) {
+    if (args.length !== 2 || args[0].constructor !== String) {
       this.unprocessableEntity('Please specify whose orders to find');
     }
   }
@@ -41,7 +42,7 @@ class OrderServiceBase extends BaseService {
       data = await KitchenService.fetchOrders('id', parseInt(id));
       return data.map(item => this.model._populateMain(item));
     } else if (type === 'user') {
-      data = this.model.getAll();
+      data = await this.model.getAll();
       target = data.filter(item => item.id === id).map(item => this.model._populateContent(item));
       return target.map(item => this.model._populateMain(item));
     }
@@ -94,6 +95,16 @@ class OrderServiceBase extends BaseService {
     });
     return data.get({ plain: true });
   }
+
+  __fetchAll = async (id, type) => {
+    this._validateFetchAllArgs(id, type);
+    if (type === 'kitchen') {
+      return await KitchenService.__fetchOrders({ id });
+    } else if (type === 'user') {
+      return await this.model.findAll({ where: { UserId: id } });
+    }
+  }
+
 }
 
 const OrderService = new OrderServiceBase(OrderModel, Order);

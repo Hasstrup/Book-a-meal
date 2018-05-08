@@ -35,7 +35,7 @@ describe('Order service object', () => {
     target = { client: 1, content: { 1: { items: [0, 1, 2], processed: false } } };
     data = await OrderService.create(1, target);
     expect(data.content).to.be.an('object');
-    expect(data.id).to.equal(4);
+    expect(data.id).to.equal(3);
   });
 
   describe(' DB Persistent methods', () => {

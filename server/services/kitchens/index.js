@@ -10,12 +10,13 @@ let dataTree;
 let target;
 let orders = [];
 let refs = {};
+let mealPresent = false;
 
 
 /* eslint global-require: 0, class-methods-use-this: 0, prefer-const: 0, no-return-await: 0, no-underscore-dangle: 0, no-restricted-globals: 0, object-curly-newline: 0 */
 class KitchenService extends BaseService {
   create = async (id, body) => {
-    if (!id || !body || isNaN(id) || (typeof body) !== 'object') {
+    if (!id || !body || (typeof body) !== 'object') {
       return this.badRequest('please pass in the right values :)');
     }
     data = Object.assign({}, body, { UserId: id });
@@ -26,7 +27,7 @@ class KitchenService extends BaseService {
     if (populate && populate === 'populate') {
       return await this.__model.findAll({ include: [{ all: true }] });
     }
-    return await await this.__model.findAll();
+    return await this.__model.findAll();
   }
 
   fetchOne = async (key, value, populate) => {
@@ -37,14 +38,6 @@ class KitchenService extends BaseService {
       return await this.__model.findOne({ where: ref, include: [{ all: true }] });
     }
     return await this.__model.findOne({ where: ref });
-  }
-
-  getSubscribers = (key, value) => {
-    this.checkArguments(key, value);
-    let ref = {};
-    ref[`${key}`] = value;
-    // this test should fail till i do something about it;
-    return this.model.findOne(ref).subscribers;
   }
 
   // The logic should be to fetch all the orders and include
@@ -144,19 +137,37 @@ class KitchenService extends BaseService {
       data = {};
       // filter out the unique fields to avoid a conflict when it tries to create;
       Object.keys(newMenu).forEach((item) => {
-        const arr = ['id', 'createdAt', 'updatedAt'];
+        const arr = ['id', 'createdAt', 'updatedAt', 'meals'];
         if (!arr.includes(item)) {
           data[`${item}`] = newMenu[`${item}`];
         }
       });
+
+      // the meals will be an array of meal objects // check the meals to see if the kitchen is the owner;
+      if (newMenu.meals) {
+        const { meals } = newMenu;
+        meals.forEach((meal) => {
+          const { KitchenId } = meal;
+          if (KitchenId !== source.id) {
+            let err;
+            err = new Error(`You do not own this meal : ${meal.name}`);
+            err.status = 401;
+            throw err
+          }
+          mealPresent = true;
+        });
+      }
+
       // Try finding or creating the menu;
       await Menu.findOrCreate({
         where: { name: data.name, KitchenId: source.id },
         defaults: { ...data, KitchenId: source.id }
       }).spread(async (menu) => {
+        if (mealPresent) {
+          await menu.addMeals(newMenu.meals);
+        }
         await source.update({ ofTheDay: menu.id });
       });
-
       return await source.getMenuOfTheDay();
     }
     // throw an error if there is no kitchen like that

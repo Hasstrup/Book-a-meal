@@ -7,42 +7,42 @@ let data;
 class KitchenControllerBase extends BaseController {
     create = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        data = await KitchenModule.create(parseInt(req.query.uuid), req.body);
+        data = await KitchenModule.create(req.user.id, req.body);
         this.resourceCreated(res, data);
       }, next);
     }
 
     fetchAll = (req, res, next) => {
-      this.wrapInTryCatch(() => {
-        data = req.populate ? KitchenModule.fetchAll('populate') : KitchenModule.fetchAll();
+      this.wrapInTryCatch(async () => {
+        data = req.populate ? await KitchenModule.fetchAll('populate') : await KitchenModule.fetchAll();
         this.returnContent(res, data);
       }, next);
     }
 
     fetchSingle = (req, res, next) => {
-      this.wrapInTryCatch(() => {
-        data = req.populate ? KitchenModule.fetchOne('id', parseInt(req.params.ktid), 'populate') : KitchenModule.fetchSingle('id', parseInt(req.params.ktid));
+      this.wrapInTryCatch(async () => {
+        data = req.populate ? await KitchenModule.fetchOne('id', req.params.ktid, 'populate') : await KitchenModule.fetchSingle('id', req.params.ktid);
         this.returnContent(res, data);
       }, next);
     }
 
     updateOne = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        data = await KitchenModule.updateOne('id', parseInt(req.params.ktid), req.body);
+        data = await KitchenModule.__updateOne('id', req.params.ktid, req.body);
         this.resourceCreated(res, data);
       }, next);
     }
 
     deleteOne = (req, res, next) => {
-      this.wrapInTryCatch(() => {
-        KitchenModule.deleteOne('id', parseInt(req.params.ktid));
+      this.wrapInTryCatch(async () => {
+        await KitchenModule.__deleteOne('id', req.params.ktid);
         this.returnNoContent(res, 'Resource has been successfully deleted');
       }, next);
     }
 
     fetchOrders = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        const data = await KitchenModule.fetchOrders('id', parseInt(req.query.ktid));
+        const data = await KitchenModule.fetchOrders('id', req.query.ktid);
         this.returnContent(res, data);
       }, next);
     }

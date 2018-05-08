@@ -1,9 +1,10 @@
 import BaseService from '../base-service';
 import DummyMenuModel from '../../models/v1/menu';
-import Kitchen from '../../models/v1/kitchen';
+import KitchenModel from '../../models/v1/kitchen';
+import KitchenServiceObject from '../kitchens'
 import models from '../../models/v2/relationship';
 
-const { Menu } = models
+const { Menu, Kitchen, Meal } = models
 
 
 let source;
@@ -11,11 +12,11 @@ let target;
 let data;
 let ref = {};
 
-/* eslint radix: 0, no-underscore-dangle: 0, max-len: 0 */
+/* eslint radix: 0, no-underscore-dangle: 0, max-len: 0, no-return-await: 0, arrow-body-style: 0 */
 class MenuService extends BaseService {
 
   fetchCatalogue = () => {
-    source = Kitchen.getAll();
+    source = KitchenModel.getAll();
     target = source.map(kitchen => this.model.findOne({ id: parseInt(kitchen.ofTheDay) }));
     return target;
   }
@@ -47,6 +48,17 @@ class MenuService extends BaseService {
     return Kitchen.findOne({ id: parseInt(target.id) }, 'populate');
   }
 
+  __fetchCatalogue = async () => {
+    data = await Kitchen.findAll();
+    data = data.map(async (kitchen) => {
+      return await Menu.findOne({ where: { id: kitchen.ofTheDay }, include: [Meal, Kitchen] });
+    });
+    return data;
+  }
+
+  __setMenuOfTheDay = async (kitchen, menu) => {
+    return await KitchenServiceObject.__setMenuOfTheDay('id', kitchen.id, menu);
+  }
 }
 
 const MenuServiceObject = new MenuService(DummyMenuModel, Menu);

@@ -36,7 +36,7 @@ class BaseMiddleware {
   }
 
 
-  static __filterAccess = (req, res, next) => {
+  __filterAccess = (req, res, next) => {
     Encrypt.decodeToken(req.headers.authorization)
       .then(async (payload) => {
         data = await this.getCurrentUser(payload, next);
@@ -47,6 +47,14 @@ class BaseMiddleware {
       .catch(() => next(new ValidatorError('Something went wrong trying to grant you access', 401)));
   }
 
+  __ensureKitchenOwner = (req, res, next) => {
+    if (!req.kitchen) {
+      err = new ValidatorError('You need to have a kitchen to perform this action', 403);
+      return next(err);
+    }
+    next();
+  }
+
 
   getCurrentUser = async (payload) => {
     const { id } = payload;
@@ -54,6 +62,9 @@ class BaseMiddleware {
       throw new ValidatorError('That token might be invalid', 404);
     }
     data = await User.findOne({ where: { id }, include: [{ all: true }] });
+    if (!data) {
+      throw new ValidatorError('Sorry we couldnt find any user like that', 404);
+    }
     return data;
   }
 

@@ -19,7 +19,7 @@ describe('Kitchen Service Object', () => {
   it('Get All should return all the kitchens in the mock store', async () => {
     data = await KitchenService.fetchAll();
     expect(data[0]).to.be.an('object');
-    expect(data[0].name).to.be.equal('This is Hasstrups test kitchen');
+    expect(data[0].name).to.be.equal('Bay and Ruts');
   });
   /* eslint no-unused-expressions: 0 */
   it('Get One should return a kitchen specifically', async () => {
@@ -27,12 +27,6 @@ describe('Kitchen Service Object', () => {
     expect(data.UserId).to.exist;
   });
 
-  // it('get Subscribers should return the subscribers of a kitchen', () => {
-  //   data = KitchenService.getSubscribers('id', test.id);
-  //   expect(data).to.be.an('array');
-  //   expect(data[0]).to.be.an('object');
-  //   expect(data[0].firstname).to.equal('Nervous');
-  // });
 
   it('fetch Orders should return the orders contaiing the kitchen', async () => {
     data = await KitchenService.__fetchOrders('id', test.id);

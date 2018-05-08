@@ -23,7 +23,7 @@ router.get('/catalogue', MenuController.fetchCatalogue, ErrorHandler.dispatch);
 
 /* the kitchen id is absolutely important and
 will forbid if there isnt one */
-router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, AuthMiddleware.checkMasterKey, MenuMiddleware.revokeAccess, MenuController.setMenuOfTheDay, ErrorHandler.dispatch);
+router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, MenuMiddleware.__filterAccess, MenuMiddleware.__ensureKitchenOwner, MenuController.setMenuOfTheDay, ErrorHandler.dispatch);
 
 // get a particular menu; should return the
 router.get('/:mmid', MenuMiddleware.checkRequiredParams, MenuController.fetchSingle, ErrorHandler.dispatch);

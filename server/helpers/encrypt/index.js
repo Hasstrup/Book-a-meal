@@ -24,7 +24,6 @@ class Encrypt {
   }
 
   static checkPassword = (str, passwordHash) => {
-    console.log(str, passwordHash)
     return bcrypt.compareSync(str, passwordHash);
   }
 

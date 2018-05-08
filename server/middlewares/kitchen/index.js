@@ -28,6 +28,8 @@ export class KitchenMiddleWareParent extends BaseMiddleware {
   }
 
 
+
+
   // ============ methods that matter in challenge 2 ==============
   /**
    *  RevokeAccess
@@ -60,7 +62,7 @@ export class KitchenMiddleWareParent extends BaseMiddleware {
 
 
   checkKitchenParams = (req, res, next) => {
-    if (req.params.ktid && !isNaN(parseInt(req.params.ktid))) {
+    if (req.params.ktid) {
       return next();
     }
     return next(new ValidatorError('Please check again that you have the right parameters', 400));
