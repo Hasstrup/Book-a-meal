@@ -48,6 +48,7 @@ describe('Authentication Module', () => {
           firstname: 'HasstrupEzekiel'
         };
         const newuser = await AuthModule.signUp(validData);
+        console.log(newuser);
         expect(newuser.username).to.equal('hasstrupezekielbro');
       } catch (e) {
         expect(e).to.not.exist;
@@ -88,9 +89,9 @@ describe('Authentication Module', () => {
 
     it('should return the valid user with a valid user', async () => {
       try {
-        validData = { username: 'hasstrupezekielbro', password: '123456' };
-        const auth = await AuthModule.authenticate(validData);
-        expect(auth).to.be.true;
+        validData = { email: 'hellopaperstack@gmail.com', password: '123456' };
+        const auth = await AuthModule.__authenticate(validData);
+        expect(auth).to.be.an('object');
       } catch (e) {
         expect(e).to.not.exist;
       }

@@ -33,10 +33,10 @@ describe('API - Authentication routes', () => {
     });
 
     it('should log in the user with a response code of 200 and message', async () => {
-      validData = { username: 'testUsername', password: 'Onosetale32' };
+      validData = { email: 'hasstrup.eze@gmail.com', password: 'Onosetale32' };
       res = await request(app).post('/api/v1/auth/login').send(validData);
       expect(res.statusCode).to.equal(200);
-      expect(res.body.message).to.exist;
+      expect(res.body.data).to.exist;
     });
   });
 });

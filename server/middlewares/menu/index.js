@@ -1,20 +1,35 @@
-import Menu from '../../models/v1/menu';
+import MenuModel from '../../models/v1/menu';
 import BaseMiddleware from '../base-middleware';
 import User from '../../models/v1/user';
 import ValidatorError from '../../services/auth/errors/validation';
+import models from '../../models/v2/relationship';
 
 let target;
 const ref = {};
+const { Menu } = models;
 
 class MenuMiddlewareBase extends BaseMiddleware {
   constructor(model) {
     super();
     this.model = model;
   }
-  /* the logic is that the user requests to setthe menu of the ay for his kitchen;
-  so we check the userid query and find the user, then check the salted hash of his kitchen
-  if it matches the hash provided in the req.authorization;
-   */
+
+  // ================  methods that matter in challenge 3 ========================
+  __revokeAccess = (req, res, next) => {
+    if (!req.kitchen) {
+      return next(new ValidatorError('You do not have a kitchen, please set up one', 409));
+    }
+    Menu.findOne({ where: { id: req.params.mmid } })
+      .then((meal) => {
+        if (!meal || meal.Kitchen === req.kitchen.id) {
+          return next(new ValidatorError('You do not have permissions to do that', 401));
+        }
+        return next();
+      });
+  }
+
+  // ==============  methods that matter in challenge 2 ========================
+
   /* eslint max-len: 0, radix: 0, no-underscore-dangle: 0 */
   revokeAccess = (req, res, next) => {
     ref.id = parseInt(req.query.uuid);
@@ -27,5 +42,5 @@ class MenuMiddlewareBase extends BaseMiddleware {
   };
 }
 
-const MenuMiddleware = new MenuMiddlewareBase(Menu);
+const MenuMiddleware = new MenuMiddlewareBase(MenuModel);
 export default MenuMiddleware;

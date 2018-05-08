@@ -1,18 +1,21 @@
 import { isEmail } from 'validator';
 import Encrypt from '../helpers/encrypt/';
+import ValidatorError from '../services/auth/errors/validation';
+import models from '../models/v2/relationship';
+
+const { User } = models;
 
 let err;
+let data;
 
 class BaseMiddleware {
 
-  /**
-   * @static checkForNullInput - This method checks for null input in the request body
-   *
-   * @param  {type} req  This is the express request object
-   * @param  {type} res  This is the express response object
-   * @param  {type} next description
-   * @return {type}      description
-   */
+
+
+
+// ================= methods that matter in challenge 3 ===========================
+
+
   static checkForNullInput(req, res, next) {
     const body = Object.keys(req.body);
     if (body.length) {
@@ -33,48 +36,49 @@ class BaseMiddleware {
   }
 
 
-  /**
-   *
-   */
-  static checkForEmail = (req, res, next) => {
-    if (req.body.email && req.body.email.toString().length > 1 && isEmail(req.body.email)) {
-      next();
+  static __filterAccess = (req, res, next) => {
+    Encrypt.decodeToken(req.headers.authorization)
+      .then(async (payload) => {
+        data = await this.getCurrentUser(payload, next);
+        req.user = data.get({ plain: true });
+        req.kitchen = data.Kitchen ? data.Kitchen.get({ plain: true }) : null;
+        return next();
+      })
+      .catch(() => next(new ValidatorError('Something went wrong trying to grant you access', 401)));
+  }
+
+
+  getCurrentUser = async (payload) => {
+    const { id } = payload;
+    if (!id) {
+      throw new ValidatorError('That token might be invalid', 404);
     }
-    err = new Error('ensure  the email is present for this to work');
+    data = await User.findOne({ where: { id }, include: [{ all: true }] });
+    return data;
+  }
+
+
+  static checkAuthorization = (req, res, next) => {
+    if (!req.headers || !req.headers.authorization) {
+      err = new Error('You need to be authorized to do this');
+      err.status = 403;
+      return next(err);
+    }
+    return next();
+  }
+
+
+  checkRequiredParams = (req, res, next) => {
+    const { key } = this.model.masterKey;
+    if (req.params[`${key}`]) {
+      return next();
+    }
+    err = new Error('A required param is missing');
     err.status = 400;
     return next(err);
   }
 
 
-  /**
-   *
-   */
-  static checkPopulateQuery = (req, res, next) => {
-    if (req.query && req.query.populate && req.query.populate === 'populate') {
-      req.populate = true;
-      return next();
-    }
-    return next();
-  }
-
-  /* check if the model is valid and and bind the model to this */
-  setModel = (model) => {
-    if (!model) {
-      throw new Error('The model has to be a DataHandler instance');
-    }
-    this.model = model;
-  }
-
-  _checkAuthenticity = (str1, str2) => str1.toString() === this.hashString(`HellothereKanye${str2}`).toString();
-
-
-  /* get the required fields from the model and their types from the model's keys */
-
-
-
-  /**
-   *
-   */
   checkRequired = (req, res, next) => {
     if (!this.model) {
       err = new Error('No model present for the checkRequired middleware');
@@ -97,16 +101,11 @@ class BaseMiddleware {
   }
 
 
-
-  /**
-   *
-   */
-  checkRequiredParams = (req, res, next) => {
-    const { key } = this.model.masterKey;
-    if (req.params[`${key}`]) {
+  static checkForEmail = (req, res, next) => {
+    if (req.body.email && req.body.email.toString().length > 1 && isEmail(req.body.email)) {
       return next();
     }
-    err = new Error('A required param is missing');
+    err = new Error('ensure  the email is present for this to work');
     err.status = 400;
     return next(err);
   }
@@ -133,14 +132,29 @@ class BaseMiddleware {
     return next(err);
   }
 
-  static checkAuthorization = (req, res, next) => {
-    if (!req.headers || !req.headers.authorization) {
-      err = new Error('You need to be authorized to do this');
-      err.status = 403;
-      return next(err);
+
+  // ================= methods that matter in challenge 2 ===========================
+  /**
+   *
+   */
+  static checkPopulateQuery = (req, res, next) => {
+    if (req.query && req.query.populate && req.query.populate === 'populate') {
+      req.populate = true;
+      return next();
     }
     return next();
   }
+
+  /* check if the model is valid and and bind the model to this */
+  setModel = (model) => {
+    if (!model) {
+      throw new Error('The model has to be a DataHandler instance');
+    }
+    this.model = model;
+  }
+
+  _checkAuthenticity = (str1, str2) => str1.toString() === this.hashString(`HellothereKanye${str2}`).toString();
+
 
   static revokeAccess = (req, res, next) => {
     const target = Object.keys(req.params)[0];

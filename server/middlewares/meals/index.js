@@ -2,6 +2,9 @@ import BaseMiddleware from '../base-middleware';
 import MealModel from '../../models/v1/meal';
 import ValidatorError from '../../services/auth/errors/validation';
 import KitchenModel from '../../models/v1/kitchen';
+import models from '../../models/v2/relationship';
+
+const { Meal } = models;
 
 let source;
 const ref = {};
@@ -13,7 +16,22 @@ class MealMiddlewareBase extends BaseMiddleware {
     this.model = model;
   }
 
-  /* this method will check that the requesting user has a kitchen */
+  // ============ methods that matter in challenge 3 ===========
+  __revokeAccess = (req, res, next) => {
+    if (!req.kitchen) {
+      return next(new ValidatorError('You do not have a kitchen, please set up one', 409));
+    }
+    Meal.findOne({ where: { id: req.params.mmid } })
+      .then((meal) => {
+        if (!meal || meal.Kitchen === req.kitchen.id) {
+          return next(new ValidatorError('You do not have permissions to do that', 401));
+        }
+        return next();
+      });
+  }
+
+  // ======== methods that matter in challege 2 ==========================
+
   restrictAccess = (req, res, next) => {
     ref.id = parseInt(req.params.ktid);
     source = KitchenModel.findOne(ref);

@@ -1,9 +1,11 @@
 import BaseService from '../base-service';
 import DummyUserModel from '../../models/v1/user';
 import models from '../../models/v2/relationship';
+import Encrypt from '../../helpers/encrypt';
 
 // Persistent model
 const { User } = models
+let data;
 
 /* eslint no-underscore-dangle: 0 */
 class AuthModuleBase extends BaseService {
@@ -39,12 +41,14 @@ class AuthModuleBase extends BaseService {
           baseData[`${key}`] = null;
         });
         /* eslint no-return-await: 0 */
-        return await this.__model.create(baseData);
+        data = await this.__model.create(baseData);
+        const token = await Encrypt.issueToken({ id: data.id });
+        return { ...data.get({ plain: true }), token }
       }
     } catch (e) {
       if (e.errors) {
         if (e.errors[0].validatorKey === 'not_unique') {
-          this.databaseError(`This ${e.errors[0].path} is already taken, Sorry`)
+          this.databaseError(`This ${e.errors[0].path} is already taken, Sorry`);
         }
         this.unprocessableEntity(`${e.errors[0].message}`);
       }
@@ -68,6 +72,22 @@ class AuthModuleBase extends BaseService {
       validuser = target[0];
       if (validuser.password === user.password) {
         return true;
+      }
+      this.noPermissions('Invalid username and password combination');
+    }
+    this.unprocessableEntity('Certain required fields are missing');
+  }
+
+  __authenticate = async (user) => {
+    if (Object.entries(user).length >= 2) {
+      const dbuser = await this.__model.findOne({ where: { email: user.email } });
+      if (!dbuser) {
+        return this.unprocessableEntity('No record found with such user');
+      }
+      if (Encrypt.checkPassword(user.password, dbuser.password)) {
+        // Get the token;
+        const token = await Encrypt.issueToken({ id: dbuser.id });
+        return { ...dbuser.get({ plain: true }), token };
       }
       this.noPermissions('Invalid username and password combination');
     }

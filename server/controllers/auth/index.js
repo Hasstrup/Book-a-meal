@@ -15,8 +15,8 @@ class AuthControllerClass extends BaseController {
 
   authenticate = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      await AuthModule.authenticate(req.body);
-      this.responseOkay(res, 'successful authentication');
+      data = await AuthModule.__authenticate(req.body);
+      this.returnContent(res, data);
     }, next);
   }
 }

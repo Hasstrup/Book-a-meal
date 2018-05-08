@@ -1,19 +1,25 @@
 import BaseMiddleware from '../base-middleware';
 import ValidatorError from '../../services/auth/errors/validation';
 import OrderModel from '../../models/v1/orders';
+import models from '../../models/v2/relationship';
 import MenuModel from '../../models/v1/menu';
 import KitchenMiddleware from '../kitchen';
 
-let order;
-let menu
-let ref;
+const { Order } = models;
 
-/* eslint radix: 0, no-restricted-globals: 0 */
+let order;
+let menu;
+let ref;
+let err;
+
+/* eslint radix: 0, no-restricted-globals: 0, no-underscore-dangle: 0, no-shadow: 0 */
 class OrdersMiddlewareBase extends BaseMiddleware {
   constructor(model) {
     super(model);
-    this.model = model
+    this.model = model;
   }
+
+  // ================= methods that matter in challenge 3 ====================
   checkType = (req, res, next) => {
     if (!req.query || !req.query.type || !req.params) {
       next(new ValidatorError('This query is invalid', 400));
@@ -24,9 +30,30 @@ class OrdersMiddlewareBase extends BaseMiddleware {
   }
 
   appendOwner = (req, res, next) => {
-    req.body = { ...req.body, client: parseInt(req.query.uuid) };
+    req.body = { ...req.body, UserId: req.user.id };
     next();
   }
+
+  __revokeAccess = (req, res, next) => {
+    if (req.qualifier === 'kitchen' && !req.kitchen) {
+      err = new ValidatorError('You need to have a kitchen set up', 403);
+      return next(err);
+    } else if (req.qualifier === 'kitchen' && req.kitchen) {
+      Order.findOne({ where: { id: req.params.ooid } })
+        .then((order) => {
+          if (!order || !Object.keys(order.status).includes(req.kitchen.id)) {
+            err.message = 'Your kitchen is not permitted to do that';
+            err.status = 401;
+            next(err);
+          }
+          next();
+        });
+    }
+  }
+
+  // =============== methods that matter in challenge 2 =========================
+
+
   // The logic here is to make sure the kitchen //the order in the params, the kitchen in the query
   revokeAccess = (req, res, next) => {
     // check that there is the menu key in the body
@@ -42,6 +69,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     }
     return next(new ValidatorError('You do not have permissions to do that', 401));
   }
+
 
   restrictAccess = (req, res, next) => {
     // check if it's a user;

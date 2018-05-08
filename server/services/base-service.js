@@ -63,7 +63,7 @@ class BaseService {
     }
     return await this.__model.create(body);
   }
-  
+
   __fetchAll = async () => {
     return await this.__model.findAll({ include: [{ all: true }] });
   }
