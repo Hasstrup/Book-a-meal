@@ -43,5 +43,6 @@ describe('Meal service Object', () => {
     data = await MealService.__create(testkitchen.id, valid);
     expect(data).to.have.property('name');
     expect(data.name).to.equal('This is a pretty awesome meal');
-  })
+  });
+
 });

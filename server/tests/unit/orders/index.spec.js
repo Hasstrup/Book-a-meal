@@ -1,21 +1,20 @@
 import { expect } from 'chai';
 import OrderService from '../../../services/orders/';
+import models from '../../../models/v2/relationship';
 
 let data;
 let target;
 let source;
+let testkitchen;
+
+/* eslint no-unused-expressions: 0, no-underscore-dangle: 0 */
+const { Kitchen, User, Meal } = models;
 
 describe('Order service object', () => {
   it(' The fetch all method should return the details for the kitchen', async () => {
     data = await OrderService.fetchAll('user', 2);
     expect(data).to.be.an('array');
     expect(data[0].content['1'].items[0].name).to.equal('Fried Rice and Menu & what not');
-  });
-
-  it('The fetch all method for kitchens should return the kitchen orders', async () => {
-    data = await OrderService.fetchAll('kitchen', 1);
-    expect(data).to.be.an('array');
-    expect(data[0]).to.be.an('object');
   });
 
   it('should update one should only update the processed part of the order owned by the kitchen', async () => {
@@ -37,5 +36,31 @@ describe('Order service object', () => {
     data = await OrderService.create(1, target);
     expect(data.content).to.be.an('object');
     expect(data.id).to.equal(4);
+  });
+
+  describe(' DB Persistent methods', () => {
+    before(async () => {
+      data = await User.findAll();
+      target = data[0];
+      testkitchen = await Kitchen.create({ name: 'Bay and Ruts', description: 'A really expensive restaurant on the island', UserId: target.id });
+      source = await Meal.findAll();
+    });
+
+    it('__create method should create a new object in the database', async () => {
+      try {
+        let status = {};
+        status[`${testkitchen.id}`] = false;
+        data = await OrderService.__create(target.id, { meals: source, status });
+        expect(data).to.be.an('object');
+      } catch (e) {
+        expect(e).to.not.exist;
+      }
+    });
+
+    it('__updateOne should change the status of a kitchen to processed or not', async () => {
+      data = await OrderService.__updateOne('id', data.id, testkitchen.id);
+      expect(data.status[`${testkitchen.id}`]).to.equal(true);
+    });
+
   });
 });

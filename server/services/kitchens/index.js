@@ -129,12 +129,8 @@ class KitchenService extends BaseService {
     this.noPermissions('You do not have permissions to do that');
   }
 
-    /* the logic is to find the menu if it exists, if it doesnt exist
-     // try to create it, then try to set it as of the day */;
-    //
-
-    /**
-     * [__setMenuOfTheDay This takes in the menu object and tries to find it or create it. and sets it to the kitchen ]
+  /**
+     * __setMenuOfTheDay This takes in the menu object and tries to find it or create it. and sets it to the kitchen
      * @param  {String}  key     The key to be used in querying the db
      * @param  {String}  value   The value of the key that will be used
      * @param  {Object}  newMenu The new/old menu object;
@@ -159,7 +155,7 @@ class KitchenService extends BaseService {
       await Menu.findOrCreate({
         where: { name: data.name, KitchenId: source.id },
         defaults: { ...data, KitchenId: source.id }
-      }).spread(async (menu, created) => {
+      }).spread(async (menu) => {
         await source.update({ ofTheDay: menu.id });
       });
 
