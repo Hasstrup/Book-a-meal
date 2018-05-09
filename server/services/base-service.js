@@ -63,7 +63,7 @@ class BaseService {
     }
     return await this.__model.create(body);
   }
-  
+
   __fetchAll = async () => {
     return await this.__model.findAll({ include: [{ all: true }] });
   }
@@ -78,7 +78,7 @@ class BaseService {
   __updateOne = async (key, value, changes) => {
     this.checkArguments(key, value, changes);
     if ((typeof changes) !== 'object') {
-      return this.unprocessableEntity('Invalid object thrown to the center');
+      return this.unprocessableEntity('This request is invalid');
     }
     let ref = {};
     ref[`${key}`] = value;

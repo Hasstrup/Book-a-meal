@@ -37,6 +37,13 @@ class MealServiceObject extends BaseService {
     data = await this.__model.create({ ...body, KitchenId });
     return data;
   }
+
+  __fetchMealsForKitchen = async (kitchen) => {
+    // assuming this is an instance of a sequelize model
+    data = await kitchen.getMeals();
+    return data;
+  }
+
 }
 
 const MealService = new MealServiceObject(MealModel, Meal);

@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from './index';
+import Encrypt from '../../helpers/encrypt';
 
 const isString = (value) => {
   if (value.constructor !== String) {
@@ -52,6 +53,12 @@ const User = sequelize.define('User', {
     primaryKey: true,
     defaultValue: DataTypes.UUIDV4
   }
-}, {});
+}, {
+  hooks: {
+    beforeCreate: (instance) => {
+      return instance.password =  Encrypt.hashPassword(instance.password);
+    }
+  }
+});
 
-export default User;
+export default User

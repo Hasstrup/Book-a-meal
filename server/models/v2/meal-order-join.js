@@ -10,8 +10,10 @@ const MealOrders = sequelize.define('MealOrder', {
     type: DataTypes.UUID,
     allowNull: false
   },
+  quantity: {
+    type: DataTypes.INTEGER,
+    defaultValue: 1
+  }
 });
-
-// MealOrders.sync({ force: true });
 
 export default MealOrders

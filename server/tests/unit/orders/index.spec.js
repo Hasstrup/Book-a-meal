@@ -1,4 +1,6 @@
 import { expect } from 'chai';
+import { stub } from 'sinon';
+import moment from 'moment';
 import OrderService from '../../../services/orders/';
 import models from '../../../models/v2/relationship';
 
@@ -7,8 +9,8 @@ let target;
 let source;
 let testkitchen;
 
-/* eslint no-unused-expressions: 0, no-underscore-dangle: 0, prefer-destructuring: 0, prefer-const: 0, max-len: 0 */
-const { Kitchen, User, Meal } = models;
+/* eslint no-unused-expressions: 0, no-underscore-dangle: 0, prefer-destructuring: 0, prefer-const: 0, max-len: 0, arrow-body-style: 0, object-curly-newline: 0 */
+const { Kitchen, User, Meal, Order } = models;
 
 describe('Order service object', () => {
   it(' The fetch all method should return the details for the kitchen', async () => {
@@ -35,7 +37,7 @@ describe('Order service object', () => {
     target = { client: 1, content: { 1: { items: [0, 1, 2], processed: false } } };
     data = await OrderService.create(1, target);
     expect(data.content).to.be.an('object');
-    expect(data.id).to.equal(4);
+    expect(data.id).to.equal(3);
   });
 
   describe(' DB Persistent methods', () => {
@@ -49,7 +51,10 @@ describe('Order service object', () => {
     it('__create method should create a new object in the database', async () => {
       try {
         let status = {};
-        status[`${testkitchen.id}`] = false;
+        // status[`${testkitchen.id}`] = false;
+        source = source.map((item) => {
+          return { id: item.id, quantity: Math.floor(Math.random() * 10), kitchen: item.KitchenId }
+        });
         data = await OrderService.__create(target.id, { meals: source, status });
         expect(data).to.be.an('object');
       } catch (e) {
@@ -58,8 +63,26 @@ describe('Order service object', () => {
     });
 
     it('__updateOne should change the status of a kitchen to processed or not', async () => {
-      data = await OrderService.__updateOne('id', data.id, testkitchen.id);
+      data = await OrderService.__updateOne('id', data.id, testkitchen.id, 'kitchen');
       expect(data.status[`${testkitchen.id}`]).to.equal(true);
     });
+
+    it('__updateOne should change the quantity of an item in an order in the db', async () => {
+      data = await OrderService.__updateOne('id', data.id, source[0].id, 'user', { quantity: 7 });
+      expect(data.quantity).to.equal(7);
+    });
+
+    it('__updateOne shoud fail if 10 minutes have elapsed', async () => {
+      try {
+        let stub1 = stub(Order, 'findOne');
+        let date = moment().subtract(12, 'm');
+        stub1.returns({ createdAt: date });
+        data = await OrderService.__updateOne('id', data.id, source[0].id, 'user', { quantity: 7 });
+      } catch (e) {
+        expect(e).to.exist;
+        expect(e.message).to.equal('This request is invalid, time for this might have elapsed or bad input');
+      }
+    });
+
   });
 });
