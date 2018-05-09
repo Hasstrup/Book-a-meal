@@ -1,6 +1,7 @@
 import BaseService from '../base-service';
 import DummyUserModel from '../../models/v1/user';
 import models from '../../models/v2/relationship';
+import UserService from '../users/';
 import Encrypt from '../../helpers/encrypt';
 
 // Persistent model
@@ -42,6 +43,7 @@ class AuthModuleBase extends BaseService {
         });
         /* eslint no-return-await: 0 */
         data = await this.__model.create(baseData);
+        UserService.__sendConfirmMail(data.id, data.email);
         const token = await Encrypt.issueToken({ id: data.id });
         return { ...data.get({ plain: true }), token }
       }

@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import UserService from '../../../services/users/';
-import Encrypt from '../../../helpers/encrypt/'
+import Encrypt from '../../../helpers/encrypt/';
+import stub from 'sinon';
 
 let data;
 let token;
@@ -17,7 +18,7 @@ describe('User service object', () => {
     expect(data.username).to.equal('beyhouston');
     expect(data.kitchen).to.equal(5);
   });
-  /* eslint no-unused-expressions: 0 */
+  /* eslint no-unused-expressions: 0, no-shadow: 0, prefer-destructuring: 0, no-underscore-dangle: 0, max-len: 0 */
   it('updateSingle should update the particuler user', async () => {
     try {
       const changes = { username: 'ohmydearariana' };
@@ -41,6 +42,7 @@ describe('User service object', () => {
       data = await UserService.__model.findAll();
       data = data[0];
     });
+
     it('__resetPassword should reset the password of a user on first try and fail done again', async () => {
       try {
         token = await Encrypt.issueToken({ id: data.id, resetPasswordCount: data.resetPasswordCount });
@@ -53,11 +55,11 @@ describe('User service object', () => {
       }
     });
 
-    it('__confirmEmail should confirm the email of the test user and invalidate after', async () => {
+    it('__confirmEmail should seconirm the email of the test user and invalidate after', async () => {
       try {
         data = await UserService.__confirmEmail(token);
         expect(data.confirmedEmail).to.be.true;
-        await UserService.__confirmEmail(token);
+        token = await UserService.__confirmEmail(token);
       } catch (e) {
         expect(e).to.exist;
         expect(e.message).to.equal('Seems like youve confirmed your email prior to now');

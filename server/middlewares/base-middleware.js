@@ -148,6 +148,15 @@ class BaseMiddleware {
     return next(err);
   }
 
+  checkForTokenQuery = (req, res, next) => {
+    if (!req.query.tk) {
+      err = new Error('There needs to be token for this to work');
+      err.status = 403;
+      return next(err);
+    }
+    next();
+  }
+
 
   // ================= methods that matter in challenge 2 ===========================
   /**

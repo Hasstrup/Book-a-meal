@@ -2,12 +2,20 @@ import BaseService from '../base-service';
 import UserModel from '../../models/v1/user';
 import models from '../../models/v2/relationship';
 import Encrypt from '../../helpers/encrypt';
+import mailers from '../../helpers/mailers/'
+
+const { dispatch } = mailers
 
 const { User } = models;
 
+let subject;
+let message;
+let destination;
+
 const ref = {};
 let data;
-const basePath = 'http://localhost:3900/reset/my/password/'
+const basePath = 'http://localhost:3900/api/v1/users/reset/password/';
+const confirmMailPath = 'http://localhost:3900/api/v1/users/confirm/mail'
 
 class UserService extends BaseService {
   constructor(model, __model) {
@@ -57,10 +65,14 @@ class UserService extends BaseService {
   __sendResetPassword = async (email) => {
     data = await this.__model.findOne({ where: { email } });
     if (data) {
-      // call the mailer service and fire on;
-      const tk = await Encrypt.issueToken({ id: data.id });
+      const tk = await Encrypt.issueToken({ id: data.id, resetPasswordCount: data.resetPasswordCount });
       const link = `${basePath}?tk=${tk}`;
-      return true;
+      message = `<h2> Hello, Yes we understand </br> Please click this link to reset your password <br /> ${link} </h2>`;
+      subject = 'Reset Password';
+      destination = email;
+      const body = { message, destination, subject };
+      dispatch(body);
+      return tk;
     }
     return this.noPermissions('Sorry we cant find that user');
   }
@@ -82,8 +94,15 @@ class UserService extends BaseService {
     }
   }
 
-  __sendConfirmMail = async (id) => {
-
+  __sendConfirmMail = async (id, email) => {
+    const token = await Encrypt.issueToken({ id });
+    const path = `${confirmMailPath}?tk=${token}`;
+    message = `<h2> Hello, Welcome to BookAMeal </br> Please click this link to confirm your mail <br/> ${path} </h2>`;
+    subject = 'Confirm YourEmail';
+    destination = email;
+    const body = { message, destination, subject };
+    dispatch(body);
+    return token;
   }
 
   /* eslint no-return-await: 0 */
