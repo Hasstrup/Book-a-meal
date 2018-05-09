@@ -4,6 +4,7 @@ import OrderModel from '../../models/v1/orders';
 import models from '../../models/v2/relationship';
 import MenuModel from '../../models/v1/menu';
 import KitchenMiddleware from '../kitchen';
+import MealMiddleware from '../meals'
 
 const { Order } = models;
 
@@ -21,12 +22,38 @@ class OrdersMiddlewareBase extends BaseMiddleware {
 
   // ================= methods that matter in challenge 3 ====================
   checkType = (req, res, next) => {
-    if (!req.query || !req.query.type || !req.params) {
+    if (!req.query || !req.query.type) {
       next(new ValidatorError('This query is invalid', 400));
     }
     req.qualifier = req.query.type;
-    req.key = req.qualifier === 'kitchen' ? req.query.ktid : req.query.uuid;
+    // this is to check for the user
+    if (req.qualifier === 'kitchen') {
+      if (this.__ensureKitchenOwner(req, res)) {
+        req.key = req.kitchen.id
+        if (req.method === 'PUT') {
+          req.target = req.kitchen.id;
+        }
+        return next();
+      }
+      return next(new ValidatorError('You need to have a kitchen to perform this operation', 403));
+    }
+    // check that ths user owns a kitchen
+    req.key = req.user.id;
+    if (req.method === 'PUT' && req.qualifier === 'user') {
+      if (!req.query.mealId) {
+        return next(new ValidatorError('Please pass in the meal to be changed', 400));
+      }
+      req.target = req.query.mealId;
+      return next();
+    }
     next();
+}
+
+  checkUpdateType = (req, res, next) => {
+    if (!req.query || !req.query.type) {
+      next(new ValidatorError('This query is invalid', 400));
+    }
+    req.qualifier = req.query.type;
   }
 
   appendOwner = (req, res, next) => {

@@ -48,7 +48,6 @@ describe('Authentication Module', () => {
           firstname: 'HasstrupEzekiel'
         };
         const newuser = await AuthModule.signUp(validData);
-        console.log(newuser);
         expect(newuser.username).to.equal('hasstrupezekielbro');
       } catch (e) {
         expect(e).to.not.exist;

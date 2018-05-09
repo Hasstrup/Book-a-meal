@@ -20,7 +20,7 @@ describe(' Order model POSTGRES', () => {
   describe('Create Method', () => {
     before('Should return an order with valid user input', async () => {
       source = await User.findAll();
-      status[`${test.name}`] = false;
+      status[`${test.id}`] = false;
       data = { status, UserId: source[0].id };
     });
 

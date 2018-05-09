@@ -50,10 +50,15 @@ class BaseMiddleware {
   __ensureKitchenOwner = (req, res, next) => {
     if (!req.kitchen) {
       err = new ValidatorError('You need to have a kitchen to perform this action', 403);
-      return next(err);
+      if (next) {
+        return next(err);
+      }
+      return false;
     }
-    next();
-  }
+    if (next) {
+      return next();
+    }
+    return true; }
 
 
   getCurrentUser = async (payload) => {
@@ -138,7 +143,7 @@ class BaseMiddleware {
       req[`${key}`] = req.query[`${key}`];
       return next();
     }
-    err = new Error('There is no identifier for this request');
+    err = new Error('There is no identifier for this request at all');
     err.status = 401;
     return next(err);
   }

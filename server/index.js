@@ -8,7 +8,7 @@ import config from './config/config.json';
 
 
 
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3800;
 const app = express();
 dotenv.config();
 // use body parsing middleware to translate the req.body;
