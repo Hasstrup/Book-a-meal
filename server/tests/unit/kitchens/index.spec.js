@@ -16,10 +16,9 @@ describe('Kitchen Service Object', () => {
     data = await Menu.findAll();
     testMenu = data[0]
   })
-  it('Get All should return all the kitchens in the mock store', async () => {
+  it('Get All should return all the kitchens in the mainstore', async () => {
     data = await KitchenService.fetchAll();
     expect(data[0]).to.be.an('object');
-    expect(data[0].name).to.be.equal('Bay and Ruts');
   });
   /* eslint no-unused-expressions: 0 */
   it('Get One should return a kitchen specifically', async () => {
