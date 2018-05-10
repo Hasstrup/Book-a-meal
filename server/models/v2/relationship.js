@@ -5,6 +5,7 @@ import Order from './order';
 import Meal from './meal';
 import MealOrders from './meal-order-join'
 
+export const modelsB = { User, Kitchen, Menu, Meal, Order, MealOrders }
 // user to kitchen;
 Kitchen.belongsTo(User);
 User.hasOne(Kitchen);
@@ -30,5 +31,5 @@ Order.belongsToMany(Meal, { through: MealOrders });
 Meal.belongsToMany(Order, { through: MealOrders });
 
 /* eslint object-curly-newline: 0 */
-const models = { Kitchen, User, Menu, Meal, Order, MealOrders };
+const models = {  Kitchen, User, Menu, Meal, Order, MealOrders };
 export default models;

@@ -10,7 +10,7 @@ let ref = {};
 let data;
 let target;
 
-const { Order, MealOrders } = models;
+const { Order, MealOrders, Meal } = models;
 /* eslint no-underscore-dangle: 0, radix: 0, max-len: 0, no-return-await: 0, no-shadow: 0, prefer-const: 0 */
 class OrderServiceBase extends BaseService {
   constructor(model, __model) {
@@ -68,7 +68,7 @@ class OrderServiceBase extends BaseService {
 
   // Persistent Methods
   __create = async (UserId, body) => {
-    if (!UserId || !body || (typeof body) !== 'object' || !body.meals) {
+    if (!UserId || !body || (typeof body) !== 'object' || !body.meals || body.meals.constructor !== Array ) {
       this.badRequest('The input isnt complete :(');
     }
     // assuming there is a list of meals that comes in the body of the request;
@@ -88,6 +88,9 @@ class OrderServiceBase extends BaseService {
     data = await this.__model.create(target);
     // await data.addMeals(body.meals);
     body.meals = body.meals.map((meal) => {
+      if (!meal.id || !meal.quantity) {
+        this.badRequest('Please pass in the right values for the order, including quantity')
+      }
       return { OrderId: data.id, MealId: meal.id, quantity: meal.quantity };
     });
     await MealOrders.bulkCreate(body.meals);
@@ -130,7 +133,7 @@ class OrderServiceBase extends BaseService {
     if (type === 'kitchen') {
       return await KitchenService.__fetchOrders('id', id);
     } else if (type === 'user') {
-      return await this.__model.findAll({ where: { UserId: id } });
+      return await this.__model.findAll({ where: { UserId: id }, include: [Meal] });
     }
   }
 }

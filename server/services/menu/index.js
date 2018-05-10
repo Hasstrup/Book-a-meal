@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+import { Op } from 'sequelize';
 import BaseService from '../base-service';
 import DummyMenuModel from '../../models/v1/menu';
 import KitchenModel from '../../models/v1/kitchen';
@@ -18,10 +20,9 @@ class MenuService extends BaseService {
   // ================== methods that matter in challenge 3 ===================
   __fetchCatalogue = async () => {
     data = await Kitchen.findAll();
-    data = data.map(async (kitchen) => {
-      return await Menu.findOne({ where: { id: kitchen.ofTheDay }, include: [Meal, Kitchen] });
-    });
-    return data;
+    data = data.map(kitchen => kitchen.ofTheDay);
+    target = await Menu.findAll({ where: { id: { [Op.in]: data } }, include: [Meal, Kitchen] });
+    return target;
   }
 
   __setMenuOfTheDay = async (kitchen, menu) => {
