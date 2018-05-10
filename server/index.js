@@ -12,10 +12,6 @@ const app = express();
 
 console.log(process.env.PORT);
 
-// // Database syncing
-// sync()
-// .then(() => { console.log('DB is done syncing') })
-// .catch(e => console.log(e))
 
 app
   .use(bodyParser.urlencoded({ extended: true }))
