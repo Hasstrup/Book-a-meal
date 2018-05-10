@@ -4,14 +4,19 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import api from './api';
 import config from './config/config.json';
+import sync from './models/v2/sync';
 
 
-
-
-const PORT = process.env.PORT || 3800;
+const PORT = process.env.PORT || 3900;
 const app = express();
 dotenv.config();
-// use body parsing middleware to translate the req.body;
+console.log(process.env.PORT);
+
+// // Database syncing
+// sync()
+// .then(() => { console.log('DB is done syncing') })
+// .catch(e => console.log(e))
+
 app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
@@ -20,7 +25,7 @@ app
   .use('/api/v1', api)
   .get('/*', (_, res) => res.send('Cant find resource').status(400))
   .listen(PORT, () => {
-    if (process.env.NODE_ENV === 'developemt') {
+    if (process.env.NODE_ENV === 'development') {
       /* eslint no-console: 0 */
       console.log(`The Dev server is running on port ${PORT}`);
     } else {

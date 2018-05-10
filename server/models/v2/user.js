@@ -48,6 +48,16 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING
   },
 
+  confirmedEmail: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
+  },
+
+  resetPasswordCount: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0
+  },
+
   id: {
     type: DataTypes.UUID,
     primaryKey: true,

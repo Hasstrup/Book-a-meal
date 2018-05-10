@@ -24,13 +24,13 @@ class BaseMiddleware {
           return false;
         } return true;
       })) {
-        err = new Error('Incomplete values in the body');
+        err = new Error('Incomplete values in the request body');
         err.status = 400;
         next(err);
       }
       return next();
     }
-    err = new Error('Theres no content in the body');
+    err = new Error('Theres no content in the request body');
     err.status = 400;
     return next(err);
   }
@@ -44,7 +44,7 @@ class BaseMiddleware {
         req.kitchen = data.Kitchen ? data.Kitchen : null;
         return next();
       })
-      .catch(() => next(new ValidatorError('Something went wrong trying to grant you access', 401)));
+      .catch(() => next(new ValidatorError('Something went wrong trying to grant you access, Token might be deformed', 401)) );
   }
 
   __ensureKitchenOwner = (req, res, next) => {
@@ -146,6 +146,15 @@ class BaseMiddleware {
     err = new Error('There is no identifier for this request at all');
     err.status = 401;
     return next(err);
+  }
+
+  checkForTokenQuery = (req, res, next) => {
+    if (!req.query.tk) {
+      err = new Error('There needs to be token for this to work');
+      err.status = 403;
+      return next(err);
+    }
+    next();
   }
 
 

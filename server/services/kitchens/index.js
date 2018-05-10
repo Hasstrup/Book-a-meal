@@ -1,6 +1,7 @@
 import BaseService from '../base-service';
 import KitchenModel from '../../models/v1/kitchen';
 import models from '../../models/v2/relationship';
+import { Op } from 'sequelize'
 
 const { Kitchen, Menu, Order, Meal } = models;
 
@@ -48,7 +49,7 @@ class KitchenService extends BaseService {
     ref[`${key}`] = value;
     source = await Order.findAll({ include: { model: Meal, include: [Kitchen] } });
     // so source  returns an array of Meals in the Meals field since it's 1:m rel
-    dataTree = source.filter(order => Object.keys(order.status).includes(target.name));
+    dataTree = source.filter(order => Object.keys(order.status).includes(target.id));
     // remember to filter the order's content
     return dataTree;
   }
@@ -158,7 +159,8 @@ class KitchenService extends BaseService {
         defaults: { ...data, KitchenId: source.id }
       }).spread(async (menu) => {
         if (mealPresent) {
-          await menu.addMeals(newMenu.meals);
+          newMenu.meals = newMenu.meals.map(meal => meal.id);
+          await Meal.update({ MenuId: menu.id }, { where: { id: { [Op.in]: newMenu.meals }, KitchenId: source.id } });
         }
         await source.update({ ofTheDay: menu.id });
       });

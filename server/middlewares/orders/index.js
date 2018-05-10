@@ -23,7 +23,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
   // ================= methods that matter in challenge 3 ====================
   checkType = (req, res, next) => {
     if (!req.query || !req.query.type) {
-      next(new ValidatorError('This query is invalid', 400));
+      return next(new ValidatorError('This request requires a type query which should be user or kitchen', 400));
     }
     req.qualifier = req.query.type;
     // this is to check for the user
@@ -35,7 +35,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
         }
         return next();
       }
-      return next(new ValidatorError('You need to have a kitchen to perform this operation', 403));
+      return next(new ValidatorError('Sorry, you need to have a kitchen to perform this operation', 403));
     }
     // check that ths user owns a kitchen
     req.key = req.user.id;

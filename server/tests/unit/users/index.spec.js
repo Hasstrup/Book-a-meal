@@ -1,5 +1,10 @@
 import { expect } from 'chai';
-import UserService from '../../../services/users/'
+import UserService from '../../../services/users/';
+import Encrypt from '../../../helpers/encrypt/';
+import stub from 'sinon';
+
+let data;
+let token;
 
 describe('User service object', () => {
   it('Get all users, should return all the content in the models store', () => {
@@ -13,7 +18,7 @@ describe('User service object', () => {
     expect(data.username).to.equal('beyhouston');
     expect(data.kitchen).to.equal(5);
   });
-  /* eslint no-unused-expressions: 0 */
+  /* eslint no-unused-expressions: 0, no-shadow: 0, prefer-destructuring: 0, no-underscore-dangle: 0, max-len: 0 */
   it('updateSingle should update the particuler user', async () => {
     try {
       const changes = { username: 'ohmydearariana' };
@@ -30,5 +35,35 @@ describe('User service object', () => {
     } catch (e) {
       expect(e).to.not.exist;
     }
+  });
+
+  describe(' Extra methods - reset password and confirm email', () => {
+    before(async () => {
+      data = await UserService.__model.findAll();
+      data = data[0];
+    });
+
+    it('__resetPassword should reset the password of a user on first try and fail done again', async () => {
+      try {
+        token = await Encrypt.issueToken({ id: data.id, resetPasswordCount: data.resetPasswordCount });
+        data = await UserService.__resetPassword(token);
+        expect(data.resetPasswordCount).to.equal(1);
+        await UserService.__resetPassword(token);
+      } catch (e) {
+        expect(e).to.exist;
+        expect(e.message).to.equal('Sorry this token is expired');
+      }
+    });
+
+    it('__confirmEmail should seconirm the email of the test user and invalidate after', async () => {
+      try {
+        data = await UserService.__confirmEmail(token);
+        expect(data.confirmedEmail).to.be.true;
+        token = await UserService.__confirmEmail(token);
+      } catch (e) {
+        expect(e).to.exist;
+        expect(e.message).to.equal('Seems like youve confirmed your email prior to now');
+      }
+    });
   });
 });

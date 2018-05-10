@@ -1,15 +1,16 @@
 import BaseController from '../base-controller';
 import UserModule from '../../services/users/';
 
-/* eslint radix: 0 */
+/* eslint radix: 0, no-underscore-dangle: 0 */
+
+let data
 class UserControllerBase extends BaseController {
     fetchAll = (req, res, next) => {
-      this.wrapInTryCatch(() => {
-        let data;
+      this.wrapInTryCatch(async () => {
         if (!req.populate) {
-          data = UserModule.fetchAll();
+          data = await UserModule.__fetchAll();
         } else {
-          data = UserModule.fetchAll('populate');
+          data = await UserModule.__fetchAll('populate');
         }
         this.responseOkay(res, data);
       }, next);
@@ -17,11 +18,10 @@ class UserControllerBase extends BaseController {
 
     fetchSingle = (req, res, next) => {
       this.wrapInTryCatch(() => {
-        let data;
         if (req.populate) {
-          data = UserModule.fetchSingle('id', parseInt(req.params.user_id));
+          data = UserModule.__fetchSingle('id', req.params.user_id);
         } else {
-          data = UserModule.fetchSingle('id', parseInt(req.params.user_id), 'populate');
+          data = UserModule.__fetchSingle('id', req.params.user_id, 'populate');
         }
         this.responseOkay(res, data);
       }, next);
@@ -39,6 +39,29 @@ class UserControllerBase extends BaseController {
         await UserModule.deleteOne('id', parseInt(req.params.user_id));
         this.returnNoContent(res, 'successfully deleted');
       }, next);
+    }
+
+    __confirmEmail = (req, res, next) => {
+      this.wrapInTryCatch(async () => {
+        data = await UserModule.__confirmEmail(req.query.tk);
+        this.returnContent(res, data);
+      }, next);
+    }
+
+    __sendResetPassword = (req, res, next) => {
+      this.wrapInTryCatch(async () => {
+        data = await UserModule.__sendResetPassword(req.body.email);
+        if (data) {
+          return this.returnContent(res, data)
+        }
+      }, next);
+    }
+
+    __resetPassword = (req, res, next) => {
+      this.wrapInTryCatch(async () => {
+        data = await UserModule.__resetPassword(req.query.tk);
+        return this.returnContent(res, data);
+      }, next)
     }
 }
 
