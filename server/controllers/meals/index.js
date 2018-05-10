@@ -37,7 +37,7 @@ class MealControllerBase extends BaseController {
   deleteContent = (req, res, next) => {
     this.wrapInTryCatch(async () => {
       await MealServiceObject.__deleteOne('id', req.params.mealId);
-      this.returnNoContent(res);
+      this.returnNoContent(res, `The meal has been deleted, Dear ${req.kitchen.name}`);
     }, next);
   }
 }

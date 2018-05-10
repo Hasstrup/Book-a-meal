@@ -21,7 +21,7 @@
     ],
     "reporter": [
       "lcov",
-      "text"
+      "text" 
     ],
     "sourceMap": false,
     "instrument": false

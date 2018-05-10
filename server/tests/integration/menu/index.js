@@ -23,8 +23,8 @@ describe('Menu routes and endpoints', () => {
     meals = await Meal.findAll({ where: { KitchenId: test.Kitchen.id }, include: [{ all: true }] });
   });
 
-  it('A call to catalogue should return an array of menu of the days', async () => {
-    res = await request(app).get('/api/v1/menus/catalogue');
+  it('A call to the base route should return an array of menu of the days', async () => {
+    res = await request(app).get('/api/v1/menus/');
     expect(res.statusCode).to.equal(200);
     expect(res.body.data).to.be.an('array');
   });

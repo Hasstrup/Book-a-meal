@@ -57,9 +57,11 @@ class OrderModelBase extends DataHandler {
 
 const OrderModel = new OrderModelBase({
   content: Object,
-  client: { refs: 'Users' }
+  client: { refs: 'Users' },
+  quantity: Number,
+  meals: Array
 }, [
-  'content',
+  'meals'
 ]);
 
 // set the masterKey of the model

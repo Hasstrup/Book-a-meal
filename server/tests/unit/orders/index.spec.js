@@ -63,8 +63,8 @@ describe('Order service object', () => {
     });
 
     it('__updateOne should change the status of a kitchen to processed or not', async () => {
-      data = await OrderService.__updateOne('id', data.id, testkitchen.id, 'kitchen');
-      expect(data.status[`${testkitchen.id}`]).to.equal(true);
+      data = await OrderService.__updateOne('id', data.id, source[0].kitchen, 'kitchen');
+      expect(data.status[`${source[0].kitchen}`]).to.equal(true);
     });
 
     it('__updateOne should change the quantity of an item in an order in the db', async () => {

@@ -31,7 +31,7 @@ describe('User resources', () => {
 
       it('a call to send reset password token', async () => {
         res = await request(app).post('/api/v1/users/send/reset/password').send({ email: 'hasstrup.ezekiel@gmail.com' });
-        token = res.body.data;
+        token = res.body.data.content;
         expect(res.statusCode).to.equal(200);
       });
 

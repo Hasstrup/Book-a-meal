@@ -89,7 +89,7 @@ class OrderServiceBase extends BaseService {
     // await data.addMeals(body.meals);
     body.meals = body.meals.map((meal) => {
       if (!meal.id || !meal.quantity) {
-        this.badRequest('Please pass in the right values for the order, including quantity')
+        return this.badRequest('Please pass in the right values for the order, including quantity');
       }
       return { OrderId: data.id, MealId: meal.id, quantity: meal.quantity };
     });
@@ -108,6 +108,9 @@ class OrderServiceBase extends BaseService {
       this.unprocessableEntity('Sorry, theres no order matching that criteria');
     }
     if (type === 'kitchen') {
+      if (!Object.keys(data.status).includes(Id)) {
+        return this.noPermissions(' Sorry your kitchen cant perform this operation');
+      }
       data.status[`${Id}`] = true;
       await data.update({
         status: data.status
