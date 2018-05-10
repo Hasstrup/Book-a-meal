@@ -3,13 +3,13 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import api from './api';
-import config from './config/config.json';
 import sync from './models/v2/sync';
 
+dotenv.config();
 
 const PORT = process.env.PORT || 3900;
 const app = express();
-dotenv.config();
+
 console.log(process.env.PORT);
 
 // // Database syncing

@@ -14,6 +14,7 @@ let meals;
 let test;
 let token;
 
+/* eslint prefer-destructuring: 0 */
 const { User, Meal, Kitchen } = models;
 
 describe('Orders endpoints', () => {
@@ -50,13 +51,13 @@ describe('Orders endpoints', () => {
 
   it('Put request should change the quantity of the created item', async () => {
     valid = { quantity: 10 };
-     data  = res.body.data;
+    data  = res.body.data;
     res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid).query({ type: 'user', mealId: data.meals[0].id });
     expect(res.body.data.quantity).to.equal(10);
   });
 
-  it('Put request should return the change the status of the kitchen to true', async () => {
+  it('Put request should return the fail the without the right token', async () => {
     res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid).query({ type: 'kitchen' });
-    expect(res.body.data.changedCorrectly).to.equal(true);
-  })
+    expect(res.statusCode).to.equal(401);
+  });
 });

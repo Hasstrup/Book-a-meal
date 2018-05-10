@@ -14,8 +14,8 @@ let destination;
 
 const ref = {};
 let data;
-const basePath = 'http://localhost:3900/api/v1/users/reset/password/';
-const confirmMailPath = 'http://localhost:3900/api/v1/users/confirm/mail'
+const basePath = 'http://my-book-a-meal-app.herokuapp.com/api/v1/users/reset/password/';
+const confirmMailPath = 'http://my-book-a-meal-app.herokuapp.com/api/v1/users/confirm/mail'
 
 class UserService extends BaseService {
   constructor(model, __model) {

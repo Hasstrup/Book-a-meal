@@ -48,11 +48,12 @@ class UserControllerBase extends BaseController {
       }, next);
     }
 
+    // lfa feedback
     __sendResetPassword = (req, res, next) => {
       this.wrapInTryCatch(async () => {
         data = await UserModule.__sendResetPassword(req.body.email);
         if (data) {
-          return this.returnContent(res, data)
+          return this.responseMessageAndData(res, data, 'You have been sent the reset password mail');
         }
       }, next);
     }
@@ -61,7 +62,7 @@ class UserControllerBase extends BaseController {
       this.wrapInTryCatch(async () => {
         data = await UserModule.__resetPassword(req.query.tk);
         return this.returnContent(res, data);
-      }, next)
+      }, next);
     }
 }
 

@@ -1,10 +1,10 @@
+import { isUUID } from 'validator';
 import BaseMiddleware from '../base-middleware';
 import ValidatorError from '../../services/auth/errors/validation';
 import OrderModel from '../../models/v1/orders';
 import models from '../../models/v2/relationship';
 import MenuModel from '../../models/v1/menu';
 import KitchenMiddleware from '../kitchen';
-import MealMiddleware from '../meals'
 
 const { Order } = models;
 
@@ -13,7 +13,7 @@ let menu;
 let ref;
 let err;
 
-/* eslint radix: 0, no-restricted-globals: 0, no-underscore-dangle: 0, no-shadow: 0 */
+/* eslint radix: 0, no-restricted-globals: 0, max-len: 0, no-underscore-dangle: 0, no-shadow: 0 */
 class OrdersMiddlewareBase extends BaseMiddleware {
   constructor(model) {
     super(model);
@@ -29,7 +29,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     // this is to check for the user
     if (req.qualifier === 'kitchen') {
       if (this.__ensureKitchenOwner(req, res)) {
-        req.key = req.kitchen.id
+        req.key = req.kitchen.id;
         if (req.method === 'PUT') {
           req.target = req.kitchen.id;
         }
@@ -47,7 +47,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
       return next();
     }
     next();
-}
+  };
 
   checkUpdateType = (req, res, next) => {
     if (!req.query || !req.query.type) {
@@ -66,16 +66,43 @@ class OrdersMiddlewareBase extends BaseMiddleware {
       err = new ValidatorError('You need to have a kitchen set up', 403);
       return next(err);
     } else if (req.qualifier === 'kitchen' && req.kitchen) {
-      Order.findOne({ where: { id: req.params.ooid } })
+      return Order.findOne({ where: { id: req.params.ooid } })
         .then((order) => {
           if (!order || !Object.keys(order.status).includes(req.kitchen.id)) {
-            err.message = 'Your kitchen is not permitted to do that';
-            err.status = 401;
-            next(err);
+            err = new ValidatorError('Your kitchen is not permitted to do that', 401);
+            return next(err);
           }
-          next();
+          return next();
+        });
+    } else if (req.qualifier === 'user' && req.user) {
+      return Order.findOne({ where: { id: req.params.ooid } })
+        .then((order) => {
+          if (!order || order.UserId !== req.user.id) {
+            err = new ValidatorError('You are not permitted to do that', 401);
+            return next(err);
+          }
+          return next();
         });
     }
+    err = new Error('Please sign in to continue this action');
+    err.status = 403;
+    next(err);
+  }
+
+  __checkRequired = (req, res, next) => {
+    if (!req.body.meals || req.body.meals.constructor !== Array || req.body.meals.length < 1) {
+      err = new ValidatorError('The input sent must contain a meals with an array of at least one meal object', 400);
+      return next(err);
+    }
+    if (!req.body.meals.some((item) => {
+      if (item.id && item.quantity && item.kitchen && isUUID(item.id) && isUUID(item.kitchen) && item.quantity.constructor === Number && item.quantity > 0) {
+        return true;
+      } return false;
+    })) {
+      err = new ValidatorError('Please check the contents of the meal array, might contain invalid data', 400);
+      return next(err);
+    }
+    return next();
   }
 
   // =============== methods that matter in challenge 2 =========================

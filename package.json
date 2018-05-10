@@ -8,7 +8,7 @@
     "build": "babel ./server -d ./build/server && cd build/server && node index.js",
     "start": "npm run build && node ./build/server",
     "dev": " cd server && NODE_ENV=development nodemon --exec babel-node index",
-    "coverage": "cross-env && cd server  &&  NODE_ENV=test nyc _mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive && nyc report --reporter=text-lcov | coveralls",
+    "coverage": "cross-env && cd server  &&  NODE_ENV=test nyc _mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit && nyc report --reporter=text-lcov | coveralls",
     "report": "npm run coverage &&  codeclimate-test-reporter < ./coverage/lcov.info",
     "report:travis": " npm run coverage && codeclimate-test-reporter < ./coverage/lcov.info",
     "cover": "nyc report --reporter=text-lcov | coveralls",
@@ -21,9 +21,9 @@
     ],
     "reporter": [
       "lcov",
-      "text"
+      "text" 
     ],
-    "sourceMap": true,
+    "sourceMap": false,
     "instrument": false
   },
   "keywords": [],

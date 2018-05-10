@@ -1,4 +1,4 @@
-import { isEmail } from 'validator';
+import { isEmail, isUUID } from 'validator';
 import Encrypt from '../helpers/encrypt/';
 import ValidatorError from '../services/auth/errors/validation';
 import models from '../models/v2/relationship';
@@ -7,11 +7,11 @@ const { User } = models;
 
 let err;
 let data;
+const allowed = [ 'password', 'quantity', 'price' ];
+let valid = true;
+let culprit;
 
 class BaseMiddleware {
-
-
-
 
 // ================= methods that matter in challenge 3 ===========================
 
@@ -26,15 +26,48 @@ class BaseMiddleware {
       })) {
         err = new Error('Incomplete values in the request body');
         err.status = 400;
-        next(err);
+        return next(err);
+      }
+      data = Object.values(req.body).filter(item => !isNaN(parseInt(item)));
+      if (data.length > 0) {
+        if (!data.some((item) => {
+          if (item <= 0) {
+            return false;
+          }
+          return true;
+        })) {
+          err = new Error('Did you enter a number less than 0? Please check');
+          err.status = 400;
+          return next(err);
+        }
+      }
+      // check string fields for numbers
+      Object.keys(req.body).forEach((key) => {
+        if (!isNaN(parseInt(req.body[`${key}`])) && !allowed.includes(key)) {
+          culprit = key
+          valid = false;
+        }
+      });
+      if (!valid) {
+        err = new Error(`Thats the wrong Datatype for ${culprit}, Please change`);
+        err.status = 422;
+        valid = true;
+        return next(err);
+      }
+      // check the price field for the price;
+      if (req.body.price) {
+        if (isNaN(parseInt(req.body.price))) {
+          err = new Error('Please check the data type for price, Should be a number');
+          err.status = 422;
+          return next(err);
+        }
       }
       return next();
     }
-    err = new Error('Theres no content in the request body');
+    err = new Error('Theres no content in the request body, please fill with all required fields');
     err.status = 400;
     return next(err);
   }
-
 
   __filterAccess = (req, res, next) => {
     Encrypt.decodeToken(req.headers.authorization)
@@ -83,6 +116,19 @@ class BaseMiddleware {
     return next();
   }
 
+  static __checkParams = (req, res, next) => {
+    data = Object.entries(req.params);
+    if (data.length === 0) { return next(); }
+    if (!data.some((item) => {
+      if (isUUID(item[1])) {
+        return true;
+      } return false;
+    })) {
+      return next(new ValidatorError('The Datatype for the params sent is incorrect please check again', 400));
+    }
+    next();
+  }
+
 
   checkRequiredParams = (req, res, next) => {
     const { key } = this.model.masterKey;
@@ -118,12 +164,15 @@ class BaseMiddleware {
 
 
   static checkForEmail = (req, res, next) => {
-    if (req.body.email && req.body.email.toString().length > 1 && isEmail(req.body.email)) {
-      return next();
+    try {
+      if (req.body.email && req.body.email.toString().length > 1 && isEmail(req.body.email)) {
+        return next()
+      }
+    } catch (e) {
+      err = new Error('Ensure the email is present and valid for this to work');
+      err.status = 422;
+      return next(err);
     }
-    err = new Error('ensure  the email is present for this to work');
-    err.status = 400;
-    return next(err);
   }
 
   /* eslint no-restricted-globals: 0, radix: 0 */
