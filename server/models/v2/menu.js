@@ -10,9 +10,6 @@ const Menu = sequelize.define('Menu', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  image: {
-    type: DataTypes.STRING
-  },
   KitchenId: {
     type: DataTypes.UUID,
     allowNull: false,

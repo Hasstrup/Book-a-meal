@@ -45,7 +45,8 @@ const User = sequelize.define('User', {
   },
 
   avatar: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    defaultValue: "https://pixabay.com/en/avatar-icon-placeholder-1577909/"
   },
 
   confirmedEmail: {
