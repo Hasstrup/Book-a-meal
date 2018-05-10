@@ -261,6 +261,9 @@ body .fade-in {
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
 
+body .header {
+  border-bottom: 1px solid #efefef40; }
+
 @font-face {
   font-family: granary;
   src: url("./fonts/granary.otf"); }

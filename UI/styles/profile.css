@@ -324,7 +324,7 @@ body {
         -ms-flex-flow: column nowrap;
         flex-flow: column nowrap; }
         body .main-profile-body .main-workstation .main-workstation-main .announce-item {
-          border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
           body .main-profile-body .main-workstation .main-workstation-main .announce-item .announce-item-key {
             font-size: 16.5px;
             font-family: gotham;
