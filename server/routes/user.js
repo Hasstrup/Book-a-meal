@@ -11,7 +11,7 @@ const router = Router();
 /* eslint no-underscore-dangle: 0 */
 router.get('/', BaseMiddleware.checkPopulateQuery, UserController.fetchAll);
 
-router.get('/:user_id', BaseMiddleware.checkPopulateQuery, UserController.fetchSingle);
+router.get('/:user_id', BaseMiddleware.checkPopulateQuery, BaseMiddleware.__checkParams, UserController.fetchSingle);
 
 router.get('/confirm/mail', AuthMiddleware.checkForTokenQuery, UserController.__confirmEmail, ErrorHandler.dispatch);
 

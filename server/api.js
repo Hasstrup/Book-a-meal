@@ -5,6 +5,7 @@ import users from './routes/user';
 import meals from './routes/meals';
 import orders from './routes/orders';
 import menus from './routes/menu';
+import BaseMiddleware from './middlewares/base-middleware';
 
 
 const api = Router();

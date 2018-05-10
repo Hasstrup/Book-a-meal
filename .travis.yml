@@ -3,6 +3,8 @@ language:
 node_js:
     - stable
 
+before_install:
+  - npm install -g node-gyp node-pre-gyp
 
 after_success:
     - npm run cover

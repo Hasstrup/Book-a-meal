@@ -24,7 +24,7 @@ router.get('/catalogue', MenuController.fetchCatalogue, ErrorHandler.dispatch);
 router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, MenuMiddleware.__filterAccess, MenuMiddleware.__ensureKitchenOwner, MenuController.setMenuOfTheDay, ErrorHandler.dispatch);
 
 // get a particular menu; should return the
-router.get('/:mmid', MenuMiddleware.checkRequiredParams, MenuController.fetchSingle, ErrorHandler.dispatch);
+router.get('/:mmid', MenuMiddleware.checkRequiredParams, BaseMiddleware.__checkParams, MenuController.fetchSingle, ErrorHandler.dispatch);
 
 
 export default router;

@@ -25,7 +25,7 @@ router.get('/', BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAcce
 router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, OrdersController.create, ErrorHandler.dispatch);
 
 //  this method should only allow kitchens change the processed key from false to true;
-router.put('/:ooid', BaseMiddleware.checkForNullInput, OrdersMiddleware.checkRequiredParams, BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, OrdersMiddleware.checkType, OrdersController.updateOne, ErrorHandler.dispatch);
+router.put('/:ooid', BaseMiddleware.checkForNullInput, BaseMiddleware.__checkParams, OrdersMiddleware.checkRequiredParams, BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, OrdersMiddleware.checkType, OrdersController.updateOne, ErrorHandler.dispatch);
 
 
 

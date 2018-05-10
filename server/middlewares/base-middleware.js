@@ -1,4 +1,4 @@
-import { isEmail } from 'validator';
+import { isEmail, isUUID } from 'validator';
 import Encrypt from '../helpers/encrypt/';
 import ValidatorError from '../services/auth/errors/validation';
 import models from '../models/v2/relationship';
@@ -81,6 +81,19 @@ class BaseMiddleware {
       return next(err);
     }
     return next();
+  }
+
+  static __checkParams = (req, res, next) => {
+    data = Object.entries(req.params);
+    if (data.length === 0) { return next(); }
+    if (!data.some((item) => {
+      if (isUUID(item[1])) {
+        return true;
+      } return false;
+    })) {
+      return next(new ValidatorError('The Datatype for the params sent is incorrect please check again', 400));
+    }
+    next();
   }
 
 
