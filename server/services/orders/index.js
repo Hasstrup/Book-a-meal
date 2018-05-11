@@ -78,6 +78,7 @@ class OrderServiceBase extends BaseService {
         ref[`${key}`] = body[`${key}`];
       }
     });
+
     ref.status = {};
     // map the kitchen into the ref array // so that kitchens are sorted automatically
     body.meals.forEach((item) => {
@@ -118,7 +119,7 @@ class OrderServiceBase extends BaseService {
       return { ...data.get({ plain: true }), changedCorrectly: true };
     } else if (type === 'user') {
       const diff = (moment().diff(data.createdAt, 'minutes'));
-      if (parseInt(diff) > 10 || !payload || !payload.quantity || payload.quantity.constructor !== Number) {
+      if (parseInt(diff) > 10 || !payload || !payload.quantity || isNaN(parseInt(payload.quantity))) {
         return this.badRequest('This request is invalid, time for this might have elapsed or bad input');
       }
       target = await MealOrders.findOne({ where: { OrderId: data.id, MealId: Id } });

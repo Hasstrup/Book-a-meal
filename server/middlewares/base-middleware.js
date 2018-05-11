@@ -74,6 +74,7 @@ class BaseMiddleware {
       .then(async (payload) => {
         data = await this.getCurrentUser(payload, next);
         req.user = data.get({ plain: true });
+        console.log(req.user);
         req.kitchen = data.Kitchen ? data.Kitchen : null;
         return next();
       })
