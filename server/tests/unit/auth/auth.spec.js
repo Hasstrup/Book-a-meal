@@ -82,7 +82,7 @@ describe('Authentication Module', () => {
         await AuthModule.authenticate(invalidData);
       } catch (e) {
         expect(e).to.exist;
-        expect(e.status).to.equal(403);
+        expect(e.status).to.equal(422);
       }
     });
 

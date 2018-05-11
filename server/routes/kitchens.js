@@ -9,13 +9,13 @@ const router = Router();
 
 router.get('/', BaseMiddleware.checkPopulateQuery, KitchenController.fetchAll, ErrorHandler.dispatch);
 
-router.get('/:ktid', BaseMiddleware.checkPopulateQuery, BaseMiddleware.__checkParams, KitchenMiddleware.checkKitchenParams, KitchenController.fetchSingle, ErrorHandler.dispatch);
+router.get('/:ktid', BaseMiddleware.checkPopulateQuery, BaseMiddleware.__checkParams, KitchenController.fetchSingle, ErrorHandler.dispatch);
 
-router.post('/', BaseMiddleware.checkForNullInput, KitchenMiddleware.checkRequired, BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, KitchenController.create, ErrorHandler.dispatch);
+router.post('/', BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, BaseMiddleware.checkForNullInput, KitchenMiddleware.checkRequired, KitchenController.create, ErrorHandler.dispatch);
 
-router.put('/:ktid', BaseMiddleware.checkForNullInput, BaseMiddleware.__checkParams, KitchenMiddleware.checkKitchenParams, BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, KitchenMiddleware.__revokeAccess, KitchenController.updateOne, ErrorHandler.dispatch);
+router.put('/:ktid', BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, BaseMiddleware.__checkParams, KitchenMiddleware.__revokeAccess, BaseMiddleware.checkForNullInput, KitchenController.updateOne, ErrorHandler.dispatch);
 
-router.delete('/:ktid', KitchenMiddleware.checkKitchenParams, BaseMiddleware.__checkParams, BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, KitchenMiddleware.__revokeAccess, KitchenController.deleteOne, ErrorHandler.dispatch);
+router.delete('/:ktid', BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, BaseMiddleware.__checkParams, KitchenMiddleware.__revokeAccess, KitchenController.deleteOne, ErrorHandler.dispatch);
 
 
 export default router;

@@ -6,7 +6,7 @@ import BaseMiddleware from '../middlewares/base-middleware';
 
 const router = Router();
 
-router.post('/signup', BaseMiddleware.checkForNullInput, BaseMiddleware.checkForEmail, AuthMiddleware.checkRequired, AuthController.signUp, ErrorHandler.dispatch);
+router.post('/signup', BaseMiddleware.checkForNullInput, AuthMiddleware.checkRequired, BaseMiddleware.checkForEmail, AuthController.signUp, ErrorHandler.dispatch);
 
 router.post('/login', BaseMiddleware.checkForNullInput, AuthMiddleware.checkRequiredLogin, AuthController.authenticate, ErrorHandler.dispatch);
 

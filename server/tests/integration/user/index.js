@@ -3,12 +3,14 @@ import { stub } from 'sinon';
 import { expect } from 'chai';
 import app from '../../../index';
 import Encrypt from '../../../helpers/encrypt';
+import models from '../../../models/v2/relationship';
 import mailers from '../../../helpers/mailers';
 
+const { User } = models;
 let res;
 let token;
-const stub1 = stub(mailers, 'dispatch');
-stub1.returns({ nothing: 'boom' });
+let data;
+
 describe('User resources', () => {
   describe('Get requests', () => {
     it('call to / should get all the users in the db', async () => {
@@ -18,15 +20,15 @@ describe('User resources', () => {
     });
 
     describe('Authorized methods', () => {
+      before(async () => {
+        data = await User.findAll();
+        data = data[0].get({ plain: true });
+        token = await Encrypt.issueToken({ id: data.id });
+      })
       it('a call to update a user resource with the right authorization', async () => {
-        const res = await request(app).put('/api/v1/users/2').set('authorization', Encrypt.hashStr(`Hellothere2`).toString()).send({ username: 'hasstirere'})
+        const res = await request(app).put(`/api/v1/users/${data.id}`).set('authorization', token).send({ username: 'hasstirere'})
         expect(res.statusCode).to.be.equal(201);
         expect(res.body.data.username).to.be.equal('hasstirere');
-      });
-
-      it('a call to delete a resource with the right values returns a 204', async () => {
-        res = await request(app).delete('/api/v1/users/2').set('authorization', Encrypt.hashStr(`Hellothere2`).toString());
-        expect(res.statusCode).to.be.equal(204);
       });
 
       it('a call to send reset password token', async () => {

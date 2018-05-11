@@ -41,7 +41,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     req.key = req.user.id;
     if (req.method === 'PUT' && req.qualifier === 'user') {
       if (!req.query.mealId) {
-        return next(new ValidatorError('Please pass in the meal to be changed', 400));
+        return next(new ValidatorError('Please pass in the meal to be changed, should be in the query', 400));
       }
       req.target = req.query.mealId;
       return next();
@@ -81,7 +81,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
             err = new ValidatorError('You are not permitted to do that', 401);
             return next(err);
           }
-          return next();
+          return BaseMiddleware.checkForNullInput(req, res, next);
         });
     }
     err = new Error('Please sign in to continue this action');

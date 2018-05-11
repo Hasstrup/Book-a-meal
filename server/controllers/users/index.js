@@ -29,14 +29,14 @@ class UserControllerBase extends BaseController {
 
     updateOne = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        const data = await UserModule.updateOne('id', parseInt(req.params.user_id), req.body);
+        const data = await UserModule.__updateOne('id', req.params.user_id, req.body);
         this.resourceCreated(res, data);
       }, next);
     }
 
     deleteOne = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        await UserModule.deleteOne('id', parseInt(req.params.user_id));
+        await UserModule.__deleteOne('id', req.params.user_id);
         this.returnNoContent(res, 'successfully deleted');
       }, next);
     }

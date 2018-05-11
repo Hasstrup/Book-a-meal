@@ -12,4 +12,14 @@ AuthMiddleware.checkRequiredLogin = (req, res, next) => {
   }
   return next();
 }
+
+AuthMiddleware.__revokeAccess = (req, res, next) => {
+if (req.user.id !== req.params.user_id) {
+    const err = new Error('You do not have permissions to complete this action, Sorry');
+    err.status = 401;
+    return next(err);
+  }
+  next();
+};
+
 export default AuthMiddleware;
