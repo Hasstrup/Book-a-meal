@@ -155,7 +155,7 @@ class BaseMiddleware {
     data = this.model.required.map((key) => {
       if (req.body[`${key}`] && req.body[`${key}`].constructor === this.model.keys[`${key}`]) {
         return { status: true, key }
-      } else if (req.body[`${key}`] && key === 'price') {
+      } else if (req.body[`${key}`] && key === 'price' && !isNaN(parseInt(req.body[`${key}`]))) {
         return { status: true, key };
       }
       return { status: false, key };
