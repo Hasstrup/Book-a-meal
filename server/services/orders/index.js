@@ -113,7 +113,7 @@ class OrderServiceBase extends BaseService {
       if (catalogue.incldues(meal.MealId)) return meal;
       filter.push(meal);
       return null;
-    });
+    }).filter(meal => meal);
     return { filter, validMeals };
   }
 
