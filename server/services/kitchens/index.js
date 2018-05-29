@@ -45,8 +45,8 @@ class KitchenService extends BaseService {
   __fetchOrders = async (key, value) => {
     this.checkArguments(key, value);
     let ref = {};
-    target = await this.__model.findOne({ where: ref });
     ref[`${key}`] = value;
+    target = await this.__model.findOne({ where: ref });
     source = await Order.findAll({ include: { model: Meal, include: [Kitchen] } });
     // so source  returns an array of Meals in the Meals field since it's 1:m rel
     dataTree = source.filter(order => Object.keys(order.status).includes(target.id));

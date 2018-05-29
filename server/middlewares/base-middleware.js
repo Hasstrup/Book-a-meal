@@ -74,6 +74,7 @@ class BaseMiddleware {
       .then(async (payload) => {
         data = await this.getCurrentUser(payload, next);
         req.user = data.get({ plain: true });
+        console.log(req.user);
         req.kitchen = data.Kitchen ? data.Kitchen : null;
         return next();
       })
@@ -82,7 +83,7 @@ class BaseMiddleware {
 
   __ensureKitchenOwner = (req, res, next) => {
     if (!req.kitchen) {
-      err = new ValidatorError('You need to have a kitchen to perform this action', 403);
+      err = new ValidatorError('Sorry but you need to have a kitchen to perform this action', 403);
       if (next) {
         return next(err);
       }
@@ -91,17 +92,18 @@ class BaseMiddleware {
     if (next) {
       return next();
     }
-    return true; }
+    return true
+  }
 
 
   getCurrentUser = async (payload) => {
     const { id } = payload;
     if (!id) {
-      throw new ValidatorError('That token might be invalid', 404);
+      throw new ValidatorError('That token might be invalid, Please check that again ', 404);
     }
     data = await User.findOne({ where: { id }, include: [{ all: true }] });
     if (!data) {
-      throw new ValidatorError('Sorry we couldnt find any user like that', 404);
+      throw new ValidatorError('Sorry we couldnt find any user matching your criteria', 404);
     }
     return data;
   }
@@ -109,7 +111,7 @@ class BaseMiddleware {
 
   static checkAuthorization = (req, res, next) => {
     if (!req.headers || !req.headers.authorization) {
-      err = new Error('You need to be authorized to do this');
+      err = new Error('You need to be authorized to do this, ensure that the token is the value for the authorization field in the request header');
       err.status = 403;
       return next(err);
     }
@@ -122,9 +124,11 @@ class BaseMiddleware {
     if (!data.some((item) => {
       if (isUUID(item[1])) {
         return true;
-      } return false;
+      }
+      culprit = item[0];
+      return false;
     })) {
-      return next(new ValidatorError('The Datatype for the params sent is incorrect please check again', 400));
+      return next(new ValidatorError(`The Datatype for the params (${culprit}) sent is incorrect please check again`, 400));
     }
     next();
   }
@@ -148,26 +152,38 @@ class BaseMiddleware {
       next(err);
       return;
     }
-    const { model } = this;
-    if (!this.model.required.some((key) => {
-      if (!req.body[`${key}`] || req.body[`${key}`].constructor !== model.keys[`${key}`]) {
-        return false;
+    data = this.model.required.map((key) => {
+      if (req.body[`${key}`] && req.body[`${key}`].constructor === this.model.keys[`${key}`]) {
+        return { status: true, key }
+      } else if (req.body[`${key}`] && key === 'price' && !isNaN(parseInt(req.body[`${key}`]))) {
+        return { status: true, key };
       }
-      return true;
-    })) {
-      err = new Error('A required field is missing');
-      err.status = 400;
-      return next(err);
+      return { status: false, key };
+    });
+
+    data = data.filter(item => !item.status);
+    if (data.length === 0) {
+      return next();
     }
-    return next();
+    let string;
+    data.forEach((field) => {
+      string = `${field.key} is missing somewhere in the request body, Please check`;
+    });
+
+    err = new Error(string);
+    err.status = 400;
+    return next(err);
   }
 
 
   static checkForEmail = (req, res, next) => {
     try {
       if (req.body.email && req.body.email.toString().length > 1 && isEmail(req.body.email)) {
-        return next()
+        return next();
       }
+      err = new Error('Something might be wrong with the values, check the email please');
+      err.status = 400;
+      next(err);
     } catch (e) {
       err = new Error('Ensure the email is present and valid for this to work');
       err.status = 422;

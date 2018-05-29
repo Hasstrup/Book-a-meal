@@ -51,7 +51,7 @@ describe('User service object', () => {
         await UserService.__resetPassword(token);
       } catch (e) {
         expect(e).to.exist;
-        expect(e.message).to.equal('Sorry this token is expired');
+        expect(e.message).to.equal('Sorry this token is expired or has invalid content');
       }
     });
 

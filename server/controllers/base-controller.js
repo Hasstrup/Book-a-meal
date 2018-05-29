@@ -29,7 +29,7 @@ class BaseController {
   }
 
   returnNoContent(res, message) {
-    res.status(204).json({ message });
+    res.status(204).json({ data: { message } })
   }
 
   responseMessageAndData(res, data, message) {

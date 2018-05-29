@@ -51,8 +51,8 @@ class UserService extends BaseService {
       }
       let { id, resetPasswordCount } = await Encrypt.decodeToken(token);
       data = await this.__model.findOne({ where: { id } });
-      if (data.resetPasswordCount !== resetPasswordCount) {
-        return this.badRequest('Sorry this token is expired');
+      if (!data || data.resetPasswordCount !== resetPasswordCount) {
+        return this.badRequest('Sorry this token is expired or has invalid content');
       }
       resetPasswordCount += 1;
       await data.update({ resetPasswordCount });
@@ -84,6 +84,9 @@ class UserService extends BaseService {
       }
       const { id } = await Encrypt.decodeToken(token);
       data = await this.__model.findOne({ where: { id } });
+      if (!data) {
+        return this.badRequest('Sorry that token doesnt contain a valid user');
+      }
       const { confirmedEmail } = data;
       if (confirmedEmail) {
         return this.badRequest('Seems like youve confirmed your email prior to now');

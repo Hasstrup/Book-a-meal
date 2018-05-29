@@ -12,6 +12,7 @@ let order;
 let menu;
 let ref;
 let err;
+let valid;
 
 /* eslint radix: 0, no-restricted-globals: 0, max-len: 0, no-underscore-dangle: 0, no-shadow: 0 */
 class OrdersMiddlewareBase extends BaseMiddleware {
@@ -22,7 +23,8 @@ class OrdersMiddlewareBase extends BaseMiddleware {
 
   // ================= methods that matter in challenge 3 ====================
   checkType = (req, res, next) => {
-    if (!req.query || !req.query.type) {
+    const allowed = ['user', 'kitchen']
+    if (!req.query || !req.query.type || !allowed.includes(req.query.type)) {
       return next(new ValidatorError('This request requires a type query which should be user or kitchen', 400));
     }
     req.qualifier = req.query.type;
@@ -30,6 +32,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     if (req.qualifier === 'kitchen') {
       if (this.__ensureKitchenOwner(req, res)) {
         req.key = req.kitchen.id;
+        console.log(req.key);
         if (req.method === 'PUT') {
           req.target = req.kitchen.id;
         }
@@ -41,7 +44,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     req.key = req.user.id;
     if (req.method === 'PUT' && req.qualifier === 'user') {
       if (!req.query.mealId) {
-        return next(new ValidatorError('Please pass in the meal to be changed', 400));
+        return next(new ValidatorError('Please pass in the meal to be changed, should be in the query', 400));
       }
       req.target = req.query.mealId;
       return next();
@@ -81,7 +84,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
             err = new ValidatorError('You are not permitted to do that', 401);
             return next(err);
           }
-          return next();
+          return BaseMiddleware.checkForNullInput(req, res, next);
         });
     }
     err = new Error('Please sign in to continue this action');
@@ -101,6 +104,18 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     })) {
       err = new ValidatorError('Please check the contents of the meal array, might contain invalid data', 400);
       return next(err);
+    }
+    if (this.__ensureKitchenOwner(req, res)) {
+      req.body.meals.forEach((item) => {
+        if (item.kitchen === req.kitchen.id) {
+          valid = false
+        }
+      });
+      if (!valid) {
+        err = new ValidatorError('Please dont try placing an order on your content', 403);
+        valid = true;
+        return next(err);
+      }
     }
     return next();
   }
