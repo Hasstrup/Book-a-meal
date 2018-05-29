@@ -1,6 +1,7 @@
 import moment from 'moment';
 import BaseService from '../base-service';
 import KitchenService from '../kitchens/';
+import MenuService from '../menu/'
 import OrderModel from '../../models/v1/orders';
 import models from '../../models/v2/relationship';
 
@@ -94,11 +95,27 @@ class OrderServiceBase extends BaseService {
       }
       return { OrderId: data.id, MealId: meal.id, quantity: meal.quantity };
     });
-    await MealOrders.bulkCreate(body.meals);
+    // apply a hook here to make sure they are in the menu of the day
+    const { validMeals, filter } = await this.__mustBeInMenuOfTheDay(body.meals);
+    if (filter.length > 0) return this.badRequest('Sorry you cannot order meals that are not in the menu of the day');
+    // finally create all the validMeals
+    await MealOrders.bulkCreate(validMeals);
     const meals = await data.getMeals();
     return Object.assign({}, data.get({ plain: true }), { meals });
   }
 
+  __mustBeInMenuOfTheDay = async (meals) => {
+    let catalogue = await MenuService.fetchCatalogue();
+    if (!catalogue.length) this.badRequest('That order cannot go through, Sorry');
+    catalogue = catalogue.map(item => item.id);
+    let filter = [];
+    const validMeals = meals.map((meal) => {
+      if (catalogue.incldues(meal.MealId)) return meal;
+      filter.push(meal);
+      return null;
+    }).filter(meal => meal);
+    return { filter, validMeals };
+  }
 
   __updateOne = async (key, value, Id, type, payload) => {
     this.checkArguments(key, value, Id);
