@@ -14,19 +14,19 @@ const router = Router();
 */
 
 /* get a particular meal */
-router.get('/:mealId', MealMiddleware.checkRequiredParams, MealController.fetchSingle, ErrorHandler.dispatch);
+router.get('/', BaseMiddleware.checkAuthorization, MealMiddleware.__filterAccess, MealMiddleware.__ensureKitchenOwner, MealController.fetchMealsForKitchen, ErrorHandler.dispatch);
+
+router.get('/:mealId', MealMiddleware.checkRequiredParams, BaseMiddleware.__checkParams, MealController.fetchSingle, ErrorHandler.dispatch);
 
 /* check the query string for kitchen and create the new meal, reject if none */
-router.post('/:ktid', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, KitchenMiddleware.checkKitchenParams, MealController.create, ErrorHandler.dispatch);
+router.post('/', BaseMiddleware.checkAuthorization, MealMiddleware.__filterAccess, MealMiddleware.__ensureKitchenOwner, BaseMiddleware.checkForNullInput, MealMiddleware.checkRequired, MealController.create, ErrorHandler.dispatch);
 
-/* edit the subject meal id, check the req.query and forbid if there is no kitchen or the kitchen
-  is not the owner of the menu;
-*/
-router.put('/:ktid', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, MealMiddleware.checkRequired, KitchenMiddleware.checkKitchenParams, MealMiddleware.checkMasterKey, MealController.updateContent, ErrorHandler.dispatch);
+
+router.put('/:mealId', BaseMiddleware.checkAuthorization, MealMiddleware.__filterAccess, MealMiddleware.__ensureKitchenOwner, BaseMiddleware.__checkParams, MealMiddleware.__revokeAccess, MealController.updateContent, ErrorHandler.dispatch);
 
 /* check the request for the kitchen query, reject request
 if null or it doesnt match the owner of the item */
-router.delete('/:ktid', BaseMiddleware.checkAuthorization, KitchenMiddleware.checkKitchenParams, MealMiddleware.checkMasterKey, MealController.deleteContent, ErrorHandler.dispatch);
+router.delete('/:mealId', BaseMiddleware.checkAuthorization,  MealMiddleware.__filterAccess, MealMiddleware.__ensureKitchenOwner, BaseMiddleware.__checkParams, MealMiddleware.__revokeAccess, MealController.deleteContent, ErrorHandler.dispatch);
 
 
 export default router;

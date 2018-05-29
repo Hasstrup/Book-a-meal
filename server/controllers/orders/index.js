@@ -7,21 +7,21 @@ let data;
 class OrderControllerBase extends BaseController {
   create = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await OrderService.create(parseInt(req.query.uuid), req.body);
+      data = await OrderService.__create(req.user.id, req.body);
       this.resourceCreated(res, data)
     }, next);
   }
 
   fetchOrders = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await OrderService.fetchAll(req.qualifier, parseInt(req.key))
+      data = await OrderService.__fetchAll(req.key, req.qualifier);
       this.returnContent(res, data)
     }, next);
   }
 
   updateOne = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await OrderService.updateOne('id', parseInt(req.query.ktid), 2);
+      data = await OrderService.__updateOne('id', req.params.ooid, req.target, req.qualifier, req.body);
       this.resourceCreated(res, data);
     }, next)
   }

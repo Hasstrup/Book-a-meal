@@ -1,6 +1,10 @@
 import 'babel-polyfill';
 
 /* eslint no-underscore-dangle: 0 */
+/**
+
+*/
+
 class DataHandler {
   constructor(initData, required = []) {
     if ((typeof initData) !== 'object') {
@@ -11,7 +15,11 @@ class DataHandler {
     this.required = required;
   }
 
-
+  /**
+   * [validateInit description]
+   * @param  {[type]} input [This checks that the input ]
+   * @return {[type]}       [description]
+   */
   validateInit(input) {
     this.hooks = [String, Number, Object, Array, Date, Boolean];
     const vals = Object.values(input);

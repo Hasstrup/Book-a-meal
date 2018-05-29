@@ -8,6 +8,10 @@ class BaseController {
     try {
       return await func();
     } catch (e) {
+      if (e.errors && !e.status){
+        e.message = `${e.errors[0].path} is either null or invalid, please check`;
+        e.status = 400;
+      }
       next(e);
     }
   }
@@ -25,7 +29,12 @@ class BaseController {
   }
 
   returnNoContent(res, message) {
-    res.status(204).json({ message });
+    res.status(204).json({ data: { message } })
   }
+
+  responseMessageAndData(res, data, message) {
+    res.status(200).json({ data: { content: data, message }})
+  }
+
 }
 export default BaseController;

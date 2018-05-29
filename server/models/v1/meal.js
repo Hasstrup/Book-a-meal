@@ -9,9 +9,11 @@ const Meal = new MealModelBase({
   name: String,
   description: String,
   image: String,
+  price: Number
 }, [
   'name',
-  'description'
+  'description',
+  'price'
 ]);
 
 // Loading some data into the db;

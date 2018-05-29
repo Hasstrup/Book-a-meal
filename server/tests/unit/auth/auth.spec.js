@@ -1,10 +1,7 @@
 import 'babel-polyfill';
 import { expect } from 'chai';
-import AuthClass from '../../../services/auth/auth';
+import AuthModule from '../../../services/auth/auth';
 import DataHandler from '../../../databases/handler';
-import UserModelB from '../../../models/v1/user';
-
-const AuthModule = new AuthClass(UserModelB);
 
 const BaseModel = new DataHandler({
   username: String,
@@ -47,7 +44,7 @@ describe('Authentication Module', () => {
         validData = {
           username: 'hasstrupezekielbro',
           password: '123456',
-          email: 'hasstrup.ezekiel@gmail.com',
+          email: 'hellopaperstack@gmail.com',
           firstname: 'HasstrupEzekiel'
         };
         const newuser = await AuthModule.signUp(validData);
@@ -59,21 +56,23 @@ describe('Authentication Module', () => {
   });
 
   describe('Auth login method', () => {
-    before(() => {
+    before(async () => {
       const test = [
         {
           username: 'hasstrup',
           password: 'Onosetale',
-          email: 'hasstrup@gmail.com'
+          email: 'hasstrup@gmail.com',
+          firstname: 'Hasstrup'
         },
         {
           username: 'chisomezekeil',
           password: 'thisisatestpassword',
-          email: 'hasstrup.ezekiel@gmail.com'
+          email: 'hasstrup.ezekiel12@gmail.com',
+          firstname: 'This is pretty cool'
         }
       ];
-      test.forEach(async (item) => {
-        await BaseModel.create(item);
+      await test.forEach(async (item) => {
+        await AuthModule.signUp(item);
       });
     });
 
@@ -83,15 +82,15 @@ describe('Authentication Module', () => {
         await AuthModule.authenticate(invalidData);
       } catch (e) {
         expect(e).to.exist;
-        expect(e.status).to.equal(403);
+        expect(e.status).to.equal(422);
       }
     });
 
     it('should return the valid user with a valid user', async () => {
       try {
-        validData = { username: 'hasstrupezekielbro', password: '123456' };
-        const auth = await AuthModule.authenticate(validData);
-        expect(auth).to.be.true;
+        validData = { email: 'hellopaperstack@gmail.com', password: '123456' };
+        const auth = await AuthModule.__authenticate(validData);
+        expect(auth).to.be.an('object');
       } catch (e) {
         expect(e).to.not.exist;
       }

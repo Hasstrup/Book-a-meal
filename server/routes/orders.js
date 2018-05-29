@@ -4,6 +4,7 @@ import OrdersMiddleware from '../middlewares/orders';
 import AuthMiddleware from '../middlewares/auth/';
 import KitchenMiddleware from '../middlewares/kitchen/';
 import OrdersController from '../controllers/orders';
+import MealMiddleware from '../middlewares/meals/'
 import ErrorHandler from '../middlewares/error';
 
 const router = Router();
@@ -18,13 +19,13 @@ const router = Router();
 
 /* this route expects that the request comes
   with a type key indicating whether it's for a user or a kitchen */
-router.get('/', BaseMiddleware.checkAuthorization, AuthMiddleware.checkMasterKey, OrdersMiddleware.checkType, BaseMiddleware.restrictAccess, OrdersController.fetchOrders, ErrorHandler.dispatch);
+router.get('/', BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, OrdersMiddleware.checkType, OrdersController.fetchOrders, ErrorHandler.dispatch);
 
 /* this route is exclusive to only type=user as only users should be able to make new orders */
-router.post('/', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, AuthMiddleware.checkMasterKey, BaseMiddleware.restrictAccess, OrdersMiddleware.appendOwner, OrdersController.create, ErrorHandler.dispatch);
+router.post('/', BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, BaseMiddleware.checkForNullInput, OrdersMiddleware.__checkRequired, OrdersController.create, ErrorHandler.dispatch);
 
 //  this method should only allow kitchens change the processed key from false to true;
-router.put('/:ooid', BaseMiddleware.checkForNullInput, BaseMiddleware.checkAuthorization, KitchenMiddleware.checkMasterKey, KitchenMiddleware.revokeAccess, OrdersMiddleware.revokeAccess, OrdersController.updateOne, ErrorHandler.dispatch);
+router.put('/:ooid', BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, OrdersMiddleware.checkType, BaseMiddleware.__checkParams, OrdersMiddleware.__revokeAccess, OrdersController.updateOne, ErrorHandler.dispatch);
 
 
 
