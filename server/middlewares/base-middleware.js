@@ -17,14 +17,17 @@ class BaseMiddleware {
 
 
   static checkForNullInput(req, res, next) {
+    // More specific error messages
+    let emptyKey;
     const body = Object.keys(req.body);
     if (body.length) {
       if (!Object.keys(req.body).some((key, index) => {
         if (Object.values(req.body)[`${index}`].toString().length < 1) {
+          emptyKey = key;
           return false;
         } return true;
       })) {
-        err = new Error('Incomplete values in the request body');
+        err = new Error(`Please check that you filled the form correctly, ${emptyKey} might be empty or invalid`);
         err.status = 400;
         return next(err);
       }
