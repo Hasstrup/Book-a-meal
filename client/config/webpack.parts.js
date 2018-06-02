@@ -14,7 +14,7 @@ exports.loadFonts = () => {
     module: {
       rules: [
         {
-          test: /\.(ttf|eot|woff|woff2)$/,
+          test: /\.(ttf|eot|woff|woff2|otf)$/,
           use: {
             loader: 'file-loader',
             options: {

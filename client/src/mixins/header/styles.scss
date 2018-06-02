@@ -1,0 +1,53 @@
+.header {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  div {
+    order: 6;
+    flex-grow: 1;
+  }
+  .home-tag {
+    padding-left: 3%;
+  .logo {
+      font-size: 23px;
+      font-family: 'gotham';
+    }
+    .logo:hover {
+      cursor: pointer;
+    }
+  }
+  .header-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 1%;
+    p {
+      font-size: 16px;
+      text-transform: capitalize;
+      font-family: 'apercu';
+    }
+    p:hover {
+      cursor: pointer;
+      color: #E74C3C;
+    }
+  }}
+
+  @font-face {
+    font-family: granary;
+    src: url('../fonts/granary.otf');
+  }
+
+  @font-face {
+    font-family: gotham;
+    src: url('../fonts/gotham-b.ttf');
+  }
+
+  @font-face {
+    font-family: acumin;
+    src: url('../fonts/acumin.otf');
+  }
+  @font-face {
+    font-family: apercu;
+    src: url('../fonts/apercu.otf');
+  }

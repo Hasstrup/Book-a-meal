@@ -14,7 +14,7 @@
     "cover": "nyc report --reporter=text-lcov | coveralls",
     "test:migrate": "NODE_ENV=test sequelize db:migrate",
     "migrate": "sequelize db:migrate",
-    "start:client:dev": "webpack-dev-server --mode development"
+    "client": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\""
   },
   "nyc": {
     "require": [
@@ -69,8 +69,10 @@
     "pg-hstore": "^2.3.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-hot-loader": "^4.2.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
     "sequelize": "^4.37.6",
     "sequelize-cli": "^4.0.0",
@@ -80,8 +82,7 @@
     "webpack": "^4.10.1",
     "webpack-cli": "^2.1.4",
     "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.2",
-    "react-hot-loader": "^4.2.0"
+    "webpack-merge": "^4.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.2",
@@ -114,6 +115,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "nyc": "^11.7.1",
+    "sass-loader": "^7.0.2",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1"
   }

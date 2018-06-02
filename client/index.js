@@ -1,4 +1,11 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import App from './src/app';
 
-ReactDOM.render(<div> welcome to book a meal </div>, document.getElementById('app'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  , document.getElementById('app')
+);
