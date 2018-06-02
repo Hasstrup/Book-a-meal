@@ -1,5 +1,5 @@
-import merge from 'webpack-merge';
+const merge = require('webpack-merge');
 
 const ProdConfig = merge([])
 
-export default ProdConfig;
+module.exports = ProdConfig

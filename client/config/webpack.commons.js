@@ -1,9 +1,17 @@
-import merge from 'webpack-merge';
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { loadJavascript, lintJavascript, loadFonts } = require('./webpack.parts');
+
+const NamedModule = new webpack.NamedModulesPlugin()
+const HotModule = new webpack.HotModuleReplacementPlugin()
 
 const commonConfig = merge([
   {
-    entry: ['./client/index.js'],
+    entry: [
+      'babel-polyfill',
+      './client/index.js'
+    ],
     output: {
       path: `${__dirname}/dist`,
       filename: 'bundle.js'
@@ -12,9 +20,14 @@ const commonConfig = merge([
       new HtmlWebpackPlugin({
         title: 'Book-a-meal',
         template: 'client/index.html'
-      })
+      }),
+      NamedModule,
+      HotModule
     ]
-  }
+  },
+  loadJavascript(),
+  lintJavascript(),
+  loadFonts()
 ])
 
-export default commonConfig
+module.exports = commonConfig

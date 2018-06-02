@@ -1,9 +1,9 @@
-import merge from 'webpack-merge';
-import commonConfig from './client/config/webpack.commons';
-import devConfig from './client/config/webpack.dev';
-import ProdConfig from './client/config/webpack.prod';
+const merge = require('webpack-merge');
+const commonConfig = require('./client/config/webpack.commons');
+const devConfig = require('./client/config/webpack.dev');
+const ProdConfig = require('./client/config/webpack.prod');
 
-export default (mode) => {
+module.exports = (mode) => {
   if (mode === 'production') {
     return merge(commonConfig, ProdConfig, { mode });
   }

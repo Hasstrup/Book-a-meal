@@ -1,11 +1,12 @@
-import merge from 'webpack-merge';
-import { devServer } from './webpack.parts';
+const merge = require('webpack-merge');
+const { devServer, LoadCSS } = require('./webpack.parts');
 
 const devConfig = merge([
   devServer({
     host: 'localhost',
     port: 8080
-  })
+  }),
+  LoadCSS()
 ]);
 
-export default devConfig;
+module.exports = devConfig
