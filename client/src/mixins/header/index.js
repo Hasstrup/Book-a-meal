@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader'
 import { withRouter } from 'react-router-dom'
 import './styles.scss'
 
+/* eslint-disable  */
 const Header = () => (
   <div>
     <LoggedInHeader />
@@ -23,6 +24,6 @@ const LoggedInHeader = () => (
       </div>
     </div>
   </header>
-)
+);
 
 export default hot(module)(withRouter(Header));
