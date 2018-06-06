@@ -15,7 +15,6 @@ class AuthComponent extends Component {
 // methods and event listeners
   handleClick = () => this.setState({ wantsToLogIn: !this.state.wantsToLogIn })
 
-
   handleSubmit = () => {
   return this.state.wantsToLogIn ? this.handleLogin() : this.handleSignUp
   }
@@ -24,7 +23,6 @@ class AuthComponent extends Component {
 // tiny components to be refactored
   LoginForm = () => (
     <div className='form-group'>
-
       <div>
         <div className='form-input-group type-2'>
           <label htmlFor='email'> Email </label>
@@ -110,29 +108,16 @@ class AuthComponent extends Component {
               Let's have you join us!
           </p>
       }
-
     </div>
   )
 
-  render = () => {
-    return (
+  render = () => (
       <div className='create-account-center'>
         { this.Preamble() }
         { this.state.wantsToLogIn ? this.LoginForm() : this.SignUpForm()}
       </div>
     )
-  }
 
-// end of sub-components
-  // render() {
-  //   return (
-  //     // <div className='create-account-center'>
-  //     // { this.Preamble() }
-  //     //   { this.state.wantsToLogIn ? this.LoginForm() : this.SignUpForm() }
-  //     //   { /* replace clicker */ }
-  //     // <div/>
-  //   )
-  // }
 }
 
 
