@@ -9,18 +9,14 @@ class AuthComponent extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log('Hello there')
-  }
-// methods and event listeners
+  // methods and event listeners
   handleClick = () => this.setState({ wantsToLogIn: !this.state.wantsToLogIn })
 
   handleSubmit = () => {
-  return this.state.wantsToLogIn ? this.handleLogin() : this.handleSignUp
+    return this.state.wantsToLogIn ? this.handleLogin() : this.handleSignUp()
   }
 
-
-// tiny components to be refactored
+  // tiny components to be refactored
   LoginForm = () => (
     <div className='form-group'>
       <div>
@@ -54,9 +50,7 @@ class AuthComponent extends Component {
       </div>
       <p className='got-an-account-id' onClick={() => { this.handleClick() }}> I already have an account </p>
     </div>
-   )
-
-
+  )
 
   firstFormSection = (
     <div className='section'>
@@ -71,8 +65,6 @@ class AuthComponent extends Component {
       </div>
     </div>
   )
-
-
 
   secondFormSection = (
     <div className='section'>
@@ -91,36 +83,32 @@ class AuthComponent extends Component {
 
   clicker = () => (
     <div>
-      <div className='submit-button' onClick={() => { this.handleSubmit() }}>
+      <div className='submit-button' onClick={() => { this.handleSubmit(); }}>
         Sign Up
       </div>
-      <p className='got-an-account-id' onClick={() => { this.handleClick() }}> I already have an account </p>
+      <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
     </div>
   )
 
-
+  /* eslint react/no-unescaped-entities: 0, jsx-a11y/click-events-have-key-events: 0, jsx-a11y/no-noninteractive-element-interactions: 0, jsx-a11y/click-events-have-key-events: 0, jsx-a11y/no-static-element-interactions: 0 */
   Preamble = () => (
     <div className='preamble-text'>
       <p className='main-bold-text'>{ this.state.wantsToLogIn ? 'Hungry again. Me too' : 'Sign Up. Get fed'}</p>
       { this.state.wantsToLogIn ? null :
-          <p className='extras'> Create an account with <span> Book A Meal</span>, get the best menu options and
+      <p className='extras'> Create an account with <span> Book A Meal</span>, get the best menu options and
               the most ridiculous deals you might find anywhere else, and you have our word for that.
               Let's have you join us!
-          </p>
+      </p>
       }
     </div>
   )
 
   render = () => (
-      <div className='create-account-center'>
-        { this.Preamble() }
-        { this.state.wantsToLogIn ? this.LoginForm() : this.SignUpForm()}
-      </div>
-    )
-
+    <div className='create-account-center'>
+      { this.Preamble() }
+      { this.state.wantsToLogIn ? this.LoginForm() : this.SignUpForm()}
+    </div>
+  )
 }
-
-
-
 
 export default AuthComponent;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import '../styles/index.scss'
 import AnimatingBannerComponent from './components/banner'
@@ -6,6 +6,7 @@ import ImageFloatingComponent from './components/floater'
 import LoginFormComponent from './components/auth'
 import { SignUpUser } from '../../actions/users/'
 /* eslint-disable */
+
 
 const HomeComponent = ({ history, createUser }) => (
   <div>
