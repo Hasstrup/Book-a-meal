@@ -14,7 +14,7 @@ exports.loadFonts = () => {
     module: {
       rules: [
         {
-          test: /\.(ttf|eot|woff|woff2)$/,
+          test: /\.(ttf|eot|woff|woff2|otf)$/,
           use: {
             loader: 'file-loader',
             options: {
@@ -39,7 +39,11 @@ exports.loadJavascript = () => {
               loader: 'babel-loader',
               options: {
                 presets: ['env', 'react'],
-                plugins: ['react-hot-loader/babel']
+                plugins: ['react-hot-loader/babel',
+                  'transform-class-properties',
+                  'transform-object-rest-spread',
+                  'transform-es2015-arrow-functions'
+                ]
               }
             }
           ],

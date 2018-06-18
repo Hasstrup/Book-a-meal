@@ -1,0 +1,316 @@
+@import "./mixins/order-card.scss";
+
+body {
+  background-color: white;
+  .modal-base {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: rgba(17, 17, 17, .4);
+    .main-modal-backdrop-ui {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      z-index: 1
+    }
+    @include large-order-card
+    .current-order-stack-main {
+      width: 50% !important;
+      height: 50% !important;
+      position: relative;
+      z-index: 20;
+      .current-order-stack-side-one {
+        background-color: white;
+      }
+      .current-order-main-card{
+          padding: 3% 0 3% 0;
+      }
+    }
+  }
+  .main-body-component {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-top: 2%;
+    width: 100%;
+    //start heading
+    .orders-page-side-one {
+      flex-basis: auto;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      margin: 0 auto;
+      margin-bottom: 3%;
+      .orders-heading-and-desc {
+          flex-basis: 50%;
+        .orders-page-heading {
+          font-family: 'granary';
+          font-size: 24px;
+        }
+        .orders-page-desc {
+          width: 40%;
+          font-family: 'apercu';
+          font-size: 13px;
+          color: #626567;
+          margin-top: -10px;
+        }
+      }
+      .convey-account-details {
+        padding: 3% 0 0 0 ;
+        margin-left: -5%;
+        .convey-account-order {
+          font-size: 11.5px;
+          font-family: 'apercu';
+          color: rgba(0,0,0,.74);
+          span {
+            color: #ff183f;
+          }
+        }
+        .display-click-message {
+          display: flex;
+          position: relative;
+          font-family: 'apercu';
+          font-size: 11.5px;
+          margin-top: -6%;
+          p {
+            &:hover {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          }
+          .display-current-user {
+            position: absolute;
+            top: 0;
+            border: 1px solid rgba(0,0,0,.15);
+            width: 80%;
+            min-height: 90px;
+            border-radius: 2px;
+            z-index: 3;
+            background-color: white;
+            display: none;
+            flex-flow: column nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+            div {
+              font-size: 12px;
+              color: #979A9A;
+              &:hover {
+                cursor: pointer;
+                color: #ff183f;
+              }
+            }
+          }
+        }
+      }
+    }
+    //end heading
+    .orders-page-side-one-main {
+      display: flex;
+      flex-flow: column nowrap;
+      flex-basis: auto;
+      width: 100%;
+      justify-content: center;
+      .display-current-order {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 55%;
+        justify-content: center;
+        margin: 0 auto;
+        .display-current-order-heading {
+          margin-bottom: 3%;
+          .display-current-order-heading-head {
+            font-size: 18px;
+            font-family: 'gotham';
+            color: #343434;
+          }
+          .display-current-order-heading-desc {
+            font-family: 'apercu';
+            font-size: 12.5px;
+            width: 40%;
+            margin-top: -1%;
+            span {
+              color: #ff183f
+            }
+          }
+        }
+        .current-order-stack {
+          display: flex;
+          justify-content: center;
+          padding-left: 5%;
+          position: relative;
+          right: -5%;
+          @include large-order-card
+        }
+      }
+
+      .history-section {
+        display: flex;
+        flex-flow: column nowrap;
+        margin: 0 auto;
+        width: 55%;
+        margin-top: 5%;
+        .introduce-history {
+          .introduce-history-main {
+            font-family: 'gotham';
+            font-size: 20px;
+          }
+          .introduce-history-desc {
+            font-family: apercu;
+            font-size: 12.5px;
+            width: 40%;
+          }
+        }
+        .main-history-storybook {
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+          padding-left: 15%;
+          .today-story {
+            .today-text {
+              .today-introduction {
+                .today-intro {
+                  font-family: 'granary';
+                  font-size: 14.5px;
+                }
+                .today-intro-desc {
+                  font-family: 'apercu';
+                  font-size: 12.5px;
+                  width: 50%;
+                }
+              }
+            }
+            .order-story-grid {
+                display: flex;
+                min-width: 750px;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+                margin: 3% 0 0 4%;
+                @include tiny-order-card
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+
+  //overrides
+  .header {
+    border-bottom: 1px solid #efefef;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .main-body-component {
+    .orders-page-side-one {
+      flex-flow: column nowrap !important;
+      .orders-heading-and-desc {
+        flex-basis: 100% !important;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        .orders-page-heading {
+          font-size: 22px !important;
+          position: relative;
+          left: -5%;
+        }
+        .orders-page-desc {
+          flex-basis: 100% !important;
+          width: 70% !important;
+          font-size: 12px !important;
+        }
+      }
+      .convey-account-details {
+        flex-basis: 100%;
+        margin: 0 auto !important
+      }
+    }
+    .orders-page-side-one-main {
+      flex-basis: 100% !important;
+      justify-content: center !important;
+      .display-current-order {
+        width: 100% !important;
+        margin: 0 0 0 0 !important;
+        .display-current-order-heading {
+          text-align: center;
+          .display-current-order-heading-desc {
+            width: 100% !important;
+            font-size: 11.5px !important;
+          }
+        }
+        .current-order-stack {
+          width: 100%;
+          height: 90% !important;
+          padding-left: 0 !important;
+          right: 0 !important;
+          .current-order-stack-main {
+            height: 90% !important
+          }
+        }
+      }
+      .history-section {
+        width: 100% !important;
+        .introduce-history {
+          display: flex;
+          align-items: center;
+          flex-flow: column nowrap;
+          .introduce-history-main {
+            position: relative;
+            left: -5%;
+          }
+          .introduce-history-desc {
+            width: 80% !important;
+            margin-top: -2.5%;
+          }
+        }
+        .main-history-storybook {
+            padding-left: 0 !important;
+            width: 100%;
+            .today-story {
+              display: flex;
+              flex-flow: column nowrap;
+              .today-text {
+                align-self: flex-end;
+                .today-introduction {
+                    position: relative;
+                    right: -40%;
+                    .today-intro {
+                      font-size: 17.5px !important
+                    }
+                    .today-intro-desc {
+                      width: 70% !important;
+                      position: relative;
+                      left: -20%;
+                    }
+                }
+              }
+              .order-story-grid {
+                min-width: inherit !important;
+                flex-flow: row wrap !important;
+                justify-content: space-between;
+                .order-story-card {
+                  flex-basis: 45% !important;
+                  width: 45% !important;
+                  margin-bottom: 15% !important;
+                }
+              }
+            }
+        }
+      }
+    }
+  }
+  .modal-base {
+    #modal-card {
+      width: 90% !important;
+      height: 53% !important
+    }
+  }
+}

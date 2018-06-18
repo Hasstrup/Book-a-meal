@@ -1,0 +1,136 @@
+@mixin activity-bar {
+  .activity-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: none;
+    flex-flow: row wrap;
+    min-height: 200px;
+    background-color: white;
+    border-top: 1px solid #efefef;
+    min-width: 100%;
+    padding-bottom: 3%;
+    z-index: 10;
+    .activity-side-one {
+      display: flex;
+      flex-basis: 80%;
+      flex-flow: column wrap;
+      padding-top: 1%;
+      .point-to-items {
+        margin: 0 auto;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: 'acumin';
+      }
+      .summary-tab {
+        flex-basis: 40%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        .activity-tab-def {
+          font-size: 15px;
+          font-family: 'gotham';
+          color: #ff7262;
+        }
+        p {
+          color: #A6ACAF;
+          font-family: 'apercu';
+          font-size: 11.5px;
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+
+        }
+        .move-down {
+          position: relative;
+          bottom: -2px;
+        }
+
+          span {
+            color: #ff7262;
+            font-size: 10.5px;
+            position: relative;
+            bottom: -0.4px;
+            right: -3px;
+          }
+      }
+      .items-currently-in-cart {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        padding-left: 5%;
+        .items-currently-in-stock {
+          min-height: 40px;
+          flex-basis: 15%;
+          width: 60%;
+          margin: 2% 1% 0 0;
+          color: #979A9A;
+          font-size: 14.5px;
+          font-family: 'apercu';
+          border-radius: 2px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    .activity-side-two {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 20%;
+      .check-out-button {
+        width: 50%;
+        height: 30px;
+        background-color: #3ec28f;
+        color: white;
+        text-align: center;
+        padding-top: 3%;
+        border-radius: 2px;
+        font-family: 'apercu';
+        font-size: 13px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .close-item {
+        font-size: 10.5px;
+        font-family: 'apercu';
+        align-self: flex-end;
+        &:hover {
+          cursor: pointer;
+          color: #ff183f;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .activity-bar {
+      flex-flow: column nowrap !important;
+      .activity-side-one {
+        .point-to-items {
+          font-size: 13px !important;
+          font-family: apercu !important;
+        }
+        .items-currently-in-cart {
+          justify-content: space-evenly !important;
+          margin-top: 4%;
+          .items-currently-in-stock {
+            font-size: 12px !important;
+          }
+        }
+      }
+      .activity-side-two {
+        flex-basis: 100% !important;
+        flex-flow: column nowrap;
+        margin-top: 5%;
+      }
+      .close-item {
+        position: relative;
+        left: -5%;
+        text-decoration: underline;
+      }
+    }
+  }
+}

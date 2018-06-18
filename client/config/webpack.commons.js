@@ -26,7 +26,7 @@ const commonConfig = merge([
     ]
   },
   loadJavascript(),
-  lintJavascript(),
+  // lintJavascript(),
   loadFonts()
 ])
 
