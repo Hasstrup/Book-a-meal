@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import checkForNullInput from '../../../helpers/formsHelpers';
 
 /* eslint jsx-quotes: 0, max-len: 0, no-unused-expressions: 0, object-curly-newline: 0 */
 
 /**
  * @name AuthComponent
- * @desc contains the log in and sign up form that dynamically renders on click. 
+ * @desc contains the log in and sign up form that dynamically renders on click.
  * @returns
  */
 class AuthComponent extends Component {
+  static propTypes = {
+    logInUser: PropTypes.func.isRequired,
+    createUser: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +37,6 @@ class AuthComponent extends Component {
   handleLogin = () => {
     const loginObject = { email: this.state.email, password: this.state.password };
     if (checkForNullInput(loginObject)) return this.setState({ errorMessage: 'Hey, Please fill in all the fields' });
-    // do something to log in;
     this.props.logInUser(loginObject);
   }
 
