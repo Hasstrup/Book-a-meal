@@ -30,9 +30,13 @@
   },
   "jest": {
     "rootDir": "./client",
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    },
     "setupTestFrameworkScriptFile": "<rootDir>/src/setup.js",
     "transform": {
-      "^.+\\.(js|jsx|mjs)$": "<rootDir>/../node_modules/babel-jest"
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/../node_modules/babel-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/../node_modules/jest-css-modules-transform"
     }
   },
   "keywords": [],
@@ -81,6 +85,7 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-test-renderer": "^16.4.0",
+    "react-test-utils": "0.0.1",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
@@ -93,7 +98,9 @@
     "webpack": "^4.10.1",
     "webpack-cli": "^2.1.4",
     "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.2"
+    "webpack-merge": "^4.1.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.2",
@@ -116,8 +123,6 @@
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^2.0.0",
@@ -125,10 +130,14 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "file-loader": "^1.1.11",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-css-modules-transform": "^2.0.0",
     "jsdoc": "^3.5.5",
     "mini-css-extract-plugin": "^0.4.0",
+    "moxios": "^0.4.0",
     "node-sass": "^4.9.0",
     "nyc": "^11.7.1",
+    "redux-mock-store": "^1.5.3",
     "sass-loader": "^7.0.2",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1"

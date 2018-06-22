@@ -1,11 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import checkForNullInput from '../../../helpers/formsHelpers';
 
-/* eslint jsx-quotes: 0, max-len: 0  */
+/* eslint jsx-quotes: 0, max-len: 0, no-unused-expressions: 0, object-curly-newline: 0 */
+
+/**
+ * @name AuthComponent
+ * @desc contains the log in and sign up form that dynamically renders on click. 
+ * @returns
+ */
 class AuthComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       wantsToLogIn: false,
+      errorMessage: '',
+      password: '',
+      username: '',
+      email: '',
+      fullName: ''
     };
   }
 
@@ -13,8 +25,28 @@ class AuthComponent extends Component {
   handleClick = () => this.setState({ wantsToLogIn: !this.state.wantsToLogIn })
 
   handleSubmit = () => {
-    return this.state.wantsToLogIn ? this.handleLogin() : this.handleSignUp()
+    this.state.wantsToLogIn ? this.handleLogin() : this.handleSignUp();
+  };
+
+  handleLogin = () => {
+    const loginObject = { email: this.state.email, password: this.state.password };
+    if (checkForNullInput(loginObject)) return this.setState({ errorMessage: 'Hey, Please fill in all the fields' });
+    // do something to log in;
+    this.props.logInUser(loginObject);
   }
+
+  handleSignUp = () => {
+    const signUpObject = { email: this.state.email, password: this.state.password, username: this.state.username, fullName: this.state.fullName };
+    if (checkForNullInput(signUpObject)) return this.setState({ errorMessage: 'Hey, Please fill in all the fields' }); 
+    // if (this.state.password !== this.state.confirmPassword) return this.setState({ errorMessage: 'Hey, those passwords dont match '});  
+    this.props.createUser({ ...signUpObject, firstname: this.state.fullName.split(' ')[0] });
+  }
+
+handleChange = (e) => {
+  const { name, value } = e.target;
+  this.setState({ [name]: value });
+}
+
 
   // tiny components to be refactored
   LoginForm = () => (
@@ -22,46 +54,48 @@ class AuthComponent extends Component {
       <div>
         <div className='form-input-group type-2'>
           <label htmlFor='email'> Email </label>
-          <input className='type-input' type='text' />
+          <input name="email" onChange={this.handleChange} className='type-input' type='text' />
         </div>
       </div>
 
       <div className='section'>
         <div className='form-input-group'>
           <label htmlFor='password'> Password </label>
-          <input className='type-input' type='password' />
+          <input name="password" onChange={this.handleChange} className='type-input' type='password' />
         </div>
       </div>
 
-      <div className='submit-button' onClick={() => { this.handleSubmit() }}>
-        Sign Up
+      <div className='submit-button' onClick={() => { this.handleSubmit(); }}>
+        Log In
       </div>
-      <p className='got-an-account-id' onClick={() => { this.handleClick() }}> I already have an account </p>
+      <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
+      <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> { this.state.errorMessage } </p>
     </div>
   )
 
 
-  SignUpForm = () => (
-    <div className='form-group'>
-      { this.firstFormSection }
-      { this.secondFormSection }
-      <div className='submit-button' onClick={() => { this.handleSubmit() }}>
+ SignUpForm = () => (
+   <div className='form-group'>
+     { this.firstFormSection }
+     { this.secondFormSection }
+     <div className='submit-button' onClick={() => { this.handleSubmit(); }}>
         Sign Up
-      </div>
-      <p className='got-an-account-id' onClick={() => { this.handleClick() }}> I already have an account </p>
-    </div>
-  )
+     </div>
+     <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
+     <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> { this.state.errorMessage } </p>
+   </div>
+ );
 
   firstFormSection = (
     <div className='section'>
       <div className='form-input-group'>
-        <label htmlFor='full-name'> Full Name </label>
-        <input className='type-input' name='full-name' type='text' />
+        <label htmlFor='fullName'> Full Name </label>
+        <input className='type-input' onChange={this.handleChange} name='fullName' type='text' />
       </div>
 
       <div className='form-input-group type-2'>
         <label htmlFor='email'> Email </label>
-        <input name='email' className='type-input' type='text' />
+        <input name='email' onChange={this.handleChange} className='type-input' type='text' />
       </div>
     </div>
   )
@@ -70,12 +104,12 @@ class AuthComponent extends Component {
     <div className='section'>
       <div className='form-input-group'>
         <label htmlFor='password'> Password </label>
-        <input name='password' className='type-input' type='password'/>
+        <input name='password' onChange={this.handleChange} className='type-input' type='password'/>
       </div>
 
       <div className='form-input-group type-2'>
-        <label htmlFor='c-password'> Confirm Password </label>
-        <input name='c-password' className='type-input' type='password'/>
+        <label htmlFor='confirmPassword'> Username </label>
+        <input name='username' onChange={this.handleChange} className='type-input' type='text'/>
       </div>
     </div>
   )
@@ -87,6 +121,7 @@ class AuthComponent extends Component {
         Sign Up
       </div>
       <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
+      <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> { this.state.errorMessage } </p>
     </div>
   )
 

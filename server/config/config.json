@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "Hasstrup",
+    "username": "hasstrupezekiel",
     "password": "PASSWORD",
     "database": "book-a-meal-dev",
     "host": "127.0.0.1",
@@ -9,7 +9,7 @@
     "logging": false
   },
   "test": {
-    "username": "Hasstrup",
+    "username": "hasstrupezekiel",
     "password": "PASSWORD",
     "database": "book-a-meal-test",
     "host": "127.0.0.1",
