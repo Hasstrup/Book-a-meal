@@ -14,4 +14,9 @@ export const wrapInTryCatch = async (func) => {
     return { error: true, message: e.message };
   }
 };
+
+
+export const config = {
+  url
+};
 export default axiosInstance;

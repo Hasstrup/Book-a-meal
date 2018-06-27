@@ -41,7 +41,7 @@ describe('Menu routes and endpoints', () => {
 
   it('should set the menu of the day for a user with a kitchen, FAIL CASE', async () => {
     data = { name: 'This is the menu of the day', description: 'Here it is neccessary', meals };
-    res = await await request(app).post('/api/v1/menus').set('authorization', token).send(data);
+    res = await request(app).post('/api/v1/menus').set('authorization', token).send(data);
     expect(res.statusCode).to.equal(401);
   });
 });

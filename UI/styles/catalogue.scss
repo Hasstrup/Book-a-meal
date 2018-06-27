@@ -78,6 +78,10 @@ body {
         font-family: 'apercu';
         font-size: 13px;
         color: #626567;
+        &:hover {
+          cursor: pointer;
+          color: #E74C3C;
+        }
       }
     }
 

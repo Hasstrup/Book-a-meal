@@ -3,7 +3,7 @@
 /**
  *
  *
- * @param {*} data
+ * @param {*} data - 
  */
 const checkForNullInput = (data) => {
 // Using a for in loop over the each iterator to enforce synchronicity; 
