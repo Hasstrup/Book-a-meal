@@ -12,3 +12,12 @@ export const wrapInTryCatch = async (func) => {
     return { error: true, message: err.message };
   }
 };
+
+export const CacheHandler = () => {
+  return {
+    setContent: (item, name) => {
+      localStorage.setItem(name, JSON.stringify(item));
+    },
+    getContent: name => localStorage.getItem(name)
+  }
+}

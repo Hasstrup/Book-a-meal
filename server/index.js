@@ -17,7 +17,6 @@ console.log(process.env.PORT);
 // .then(() => {
 //   console.log('DB is done syncing')
 // })
-
 app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())

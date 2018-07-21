@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/index.scss';
 import AnimatingBannerComponent from './components/banner';
 import ImageFloatingComponent from './components/floater';
 import LoginFormComponent from './components/auth';
-import { SignUpUser, LogInUser } from '../../actions/users/';
+import { SignUpUser, LogInUser, checkForLoggedInUser } from '../../actions/users/';
 /* eslint-disable */
 
 
-export const HomeComponent = ({ history, createUser, dispatch }) => (
+class HomeContainer extends Component {
+  componentDidMount = () => {
+    this.props.dispatch(checkForLoggedInUser())
+  }
+  
+  render = () => (<HomeComponent history={this.props.history} dispatch={this.props.dispatch} />)
+}
+
+const HomeComponent = ({ history, dispatch }) => (
   <div>
   <AnimatingBannerComponent />
   <ImageFloatingComponent />
@@ -18,4 +26,4 @@ export const HomeComponent = ({ history, createUser, dispatch }) => (
 
 
 
-export default connect()(HomeComponent);
+export default connect()(HomeContainer);

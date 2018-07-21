@@ -22,15 +22,16 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding-top: 1%;
-    p {
+    .h1-login-button {
       font-size: 16px;
       text-transform: capitalize;
       font-family: 'apercu';
+      &:hover {
+        cursor: pointer;
+        color: #E74C3C;
+      }
     }
-    p:hover {
-      cursor: pointer;
-      color: #E74C3C;
-    }
+    
   }}
 
   @font-face {

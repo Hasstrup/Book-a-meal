@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import '../styles/catalogue.scss';
 import { MainCatalogue } from '../../mixins/cards/singleMenu';
-import GuardedComponent from '../../helpers/authorized';
+import { FetchCatalogue } from '../../actions/menus/';
 
 
-class CatalogueMain extends Component {
-  componentDidMount = () => {
-    // dispatch a call to the db;
-
+class Catalogue extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    menus: PropTypes.arrayOf(PropTypes.object).isRequired,
+    history: PropTypes.object.isRequired
   }
 
-  render = () => <CatalogueMain />
+  componentDidMount = () => {
+    if (!this.props.menus) return this.fetchMenus();
+  }
+
+  fetchMenus = () => this.props.dispatch(FetchCatalogue(this.props.history));
+
+  render = () => (
+    <div className="main-body">
+      <CatalogueFirstRow />
+      <Selectors />
+      <CatalogueGridMain history={this.props.history}/>
+    </div>
+  );
 }
 
-const Catalogue = () => (
-  <div className="main-body">
-    <CatalogueFirstRow />
-    <Selectors />
-    <CatalogueGridMain />
-  </div>
-);
-
+/*= ========== Components ============================ */
 
 const CatalogueFirstRow = () => (
   <div className="introductory-grid">
@@ -59,19 +66,16 @@ const Selectors = () => (
 );
 
 
-const CatalogueGridMain = () => (
+const CatalogueGridMain = (props) => (
   <div className="main-items-grid">
     { /* remember to get some mock || main data to fill in this place */ }
-    { MainCatalogue([1, 2, 3]) }
+    { MainCatalogue([1, 2, 3])(props) }
   </div>
 );
 
-const mapStateToProps = (state) => {
-  return {
-    menus: state.menus.catalog
-  };
-};
+const mapStateToProps = state => ({
+  menus: state.menus.catalog
+});
 // these should be refactored after the application is completed right
-export default connect(GuardedComponent(Catalogue));
-
+export default connect(mapStateToProps)(Catalogue);
 

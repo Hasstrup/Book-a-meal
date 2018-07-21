@@ -2,7 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import HomePage from './modules/home/';
-import CatalogPage from './modules/catalogue/';
+import CatalogPage from './modules/catalogue';
+import ShowMenuPage from './modules/ShowMenu';
 import Header from './mixins/header/';
 import Footer from './mixins/footer';
 
@@ -11,6 +12,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route exact path="/catalogue" component={CatalogPage} />
+      <Route exact path="/menu" component={ShowMenuPage} />
     </Switch>
   </main>
 );

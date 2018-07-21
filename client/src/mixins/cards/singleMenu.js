@@ -1,8 +1,8 @@
 import React from 'react';
 import Multiplier from '../../helpers/multiplier';
 
-export const SingleMenuCard = ({ data, navigator }) => (
-  <div className="menu-item" id="content-1" onClick="window.location.href='menu.html'">
+export const SingleMenuCard = ({ data, history }) => (
+  <div className="menu-item" id="content-1" onClick={() => history.push('/menu')}>
     <div className="img-item-and-description">
       <img className="content-item-img" src="https://media.timeout.com/images/104052097/630/472/image.jpg" />
       <div className="content-item-description" name="content-1">

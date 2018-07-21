@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { PleaseWait, NewSignUp, SomethingWentWrong } from '../../actionTypes/users';
-
+import { CacheHandler } from '../helpers/';
 /**
  *
  *@description curried function that makes a call to the api
@@ -16,6 +16,9 @@ export const SignUpUser = body => history => (dispatch) => {
     .then((res) => {
       dispatch(NewSignUp(res.data));
       history.push('/catalogue');
+      // Async set item after the user is pushed to another ends
+      CacheHandler.setContent(res.data.data, '#user!!@##$');
+      CacheHandler.setContent(res.data.data.token, '#token!!#$3');
     })
     .catch((err) => {
       if (!err.response) return; // handle conflicts here; 
@@ -33,8 +36,17 @@ export const LogInUser = body => history => (dispatch) => {
     .then((res) => {
       dispatch(NewSignUp(res.data));
       history.push('/catalogue');
+      CacheHandler.setContent(res.data.data, '#user!!@##$');
+      CacheHandler.setContent(res.data.data.token, '#token!!#$3');
     })
     .catch((err) => {
+      console.log(err);
       dispatch(SomethingWentWrong(err.response.data.error));
     });
+};
+
+export const checkForLoggedInUser = () => (dispatch) => {
+
+  const user = CacheHandler().getContent('#user!!@##$');
+  console.log(user);
 }

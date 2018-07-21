@@ -1,5 +1,7 @@
 import React from 'react';
+// import createHistory from 'history/createBrowserHistory';
 
-const Multiplier = SomeComponent => data => data.map(details => <SomeComponent data={details} />)
+// const history = createHistory();
 
-export default Multiplier;
+export default SomeComponent => data => props => data.map(details => <SomeComponent history={props.history} data={details} />);
+
