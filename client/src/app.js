@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader';
 import HomePage from './modules/home/';
 import CatalogPage from './modules/catalogue';
 import ShowMenuPage from './modules/ShowMenu';
+import WorkStationPage from './modules/WorkStation';
 import Header from './mixins/header/';
 import Footer from './mixins/footer';
 
@@ -13,6 +14,7 @@ const App = () => (
       <Route exact path="/" component={HomePage} />
       <Route exact path="/catalogue" component={CatalogPage} />
       <Route exact path="/menu" component={ShowMenuPage} />
+      <Route exact path="/profile" component={WorkStationPage} />
     </Switch>
   </main>
 );
