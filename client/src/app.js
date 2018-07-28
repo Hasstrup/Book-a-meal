@@ -5,6 +5,7 @@ import HomePage from './modules/home/';
 import CatalogPage from './modules/catalogue';
 import ShowMenuPage from './modules/ShowMenu';
 import WorkStationPage from './modules/WorkStation';
+import CartAndOrdersPage from './modules/ShowOrders'
 import Header from './mixins/header/';
 import Footer from './mixins/footer';
 
@@ -15,6 +16,7 @@ const App = () => (
       <Route exact path="/catalogue" component={CatalogPage} />
       <Route exact path="/menu" component={ShowMenuPage} />
       <Route exact path="/profile" component={WorkStationPage} />
+      <Route exact path="/orders" component={CartAndOrdersPage} />
     </Switch>
   </main>
 );
