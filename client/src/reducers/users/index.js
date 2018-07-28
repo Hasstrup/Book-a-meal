@@ -4,13 +4,11 @@ const userReducer = (state = {}, action) => {
       return { ...state, current: action.payload };
 
     case 'PLEASE_WAIT':
-      // remember to do this for your flash handler
-      console.log('Chill out')
-    break
+      return { ...state, processing: true };
 
     default:
       return state;
   }
 };
 
-export default userReducer
+export default userReducer;

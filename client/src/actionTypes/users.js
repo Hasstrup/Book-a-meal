@@ -1,8 +1,4 @@
-export const PleaseWait = () => {
-  return {
-    type: 'PLEASE_WAIT'
-  }
-}
+
 
 export const NewSignUp = (payload) => {
   return {
@@ -10,6 +6,12 @@ export const NewSignUp = (payload) => {
     payload
   };
 };
+
+export const PleaseWait = () => {
+  return {
+    type: 'PLEASE_WAIT'
+  }
+}
 
 export const SomethingWentWrong = (message) => {
   return {

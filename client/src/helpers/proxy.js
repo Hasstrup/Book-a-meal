@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const url = 'http://localhost:3900/api/v1'
+const url = 'http://localhost:3900/api/v1';
 
 const axiosInstance = (header) => {
   if (!header) return axios.create({ baseUrl: url });
@@ -9,9 +9,14 @@ const axiosInstance = (header) => {
 
 export const wrapInTryCatch = async (func) => {
   try {
-    return await func();
+    return await func;
   } catch (e) {
-    return { error: true, message: e.message }
+    return { error: true, message: e.message };
   }
 };
-export default axiosInstance
+
+
+export const config = {
+  url
+};
+export default axiosInstance;

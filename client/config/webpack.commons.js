@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { loadJavascript, lintJavascript, loadFonts } = require('./webpack.parts');
+const { loadJavascript, loadFonts } = require('./webpack.parts');
 
 const NamedModule = new webpack.NamedModulesPlugin()
 const HotModule = new webpack.HotModuleReplacementPlugin()
@@ -14,7 +14,8 @@ const commonConfig = merge([
     ],
     output: {
       path: `${__dirname}/dist`,
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      publicPath: '/'
     },
     plugins: [
       new HtmlWebpackPlugin({

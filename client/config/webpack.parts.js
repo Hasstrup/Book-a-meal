@@ -5,7 +5,8 @@ exports.devServer = ({ host, port }) => ({
     port,
     open: 'Google Chrome',
     overlay: true,
-    hotOnly: true
+    hotOnly: true, 
+    historyApiFallback: true
   }
 });
 

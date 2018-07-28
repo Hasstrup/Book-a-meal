@@ -9,7 +9,7 @@ const dispatch = (body) => {
   const { message, destination, subject } = body;
   options = { from: 'Book A Meal <noreply@Bookameal.com>', to: destination, text: message, html: message, subject };
   transporter.sendMail(options, (e) => {
-    if (e) { throw e; }
+    if (e) { console.log(e) }
     console.log(`mail sent to ${destination}`);
   });
 };

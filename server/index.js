@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
+import cors from 'cors';
 import api from './api';
 import sync from './models/v2/sync';
 
@@ -16,10 +17,10 @@ console.log(process.env.PORT);
 // .then(() => {
 //   console.log('DB is done syncing')
 // })
-
 app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
+  .use(cors())
   .use(logger('dev'))
   // api versioning;
   .use('/api/v1', api)
