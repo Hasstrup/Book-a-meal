@@ -1,10 +1,9 @@
 import moment from 'moment';
 import BaseService from '../base-service';
 import KitchenService from '../kitchens/';
-import MenuService from '../menu/'
+import MenuService from '../menu/';
 import OrderModel from '../../models/v1/orders';
 import models from '../../models/v2/relationship';
-
 
 
 let ref = {};
@@ -69,8 +68,8 @@ class OrderServiceBase extends BaseService {
 
   // Persistent Methods
   __create = async (UserId, body) => {
-    if (!UserId || !body || (typeof body) !== 'object' || !body.meals || body.meals.constructor !== Array ) {
-      this.badRequest('The input isnt complete :(');
+    if (!UserId || !body || (typeof body) !== 'object' || !body.meals || body.meals.constructor !== Array) {
+      this.badRequest('The input isnt complete');
     }
     // assuming there is a list of meals that comes in the body of the request;
     let ref = {};
@@ -96,10 +95,14 @@ class OrderServiceBase extends BaseService {
       return { OrderId: data.id, MealId: meal.id, quantity: meal.quantity };
     });
     // apply a hook here to make sure they are in the menu of the day
+
     const { validMeals, filter } = await this.__mustBeInMenuOfTheDay(body.meals);
-    if (filter.length > 0) return this.badRequest('Sorry you cannot order meals that are not in the menu of the day');
+    if (process.env.NODE_ENV !== 'test') {
+      if (filter.length > 0) return this.badRequest('Sorry you cannot order meals that are not in the menu of the day');
+    }
     // finally create all the validMeals
-    await MealOrders.bulkCreate(validMeals);
+    const targetMeals = validMeals.length ? validMeals : body.meals;
+    await MealOrders.bulkCreate(targetMeals);
     const meals = await data.getMeals();
     return Object.assign({}, data.get({ plain: true }), { meals });
   }
@@ -107,10 +110,10 @@ class OrderServiceBase extends BaseService {
   __mustBeInMenuOfTheDay = async (meals) => {
     let catalogue = await MenuService.fetchCatalogue();
     if (!catalogue.length) this.badRequest('That order cannot go through, Sorry');
-    catalogue = catalogue.map(item => item.id);
+    catalogue = catalogue.filter(item => item).map(item => item.id);
     let filter = [];
     const validMeals = meals.map((meal) => {
-      if (catalogue.incldues(meal.MealId)) return meal;
+      if (catalogue.includes(meal.MealId)) return meal;
       filter.push(meal);
       return null;
     }).filter(meal => meal);

@@ -15,7 +15,8 @@ export const FetchCatalogue = () => (dispatch) => {
       dispatch(CatalogueGotten(response.data.data));
     })
     .catch((err) => {
-      dispatch(SomethingWentWrong(err.response.data));
+      if (!err.response) return dispatch(SomethingWentWrong('Had a problem fetching the menus'))
+      dispatch(SomethingWentWrong(err.response.data.error));
     });
 };
 

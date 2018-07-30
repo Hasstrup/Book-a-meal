@@ -1,6 +1,9 @@
 import axios from 'axios';
-import { PleaseWait, NewSignUp, SomethingWentWrong } from '../../actionTypes/users';
-import { CacheHandler } from '../helpers/';
+import { PleaseWait, NewSignUp, SomethingWentWrong, SpecificUserFetched } from '../../actionTypes/users';
+import { CacheHandler, RequestHandler } from '../helpers/';
+import config from '../../config';
+
+
 /**
  *
  *@description curried function that makes a call to the api
@@ -16,37 +19,53 @@ export const SignUpUser = body => history => (dispatch) => {
     .then((res) => {
       dispatch(NewSignUp(res.data));
       history.push('/catalogue');
-      // Async set item after the user is pushed to another ends
-      CacheHandler.setContent(res.data.data, '#user!!@##$');
-      CacheHandler.setContent(res.data.data.token, '#token!!#$3');
+      CacheHandler().setContent(res.data.data, '#user!!@##$');
+      CacheHandler().setContent(res.data.data.token, '#token!!#$3');
     })
     .catch((err) => {
-      if (!err.response) return; // handle conflicts here; 
+      if (!err.response) return; // handle conflicts here;
       dispatch(SomethingWentWrong(err.response.data.error));
     });
 };
 
-/**
- * @desc action creator that makes the login call to the database
- * @param {obj} body - body to be sent to the server, must contain the email and the password
- */
+
+  /**
+   * @name LogInUser
+   * @returns {function} Promise that resolves to the data friom the database
+   * @description action creator that makes the login call to the database
+   * @param {obj} body - body to be sent to the server, must contain the email and the password
+   */
 export const LogInUser = body => history => (dispatch) => {
   dispatch(PleaseWait());
   return axios.post('http://localhost:3900/api/v1/auth/login', body)
     .then((res) => {
       dispatch(NewSignUp(res.data));
       history.push('/catalogue');
-      CacheHandler.setContent(res.data.data, '#user!!@##$');
-      CacheHandler.setContent(res.data.data.token, '#token!!#$3');
+      CacheHandler().setContent(res.data.data, '#user!!@##$');
+      CacheHandler().setContent(res.data.data.token, '#token!!#$3');
     })
     .catch((err) => {
-      console.log(err);
+      if (!err.response) return dispatch(SomethingWentWrong('Sorry, that did not go through'));
       dispatch(SomethingWentWrong(err.response.data.error));
     });
 };
 
-export const checkForLoggedInUser = () => (dispatch) => {
 
-  const user = CacheHandler().getContent('#user!!@##$');
-  console.log(user);
-}
+/**
+   * @name FetchUser
+   * @returns {function} function to be invoked by redux-thunk
+   * @description action creator that makes the login call to the database
+   * @param {number} id _ The Id of the user to be fetched
+*/
+export const GetLoggedInUser = () => CacheHandler().getContent('#user!!@##$');
+
+
+/**
+   * @name FetchUser
+   * @returns {function} function to be invoked by redux-thunk
+   * @description action creator that makes the login call to the database
+   * @param {number} id _ The Id of the user to be fetched
+*/
+export const FetchUser = () => (dispatch, getState) => {
+  dispatch(RequestHandler({ method: 'get', url: `${config.url}/users/${getState().users.current.id}` })(user => dispatch(SpecificUserFetched(user))));
+};

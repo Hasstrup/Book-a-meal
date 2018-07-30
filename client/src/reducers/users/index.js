@@ -3,8 +3,8 @@ const userReducer = (state = {}, action) => {
     case 'NEW_SIGN_IN':
       return { ...state, current: action.payload };
 
-    case 'PLEASE_WAIT':
-      return { ...state, processing: true };
+    case 'TARGET_USER_FETCHED':
+      return { ...state, target: action.payload };
 
     default:
       return state;
