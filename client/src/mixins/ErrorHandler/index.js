@@ -17,6 +17,7 @@ const ToastNotification =  ({ error, status }) => (
         paddingBottom: '20px',
         borderRadius: '2px'
     }}
+    className="in-app-notifier"
   >
     <p style={{
         color: '#22C768',

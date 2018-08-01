@@ -4,17 +4,17 @@ import MealDetailsMain from '../meals';
 import RenderOrderHistory from '../orders'
 import MenuOfTheDay from './modules/MenuOfTheDay';
 
-export default () => (
+export default ({ kitchen, handleSubmit }) => (
   <div className="main-workstation">
     {/* this announces the workstation */}
     <div className="announce-workstation">
       <p className="announce-workstation-title"> Workstation </p>
-      <p className="announce-workstation-desc"> Control center for Hello Desi Kitchen</p>
+      <p className="announce-workstation-desc"> Control center for { kitchen.name }</p>
     </div>
     <div className="main-workstation-main">
       <RenderOverView />
       <MenuOfTheDay />
-      <MealDetailsMain />
+      <MealDetailsMain handleSubmit={handleSubmit} />
       <RenderOrderHistory />
     </div>
   </div>

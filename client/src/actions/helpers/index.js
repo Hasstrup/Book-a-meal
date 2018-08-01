@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SomethingWentWrong } from '../../actionTypes/misc';
+import { DispatchNotification, EndProcess } from '../../actionTypes/misc';
 
 export const wrapInTryCatch = async (func) => {
   try {
@@ -26,12 +26,14 @@ export const RequestHandler = requestBody => successCallback => (dispatch) => {
     .request({
       ...requestBody,
       headers: {
-        Authorization: CacheHandler().getContent('#token!!#$3')
+        Authorization: JSON.parse(CacheHandler().getContent('#token!!#$3').toString())
       }
     })
     .then(response => successCallback(response.data.data))
     .catch((err) => {
-      if (err.response) return dispatch(SomethingWentWrong(err.response.message));
-      return dispatch(SomethingWentWrong('Sorry, that didnt go through'));
+      console.log(err);
+      dispatch(EndProcess());
+      if (err.response) return dispatch(DispatchNotification(err.response.data.error));
+      return dispatch(DispatchNotification('Sorry, that didnt go through'));
     });
 };

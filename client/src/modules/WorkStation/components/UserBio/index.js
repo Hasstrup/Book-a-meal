@@ -4,7 +4,7 @@ export default ({ user, handleChange, handleSubmit }) => (
   <div className="show-user-and-kitchen-profile">
     <RenderUserBio user={user} />
     <SetUpNewKitchen handleChange={handleChange} handleSubmit={handleSubmit} />
-    <RenderKitchenProfileMain />
+    <RenderKitchenProfileMain kitchen={user.Kitchen} />
   </div>
 );
 
@@ -13,7 +13,7 @@ const SetUpNewKitchen = ({ handleChange, handleSubmit }) => (
     <div className="kitchen-text-details">
       <img src="test.jpg" className="profile-picture-kitchen" alt="" />
       <div className="kitchen-deets-column">
-        <p className="kitchen-name-text new-kitchen-d kitchen1" contentEditable="true" onchange="console.log('boom')" onChange={(e) => { handleChange(e, 'name')}}> Kitchen Name</p>
+        <p className="kitchen-name-text new-kitchen-d kitchen1" contentEditable="true"> Kitchen Name</p>
         <p className="a-little-bio new-kitchen-d kitchen1" contentEditable="true" onChange={(e) => { console.log(e); handleChange(e, 'description')}}>
                     Description
         </p>
@@ -25,15 +25,14 @@ const SetUpNewKitchen = ({ handleChange, handleSubmit }) => (
   </div>
 );
 
-const RenderKitchenProfileMain = () => (
+const RenderKitchenProfileMain = ({ kitchen }) => (
   <div className='show-kitchen-profile'>
     <div className='kitchen-text-details'>
     <img src='https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9571e7dfc1016803908833844646dbb3&auto=format&fit=crop&w=1950&q=80' className='profile-picture-kitchen'/>
     <div className='kitchen-deets-column'>
-        <p className='kitchen-name-text kitchen1'> Hello Desi Kitchen </p>
+        <p className='kitchen-name-text kitchen1'> { kitchen.name } </p>
         <p className='a-little-bio kitchen1'>
-          Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille
-          frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+          { kitchen.description }
         </p>
         <div className='edit-button-fade' id='kitchen1' onClick="makeEditable('kitchen1')">
             Edit
@@ -49,6 +48,7 @@ const RenderUserBio = ({ user }) => (
     <div className="user-text-details">
       <p className="user-name-text head1"> {user.firstname} {user.lastname || '' } </p>
       <p className="user-email-text head1"> {user.email}</p>
+      {/* TODO: dynamically render this variant on the presence/absence of a kitchen */}
       <p className="user-digits-text head1" onClick={() => { RenderNewKitchen() }}> Add Kitchen </p>
       <p className="a-little-bio head1">
         {user.bio || 'This is your control center, here you edit relevant information about yourself and your kitchen.'}
@@ -60,6 +60,9 @@ const RenderUserBio = ({ user }) => (
   </div>
 );
 
+/**
+ *
+ */
 const RenderNewKitchen = () => {
   document.getElementsByClassName('new-kitchen')[0].style.display = 'flex';
 };
