@@ -56,7 +56,6 @@ class WorkStationContainer extends Component {
  }
 
  createNewMeal = (meal) => {
-
   if (isNaN(parseInt(meal.price))){
     this.props.dispatch(DispatchNotification('Please check that the price is a number'));
   } 
