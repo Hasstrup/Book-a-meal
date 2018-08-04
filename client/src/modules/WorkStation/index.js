@@ -7,9 +7,11 @@ import '../styles/profile.scss';
 import { FetchUser } from '../../actions/users';
 import { ProcessIndicatorLg } from '../../mixins/ProcessIndicator';
 import KitchenActions from '../../actions/kitchens';
+import MealActions from '../../actions/meals';
 import utils from './utils';
 
 const { RenderMealForm, GetMealInformation } = utils;
+const { createNewMeal } = MealActions;
 const { SetUpNewKitchen } = KitchenActions;
 
 class WorkStationContainer extends Component {
@@ -62,7 +64,7 @@ class WorkStationContainer extends Component {
  handleNewMeal = () => {
    if (!this.state.wantsToAddKitchen) return this.handleRenderMealForm();
    if (!this.validMealInput(GetMealInformation())) return this.props.dispatch(DispatchNotification(`Hey ${this.props.user.firstname}, you need to fill in every field, correctly too :)`));
-   this.createNewMeal(GetMealInformation());
+   this.props.dispatch(createNewMeal(GetMealInformation()));
  }
 
    handleNewKitchen = () => {

@@ -22,7 +22,7 @@ const GetMealInformation = () => {
   const name = document.getElementsByClassName('new-meal-title')[0].innerText;
   const description = document.getElementsByClassName('new-meal-description')[0].innerText;
   const price = document.getElementsByClassName('new-meal-price')[0].innerText;
-  const image = document.getElementsByClassName('inputfile')[0].value;
+  const image = document.getElementsByClassName('inputfile')[0].files[0];
   return {
     name,
     description,
