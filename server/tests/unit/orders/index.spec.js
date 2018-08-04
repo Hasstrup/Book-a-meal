@@ -7,10 +7,9 @@ import models from '../../../models/v2/relationship';
 let data;
 let target;
 let source;
-let testkitchen;
 
 /* eslint no-unused-expressions: 0, no-underscore-dangle: 0, prefer-destructuring: 0, prefer-const: 0, max-len: 0, arrow-body-style: 0, object-curly-newline: 0 */
-const { Kitchen, User, Meal, Order } = models;
+const { User, Meal, Order } = models;
 
 describe('Order service object', () => {
   it(' The fetch all method should return the details for the kitchen', async () => {
@@ -44,16 +43,14 @@ describe('Order service object', () => {
     before(async () => {
       data = await User.findAll();
       target = data[0];
-      testkitchen = await Kitchen.create({ name: 'Bay and Ruts', description: 'A really expensive restaurant on the island', UserId: target.id });
       source = await Meal.findAll();
     });
 
     it('__create method should create a new object in the database', async () => {
       try {
         let status = {};
-        // status[`${testkitchen.id}`] = false;
         source = source.map((item) => {
-          return { id: item.id, quantity: Math.floor(Math.random() * 10), kitchen: item.KitchenId }
+          return { id: item.id, quantity: Math.floor(Math.random() * 10), kitchen: item.KitchenId };
         });
         data = await OrderService.__create(target.id, { meals: source, status });
         expect(data).to.be.an('object');

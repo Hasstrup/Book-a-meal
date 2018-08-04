@@ -1,6 +1,8 @@
 import React from 'react';
+import MealForm from '../../../../mixins/forms/MealForm';
+import utils from '../../utils';
 
-export default () => (
+export default ({ handleSubmit }) => (
   <div className="menu-options-def">
     <div className="announce-item item-menu-options">
       <p className="announce-item-key motd-main"> Meal Options </p>
@@ -22,7 +24,8 @@ export default () => (
           <p name="item-3" className="display-item-button"> Frid rice apple and chips <span> 3000</span></p>
         </div>
       </div>
-      <div className="edit-button" id="show-menu" onClick="showForm()">
+      <MealForm />
+      <div className="edit-button" id="show-menu" onClick={() => { handleSubmit(2)}}>
                   New meal
       </div>
     </div>

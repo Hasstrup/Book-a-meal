@@ -4,13 +4,13 @@ import '../styles/index.scss';
 import AnimatingBannerComponent from './components/banner';
 import ImageFloatingComponent from './components/floater';
 import LoginFormComponent from './components/auth';
-import { SignUpUser, LogInUser, checkForLoggedInUser } from '../../actions/users/';
+import { SignUpUser, LogInUser, GetLoggedInUser } from '../../actions/users/';
 /* eslint-disable */
 
 
 class HomeContainer extends Component {
   componentDidMount = () => {
-    this.props.dispatch(checkForLoggedInUser())
+    GetLoggedInUser();
   }
   
   render = () => (<HomeComponent history={this.props.history} dispatch={this.props.dispatch} />)

@@ -1,12 +1,9 @@
 import dotenv from 'dotenv';
+import Sequelize from 'sequelize';
 import configjson from '../../config/config.json';
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
 
 /* eslint no-console: 0 */
-const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
 const db = {};
 dotenv.config();

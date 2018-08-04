@@ -73,6 +73,7 @@ class BaseMiddleware {
   }
 
   __filterAccess = (req, res, next) => {
+    console.log(req.headers.authorization);
     Encrypt.decodeToken(req.headers.authorization)
       .then(async (payload) => {
         data = await this.getCurrentUser(payload, next);
@@ -81,7 +82,10 @@ class BaseMiddleware {
         req.kitchen = data.Kitchen ? data.Kitchen : null;
         return next();
       })
-      .catch(() => next(new ValidatorError('Something went wrong trying to grant you access, Token might be deformed', 401)) );
+      .catch((err) => {
+        console.log(err);
+        next(new ValidatorError('Something went wrong trying to grant you access, Token might be deformed', 401))
+      });
   }
 
   __ensureKitchenOwner = (req, res, next) => {

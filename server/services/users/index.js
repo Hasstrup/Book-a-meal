@@ -36,11 +36,11 @@ class UserService extends BaseService {
     if (!key || !value || (typeof key) !== 'string') {
       return this.badRequest('please send in a key of type string and a value');
     }
-    ref[`${key}`] = value;
+    ref[`${key}`] = parseInt(value);
     if (populate && populate === 'populate') {
       return this.model.findOne(ref, 'populate');
     }
-    return this.model.findOne(ref);
+    return this.model.__findOne(ref);
   }
 
 

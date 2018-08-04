@@ -1,10 +1,10 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 import Encrypt from '../../../helpers/encrypt';
 import app from '../../../';
 import models from '../../../models/v2/relationship';
-import OrderService from '../../../services/orders/'
+import OrderService from '../../../services/orders/';
 
 let res;
 let valid;
@@ -14,17 +14,15 @@ let meals;
 let test;
 let token;
 
-/* eslint prefer-destructuring: 0 */
-const { User, Meal, Kitchen } = models;
+/* eslint prefer-destructuring: 0, no-underscore-dangle: 0 */
+const { User, Meal } = models;
 
 describe('Orders endpoints', () => {
   before(async () => {
     data = await User.findAll();
-    data = data[0];
+    data = data[1];
     target = await Meal.findAll();
-    meals = target.map((meal) => {
-      return { id: meal.id, quantity: Math.floor(Math.random() * 10), kitchen: meal.KitchenId };
-    });
+    meals = target.map(meal => ({ id: meal.id, quantity: Math.floor(Math.random() * 10), kitchen: meal.KitchenId }));
     token = await Encrypt.issueToken({ id: data.id });
     test = await OrderService.__create(data.id, { meals });
   });
@@ -44,20 +42,22 @@ describe('Orders endpoints', () => {
 
   it('Post request should create a new order', async () => {
     valid = { meals };
-    res = await request(app).post('/api/v1/orders/').send(valid).set('authorization', token)
+    res = await request(app).post('/api/v1/orders/').send(valid).set('authorization', token);
     expect(res.body.data).to.be.an('object');
     expect(res.body.data.UserId).to.equal(data.id);
   });
 
   it('Put request should change the quantity of the created item', async () => {
     valid = { quantity: 10 };
-    data  = res.body.data;
-    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid).query({ type: 'user', mealId: data.meals[0].id });
+    data = res.body.data;
+    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid)
+  .query({ type: 'user', mealId: data.meals[0].id });
     expect(res.body.data.quantity).to.equal(10);
   });
 
   it('Put request should return the fail the without the right token', async () => {
-    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid).query({ type: 'kitchen' });
+    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid)
+.query({ type: 'kitchen' });
     expect(res.statusCode).to.equal(401);
   });
 });

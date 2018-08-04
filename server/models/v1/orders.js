@@ -34,7 +34,6 @@ class OrderModelBase extends DataHandler {
     }
   }
 
-  hello = () => 
   /* this method checks  */
   _populateContent = (order) => {
     if (!order.content) {

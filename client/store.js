@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './src/reducers';
 
 // using compose to enforce the proper flow of enhacers
-const store = createStore(
+export default createStore(
   rootReducer,
   compose(
     applyMiddleware(thunkMiddleware),
@@ -11,4 +11,3 @@ const store = createStore(
   )
 );
 
-export default store;

@@ -17,13 +17,13 @@ class UserControllerBase extends BaseController {
     }
 
     fetchSingle = (req, res, next) => {
-      this.wrapInTryCatch(() => {
+      this.wrapInTryCatch(async () => {
         if (req.populate) {
           data = UserModule.__fetchSingle('id', req.params.user_id);
         } else {
-          data = UserModule.__fetchSingle('id', req.params.user_id, 'populate');
+          data = await UserModule.__fetchOne('id', req.params.user_id, 'populate');
         }
-        this.responseOkay(res, data);
+        this.returnContent(res, data);
       }, next);
     }
 
