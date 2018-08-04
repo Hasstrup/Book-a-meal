@@ -39,11 +39,14 @@ class WorkStationContainer extends Component {
  // TODO: You might need to extract this so it's accessible to all your components
  validMealInput = (meal) => {
    const target = Object.values(meal);
-   /* eslint-disable-next-line no-restricted-globals, radix */
    // doing this because you want a valid price
    const BlackList = ['Meal name', 'description', 'Price', ''];
    return target.reduce((acccumulator, currentValue) => {
      if (BlackList.includes(currentValue)) {
+       acccumulator = false;
+     }
+     /* eslint-disable-next-line no-restricted-globals, radix */
+     if (meal.price && meal.price.length && isNaN(parseInt(meal.price, 10))) {
        acccumulator = false;
      }
      return acccumulator;
@@ -55,17 +58,12 @@ class WorkStationContainer extends Component {
    this.state.wantsToAddKitchen = true; // doing this to avoid a rerender of the dom;
  }
 
- createNewMeal = (meal) => {
-  if (isNaN(parseInt(meal.price))){
-    this.props.dispatch(DispatchNotification('Please check that the price is a number'));
-  } 
- }
 
  handleNewMeal = () => {
    if (!this.state.wantsToAddKitchen) return this.handleRenderMealForm();
    if (!this.validMealInput(GetMealInformation())) return this.props.dispatch(DispatchNotification(`Hey ${this.props.user.firstname}, you need to fill in every field, correctly too :)`));
    this.createNewMeal(GetMealInformation());
-  }
+ }
 
    handleNewKitchen = () => {
      const NewKitchenName = document.getElementsByClassName('new-kitchen-d')[0].innerText;
