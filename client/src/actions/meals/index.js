@@ -26,6 +26,7 @@ const createNewMeal = data => hideForm => async (dispatch, getState) => {
   dispatch(RequestHandler({ method: 'post', url: `${config.url}/meals`, data: { ...data, image } })(successCallback));
 };
 
+
 /**
 * @name fetchAllMealsBelongingToUser
 * @description - This action should fetch all the actions belonging to  the current user
@@ -40,6 +41,7 @@ const fetchAllMealsBelongingToUser = () => (dispatch, getState) => {
   dispatch(RequestHandler(request)(meals => dispatch(AllMealsFetchedForUser(meals))));
 };
 
+
 /**
 * @name editMealInformation
 * @param {string} id the id of the meal to be updated
@@ -53,10 +55,11 @@ export const editMealInformation = id => changes => (dispatch, getState) => {
   const successCallBack = (meal) => {
     // you'll do your filtering here
     const meals = getState().meals.belongsToUser;
-    const index = meals.map(item => item.id).findIndex(meal.id);
+    const index = meals.map(item => item.id).indexOf(meal.id);
     meals[index] = meal;
     dispatch(AllMealsFetchedForUser(meals));
     dispatch(EndProcess());
+    dispatch(DispatchNotification('Awesome, that was edited successfully'));
   };
   const request = { method: 'put', url: `${config.url}/meals/${id}`, data: changes };
   dispatch(RequestHandler(request)(successCallBack));

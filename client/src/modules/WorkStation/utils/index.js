@@ -30,7 +30,7 @@ const GetMealInformation = () => {
   };
 };
 
-const changePhoto = (args) => {
+export const changePhoto = (args) => {
   let value;
   if (args) {
     node = document.getElementById(`${args}`);

@@ -1,41 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editMealInformation , deleteMeal } from '../../../actions/meals/';
+import { editMealInformation, deleteMeal } from '../../../actions/meals/';
+import { StartProcess } from '../../../actionTypes/misc';
 import { makeEditable, getMealInformation } from './utils';
+import SingleMealCard from './components';
+import SendToCloudinary from '../../../actions/helpers/cloudinaryProcessor';
 
 import { HideMealCard } from '../../../modules/WorkStation/utils';
-
-const defaultUrl = 'https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dd8da96be0724ab84e4147d428f6bba&auto=format&fit=crop&w=500&q=60';
-/**
- * 
- * @param {*} param0 
- */
-const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, wantsToEdit }) => (
-  <div className="display-menu-item" id={meal.id} onMouseLeave={() => { HideMealCard(meal.id); }}>
-    <div className="order-add-item">
-      <img src={meal.image || defaultUrl} alt={meal.name} id={`image-${meal.id}`} className="main-meal-item-img" />
-      <div className={`change-preview-image modifiable${meal.id}`} style={{ opacity: wantsToEdit ? 1 : 0, zIndex: wantsToEdit ? 5 : -1 }}>
-        <p className="label-for-input"> Click to change Image </p>
-        <input type="file" className={`input-file image-${meal.id}`} name="input-file" onChange="changePhoto('image-1')" accept=".jpg, .png, .jpeg" />
-      </div>
-    </div>
-    <div className="item-details">
-      <div className="item-title-and-description">
-        <p className={`item-title-main editable editable${meal.id}`}> {meal.name || ''} </p>
-        <p className={`item-description editable editable${meal.id}`}> {meal.description || ''} </p>
-      </div>
-      <div className="buttons-array-and-togglers">
-        {
-        kitchen && kitchen.id === meal.KitchenId ?
-          <p className="option-options"> <span className="edit-meal-option" onClick={handleEdit} id={`target${meal.id}`}> {displayText} </span> { wantsToEdit ? null : <span className="delete-meal-option" onClick={handleDelete}> Delete </span> } </p>
-        : <p className="option-options"> Place an order </p>
-      }
-
-        <p className="option-options2" > N{meal.price} </p>
-      </div>
-    </div>
-  </div>
-);
 
 class SingleMealCardContainer extends Component {
   state = {
@@ -48,26 +19,51 @@ class SingleMealCardContainer extends Component {
    * @name handleDelete
    * @private
    */
-  handleDelete = () => this.props.dispatch(deleteMeal(this.props.meal.id)); //TODO: You might want to add some checks here
-  
+  handleDelete = () => this.props.dispatch(deleteMeal(this.props.meal.id)); // TODO: You might want to add some checks here
+
+  /**
+   * @name handleEdit
+   * @description edits the current meal, also renders the form dynamically based on the state;
+   * @returns {null}
+   * @private
+   */
   handleEdit = () => {
-    // the user is just editing 
+    // the user is just editing
     if (!this.state.wantsToEdit) {
-      makeEditable(`editable${this.props.meal.id}`, 1);
+      makeEditable(1, `editable${this.props.meal.id}`);
       return this.setState({ displayText: 'Save', wantsToEdit: true });
-      // also change the image;
     }
+    makeEditable(2, `editable${this.props.meal.id}`, 2);
+    const { name, image, description } = getMealInformation(this.props.meal.id);
+    if (!image) {
+      // this means the user did not set a new image;
+      this.props.dispatch(editMealInformation(this.props.meal.id)({ name, description }));
+    } else {
+      this.props.dispatch(StartProcess());
+      SendToCloudinary(image)
+        .then((url) => {
+        // cloudinary starts;
+          this.props.dispatch(editMealInformation(this.props.meal.id)({ name, description, image: url }));
+        });
+    }
+    this.setState({ displayText: 'Modify', wantsToEdit: false });
   }
 
-  render = () => <SingleMealCard 
-  meal={this.props.meal} 
-  kithen={this.props.kitchen} 
-  handleDelete={this.handleDelete} 
-  handleEdit={this.handleEdit} 
-  displayText={this.state.displayText}
-  wantsToEdit={this.state.wantsToEdit}
-  />
+  handleImageUpload = () => {
+
+  }
+
+  render = () => (<SingleMealCard
+    meal={this.props.meal}
+    kitchen={this.props.kitchen}
+    handleDelete={this.handleDelete}
+    handleEdit={this.handleEdit}
+    displayText={this.state.displayText}
+    wantsToEdit={this.state.wantsToEdit}
+  />)
 }
+
+// Card Component> TODO: will it be an to overkill to refactor into single file?
 
 const mapStateToProps = state => ({
   kitchen: state.kitchens.target
