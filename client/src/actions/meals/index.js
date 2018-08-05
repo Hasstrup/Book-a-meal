@@ -40,4 +40,43 @@ const fetchAllMealsBelongingToUser = () => (dispatch, getState) => {
   dispatch(RequestHandler(request)(meals => dispatch(AllMealsFetchedForUser(meals))));
 };
 
-export default { createNewMeal, fetchAllMealsBelongingToUser };
+/**
+* @name editMealInformation
+* @param {string} id the id of the meal to be updated
+* @param {object} changes an object containing the changes to be made
+* @description - This action edits relevant information about a meal, it then replaces the now
+* updated meal in the store on success
+* @returns {function} thunk to handled with redux-thunk which will eventually return an array
+*/
+export const editMealInformation = id => changes => (dispatch, getState) => {
+  dispatch(StartProcess());
+  const successCallBack = (meal) => {
+    // you'll do your filtering here
+    const meals = getState().meals.belongsToUser;
+    const index = meals.map(item => item.id).findIndex(meal.id);
+    meals[index] = meal;
+    dispatch(AllMealsFetchedForUser(meals));
+    dispatch(EndProcess());
+  };
+  const request = { method: 'put', url: `${config.url}/meals/${id}`, data: changes };
+  dispatch(RequestHandler(request)(successCallBack));
+};
+
+/**
+ * @name deleteMeal
+ * @param {*} id The meal that is going to be deleted
+ * @description this action deletes a meal from the database
+ * @returns {function} thunk to be reduced to an action
+ */
+export const deleteMeal = id => (dispatch, getState) => {
+  dispatch(StartProcess());
+  const successCallBack = () => {
+    const meals = getState().meals.belongsToUser.filter(item => item.id !== id);
+    dispatch(AllMealsFetchedForUser(meals));
+    dispatch(EndProcess());
+  };
+  dispatch(RequestHandler({ method: 'delete', url: `${config.url}/meals/${id}` })(successCallBack));
+};
+
+export default { createNewMeal, fetchAllMealsBelongingToUser, editMealInformation, deleteMeal };
+

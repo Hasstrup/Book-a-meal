@@ -1,6 +1,6 @@
 import React from 'react';
 import MealForm from '../../../../mixins/forms/MealForm';
-import SingleMealCard from '../../../../mixins/cards/singleMeal';
+import SingleMealCard from '../../../../mixins/cards/singleMeal/';
 import { RenderMealCard } from '../../utils';
 
 const MealPreviewSingle = ({ meal }) => (
