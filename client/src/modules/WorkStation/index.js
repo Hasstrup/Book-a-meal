@@ -10,8 +10,9 @@ import KitchenActions from '../../actions/kitchens';
 import MealActions from '../../actions/meals';
 import utils from './utils';
 
-const { RenderMealForm, GetMealInformation } = utils;
-const { createNewMeal } = MealActions;
+// TODO: you might want to destructure from the exports itself.
+const { RenderMealForm, GetMealInformation, HideMealForm } = utils;
+const { createNewMeal, fetchAllMealsBelongingToUser } = MealActions;
 const { SetUpNewKitchen } = KitchenActions;
 
 class WorkStationContainer extends Component {
@@ -22,6 +23,7 @@ class WorkStationContainer extends Component {
 
    componentDidMount = () => {
      if (!this.props.user) return this.props.dispatch(FetchUser());
+     this.props.dispatch(fetchAllMealsBelongingToUser()); // just so that this updates with page transitions
    }
 
 
@@ -39,6 +41,12 @@ class WorkStationContainer extends Component {
  }
 
  // TODO: You might need to extract this so it's accessible to all your components
+  /**
+ * @description Utility function that checks if input passes a validity check. Checks that none of the fields are 
+ * default values provided on render
+ * @returns {boolean} the result of auth test
+ * @private
+ */
  validMealInput = (meal) => {
    const target = Object.values(meal);
    // doing this because you want a valid price
@@ -55,18 +63,44 @@ class WorkStationContainer extends Component {
    }, true);
  }
 
+  /**
+ * @description Renders the meal form for the user
+ * @returns {null}
+ * @private
+ */
  handleRenderMealForm = () => {
    RenderMealForm();
-   this.state.wantsToAddKitchen = true; // doing this to avoid a rerender of the dom;
+   this.state.wantsToAddMeal = true; // doing this to avoid a rerender of the dom;
  }
 
-
+/**
+ * @description This either renders the meal form or dispatches the set up meal 
+ * variant on the number of times the newMeal button is clicked
+ * @returns {null}
+ * @private
+ */
  handleNewMeal = () => {
-   if (!this.state.wantsToAddKitchen) return this.handleRenderMealForm();
+   if (!this.state.wantsToAddMeal) return this.handleRenderMealForm();
    if (!this.validMealInput(GetMealInformation())) return this.props.dispatch(DispatchNotification(`Hey ${this.props.user.firstname}, you need to fill in every field, correctly too :)`));
-   this.props.dispatch(createNewMeal(GetMealInformation()));
+   this.props.dispatch(createNewMeal(GetMealInformation())(this.resetMealForm)); // reset meal should be bound;
  }
 
+ /**
+ * @description Hides the meal form after a successful set up of the meal
+ * resets the form data to default values
+ * @returns {null}
+ * @private
+ */
+ resetMealForm = () => {
+   HideMealForm();
+   this.state.wantsToAddMeal = false; // avoiding a rerender here as well
+ }
+
+  /**
+ * @description Sets up a new kitchen for the user
+ * @returns {function} the call to the dispatch function// might not be neccessary to note in this case
+ * @private
+ */
    handleNewKitchen = () => {
      const NewKitchenName = document.getElementsByClassName('new-kitchen-d')[0].innerText;
      const NewKitchenDescription = document.getElementsByClassName('new-kitchen-d')[1].innerText;
@@ -83,7 +117,7 @@ class WorkStationContainer extends Component {
         { this.props.user ?
           <div className="main-profile-body">
             <RenderKitchenAndUserBio user={this.props.user} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-            <RenderWorkStationMain kitchen={this.props.user.Kitchen} handleSubmit={this.handleSubmit} />
+            <RenderWorkStationMain kitchen={this.props.user.Kitchen} handleSubmit={this.handleSubmit} meals={this.props.meals} />
           </div>
         : <ProcessIndicatorLg />
       }
@@ -92,7 +126,8 @@ class WorkStationContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.users.target
+  user: state.users.target,
+  meals: state.meals.belongsToUser
 });
 
 export default connect(mapStateToProps)(WorkStationContainer);
