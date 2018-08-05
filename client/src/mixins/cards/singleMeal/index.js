@@ -6,8 +6,6 @@ import { makeEditable, getMealInformation } from './utils';
 import SingleMealCard from './components';
 import SendToCloudinary from '../../../actions/helpers/cloudinaryProcessor';
 
-import { HideMealCard } from '../../../modules/WorkStation/utils';
-
 class SingleMealCardContainer extends Component {
   state = {
     wantsToEdit: false,
@@ -47,10 +45,6 @@ class SingleMealCardContainer extends Component {
         });
     }
     this.setState({ displayText: 'Modify', wantsToEdit: false });
-  }
-
-  handleImageUpload = () => {
-
   }
 
   render = () => (<SingleMealCard
