@@ -11,6 +11,7 @@ import Header from './mixins/header/';
 import Footer from './mixins/footer';
 import ProcessIndicator from './mixins/ProcessIndicator';
 import { CacheHandler } from './actions/helpers';
+import { FetchUser } from './actions/users/';
 import store from '../store';
 
 const App = () => (
@@ -35,9 +36,13 @@ const Main = () => (
   </div>
 );
 
-/* Immediately check for a logged in user on sign up */
+/* Immediately check for a logged in user when the application is opened */
 (function () {
-  if (CacheHandler().getContent('#user!!@##$')) return store.dispatch({ type: 'NEW_SIGN_IN', payload: JSON.parse(CacheHandler().getContent('#user!!@##$')) });
+  if (CacheHandler().getContent('#user!!@##$')) {
+    store.dispatch({ type: 'NEW_SIGN_IN', payload: JSON.parse(CacheHandler().getContent('#user!!@##$')) });
+    // fetch the kitchen
+    store.dispatch(FetchUser());
+  }
 }());
 
 export default hot(module)(Main);

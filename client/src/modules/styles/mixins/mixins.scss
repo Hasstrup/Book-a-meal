@@ -95,6 +95,7 @@
       .main-meal-item-img {
         flex-basis: 40%;
         width: 100%;
+        object-fit: cover;
         height: 300px;
       }
       .item-title-and-description {

@@ -4,6 +4,12 @@
 
 import store from '../../store';
 
+// TODO: is there a more idiomatic way to do this without using a toast library
+const CloseNotification = () => {
+  store.dispatch({ type: 'CLOSE_ERROR' });
+};
+
+
 export const PleaseWait = () => ({
   type: 'PLEASE_WAIT'
 });
@@ -23,8 +29,3 @@ export const StartProcess = () => ({
 export const EndProcess = () => ({
   type: 'END_PROCESS'
 });
-
-//TODO: is there a more idiomatic way to do this without using a toast library
-const CloseNotification = () => {
-  store.dispatch({ type: 'CLOSE_ERROR' });
-};

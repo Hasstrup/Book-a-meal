@@ -1,8 +1,12 @@
 import axios from 'axios';
-import { PleaseWait, NewSignUp, SomethingWentWrong, SpecificUserFetched } from '../../actionTypes/users';
+import { NewSignUp, SpecificUserFetched } from '../../actionTypes/users';
+import { DispatchNotification, StartProcess, EndProcess } from '../../actionTypes/misc';
+import { TargetKitchenRetrieved } from '../../actionTypes/kitchens';
+import MealActions from '../../actions/meals/';
 import { CacheHandler, RequestHandler } from '../helpers/';
 import config from '../../config';
 
+const { fetchAllMealsBelongingToUser } = MealActions;
 
 /**
  *
@@ -14,17 +18,20 @@ import config from '../../config';
  */
 
 export const SignUpUser = body => history => (dispatch) => {
-  dispatch(PleaseWait());
+  dispatch(StartProcess());
   return axios.post('http://localhost:3900/api/v1/auth/signup', body)
     .then((res) => {
       dispatch(NewSignUp(res.data));
+      dispatch(EndProcess());
       history.push('/catalogue');
+      // only dispatch if the user has a kitchen;
       CacheHandler().setContent(res.data.data, '#user!!@##$');
       CacheHandler().setContent(res.data.data.token, '#token!!#$3');
     })
     .catch((err) => {
-      if (!err.response) return; // handle conflicts here;
-      dispatch(SomethingWentWrong(err.response.data.error));
+      dispatch(EndProcess());
+      if (!err.response) return dispatch(DispatchNotification('Sorry that did not go through')); // handle conflicts here;
+      dispatch(DispatchNotification(err.response.data.error));
     });
 };
 
@@ -36,23 +43,25 @@ export const SignUpUser = body => history => (dispatch) => {
    * @param {obj} body - body to be sent to the server, must contain the email and the password
    */
 export const LogInUser = body => history => (dispatch) => {
-  dispatch(PleaseWait());
+  dispatch(StartProcess());
   return axios.post('http://localhost:3900/api/v1/auth/login', body)
     .then((res) => {
       dispatch(NewSignUp(res.data));
+      if (res.data.data.Kitchen && res.data.data.Kitchen.name) dispatch(TargetKitchenRetrieved(res.data.data.Kitchen));
+      dispatch(EndProcess());
       history.push('/catalogue');
       CacheHandler().setContent(res.data.data, '#user!!@##$');
       CacheHandler().setContent(res.data.data.token, '#token!!#$3');
     })
     .catch((err) => {
-      if (!err.response) return dispatch(SomethingWentWrong('Sorry, that did not go through'));
-      dispatch(SomethingWentWrong(err.response.data.error));
+      if (!err.response) return dispatch(DispatchNotification('Sorry, that did not go through'));
+      dispatch(DispatchNotification(err.response.data.error));
     });
 };
 
 
 /**
-   * @name FetchUser
+   * @name GetLoggedInUser
    * @returns {function} function to be invoked by redux-thunk
    * @description action creator that makes the login call to the database
    * @param {number} id _ The Id of the user to be fetched
@@ -63,9 +72,17 @@ export const GetLoggedInUser = () => CacheHandler().getContent('#user!!@##$');
 /**
    * @name FetchUser
    * @returns {function} function to be invoked by redux-thunk
-   * @description action creator that makes the login call to the database
+   * @description This function is called every time the application mounts;
+   * it tries to immediately fetch every data for the user and bootstrap the application
    * @param {number} id _ The Id of the user to be fetched
 */
 export const FetchUser = () => (dispatch, getState) => {
-  dispatch(RequestHandler({ method: 'get', url: `${config.url}/users/${getState().users.current.id}` })(user => dispatch(SpecificUserFetched(user))));
+  const callBack = (user) => {
+    dispatch(SpecificUserFetched(user));
+    if (user.Kitchen && user.Kitchen.name) {
+      dispatch(TargetKitchenRetrieved(user.Kitchen));
+      return dispatch(fetchAllMealsBelongingToUser()); // should work after the Kitchen is set up
+    }
+  };
+  dispatch(RequestHandler({ method: 'get', url: `${config.url}/users/${getState().users.current.id}` })(callBack));
 };
