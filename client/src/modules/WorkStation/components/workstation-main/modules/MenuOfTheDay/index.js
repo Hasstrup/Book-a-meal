@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MenuOfTheDay from './components/MenuOfTheDay';
+import MenuOfTheDay, { nameInput, descriptionInput } from './components/MenuOfTheDay';
+import { DispatchNotification } from '../../../../../../actionTypes/misc';
+import { SetMenuOfTheDay } from '../../../../../../actions/menus';
+import BlackList from './utils';
 import MealSelectModal from './components/SelectMealModal';
 import { makeEditable } from '../../../../../../mixins/cards/singleMeal/utils';
 
 const defaultImageUrl = 'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c75e0437e819afdceeb3050a6bcdd71b&auto=format&fit=crop&w=653&q=80';
 let counter = 0;
+
 class MenuOfTheDayContainer extends Component {
   state = {
     buttonText: 'Change',
@@ -19,6 +23,22 @@ class MenuOfTheDayContainer extends Component {
       makeEditable(1, 'motd-name', 'motd-desc');
       return this.setState({ buttonText: 'Save', wantsToEdit: true });
     }
+    const name = nameInput.current.innerText || '';
+    const description = descriptionInput.current.innerText || '';
+    if (!this.validateMenuInput({ name, description })) return this.props.dispatch(DispatchNotification('Please fill in the name and description'));
+    const { selectedMealsForMenuOfTheDay } = this.state;
+    if (!selectedMealsForMenuOfTheDay.length) return this.props.dispatch(DispatchNotification('Please select some meals'));
+    this.props.dispatch(SetMenuOfTheDay({ name, description, meals: selectedMealsForMenuOfTheDay }));
+  }
+
+  validateMenuInput = (args) => {
+    if (!args) return false;
+    return Object.values(args).reduce((accumulator, item) => {
+      if (!item.length || BlackList.includes(item)) {
+        accumulator = false;
+      }
+      return accumulator;
+    }, true);
   }
 
   handleSelect = (meal) => {

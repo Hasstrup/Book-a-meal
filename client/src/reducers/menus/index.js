@@ -6,6 +6,9 @@ const menuReducer = (state = {}, action) => {
     case 'MENU_SELECTED':
       return { ...state, target: action.payload };
 
+    case 'MENU_OF_THE_DAY':
+      return { ...state, ofTheDay: action.payload };
+
     default:
       return state;
   }
