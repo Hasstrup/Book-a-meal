@@ -36,7 +36,7 @@ class KitchenService extends BaseService {
     let ref = {};
     ref[`${key}`] = value;
     if (populate && populate === 'populate') {
-      return await this.__model.findOne({ where: ref, include: [{ all: true }] });
+      return await this.__model.findOne({ where: ref, include: [{ model: Menu, include: [Meal] }, { model: Meal, include: [Menu] }] });
     }
     return await this.__model.findOne({ where: ref });
   }

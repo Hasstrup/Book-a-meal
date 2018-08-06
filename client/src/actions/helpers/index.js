@@ -27,7 +27,8 @@ export const RequestHandler = requestBody => successCallback => (dispatch) => {
     .request({
       ...requestBody,
       headers: {
-        Authorization: JSON.parse(CacheHandler().getContent('#token!!#$3').toString())
+        Authorization: JSON.parse(CacheHandler().getContent('#token!!#$3').toString()),
+        'Cache-Control': 'no-cache'
       }
     })
     .then(response => successCallback(response.data.data))
