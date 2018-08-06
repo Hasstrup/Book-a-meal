@@ -12,18 +12,23 @@ description and image to be sent to cloudinary
 * @returns {function} thunk to handled with redux-thunk
 */
 const createNewMeal = data => hideForm => async (dispatch, getState) => {
-  dispatch(StartProcess());
-  const image = await uploadImage(data.image);
-  const successCallback = (meal) => {
-    const meals = getState().meals.belongsToUser;
-    // shift the meals to the current user's meals so it appears at the top; TODO: PAGINATION
-    dispatch({ type: 'NEW_MEAL', payload: [meal, ...meals] });
-    dispatch(DispatchNotification('Great job! Successfully uploaded'));
+  try {
+    dispatch(StartProcess());
+    const image = await uploadImage(data.image);
+    const successCallback = (meal) => {
+      const meals = getState().meals.belongsToUser;
+      // shift the meals to the current user's meals so it appears at the top; TODO: PAGINATION
+      dispatch({ type: 'NEW_MEAL', payload: [meal, ...meals] });
+      dispatch(DispatchNotification('Great job! Successfully uploaded'));
+      dispatch(EndProcess());
+      // you should probably hide the meal form after this;
+      hideForm();
+    };
+    dispatch(RequestHandler({ method: 'post', url: `${config.url}/meals`, data: { ...data, image } })(successCallback));
+  } catch (err) {
     dispatch(EndProcess());
-    // you should probably hide the meal form after this;
-    hideForm();
-  };
-  dispatch(RequestHandler({ method: 'post', url: `${config.url}/meals`, data: { ...data, image } })(successCallback));
+    dispatch(DispatchNotification(`Something went wrong ${getState().users.current.firstname} :(, Try again`));
+  }
 };
 
 
@@ -81,5 +86,7 @@ export const deleteMeal = id => (dispatch, getState) => {
   dispatch(RequestHandler({ method: 'delete', url: `${config.url}/meals/${id}` })(successCallBack));
 };
 
-export default { createNewMeal, fetchAllMealsBelongingToUser, editMealInformation, deleteMeal };
+export default {
+ createNewMeal, fetchAllMealsBelongingToUser, editMealInformation, deleteMeal 
+};
 

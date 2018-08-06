@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // TODO: You probably want to make this totally secret, env vars maybe?
-const cloudName = 'dy8dbnmec';
-const unsignedUploadPreset = 'dmbhkwv0';
+const cloudName = 'dntmknvtw';
+const unsignedUploadPreset = 'o0uyoaiz';
 
 /**
  * @param file - image to be uploaded to cloudinary
