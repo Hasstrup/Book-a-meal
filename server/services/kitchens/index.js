@@ -1,7 +1,8 @@
+import { Op } from 'sequelize';
 import BaseService from '../base-service';
 import KitchenModel from '../../models/v1/kitchen';
 import models from '../../models/v2/relationship';
-import { Op } from 'sequelize'
+
 
 const { Kitchen, Menu, Order, Meal } = models;
 

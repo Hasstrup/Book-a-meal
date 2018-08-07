@@ -18,10 +18,18 @@ class MenuOfTheDayContainer extends Component {
     previewImage: defaultImageUrl
   }
 
+  componentDidUpdate = (prevProps) => {
+    const { ofTheDay } = prevProps;
+    // that means the meals have arrived || accounting for some latency in event cycle;
+    if (!ofTheDay) return this.generateImageFromMenuOfTheDay();
+  }
+
   handlePress = () => {
     if (!this.state.wantsToEdit) { // all of this code should run when the
       makeEditable(1, 'motd-name', 'motd-desc');
+      this.props.dispatch({ type: 'MENU_OF_THE_DAY' }); // should reset the menu of the day here;
       return this.setState({ buttonText: 'Save', wantsToEdit: true });
+
     }
     const name = nameInput.current.innerText || '';
     const description = descriptionInput.current.innerText || '';
@@ -29,6 +37,7 @@ class MenuOfTheDayContainer extends Component {
     const { selectedMealsForMenuOfTheDay } = this.state;
     if (!selectedMealsForMenuOfTheDay.length) return this.props.dispatch(DispatchNotification('Please select some meals'));
     this.props.dispatch(SetMenuOfTheDay({ name, description, meals: selectedMealsForMenuOfTheDay }));
+    return this.setState({ buttonText: 'Change', wantsToEdit: false });
   }
 
   validateMenuInput = (args) => {
@@ -39,6 +48,12 @@ class MenuOfTheDayContainer extends Component {
       }
       return accumulator;
     }, true);
+  }
+
+  generateImageFromMenuOfTheDay = () => {
+    const { ofTheDay } = this.props;
+    if(!ofTheDay) return;
+    this.generatePreviewImage({ selectedMealsForMenuOfTheDay: ofTheDay.Meals });
   }
 
   handleSelect = (meal) => {
@@ -52,17 +67,17 @@ class MenuOfTheDayContainer extends Component {
     return this.generatePreviewImage();
   }
 
-  generatePreviewImage = () => {
-    if (!this.state.selectedMealsForMenuOfTheDay.length) return this.setState({ previewImage: defaultImageUrl });
+  generatePreviewImage = (args) => {
+    const { selectedMealsForMenuOfTheDay } = args || this.state;
+    if (!selectedMealsForMenuOfTheDay.length) return this.setState({ previewImage: defaultImageUrl });
     // generate a random image
-    const index = Math.floor(Math.random() * this.state.selectedMealsForMenuOfTheDay.length);
-    const { selectedMealsForMenuOfTheDay } = this.state;
+    const index = Math.floor(Math.random() * selectedMealsForMenuOfTheDay.length);
     if (selectedMealsForMenuOfTheDay[index].image) return this.setState({ previewImage: selectedMealsForMenuOfTheDay[index].image });
     // recursively try to generate an image, hopefully no infinite loops
     // We've gone through every item in the selected meals and no image :( set the default url then
     if (counter === selectedMealsForMenuOfTheDay.length) return this.setState({ previewImage: defaultImageUrl });
     counter += 1;
-    this.generatePreviewImage();
+    return args ? this.generatePreviewImage(args) : this.generatePreviewImage();
   }
 
   render = () => (
@@ -71,6 +86,7 @@ class MenuOfTheDayContainer extends Component {
         buttonText={this.state.buttonText}
         handleClick={this.handlePress}
         previewImage={this.state.previewImage}
+        ofTheDay={this.props.ofTheDay}
         openModal={() => { this.setState({ renderModal: true }); }}
       />
       <MealSelectModal
@@ -86,6 +102,7 @@ class MenuOfTheDayContainer extends Component {
 
 const mapStateToProps = state => ({
   meals: state.meals.belongsToUser,
+  ofTheDay: state.menus.ofTheDay
 });
 
 export default connect(mapStateToProps)(MenuOfTheDayContainer);
