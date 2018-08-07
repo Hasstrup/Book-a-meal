@@ -3,15 +3,21 @@ import React from 'react';
 const nameInput = React.createRef();
 const descriptionInput = React.createRef();
 
+/**
+ * 
+ * @param {array} args - the array of meals
+ * @description returns the names of meals in the array passed as a string;
+ * @name generateNames
+ */
 const generateNames = (args) => {
   if (!args) return '';
   const list = args.reduce((accumulator, item) => `${accumulator.name ? accumulator.name : accumulator }, ${item.name}`);
   if (list.split(' ').length <= 15) return list;
   return `${list.split(' ').splice(0, 15).join(' ')}...`;
 };
-export default ({
-  handleClick, buttonText, ofTheDay, openModal, previewImage
-}) => (
+
+
+export default ({ handleClick, buttonText, ofTheDay, openModal, previewImage }) => (
   <div className="menu-of-the-day">
     <div className="announce-item item-motd">
       <p className="announce-item-key motd-main"> Menu of the day </p>

@@ -43,7 +43,13 @@ export const SetMenuOfTheDay = data => (dispatch, getState) => {
   return dispatch(RequestHandler(request)(successCallBack));
 };
 
-
+/**
+ * @name fetchMenuOfTheDayOfUser
+ * @returns {null}
+ * @description this fetches the menu of the day belonging to the current user
+ * depending on the presence of a kitchen;
+ * 
+ */
 export const fetchMenuOfTheDayOfUser = () => (dispatch, getState) => {
   if (!getState().kitchens.target) return;
   const request = { method: 'get', url: `${config.url}/kitchens/${getState().kitchens.target.id}?populate=populate` };

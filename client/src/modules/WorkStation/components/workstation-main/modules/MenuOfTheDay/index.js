@@ -17,13 +17,21 @@ class MenuOfTheDayContainer extends Component {
     selectedMealsForMenuOfTheDay: [],
     previewImage: defaultImageUrl
   }
-
+  
   componentDidUpdate = (prevProps) => {
     const { ofTheDay } = prevProps;
     // that means the meals have arrived || accounting for some latency in event cycle;
     if (!ofTheDay) return this.generateImageFromMenuOfTheDay();
   }
 
+  /**
+   * @name handlePress
+   * @summary function is called when the user presses the change button;
+   * @description this function renders the form when the button is clicked for the first time
+   * and saves on second
+   * @private
+   * @returns {function} a call to setState . Insignificant;
+   */
   handlePress = () => {
     if (!this.state.wantsToEdit) { // all of this code should run when the
       makeEditable(1, 'motd-name', 'motd-desc');
@@ -33,13 +41,21 @@ class MenuOfTheDayContainer extends Component {
     }
     const name = nameInput.current.innerText || '';
     const description = descriptionInput.current.innerText || '';
+    // the user still didnt change the placholders or left it empty
     if (!this.validateMenuInput({ name, description })) return this.props.dispatch(DispatchNotification('Please fill in the name and description'));
     const { selectedMealsForMenuOfTheDay } = this.state;
+    // the user hasnt selected any meal
     if (!selectedMealsForMenuOfTheDay.length) return this.props.dispatch(DispatchNotification('Please select some meals'));
     this.props.dispatch(SetMenuOfTheDay({ name, description, meals: selectedMealsForMenuOfTheDay }));
     return this.setState({ buttonText: 'Change', wantsToEdit: false });
   }
 
+  /**
+   * @private
+   * @summary validates the meal input against a blacklist of text
+   * @param {object} args the object whose values will be validated
+   * @return {bool} returns validity of the object
+   */
   validateMenuInput = (args) => {
     if (!args) return false;
     return Object.values(args).reduce((accumulator, item) => {
@@ -50,12 +66,25 @@ class MenuOfTheDayContainer extends Component {
     }, true);
   }
 
+  /**
+   * @private
+   * @name generateImageFromMenuOfTheDay
+   * @description this function generates a random picture from the meals in the menu
+   * of the day
+   * @returns {null}
+   */
   generateImageFromMenuOfTheDay = () => {
     const { ofTheDay } = this.props;
-    if(!ofTheDay) return;
+    if (!ofTheDay) return;
     this.generatePreviewImage({ selectedMealsForMenuOfTheDay: ofTheDay.Meals });
   }
 
+  /**
+   * @name handleSelect
+   * @description this function pushes a meal from the array of meals belonging to the user;
+   * @param {object} meal the meal that is either being selected or descelected
+   * @returns {function}
+   */
   handleSelect = (meal) => {
     const { selectedMealsForMenuOfTheDay } = this.state;
     const mappedMenu = selectedMealsForMenuOfTheDay.map(item => item.id);
@@ -67,6 +96,12 @@ class MenuOfTheDayContainer extends Component {
     return this.generatePreviewImage();
   }
 
+  /**
+   * @name generatePreviewImage
+   * @description this function checks for an array of meals passed in the argument or in the state;
+   * it then tries to generate an image recursively, till it eventually finds one;
+   * @param {array} meals - an array of meals to generate the image from; 
+   */
   generatePreviewImage = (args) => {
     const { selectedMealsForMenuOfTheDay } = args || this.state;
     if (!selectedMealsForMenuOfTheDay.length) return this.setState({ previewImage: defaultImageUrl });
