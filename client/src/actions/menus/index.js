@@ -1,24 +1,65 @@
 import axios from 'axios';
 import { config } from '../../helpers/proxy';
-import { SomethingWentWrong, PleaseWait } from '../../actionTypes/misc';
+import { DispatchNotification, StartProcess, EndProcess } from '../../actionTypes/misc';
+import { RequestHandler } from '../helpers/index';
 import { CatalogueGotten, MenuSelected } from '../../actionTypes/menus/';
 
 /**
- * @returns thunk - an async call that fetches the catalogue from the Server
+ * @returns {function} thunk - an async call that fetches the catalogue from the Server
  * @description - this function should be dispatched by the catalogue component, to try to 
  *                get the list of menus for the day.
  */
 export const FetchCatalogue = () => (dispatch) => {
-  dispatch(PleaseWait());
+  dispatch(StartProcess());
   return axios.get(`${config.url}/menus`)
     .then((response) => {
       dispatch(CatalogueGotten(response.data.data));
+      dispatch(EndProcess());
     })
     .catch((err) => {
-      if (!err.response) return dispatch(SomethingWentWrong('Had a problem fetching the menus'))
-      dispatch(SomethingWentWrong(err.response.data.error));
+      dispatch(EndProcess());
+      if (!err.response) return dispatch(DispatchNotification('Had a problem fetching the menus'))
+      dispatch(DispatchNotification(err.response.data.error));
     });
 };
 
+/**
+ *
+ * @param {Object} data - the meal object to be sent to the db
+ * @returns {function}
+ * @name SetMenuOfTheDay
+ * @description This helps create the menu of the day for the current
+ * kitchen in session
+ */
+export const SetMenuOfTheDay = data => (dispatch, getState) => {
+  dispatch(StartProcess());
+  const request = { method: 'post', url: `${config.url}/menus`, data };
+  const successCallBack = (menu) => {
+    dispatch({ type: 'MENU_OF_THE_DAY', payload: menu });
+    dispatch(EndProcess());
+    // let the user know this went through successfully!
+    dispatch(DispatchNotification(`${menu.name} is now set as the menu of the day for ${getState().kitchens.target.name}`));
+  };
+  return dispatch(RequestHandler(request)(successCallBack));
+};
+
+/**
+ * @name fetchMenuOfTheDayOfUser
+ * @returns {null}
+ * @description this fetches the menu of the day belonging to the current user
+ * depending on the presence of a kitchen;
+ * 
+ */
+export const fetchMenuOfTheDayOfUser = () => (dispatch, getState) => {
+  if (!getState().kitchens.target) return;
+  const request = { method: 'get', url: `${config.url}/kitchens/${getState().kitchens.target.id}?populate=populate` };
+  const successCallBack = (kitchen) => {
+    // since the payload of doesnt populate the ofTheDay; TODO: make this server side;
+    const payload = kitchen.Menus.filter(item => item.id === kitchen.ofTheDay)[0];
+    dispatch({ type: 'MENU_OF_THE_DAY', payload });
+  };
+  dispatch(RequestHandler(request)(successCallBack));
+};
+
 // remember to edit this next;
-export const GetSelectMenu = (id) => (history) => { MenuSelected }
+export const GetSelectMenu = (id) => (history) => { MenuSelected };

@@ -656,7 +656,8 @@ body {
         flex-flow: row wrap;
         justify-content: center;
         width: 85%;
-        height: 70%;
+        height:90%;
+        overflow-y: scroll;
         align-self: center;
         .tiny-tiny-card {
           height: 35%;

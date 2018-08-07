@@ -1,7 +1,8 @@
+import { Op } from 'sequelize';
 import BaseService from '../base-service';
 import KitchenModel from '../../models/v1/kitchen';
 import models from '../../models/v2/relationship';
-import { Op } from 'sequelize'
+
 
 const { Kitchen, Menu, Order, Meal } = models;
 
@@ -36,7 +37,7 @@ class KitchenService extends BaseService {
     let ref = {};
     ref[`${key}`] = value;
     if (populate && populate === 'populate') {
-      return await this.__model.findOne({ where: ref, include: [{ all: true }] });
+      return await this.__model.findOne({ where: ref, include: [{ model: Menu, include: [Meal] }, { model: Meal, include: [Menu] }] });
     }
     return await this.__model.findOne({ where: ref });
   }

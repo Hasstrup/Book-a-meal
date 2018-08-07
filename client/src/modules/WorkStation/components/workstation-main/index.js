@@ -1,8 +1,8 @@
 import React from 'react';
 import RenderOverView from './modules/overview';
 import MealDetailsMain from '../meals';
-import RenderOrderHistory from '../orders'
-import MenuOfTheDay from './modules/MenuOfTheDay';
+import RenderOrderHistory from '../orders';
+import MenuOfTheDay from './modules/MenuOfTheDay/';
 
 export default ({ kitchen, handleSubmit, meals }) => (
   <div className="main-workstation">

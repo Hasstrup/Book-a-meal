@@ -3,5 +3,5 @@ import React from 'react';
 
 // const history = createHistory();
 
-export default SomeComponent => data => props => data.map(details => <SomeComponent history={props.history} data={details} />);
+export default SomeComponent => data => props => data.map(item => <SomeComponent {...props} data={item} />);
 

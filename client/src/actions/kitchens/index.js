@@ -1,4 +1,4 @@
-import { RequestHandler } from '../helpers/';
+import { RequestHandler } from '../helpers';
 import { DispatchNotification, StartProcess, EndProcess } from '../../actionTypes/misc';
 import { TargetKitchenRetrieved } from '../../actionTypes/kitchens';
 import config from '../../config';

@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { NewSignUp, SpecificUserFetched } from '../../actionTypes/users';
 import { DispatchNotification, StartProcess, EndProcess } from '../../actionTypes/misc';
+import { fetchMenuOfTheDayOfUser } from '../../actions/menus';
 import { TargetKitchenRetrieved } from '../../actionTypes/kitchens';
-import MealActions from '../../actions/meals/';
-import { CacheHandler, RequestHandler } from '../helpers/';
+import MealActions from '../meals';
+import { CacheHandler, RequestHandler } from '../helpers';
 import config from '../../config';
 
 const { fetchAllMealsBelongingToUser } = MealActions;
@@ -81,6 +82,7 @@ export const FetchUser = () => (dispatch, getState) => {
     dispatch(SpecificUserFetched(user));
     if (user.Kitchen && user.Kitchen.name) {
       dispatch(TargetKitchenRetrieved(user.Kitchen));
+      dispatch(fetchMenuOfTheDayOfUser());
       return dispatch(fetchAllMealsBelongingToUser()); // should work after the Kitchen is set up
     }
   };

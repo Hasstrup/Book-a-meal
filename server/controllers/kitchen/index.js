@@ -21,7 +21,7 @@ class KitchenControllerBase extends BaseController {
 
     fetchSingle = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        data = req.populate ? await KitchenModule.__fetchOne('id', req.params.ktid, 'populate') : await KitchenModule.__fetchOne('id', req.params.ktid);
+        data = req.populate ? await KitchenModule.fetchOne('id', req.params.ktid, 'populate') : await KitchenModule.fetchOne('id', req.params.ktid);
         this.returnContent(res, data);
       }, next);
     }
