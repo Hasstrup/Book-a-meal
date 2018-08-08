@@ -23,7 +23,7 @@ class Catalogue extends Component {
     <div className="main-body">
       <CatalogueFirstRow />
       <Selectors />
-      <CatalogueGridMain history={this.props.history}/>
+      <CatalogueGridMain history={this.props.history} menus={this.props.menus || []} />
     </div>
   );
 }
@@ -66,10 +66,10 @@ const Selectors = () => (
 );
 
 
-const CatalogueGridMain = (props) => (
+const CatalogueGridMain = props => (
   <div className="main-items-grid">
     { /* remember to get some mock || main data to fill in this place */ }
-    { MainCatalogue([1, 2, 3])(props) }
+    { MainCatalogue(props.menus)(props) }
   </div>
 );
 

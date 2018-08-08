@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { config } from '../../helpers/proxy';
 import { DispatchNotification, StartProcess, EndProcess } from '../../actionTypes/misc';
 import { RequestHandler } from '../helpers/index';
@@ -11,16 +10,12 @@ import { CatalogueGotten, MenuSelected } from '../../actionTypes/menus/';
  */
 export const FetchCatalogue = () => (dispatch) => {
   dispatch(StartProcess());
-  return axios.get(`${config.url}/menus`)
-    .then((response) => {
-      dispatch(CatalogueGotten(response.data.data));
-      dispatch(EndProcess());
-    })
-    .catch((err) => {
-      dispatch(EndProcess());
-      if (!err.response) return dispatch(DispatchNotification('Had a problem fetching the menus'))
-      dispatch(DispatchNotification(err.response.data.error));
-    });
+  const request = { method: 'get', url: `${config.url}/menus` };
+  const successCallBack = (menus) => {
+    dispatch(CatalogueGotten(menus));
+    dispatch(EndProcess());
+  };
+  return dispatch(RequestHandler(request)(successCallBack));
 };
 
 /**
