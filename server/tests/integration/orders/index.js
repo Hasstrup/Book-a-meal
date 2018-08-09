@@ -1,6 +1,5 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import jwt from 'jsonwebtoken';
 import Encrypt from '../../../helpers/encrypt';
 import app from '../../../';
 import models from '../../../models/v2/relationship';
@@ -10,20 +9,23 @@ let res;
 let valid;
 let target;
 let data;
-let meals;
-let test;
+let meals; 
 let token;
+let kitchenToken;
+let test;
 
 /* eslint prefer-destructuring: 0, no-underscore-dangle: 0 */
-const { User, Meal } = models;
+const { User, Meal, Kitchen } = models;
 
 describe('Orders endpoints', () => {
   before(async () => {
-    data = await User.findAll();
+    data = await User.findAll({ include: [Kitchen] });
     data = data[1];
-    target = await Meal.findAll();
+    const kitchen = await Kitchen.findAll({ limit: 2 });
+    target = await Meal.findAll({ include: [{ all: true }] });
     meals = target.map(meal => ({ id: meal.id, quantity: Math.floor(Math.random() * 10), kitchen: meal.KitchenId }));
     token = await Encrypt.issueToken({ id: data.id });
+    kitchenToken = await Encrypt.issueToken({ id: kitchen[0].UserId });
     test = await OrderService.__create(data.id, { meals });
   });
 
@@ -35,7 +37,7 @@ describe('Orders endpoints', () => {
   });
 
   it('Get request for the orders of a kitchen', async () => {
-    res = await request(app).get('/api/v1/orders').set('authorization', token).query({ type: 'kitchen' });
+    res = await request(app).get('/api/v1/orders').set('authorization', kitchenToken).query({ type: 'kitchen' });
     expect(res.body.data).to.be.an('array');
     expect(res.statusCode).to.equal(200);
   });
@@ -55,9 +57,8 @@ describe('Orders endpoints', () => {
     expect(res.body.data.quantity).to.equal(10);
   });
 
-  it('Put request should return the fail the without the right token', async () => {
-    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid)
-.query({ type: 'kitchen' });
-    expect(res.statusCode).to.equal(401);
+  it('Put request should fail the without the right token', async () => {
+    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid).query({ type: 'kitchen' });
+    expect(res.statusCode).to.equal(403);
   });
 });

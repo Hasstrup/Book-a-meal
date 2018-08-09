@@ -40,7 +40,7 @@ class UserService extends BaseService {
     if (populate && populate === 'populate') {
       return this.model.findOne(ref, 'populate');
     }
-    return this.model.__findOne(ref);
+    return this.model.findOne(ref);
   }
 
 
