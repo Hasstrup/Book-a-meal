@@ -11,7 +11,7 @@ before_install:
   - npm install -g node-gyp node-pre-gyp
 
 before_script:
-  - psql -c "CREATE DATABASE book-a-meal-test;" -U postgres
+  - psql -c "CREATE DATABASE book_a_meal_test;" -U postgres
   - psql -c "CREATE USER hasstrupezekiel WITH PASSWORD 'PASSWORD';" -U postgres
 
 addons:
