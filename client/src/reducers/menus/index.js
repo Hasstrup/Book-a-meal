@@ -3,7 +3,7 @@ const menuReducer = (state = {}, action) => {
     case 'CATALOGUE_FETCHED':
       return { ...state, catalog: action.payload };
 
-    case 'MENU_SELECTED':
+    case 'TARGET_MENU_FETCHED':
       return { ...state, target: action.payload };
 
     case 'MENU_OF_THE_DAY':

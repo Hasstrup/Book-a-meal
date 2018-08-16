@@ -1,10 +1,11 @@
 import React from 'react';
 import moment from 'moment';
 import Multiplier from '../../helpers/multiplier';
+import { FetchSpecificMenu } from '../../actions/menus';
 import { liftCard, dropCard } from '../utils';
 
 
-export const SingleMenuCard = ({ data, history }) => {
+export const SingleMenuCard = ({ data, history, dispatch }) => {
   // return the menu names: YOU might want to splice this
   const generateMealNames = () => data.Meals.map(meal => (<p>{ meal.name }</p>));
 
@@ -20,7 +21,7 @@ export const SingleMenuCard = ({ data, history }) => {
     <div
       className="menu-item"
       id={`content-${data.id}`}
-      onClick={() => history.push('/menu')}
+      onClick={() => dispatch(FetchSpecificMenu(data.id)(history)())}
       onMouseEnter={animateMenuComponent}
       onMouseLeave={() => { dropCard(`content-${data.id}`); }}
     >

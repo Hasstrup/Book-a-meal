@@ -5,7 +5,7 @@ import { CatalogueGotten, MenuSelected } from '../../actionTypes/menus/';
 
 /**
  * @returns {function} thunk - an async call that fetches the catalogue from the Server
- * @description - this function should be dispatched by the catalogue component, to try to 
+ * @description - this function should be dispatched by the catalogue component, to try to
  *                get the list of menus for the day.
  */
 export const FetchCatalogue = () => (dispatch) => {
@@ -43,7 +43,7 @@ export const SetMenuOfTheDay = data => (dispatch, getState) => {
  * @returns {null}
  * @description this fetches the menu of the day belonging to the current user
  * depending on the presence of a kitchen;
- * 
+ *
  */
 export const fetchMenuOfTheDayOfUser = () => (dispatch, getState) => {
   if (!getState().kitchens.target) return;
@@ -57,4 +57,14 @@ export const fetchMenuOfTheDayOfUser = () => (dispatch, getState) => {
 };
 
 // remember to edit this next;
-export const GetSelectMenu = (id) => (history) => { MenuSelected };
+export const FetchSpecificMenu = id => history => callback => (dispatch) => {
+  dispatch(StartProcess());
+  const request = { method: 'get', url: `${config.url}/menus/${id}` };
+  const success = (menu) => {
+    dispatch(EndProcess());
+    dispatch({ type: 'TARGET_MENU_FETCHED', payload: menu });
+    if (callback) return callback(menu);
+    history.push(`/menu/${id}`);
+  };
+  dispatch(RequestHandler(request)(success));
+};
