@@ -6,7 +6,7 @@ const intGen = (node) => {
   return parseInt(`${node.style.bottom.split('')[0]}${node.style.bottom.split('')[1]}`);
 };
 
-const liftCard = (name) => {
+export const liftCard = (name) => {
   const node = document.getElementById(`${name}`);
   node.style.position = 'relative';
   if (node.style.bottom && ((isNaN(parseInt(`${node.style.bottom.split('')[0]}${node.style.bottom.split('')[1]}`)) ? parseInt(`${node.style.bottom.split('')[0]}`) :
@@ -20,16 +20,15 @@ const liftCard = (name) => {
   if (!node.style.bottom) {
     node.style.bottom = '1px';
     window.requestAnimationFrame(() => {
-      liftCard(`${name}`)
-      ;
-    });
+      liftCard(`${name}`);
+});
   }
   Array.from(document.getElementsByName(`${name}`))[0].classList.add('fade-in');
   Array.from(document.getElementsByName(`${name}`))[0].style.opacity = 1;
 };
 
 
-const dropCard = (name) => {
+export const dropCard = (name) => {
   const node = document.getElementById(`${name}`);
   if (node.style.bottom !== '0px') {
     const value = intGen(node);
@@ -40,17 +39,3 @@ const dropCard = (name) => {
   Array.from(document.getElementsByName(`${name}`))[0].style.opacity = 0;
 };
 
-
-const addListener = () => {
-  const nodes = Array.from(document.getElementsByClassName('content-item-description'));
-  nodes.forEach((node) => {
-    node.addEventListener('mouseover', () => {
-      liftCard(node.attributes.getNamedItem('name').value);
-    });
-    node.addEventListener('mouseout', () => {
-      dropCard(node.attributes.getNamedItem('name').value);
-    });
-  });
-};
-
-addListener();

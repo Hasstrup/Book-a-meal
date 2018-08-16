@@ -5,7 +5,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Orders', {
       content: {
-        type: Sequelize.JSONB
+        type: Sequelize.JSON
       },
       clientId: {
         type: Sequelize.UUID

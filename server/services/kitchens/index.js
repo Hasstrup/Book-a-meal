@@ -4,7 +4,7 @@ import KitchenModel from '../../models/v1/kitchen';
 import models from '../../models/v2/relationship';
 
 
-const { Kitchen, Menu, Order, Meal } = models;
+const { Kitchen, Menu, Order, Meal, User } = models;
 
 let source;
 let data;
@@ -37,7 +37,7 @@ class KitchenService extends BaseService {
     let ref = {};
     ref[`${key}`] = value;
     if (populate && populate === 'populate') {
-      return await this.__model.findOne({ where: ref, include: [{ model: Menu, include: [Meal] }, { model: Meal, include: [Menu] }] });
+      return await this.__model.findOne({ where: ref, include: [{ model: Menu, include: [Meal] }, { model: Meal, include: [Menu] }, { model: User}] });
     }
     return await this.__model.findOne({ where: ref });
   }

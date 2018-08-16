@@ -19,7 +19,7 @@ if (config.use_env_variable) {
 sequelize
   .authenticate()
   .then(() => {
-    console.log('connected to the postgres server')
+    console.log('connected to the postgres server');
   })
   .catch((err) => { console.log(err); })
   .done();
