@@ -19,12 +19,12 @@ const router = Router();
   to the subject kitchen
  */
 
-router.get('/', BaseMiddleware.checkAuthorization, MenuMiddleware.__filterAccess, MenuController.fetchCatalogue, ErrorHandler.dispatch);
+router.get('/', MenuController.fetchCatalogue, ErrorHandler.dispatch);
 
 router.post('/',  BaseMiddleware.checkAuthorization, MenuMiddleware.__filterAccess, MenuMiddleware.__ensureKitchenOwner, BaseMiddleware.checkForNullInput, MenuMiddleware.__checkRequired, MenuController.setMenuOfTheDay, ErrorHandler.dispatch);
 
 // get a particular menu; should return the
-router.get('/:mmid', BaseMiddleware.checkAuthorization, MenuMiddleware.__filterAccess, BaseMiddleware.__checkParams, MenuController.fetchSingle, ErrorHandler.dispatch);
+router.get('/:mmid',BaseMiddleware.__checkParams, MenuController.fetchSingle, ErrorHandler.dispatch);
 
 
 export default router;

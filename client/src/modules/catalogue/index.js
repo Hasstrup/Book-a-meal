@@ -23,7 +23,7 @@ class Catalogue extends Component {
     <div className="main-body">
       <CatalogueFirstRow />
       <Selectors />
-      <CatalogueGridMain history={this.props.history} menus={this.props.menus || []} />
+      <CatalogueGridMain history={this.props.history} menus={this.props.menus || []} dispatch={this.props.dispatch}  />
     </div>
   );
 }

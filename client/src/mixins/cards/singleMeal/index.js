@@ -54,6 +54,7 @@ class SingleMealCardContainer extends Component {
     handleEdit={this.handleEdit}
     displayText={this.state.displayText}
     wantsToEdit={this.state.wantsToEdit}
+    renderEditable={this.props.renderEditable}
   />)
 }
 

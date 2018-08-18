@@ -1,4 +1,5 @@
 import React from 'react';
+import { LogOutUser } from '../../../actions/users/'
 
 /**
    * @name LoggedOutHeader
@@ -42,6 +43,7 @@ export const LoggedInHeader = ({ history }) => (
         <p className="h1-login-button" onClick={() => { history.push('/orders')}}> Cart & Orders </p>
         <p onClick={() => { history.push('/profile')}} > Workstation </p>
         <p className="h1-login-button" onClick={() => { history.push('/catalogue')}}> Catalogue </p>
+        <p className="h1-login-button" onClick={() => { LogOutUser(history) }}> Logout </p>
       </div>
     </div>
   </header>

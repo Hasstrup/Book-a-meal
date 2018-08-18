@@ -23,17 +23,18 @@ export const CacheHandler = () => ({
  */
 export const RequestHandler = requestBody => successCallback => (dispatch) => {
   // you may want to filter the request as well:  TODO
+  const token = CacheHandler().getContent('#token!!#$3')
   axios
     .request({
       ...requestBody,
       headers: {
-        Authorization: JSON.parse(CacheHandler().getContent('#token!!#$3').toString()),
+        Authorization: token && JSON.parse(token.toString()),
         'Cache-Control': 'no-cache'
       }
+      
     })
     .then(response => successCallback(response.data.data))
     .catch((err) => {
-      console.log(err);
       dispatch(EndProcess());
       if (err.response) return dispatch(DispatchNotification(err.response.data.error));
       return dispatch(DispatchNotification('Sorry, that didnt go through'));

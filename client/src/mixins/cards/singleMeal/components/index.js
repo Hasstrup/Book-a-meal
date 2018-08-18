@@ -10,11 +10,11 @@ const defaultUrl = 'https://images.unsplash.com/photo-1453831362806-3d5577f014a4
  * wshould contain the current kitchen the item and the item;
  * @description Single Meal Card component, recieves data from it's parent container
  */
-const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, wantsToEdit}) => (
+const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, wantsToEdit, renderEditable }) => (
     <div className="display-menu-item" id={meal.id} onMouseLeave={() => { HideMealCard(meal.id) }}>
       <div className="order-add-item">
         <img src={meal.image || defaultUrl} alt={meal.name} id={`image-${meal.id}`} className="main-meal-item-img" />
-        <div className={`change-preview-image modifiable${meal.id}`} style={{ opacity: wantsToEdit ? 1 : 0, zIndex: wantsToEdit ? 5 : -1 }}>
+        <div className={`change-preview-image modifiable${meal.id}`} style={{ opacity: wantsToEdit ? 1 : 0, zIndex: wantsToEdit ? 5 : -1, display: wantsToEdit ? 'block' : 'none' }}>
           <p className="label-for-input"> Click to change Image </p>
           <input type="file" className={`input-file image-${meal.id}`} name="input-file" onChange={() => { changePhoto(`image-${meal.id}`)}} accept=".jpg, .png, .jpeg" />
         </div>
@@ -27,7 +27,7 @@ const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, 
         <div className="buttons-array-and-togglers">
           {
           kitchen && kitchen.id === meal.KitchenId ?
-            <p className="option-options"> <span className="edit-meal-option" onClick={handleEdit} id={`target${meal.id}`}> {displayText} </span> { wantsToEdit ? null : <span className="delete-meal-option" onClick={handleDelete}> Delete </span> } </p>
+          <p className="option-options"> { renderEditable && <span className="edit-meal-option" onClick={handleEdit} id={`target${meal.id}`}> {displayText} </span> } { wantsToEdit ? null : <span className="delete-meal-option" onClick={handleDelete}> Delete </span> } </p>
           : <p className="option-options"> Order </p>
         }
   
@@ -35,6 +35,6 @@ const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, 
         </div>
       </div>
     </div>
-  );
+);
 
-  export default SingleMealCard
+export default SingleMealCard;

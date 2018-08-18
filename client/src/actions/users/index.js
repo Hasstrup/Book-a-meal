@@ -50,15 +50,22 @@ export const LogInUser = body => history => (dispatch) => {
       dispatch(NewSignUp(res.data));
       if (res.data.data.Kitchen && res.data.data.Kitchen.name) dispatch(TargetKitchenRetrieved(res.data.data.Kitchen));
       dispatch(EndProcess());
-      history.push('/catalogue');
-      CacheHandler().setContent(res.data.data, '#user!!@##$');
       CacheHandler().setContent(res.data.data.token, '#token!!#$3');
+      CacheHandler().setContent(res.data.data, '#user!!@##$');
+      history.push('/catalogue');
     })
     .catch((err) => {
       if (!err.response) return dispatch(DispatchNotification('Sorry, that did not go through'));
       dispatch(DispatchNotification(err.response.data.error));
     });
 };
+
+export const LogOutUser = (history) => {
+  localStorage.removeItem('#token!!#$3');
+  localStorage.removeItem('#user!!@##$');
+  history.push('/');
+  window.location.reload();
+}
 
 
 /**
