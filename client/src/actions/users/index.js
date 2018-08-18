@@ -60,6 +60,13 @@ export const LogInUser = body => history => (dispatch) => {
     });
 };
 
+export const LogOutUser = (history) => {
+  localStorage.removeItem('#token!!#$3');
+  localStorage.removeItem('#user!!@##$');
+  history.push('/');
+  window.location.reload();
+}
+
 
 /**
    * @name GetLoggedInUser

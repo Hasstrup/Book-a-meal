@@ -22,23 +22,24 @@ class RenderMenuContainer extends Component {
     }
   }
 
-  compoonentDidCatch = (err, info) => {
-    console.log(err);
-    this.props.history.pop();
+  generateImageFromMenu = () => {
+    if(!this.state.menu && !this.state.menu.Meals.length) return null;
+  
   }
+
   render = () => (
     <Fragment>
-      {this.state.menu && <MenuPage />}
+      {this.state.menu && <MenuPage menu={this.state.menu}/>}
       {!this.state.menu && null}
     </Fragment>
   )
 }
 
 
-const MenuPage = () => (
+const MenuPage = ({ menu }) => (
   <div className="main-menu-page-body">
-    <VendorDetails />
-    <ShowMenuDetails />
+    <VendorDetails menu={menu} />
+    <ShowMenuDetails meals={menu.Meals} />
   </div>
 );
 

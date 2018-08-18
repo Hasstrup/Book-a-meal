@@ -6,7 +6,7 @@ import { RenderMealCard } from '../../utils';
 const MealPreviewSingle = ({ meal }) => (
   <div className="menu-options-grid grid-item" onClick={() => { RenderMealCard(meal.id)}}>
     <p name="item-3" className="display-item-button"> { meal.name } <span> N{meal.price}</span></p>
-    <SingleMealCard meal={meal} />
+    <SingleMealCard meal={meal} renderEditable />
   </div>
 );
 
