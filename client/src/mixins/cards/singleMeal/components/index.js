@@ -1,5 +1,6 @@
 import React from 'react';
 import { changePhoto, HideMealCard } from '../../../../modules/WorkStation/utils';
+import { AddToCart } from '../../../../actions/orders/';
 
 
 const defaultUrl = 'https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dd8da96be0724ab84e4147d428f6bba&auto=format&fit=crop&w=500&q=60';
@@ -10,7 +11,7 @@ const defaultUrl = 'https://images.unsplash.com/photo-1453831362806-3d5577f014a4
  * wshould contain the current kitchen the item and the item;
  * @description Single Meal Card component, recieves data from it's parent container
  */
-const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, wantsToEdit, renderEditable }) => (
+const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, wantsToEdit, renderEditable, dispatch }) => (
     <div className="display-menu-item" id={meal.id} onMouseLeave={() => { HideMealCard(meal.id) }}>
       <div className="order-add-item">
         <img src={meal.image || defaultUrl} alt={meal.name} id={`image-${meal.id}`} className="main-meal-item-img" />
@@ -28,7 +29,7 @@ const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, 
           {
           kitchen && kitchen.id === meal.KitchenId ?
           <p className="option-options"> { renderEditable && <span className="edit-meal-option" onClick={handleEdit} id={`target${meal.id}`}> {displayText} </span> } { wantsToEdit ? null : <span className="delete-meal-option" onClick={handleDelete}> Delete </span> } </p>
-          : <p className="option-options"> Order </p>
+          : <p className="option-options" onClick={() => dispatch(AddToCart()(meal))}> Order </p>
         }
   
           <p className="option-options2" > N{meal.price} </p>
