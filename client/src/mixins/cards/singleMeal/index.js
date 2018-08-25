@@ -49,6 +49,7 @@ class SingleMealCardContainer extends Component {
 
   render = () => (<SingleMealCard
     meal={this.props.meal}
+    dispatch={this.props.dispatch}
     kitchen={this.props.kitchen}
     handleDelete={this.handleDelete}
     handleEdit={this.handleEdit}

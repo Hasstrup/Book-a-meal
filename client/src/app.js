@@ -9,6 +9,7 @@ import CartAndOrdersPage from './modules/ShowOrders';
 import ToastComponent from './mixins/ErrorHandler';
 import Header from './mixins/header/';
 import Footer from './mixins/footer';
+import ActivityMap from './mixins/ActivityMap';
 import ProcessIndicator from './mixins/ProcessIndicator';
 import { CacheHandler } from './actions/helpers';
 import { FetchUser } from './actions/users/';
@@ -32,6 +33,7 @@ const Main = () => (
     <ProcessIndicator />
     <ToastComponent />
     <App />
+    <ActivityMap />
     <Footer />
   </div>
 );

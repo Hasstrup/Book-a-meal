@@ -4,13 +4,15 @@ import menus from './menus';
 import errors from './errors/';
 import kitchens from './kitchens';
 import meals from './meals';
+import orders from './orders';
 
 const root = combineReducers({
   users,
   errors,
   menus,
   kitchens,
-  meals
+  meals,
+  orders
 });
 
 export default root;
