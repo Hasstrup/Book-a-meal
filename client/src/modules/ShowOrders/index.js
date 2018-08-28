@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import DisplayOrderCardLg from '../../mixins/cards/SingleOrderCard';
 import MultipleHistory from '../../mixins/cards/SingleOrderHistoryCard';
+import AuthOnly from "../../hocs/AuthOnly";
 import '../styles/orders.scss'
 
 
@@ -88,7 +90,7 @@ const OrderHistory = ({ title }) => (
 );
 
 
-export default class OrderHistoryPage extends Component {
+ class OrderHistoryPage extends Component {
     state = {};
     render = () => (
       <div className="main-body-component">
@@ -100,3 +102,5 @@ export default class OrderHistoryPage extends Component {
       </div>
     )
 }
+
+export default connect()(AuthOnly(OrderHistoryPage));

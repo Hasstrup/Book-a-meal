@@ -1,0 +1,102 @@
+.render-auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    background-color: rgba(253, 254, 254, 0.9);
+    .auth-modal-backdrop {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .auth-modal-main {
+        display: flex; 
+        height: 70%;
+        width: 60%;
+        background-color: white;
+        border-radius: 5px;
+        align-self: center;
+        margin: 0 auto;
+        position: relative; 
+        right: 35%;
+        box-shadow: 1px 1px 10px 1px #F2F3F4;
+        flex-flow: column nowrap;
+        align-items: center;
+        .__auth-modal-house {
+            height: 10%;
+            width: 100%;
+            .auth-preamble {
+                color: #5A5A5A;
+                text-align: center;
+                font: {
+                    size: 25px;
+                    weight: bold;
+                    family: gotham;
+                }
+            }
+        }
+        .__auth-modal-main {
+            height: 90%;
+            width: 100%;
+            display: flex; 
+            flex-flow: column nowrap;
+            align-items: center;
+            .sign-up-user-form {
+                display: flex;
+                height: 100%;
+                width: 50%;
+                align-self: center;
+                flex-flow: column nowrap;
+                justify-content: space-evenly;
+                .__user_already {
+                    font-size: 13px; 
+                    font-family: apercu;
+                    color: #BDC3C7;
+                    text-align: center;
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+                .render-form-single {
+                    .render-form-input {
+                        display: block;
+                        height: 40px;
+                        width: 100%;
+                        border: none;
+                        border-bottom: 0.5px solid #E5E7E9;
+                        font-family: apercu;
+                        font-size: 14px;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                    label {
+                        color: #BDC3C7;
+                    }
+                    font: {
+                        size: 16px;
+                        family: apercu;
+                    }
+                }
+                button {
+                    background-color: #ff183f;
+                    color: white;
+                    font-family: gotham;
+                    font-size: 18px;
+                    height: 50px !important; 
+                    width: 290px;
+                    border: none;
+                    border-radius: 3px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

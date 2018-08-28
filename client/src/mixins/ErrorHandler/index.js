@@ -9,7 +9,7 @@ const ToastNotification =  ({ error, status }) => (
         right: '40px',
         top: '50px',
         backgroundColor: '#212121',
-        zIndex: 10,
+        zIndex: 100,
         display: status ? 'block' : 'none',
         paddingRight: '10px',
         paddingLeft: '20px',

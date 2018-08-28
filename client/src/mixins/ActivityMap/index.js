@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { RemoveFromCart } from '../../actions/orders';
+import { RemoveFromCart, CreateOrder } from '../../actions/orders';
 import '../../modules/styles/menu.scss';
+
 
 const ActivityMap = ({ dispatch, cart, showCart }) => (
   <section className="activity-bar" style={{ display: showCart ? 'flex' : 'none' }}>
@@ -19,7 +20,7 @@ const ActivityMap = ({ dispatch, cart, showCart }) => (
       </div>
     </div>
     <div className="activity-side-two">
-      <div className="check-out-button">
+      <div className="check-out-button" onClick={() => dispatch(CreateOrder()())}>
          Pay Now
       </div>
       <p className="close-item" onClick={() => dispatch({ type: 'MODIFY_ACTIVITY_MAP' })}> close </p>

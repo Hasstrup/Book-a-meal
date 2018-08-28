@@ -9,6 +9,7 @@ import { ProcessIndicatorLg } from '../../mixins/ProcessIndicator';
 import KitchenActions from '../../actions/kitchens';
 import MealActions from '../../actions/meals';
 import utils from './utils';
+import AuthOnly from '../../hocs/AuthOnly';
 
 // TODO: you might want to destructure from the exports itself.
 const { RenderMealForm, GetMealInformation, HideMealForm } = utils;
@@ -130,4 +131,4 @@ const mapStateToProps = state => ({
   meals: state.meals.belongsToUser
 });
 
-export default connect(mapStateToProps)(WorkStationContainer);
+export default connect(mapStateToProps)(AuthOnly(WorkStationContainer));

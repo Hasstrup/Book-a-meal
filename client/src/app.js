@@ -10,6 +10,7 @@ import ToastComponent from './mixins/ErrorHandler';
 import Header from './mixins/header/';
 import Footer from './mixins/footer';
 import ActivityMap from './mixins/ActivityMap';
+import RenderAuthoForm from './modules/NeedsToSignUp';
 import ProcessIndicator from './mixins/ProcessIndicator';
 import { CacheHandler } from './actions/helpers';
 import { FetchUser } from './actions/users/';
@@ -33,6 +34,7 @@ const Main = () => (
     <ProcessIndicator />
     <ToastComponent />
     <App />
+    <RenderAuthoForm />
     <ActivityMap />
     <Footer />
   </div>

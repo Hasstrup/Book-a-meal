@@ -18,16 +18,17 @@ const { fetchAllMealsBelongingToUser } = MealActions;
  * @returns a
  */
 
-export const SignUpUser = body => history => (dispatch) => {
+export const SignUpUser = body => history => (dispatch, getState) => {
   dispatch(StartProcess());
   return axios.post('http://localhost:3900/api/v1/auth/signup', body)
     .then((res) => {
       dispatch(NewSignUp(res.data));
       dispatch(EndProcess());
-      history.push('/catalogue');
-      // only dispatch if the user has a kitchen;
       CacheHandler().setContent(res.data.data, '#user!!@##$');
       CacheHandler().setContent(res.data.data.token, '#token!!#$3');
+      if (getState().funcs && getState().funcs.pending) return getState().funcs.pending();
+      history.push('/catalogue');
+      // only dispatch if the user has a kitchen
     })
     .catch((err) => {
       dispatch(EndProcess());
@@ -43,7 +44,7 @@ export const SignUpUser = body => history => (dispatch) => {
    * @description action creator that makes the login call to the database
    * @param {obj} body - body to be sent to the server, must contain the email and the password
    */
-export const LogInUser = body => history => (dispatch) => {
+export const LogInUser = body => history => (dispatch, getState) => {
   dispatch(StartProcess());
   return axios.post('http://localhost:3900/api/v1/auth/login', body)
     .then((res) => {
@@ -52,9 +53,11 @@ export const LogInUser = body => history => (dispatch) => {
       dispatch(EndProcess());
       CacheHandler().setContent(res.data.data.token, '#token!!#$3');
       CacheHandler().setContent(res.data.data, '#user!!@##$');
+      if (getState().funcs && getState().funcs.pending) return getState().funcs.pending();
       history.push('/catalogue');
     })
     .catch((err) => {
+      dispatch(EndProcess());
       if (!err.response) return dispatch(DispatchNotification('Sorry, that did not go through'));
       dispatch(DispatchNotification(err.response.data.error));
     });
@@ -65,7 +68,7 @@ export const LogOutUser = (history) => {
   localStorage.removeItem('#user!!@##$');
   history.push('/');
   window.location.reload();
-}
+};
 
 
 /**

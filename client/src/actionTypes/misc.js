@@ -22,6 +22,15 @@ export const DispatchNotification = (message) => {
   };
 };
 
+export const RequiresPermission = () => ({
+  type: 'UPDATE_PERMISSIONS',
+  payload: true
+});
+
+export const ResolvePermission = () => ({
+  type: 'UPDATE_PERMISSIONS'
+});
+
 export const StartProcess = () => ({
   type: 'START_PROCESS'
 });
