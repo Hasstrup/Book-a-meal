@@ -64,15 +64,17 @@ class BaseService {
     return await this.__model.create(body);
   }
 
-  __fetchAll = async () => {
-    return await this.__model.findAll({ include: [{ all: true }] });
+  __fetchAll = () => async (pagination) => {
+    return await this.__model.findAll({ include: [{ all: true }], ...pagination });
   }
 
-  __fetchOne = async (key, value) => {
+  __fetchOne =  (key, value) => async (pagination) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;
-    return await this.__model.findOne({ where: ref, include: [{ all: true }] });
+    data = await this.__model.findOne({ where: ref, include: [{ all: true, duplicating: false }], ...pagination, subQuery: false });
+    if (!data) return await this.throwError("Looks like we've gotten to the end of the documents", 422);
+    return data;
   }
 
   __updateOne = async (key, value, changes) => {

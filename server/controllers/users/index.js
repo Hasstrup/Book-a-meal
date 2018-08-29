@@ -3,14 +3,14 @@ import UserModule from '../../services/users/';
 
 /* eslint radix: 0, no-underscore-dangle: 0 */
 
-let data
+let data;
 class UserControllerBase extends BaseController {
     fetchAll = (req, res, next) => {
       this.wrapInTryCatch(async () => {
         if (!req.populate) {
-          data = await UserModule.__fetchAll();
+          data = await UserModule.__fetchAll()(req.paginationQuery);
         } else {
-          data = await UserModule.__fetchAll('populate');
+          data = await UserModule.__fetchAll('populate')(req.paginationQuery);
         }
         this.responseOkay(res, data);
       }, next);
@@ -29,7 +29,7 @@ class UserControllerBase extends BaseController {
 
     updateOne = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        const data = await UserModule.__updateOne('id', req.params.user_id, req.body);
+        data = await UserModule.__updateOne('id', req.params.user_id, req.body);
         this.resourceCreated(res, data);
       }, next);
     }

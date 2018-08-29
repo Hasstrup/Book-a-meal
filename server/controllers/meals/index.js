@@ -15,7 +15,7 @@ class MealControllerBase extends BaseController {
 
   fetchMealsForKitchen = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await MealServiceObject.__fetchMealsForKitchen(req.kitchen);
+      data = await MealServiceObject.__fetchMealsForKitchen(req.kitchen)(req.paginationQuery);
       this.returnContent(res, data);
     }, next);
   }

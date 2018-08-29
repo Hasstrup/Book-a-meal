@@ -23,7 +23,8 @@ app
   .use(logger('dev'))
   // api versioning;
   .use('/api/v1', api)
-  .get('/*', (_, res) => res.send('Cant find resource').status(400))
+  .use('*', (_, res) => res.status(400).json({ error: 'Sorry we cant find that resource' }))
+  .use((err, req, res, next) => res.status(err.status || 422).json({ error: err.message || 'Sorry we couldnt process that request' }))
   .listen(PORT, () => {
     if (process.env.NODE_ENV === 'development') {
       /* eslint no-console: 0 */
