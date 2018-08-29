@@ -11,10 +11,10 @@ dotenv.config();
 const PORT = process.env.PORT || 3900;
 const app = express();
 
-// sync()
-// .then(() => {
-//   console.log('DB is done syncing')
-// })
+sync()
+.then(() => {
+  console.log('DB is done syncing')
+})
 
 app
   .use(bodyParser.urlencoded({ extended: true }))

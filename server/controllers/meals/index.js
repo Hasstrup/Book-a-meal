@@ -8,7 +8,7 @@ let data;
 class MealControllerBase extends BaseController {
   fetchSingle = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await MealServiceObject.__fetchOne('id', req.params.mealId);
+      data = await MealServiceObject.__fetchOne('id', req.params.mealId)();
       this.returnContent(res, data);
     }, next);
   }

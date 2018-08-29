@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import UserService from '../../../services/users/';
 import Encrypt from '../../../helpers/encrypt/';
-import stub from 'sinon';
 
 let data;
 let token;

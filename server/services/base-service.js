@@ -64,11 +64,11 @@ class BaseService {
     return await this.__model.create(body);
   }
 
-  __fetchAll = () => async (pagination) => {
+  __fetchAll = () => async (pagination = {}) => {
     return await this.__model.findAll({ include: [{ all: true }], ...pagination });
   }
 
-  __fetchOne =  (key, value) => async (pagination) => {
+  __fetchOne =  (key, value) => async (pagination = {}) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;

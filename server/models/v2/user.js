@@ -8,7 +8,7 @@ const isString = (value) => {
   }
 };
 
-const User = sequelize.define('User', {
+const User = sequelize.define('user', {
   firstname: {
     type: DataTypes.STRING,
     validate: {

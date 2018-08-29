@@ -50,36 +50,39 @@ describe('Menu Service Object', () => {
       data = await User.findAll();
       target = data[0];
       // create a new test kitchen;
-      testKitchen = await Kitchen.create({ name: 'Bay and Ruts', description: 'A really expensive restaurant on the island', UserId: target.id });
+      testKitchen = await Kitchen.create({ name: 'Bay and Ruts', description: 'A really expensive restaurant on the island', userId: target.id });
     });
 
     it('__create method should persist data new menus to my db', async () => {
-      data = { name: 'This is a pretty nice meal you know', description: 'Aloha this is pretty great', KitchenId: testKitchen.id };
+      data = { name: 'This is a pretty nice meal you know', description: 'Aloha this is pretty great', kitchenId: testKitchen.id };
       target = await MenuServiceObject.__create(data);
       expect(target.name).to.equal('This is a pretty nice meal you know');
     });
 
     it('__fetchAll should return an array of menus from my db along with its', async () => {
-      data = await MenuServiceObject.__fetchAll();
+      data = await MenuServiceObject.__fetchAll()();
       expect(data).to.be.an('array');
-      expect(data[0].Meals).to.be.an('array');
+      expect(data[0].meals).to.be.an('array');
     });
 
-    it(' __fetchone should retreove the populated data from the db', async () => {
-      data = await MenuServiceObject.__fetchOne('name', 'This is pretty awesome menu');
+    it(' __fetchone should retrive the populated data from the db', async () => {
+      data = await MenuServiceObject.__fetchOne('name', 'This is a pretty nice meal you know')();
       expect(data).to.be.an('object');
       expect(data.id).to.exist;
     });
 
     it('__updateOne should update the table', async () => {
-      data = await MenuServiceObject.__updateOne('name', 'This is pretty awesome menu', { name: 'Hasstrups awesome menu' });
+      data = await MenuServiceObject.__updateOne('name', 'This is a pretty nice meal you know', { name: 'Hasstrups awesome menu' });
       expect(data.name).to.equal('Hasstrups awesome menu');
     });
 
     it('__deleteOne should delete the specified items in the table', async () => {
-      data = await MenuServiceObject.__deleteOne('name', 'Hasstrups awesome menu');
-      target = await MenuServiceObject.__fetchOne('name', 'Hasstrups awesome menu');
-      expect(target).to.be.null;
+      try {
+        data = await MenuServiceObject.__deleteOne('name', 'Hasstrups awesome menu');
+        await MenuServiceObject.__fetchOne('name', 'Hasstrups awesome menu');
+      } catch (err) {
+        expect(err.status).to.equal(422);
+      }
     });
   });
 });

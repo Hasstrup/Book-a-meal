@@ -18,9 +18,8 @@ let ref = {};
 class MenuService extends BaseService {
   // ================== methods that matter in challenge 3 ===================
   __fetchCatalogue = () => async (pagination) => {
-    console.log(pagination);
     data = await Kitchen.findAll();
-    data = data.map(kitchen => kitchen.ofTheDay);
+    data = data.map(kitchen => kitchen.MenuofTheDay);
     target = await Menu.findAll({ where: { id: { [Op.in]: data } }, include: [Meal, Kitchen], ...pagination });
     return target;
   }

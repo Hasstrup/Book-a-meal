@@ -19,7 +19,7 @@ describe('Kitchen endpoints', () => {
     test = source[0].get({ plain: true });
     data = await User.findAll();
     const user = data[0].get({ plain: true });
-    token = await Encrypt.issueToken({ id: user.id });
+    token = await Encrypt.issueToken({ id: user.id, confirmedEmail: true });
   });
 
   it(' Get /kitchens/ should give all the kitchens in the db if logged in', async () => {
@@ -32,13 +32,14 @@ describe('Kitchen endpoints', () => {
     res = await request(app).get(`/api/v1/kitchens/${test.id}`).query({ uuid: test.id, populate: 'populate' });
     expect(res.statusCode).to.equal(200);
     expect(res.body.data.name).to.equal('This is Hasstrups test kitchen');
-    expect(res.body.data.User).to.be.an('object');
+    expect(res.body.data.user).to.be.an('object');
   });
 
   it('should accept a valid kitchen obect', async () => {
     data = { name: 'Hello Hasstrup Ezekiel kitchen', description: 'This is a lovely description' };
     res = await request(app).post('/api/v1/kitchens/').send(data).set('authorization', token);
     expect(res.statusCode).to.equal(201);
+    test = res.body.data;
     expect(res.body.data.name).to.equal('Hello Hasstrup Ezekiel kitchen');
   });
 

@@ -44,7 +44,7 @@ class AuthModuleBase extends BaseService {
         /* eslint no-return-await: 0 */
         data = await this.__model.create(baseData);
         UserService.__sendConfirmMail(data.id, data.email);
-        const token = await Encrypt.issueToken({ id: data.id });
+        const token = await Encrypt.issueToken({ id: data.id, confirmedEmail: data.confirmedEmail });
         return { ...data.get({ plain: true }), token }
       }
     } catch (e) {
@@ -88,7 +88,7 @@ class AuthModuleBase extends BaseService {
       }
       if (Encrypt.checkPassword(user.password, dbuser.password)) {
         // Get the token;
-        const token = await Encrypt.issueToken({ id: dbuser.id });
+        const token = await Encrypt.issueToken({ id: dbuser.id, confirmedEmail: dbuser.confirmedEmail });
         return { ...dbuser.get({ plain: true }), token };
       }
       this.noPermissions('Invalid username and password combination');

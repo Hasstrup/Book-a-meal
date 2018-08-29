@@ -1,12 +1,12 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from './';
 
-const MealOrders = sequelize.define('MealOrder', {
-  OrderId: {
+const MealOrders = sequelize.define('mealOrder', {
+  orderId: {
     type: DataTypes.UUID,
     allowNull: false
   },
-  MealId: {
+  mealId: {
     type: DataTypes.UUID,
     allowNull: false
   },
@@ -16,4 +16,4 @@ const MealOrders = sequelize.define('MealOrder', {
   }
 });
 
-export default MealOrders
+export default MealOrders;

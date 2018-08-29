@@ -9,7 +9,7 @@ let res;
 let valid;
 let target;
 let data;
-let meals; 
+let meals;
 let token;
 let kitchenToken;
 let test;
@@ -23,16 +23,16 @@ describe('Orders endpoints', () => {
     data = data[1];
     const kitchen = await Kitchen.findAll({ limit: 2 });
     target = await Meal.findAll({ include: [{ all: true }] });
-    meals = target.map(meal => ({ id: meal.id, quantity: Math.floor(Math.random() * 10), kitchen: meal.KitchenId }));
+    meals = target.map(meal => ({ id: meal.id, quantity: 4, kitchen: meal.kitchenId }));
     token = await Encrypt.issueToken({ id: data.id });
-    kitchenToken = await Encrypt.issueToken({ id: kitchen[0].UserId });
+    kitchenToken = await Encrypt.issueToken({ id: kitchen[0].userId });
     test = await OrderService.__create(data.id, { meals });
   });
 
   it('should fetch all the orders belonging to client 1', async () => {
     res = await request(app).get('/api/v1/orders/').set('authorization', token).query({ type: 'user' });
     expect(res.body.data).to.be.an('array');
-    expect(res.body.data[0].UserId).to.equal(data.id);
+    expect(res.body.data[0].userId).to.equal(data.id);
     expect(res.statusCode).to.equal(200);
   });
 
@@ -46,19 +46,21 @@ describe('Orders endpoints', () => {
     valid = { meals };
     res = await request(app).post('/api/v1/orders/').send(valid).set('authorization', token);
     expect(res.body.data).to.be.an('object');
-    expect(res.body.data.UserId).to.equal(data.id);
+    expect(res.body.data.userId).to.equal(data.id);
+    test = res.body.data;
   });
 
   it('Put request should change the quantity of the created item', async () => {
     valid = { quantity: 10 };
-    data = res.body.data;
-    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid)
-  .query({ type: 'user', mealId: data.meals[0].id });
+    res = await request(app).put(`/api/v1/orders/${test.id}`).set('authorization', token).send(valid)
+      .query({ type: 'user', mealId: test.meals[0].id });
+      console.log(res.body);
     expect(res.body.data.quantity).to.equal(10);
   });
 
   it('Put request should fail the without the right token', async () => {
-    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid).query({ type: 'kitchen' });
+    res = await request(app).put(`/api/v1/orders/${data.id}`).set('authorization', token).send(valid)
+      .query({ type: 'kitchen' });
     expect(res.statusCode).to.equal(403);
   });
 });

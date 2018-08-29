@@ -71,6 +71,13 @@ class BaseMiddleware {
     return next(err);
   }
 
+   allowConfirmedUsersOnly = (req, _, next) => {
+     if (req.user.confirmedEmail || process.env.NODE_ENV === 'test') return next();
+     err = new Error('You need to confirm your email to complete this action');
+     err.status = 401;
+     return next(err);
+   }
+
   static formatPaginationQuery = (req, res, next) => {
     if (req.query.lm && req.query.off) {
       if (!Number.isInteger(parseInt(req.query.lm)) || !Number.isInteger(parseInt(req.query.off))) {
@@ -92,10 +99,10 @@ class BaseMiddleware {
       .then(async (payload) => {
         data = await this.getCurrentUser(payload, next);
         req.user = data.get({ plain: true });
-        req.kitchen = data.Kitchen ? data.Kitchen : null;
+        req.kitchen = data.kitchen ? data.kitchen : null;
         return next();
       })
-      .catch((err) => {
+      .catch(() => {
         next(new ValidatorError('Something went wrong trying to grant you access, Token might be deformed', 401));
       });
   }

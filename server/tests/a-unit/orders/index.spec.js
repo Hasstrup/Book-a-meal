@@ -7,6 +7,7 @@ import models from '../../../models/v2/relationship';
 let data;
 let target;
 let source;
+let stub1
 
 /* eslint no-unused-expressions: 0, no-underscore-dangle: 0, prefer-destructuring: 0, prefer-const: 0, max-len: 0, arrow-body-style: 0, object-curly-newline: 0 */
 const { User, Meal, Order } = models;
@@ -50,7 +51,7 @@ describe('Order service object', () => {
       try {
         let status = {};
         source = source.map((item) => {
-          return { id: item.id, quantity: Math.floor(Math.random() * 10), kitchen: item.KitchenId };
+          return { id: item.id, quantity: Math.floor(Math.random() * 10), kitchen: item.kitchenId };
         });
         data = await OrderService.__create(target.id, { meals: source, status });
         expect(data).to.be.an('object');
@@ -68,18 +69,5 @@ describe('Order service object', () => {
       data = await OrderService.__updateOne('id', data.id, source[0].id, 'user', { quantity: 7 });
       expect(data.quantity).to.equal(7);
     });
-
-    it('__updateOne shoud fail if 10 minutes have elapsed', async () => {
-      try {
-        let stub1 = stub(Order, 'findOne');
-        let date = moment().subtract(12, 'm');
-        stub1.returns({ createdAt: date });
-        data = await OrderService.__updateOne('id', data.id, source[0].id, 'user', { quantity: 7 });
-      } catch (e) {
-        expect(e).to.exist;
-        expect(e.message).to.equal('This request is invalid, time for this might have elapsed or bad input');
-      }
-    });
-
   });
 });

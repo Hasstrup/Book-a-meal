@@ -21,7 +21,7 @@ describe(' Order model POSTGRES', () => {
     before('Should return an order with valid user input', async () => {
       source = await User.findAll();
       status[`${test.id}`] = false;
-      data = { status, UserId: source[0].id };
+      data = { status, userId: source[0].id };
     });
 
     it('Should return a order with valid user input', async () => {

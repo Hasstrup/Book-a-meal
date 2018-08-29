@@ -67,8 +67,8 @@ class OrderServiceBase extends BaseService {
 
 
   // Persistent Methods
-  __create = async (UserId, body) => {
-    if (!UserId || !body || (typeof body) !== 'object' || !body.meals || body.meals.constructor !== Array) {
+  __create = async (userId, body) => {
+    if (!userId || !body || (typeof body) !== 'object' || !body.meals || body.meals.constructor !== Array) {
       this.badRequest('The input isnt complete');
     }
     // assuming there is a list of meals that comes in the body of the request;
@@ -85,14 +85,15 @@ class OrderServiceBase extends BaseService {
       ref.status[`${item.kitchen}`] = false;
     });
     // creating the actual order;
-    target = Object.assign({}, ref, { UserId });
+   
+    target = Object.assign({}, ref, { userId });
     data = await this.__model.create(target);
     // await data.addMeals(body.meals);
     body.meals = body.meals.map((meal) => {
       if (!meal.id || !meal.quantity) {
         return this.badRequest('Please pass in the right values for the order, including quantity');
       }
-      return { OrderId: data.id, MealId: meal.id, quantity: meal.quantity };
+      return { orderId: data.id, mealId: meal.id, quantity: meal.quantity };
     });
     // apply a hook here to make sure they are in the menu of the day
 
@@ -113,7 +114,7 @@ class OrderServiceBase extends BaseService {
     catalogue = catalogue.filter(item => item).map(item => item.id);
     let filter = [];
     const validMeals = meals.map((meal) => {
-      if (catalogue.includes(meal.MealId)) return meal;
+      if (catalogue.includes(meal.mealId)) return meal;
       filter.push(meal);
       return null;
     }).filter(meal => meal);
@@ -124,7 +125,8 @@ class OrderServiceBase extends BaseService {
     this.checkArguments(key, value, Id);
     let ref = {};
     ref[`${key}`] = value;
-    data = await this.__model.findOne({ where: ref });
+    const orders = await Order.findAll({ where: ref });
+    data = orders[0];
     if (!data) {
       this.unprocessableEntity('Sorry, theres no order matching that criteria');
     }
@@ -138,11 +140,11 @@ class OrderServiceBase extends BaseService {
       });
       return { ...data.get({ plain: true }), changedCorrectly: true };
     } else if (type === 'user') {
-      const diff = (moment().diff(data.createdAt, 'minutes'));
+      const diff = (moment(Date.now()).diff(data.createdAt, 'minutes'));
       if (parseInt(diff) > 10 || !payload || !payload.quantity || isNaN(parseInt(payload.quantity))) {
         return this.badRequest('This request is invalid, time for this might have elapsed or bad input');
       }
-      target = await MealOrders.findOne({ where: { OrderId: data.id, MealId: Id } });
+      target = await MealOrders.findOne({ where: { orderId: data.id, mealId: Id } });
       if (!target) {
         return this.unprocessableEntity('Sorry we cant find any order matching your criteria');
       }
@@ -152,12 +154,12 @@ class OrderServiceBase extends BaseService {
     this.unprocessableEntity('Please specify who is trying to mutate this object');
   }
 
-  __fetchAll = async (id, type) => {
+  __fetchAll = (id, type) => async (pagination = {}) => {
     this._validateFetchAllArgs(id, type);
     if (type === 'kitchen') {
-      return await KitchenService.__fetchOrders('id', id);
+      return await KitchenService.__fetchOrders('id', id)(pagination);
     } else if (type === 'user') {
-      return await this.__model.findAll({ where: { UserId: id }, include: [Meal] });
+      return await this.__model.findAll({ where: { userId: id }, include: [Meal], ...pagination });
     }
   }
 }

@@ -30,20 +30,19 @@ class MealServiceObject extends BaseService {
     return source;
   }
 
-  __create = async (KitchenId, body) => {
-    if (!KitchenId || !body || (typeof body) !== 'object') {
+  __create = async (kitchenId, body) => {
+    if (!kitchenId || !body || (typeof body) !== 'object') {
       return this.badRequest('please pass in the right values :)');
     }
-    data = await this.__model.create({ ...body, KitchenId });
+    data = await this.__model.create({ ...body, kitchenId });
     return data;
   }
 
-  __fetchMealsForKitchen = async (kitchen) => {
+  __fetchMealsForKitchen = kitchen => async (pagination = {}) => {
     // assuming this is an instance of a sequelize model
-    data = await kitchen.getMeals();
+    data = await Meal.findAll({ where: { kitchenId: kitchen.id }, include: [{ all: true }], ...pagination });
     return data;
   }
-
 }
 
 const MealService = new MealServiceObject(MealModel, Meal);

@@ -11,7 +11,7 @@ router.get('/', BaseMiddleware.checkPopulateQuery, KitchenController.fetchAll, E
 
 router.get('/:ktid', BaseMiddleware.checkPopulateQuery, BaseMiddleware.__checkParams, KitchenController.fetchSingle, ErrorHandler.dispatch);
 
-router.post('/', BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, BaseMiddleware.checkForNullInput, KitchenMiddleware.checkRequired, KitchenController.create, ErrorHandler.dispatch);
+router.post('/', BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, KitchenMiddleware.allowConfirmedUsersOnly, BaseMiddleware.checkForNullInput, KitchenMiddleware.checkRequired, KitchenController.create, ErrorHandler.dispatch);
 
 router.put('/:ktid', BaseMiddleware.checkAuthorization, KitchenMiddleware.__filterAccess, BaseMiddleware.__checkParams, KitchenMiddleware.__revokeAccess, BaseMiddleware.checkForNullInput, KitchenController.updateOne, ErrorHandler.dispatch);
 

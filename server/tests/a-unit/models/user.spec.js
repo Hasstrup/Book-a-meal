@@ -39,7 +39,7 @@ describe('User model POSTGRES', () => {
         data = await User.create(res);
         // ignoring destructuring to preserve reference in lower scope;
         /* eslint prefer-destructuring: 0 */
-        id = data.id
+        id = data.id;
       });
 
       it('Should reject creation of a user with the same username', async () => {
@@ -70,14 +70,14 @@ describe('User model POSTGRES', () => {
       res = await Kitchen.create({
         name: 'This is Hasstrups test kitchen',
         description: 'Here is a test description for all my kicthens',
-        UserId: id
+        userId: id
       });
     });
 
     it('User hasstrup ezekiel should be able to get his kitchen', async () => {
       data = await User.findOne({ where: { username: 'hasstrupezekiel' }, include: [Kitchen] });
-      expect(data.Kitchen).to.be.an('object');
-      expect(data.Kitchen.name).to.be.equal('This is Hasstrups test kitchen');
+      expect(data.kitchen).to.be.an('object');
+      expect(data.kitchen.name).to.be.equal('This is Hasstrups test kitchen');
     });
   });
 });

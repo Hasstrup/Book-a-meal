@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from './';
 
-const Meal = sequelize.define('Meal', {
+const Meal = sequelize.define('meal', {
   name: {
     type: DataTypes.STRING
   },
@@ -11,11 +11,11 @@ const Meal = sequelize.define('Meal', {
   image: {
     type: DataTypes.STRING
   },
-  KitchenId: {
+  kitchenId: {
     type: DataTypes.UUID,
     allowNull: false
   },
-  MenuId: {
+  menuId: {
     type: DataTypes.UUID
   },
   price: {

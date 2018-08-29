@@ -17,7 +17,7 @@ describe('Kitchen model POSTGRES', () => {
       try {
         // fetch the right user id and reassign it
         res = await User.findAll();
-        mockdata = { ...validKitchen, UserId: res[0].id };
+        mockdata = { ...validKitchen, userId: res[0].id };
         // do the main creation here
         data = await Kitchen.create(mockdata);
         expect(data).to.be.an('object');
@@ -62,7 +62,7 @@ describe('Kitchen model POSTGRES', () => {
     it('Should return the user object related to a user', async () => {
       data = await Kitchen.findOne({ where: { name: 'Hasstrups Test Kitchen' }, include: [User] });
       expect(data).to.exist;
-      expect(data.User).to.be.an('object');
+      expect(data.user).to.be.an('object');
     });
   });
 });

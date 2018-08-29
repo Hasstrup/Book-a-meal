@@ -14,7 +14,7 @@ describe('Meal service Object', () => {
   before(async () => {
     data = await User.findAll();
     target = data[0];
-    testkitchen = await Kitchen.create({ name: 'Bay and Ruts', description: 'A really expensive restaurant on the island', UserId: target.id });
+    testkitchen = await Kitchen.create({ name: 'Bay and Ruts', description: 'A really expensive restaurant on the island', userId: target.id });
   });
   it('Create method should return the valid created meal', async () => {
     valid = { name: 'This is a pretty awesome meal', description: 'This is an awesome meal, how nice', price: 2000 };
