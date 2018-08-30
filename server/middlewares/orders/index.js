@@ -93,7 +93,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
       return next(err);
     }
     if (!req.body.meals.some((item) => {
-      if (item.id && item.quantity && item.kitchen && isUUID(item.id) && isUUID(item.kitchen) && item.quantity.constructor === Number && item.quantity > 0) {
+      if (item.id && item.quantity && item.kitchenId && isUUID(item.id) && isUUID(item.kitchenId) && item.quantity.constructor === Number && item.quantity > 0) {
         return true;
       } return false;
     })) {
@@ -102,7 +102,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     }
     if (this.__ensureKitchenOwner(req, res)) {
       req.body.meals.forEach((item) => {
-        if (item.kitchen === req.kitchen.id) {
+        if (item.kitchenId === req.kitchen.id) {
           valid = false;
         }
       });

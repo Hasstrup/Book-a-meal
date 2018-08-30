@@ -102,7 +102,8 @@ class BaseMiddleware {
         req.kitchen = data.kitchen ? data.kitchen : null;
         return next();
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         next(new ValidatorError('Something went wrong trying to grant you access, Token might be deformed', 401));
       });
   }

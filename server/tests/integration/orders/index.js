@@ -54,7 +54,6 @@ describe('Orders endpoints', () => {
     valid = { quantity: 10 };
     res = await request(app).put(`/api/v1/orders/${test.id}`).set('authorization', token).send(valid)
       .query({ type: 'user', mealId: test.meals[0].id });
-      console.log(res.body);
     expect(res.body.data.quantity).to.equal(10);
   });
 

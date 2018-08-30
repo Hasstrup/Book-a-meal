@@ -161,7 +161,7 @@ class KitchenService extends BaseService {
       }).spread(async (menu) => {
         if (mealPresent) {
           newMenu.meals = newMenu.meals.map(meal => meal.id);
-          await Meal.update({ menuId: menu.id }, { where: { id: { [Op.in]: newMenu.meals }, KitchenId: source.id } });
+          await Meal.update({ menuId: menu.id }, { where: { id: { [Op.in]: newMenu.meals }, kitchenId: source.id } });
         }
         await source.update({ MenuofTheDay: menu.id });
       });

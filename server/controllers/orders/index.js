@@ -22,7 +22,7 @@ class OrderControllerBase extends BaseController {
   __updateOne = (req, res, next) => {
     console.log('boom')
     this.wrapInTryCatch(async () => {
-      data = await OrderService.__updateOne('id', req.params.ooid, req.target, req.qualifier, req.body);
+      data = await OrderService.__updateOne('id', req.params.ooid, req.target, req.qualifier, req.body, req.user);
       this.resourceCreated(res, data);
     }, next)
   }
