@@ -23,7 +23,7 @@ describe('Orders endpoints', () => {
     data = data[1];
     const kitchen = await Kitchen.findAll({ limit: 2 });
     target = await Meal.findAll({ include: [{ all: true }] });
-    meals = target.map(meal => ({ id: meal.id, quantity: 4, kitchen: meal.kitchenId }));
+    meals = target.map(meal => ({ id: meal.id, quantity: 4, kitchenId: meal.kitchenId }));
     token = await Encrypt.issueToken({ id: data.id });
     kitchenToken = await Encrypt.issueToken({ id: kitchen[0].userId });
     test = await OrderService.__create(data.id, { meals });
@@ -54,7 +54,6 @@ describe('Orders endpoints', () => {
     valid = { quantity: 10 };
     res = await request(app).put(`/api/v1/orders/${test.id}`).set('authorization', token).send(valid)
       .query({ type: 'user', mealId: test.meals[0].id });
-      console.log(res.body);
     expect(res.body.data.quantity).to.equal(10);
   });
 

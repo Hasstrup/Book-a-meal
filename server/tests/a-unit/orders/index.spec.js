@@ -51,7 +51,7 @@ describe('Order service object', () => {
       try {
         let status = {};
         source = source.map((item) => {
-          return { id: item.id, quantity: Math.floor(Math.random() * 10), kitchen: item.kitchenId };
+          return { id: item.id, quantity: Math.floor(Math.random() * 10), kitchenId: item.kitchenId };
         });
         data = await OrderService.__create(target.id, { meals: source, status });
         expect(data).to.be.an('object');

@@ -20,6 +20,6 @@ api
   .use('/orders', BaseMiddleware.formatPaginationQuery, orders);
 
 // No routes matched? 404.
-api.use((req, res) => res.status(404).send('Sorry that route/method doesnt exist'));
+api.use((req, res) => res.status(404).json({ error: 'Sorry that route/method doesnt exist' }));
 
 export default api;

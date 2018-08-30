@@ -82,10 +82,10 @@ class OrderServiceBase extends BaseService {
     ref.status = {};
     // map the kitchen into the ref array // so that kitchens are sorted automatically
     body.meals.forEach((item) => {
-      ref.status[`${item.kitchen}`] = false;
+      ref.status[`${item.kitchenId}`] = false;
     });
     // creating the actual order;
-   
+
     target = Object.assign({}, ref, { userId });
     data = await this.__model.create(target);
     // await data.addMeals(body.meals);
@@ -109,19 +109,23 @@ class OrderServiceBase extends BaseService {
   }
 
   __mustBeInMenuOfTheDay = async (meals) => {
-    let catalogue = await MenuService.fetchCatalogue();
+    let catalogue = await MenuService.__fetchCatalogue()();
+    const mealCatalogue = catalogue.reduce((a, b) => {
+      const mealsIdMap = b.meals.map(item => item.id);
+      return [...a, ...mealsIdMap];
+    }, []);
+
     if (!catalogue.length) this.badRequest('That order cannot go through, Sorry');
-    catalogue = catalogue.filter(item => item).map(item => item.id);
     let filter = [];
     const validMeals = meals.map((meal) => {
-      if (catalogue.includes(meal.mealId)) return meal;
+      if (mealCatalogue.includes(meal.mealId)) return meal;
       filter.push(meal);
       return null;
     }).filter(meal => meal);
     return { filter, validMeals };
   }
 
-  __updateOne = async (key, value, Id, type, payload) => {
+  __updateOne = async (key, value, Id, type, payload, user) => {
     this.checkArguments(key, value, Id);
     let ref = {};
     ref[`${key}`] = value;
