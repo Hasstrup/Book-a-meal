@@ -98,7 +98,7 @@ class OrderServiceBase extends BaseService {
 
     const { validMeals, filter } = await this.__mustBeInMenuOfTheDay(body.meals);
     if (process.env.NODE_ENV !== 'test') {
-      if (filter.length > 0) return this.badRequest('Sorry you cannot order meals that are not in the menu of the day');
+      if (filter.length) return this.badRequest('Sorry you cannot order meals that are not in the menu of the day');
     }
     // finally create all the validMeals
     const targetMeals = validMeals.length ? validMeals : body.meals;
@@ -108,12 +108,16 @@ class OrderServiceBase extends BaseService {
   }
 
   __mustBeInMenuOfTheDay = async (meals) => {
-    let catalogue = await MenuService.fetchCatalogue();
+    let catalogue = await MenuService.__fetchCatalogue();
+    const mealCatalogue = catalogue.reduce((a, b) => {
+      const mealsIdMap = b.Meals.map(item => item.id);
+      return [...a, ...mealsIdMap];
+    }, []);
+
     if (!catalogue.length) this.badRequest('That order cannot go through, Sorry');
-    catalogue = catalogue.filter(item => item).map(item => item.id);
     let filter = [];
     const validMeals = meals.map((meal) => {
-      if (catalogue.includes(meal.MealId)) return meal;
+      if (mealCatalogue.includes(meal.MealId)) return meal;
       filter.push(meal);
       return null;
     }).filter(meal => meal);
