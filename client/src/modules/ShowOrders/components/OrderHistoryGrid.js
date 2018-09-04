@@ -1,7 +1,7 @@
 import React from 'react';
 import MultipleHistory from '../../../mixins/cards/SingleOrderHistoryCard';
 
-export default ({ title }) => (
+export default ({ orders, title }) => (
   <div className="today-story">
     <div className="today-text">
       <div className="today-introduction">
@@ -14,7 +14,7 @@ export default ({ title }) => (
     </div>
     { /* This is the damn ting */}
     <div className="order-story-grid">
-      { MultipleHistory([1, 2, 3, 4])({})}
+      { MultipleHistory(orders)({})}
     </div>
   </div>
 );

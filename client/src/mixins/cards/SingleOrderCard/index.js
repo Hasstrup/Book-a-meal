@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { CreateOrder } from '../../../actions/orders';
 import ItemDetailsMain from './components/OrderDetails';
 import MultipleOrders from './components/OrderSingleItem';
+import './styles/index.scss';
 
 class DisplayOrderCard extends Component {
     handleCreateOrder = () => {
@@ -11,7 +12,7 @@ class DisplayOrderCard extends Component {
       dispatch(CreateOrder({ meals: mealsWithQuantity })(history));
     }
     render = () => (
-      <div className="current-order-stack">
+      <div className="current-order-stack" style={{ ...this.props.style }}>
         <div className="current-order-stack-main">
           <ItemDetailsMain
             meals={this.props.meals || []}

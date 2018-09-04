@@ -31,7 +31,7 @@ class OrderHistoryPage extends Component {
         <OrderHistoryHeader />
         <div className="orders-page-side-one-main">
           { this.state.currentMealsInCart && this.state.currentMealsInCart.length && <CurrentOrderComponent meals={this.state.currentMealsInCart} history={this.props.history} /> }
-          <RenderActualHistory />
+          <RenderActualHistory orders={this.props.orders[`${this.props.user.id}`]}/>
         </div>
       </div>
     )
@@ -39,7 +39,8 @@ class OrderHistoryPage extends Component {
 
 const mapStateToProps = state => ({
   kitchen: state.kitchens.target,
-  user: state.users.current
+  user: state.users.current,
+  orders: state.orders.allOrders || {}
 });
 
 export default connect(mapStateToProps)(AuthOnly(OrderHistoryPage));
