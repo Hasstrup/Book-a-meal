@@ -1,8 +1,9 @@
 import React from 'react';
 import OrderHistoryGrid from './OrderHistoryGrid';
 import SortableHOC from '../helpers/SortOrdersByDate';
+import NotEmptyHOC from '../../../hocs/NonEmpty';
 
-export default ({ orders }) => (
+const OrderHistoryComponent = ({ orders }) => (
   <div className="history-section">
     <div className="introduce-history">
       <p className="introduce-history-main"> History </p>
@@ -20,3 +21,5 @@ export default ({ orders }) => (
     </div>
   </div>
 );
+
+export default NotEmptyHOC(OrderHistoryComponent);

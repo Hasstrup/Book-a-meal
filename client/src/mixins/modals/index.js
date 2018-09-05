@@ -9,8 +9,9 @@ export default props => (
         zIndex: 1000,
         top: 0,
         left: 0,
-        display: "flex"
+        display: 'flex'
     }}
+    className="render-modal"
   >
     <div
       style={{
@@ -21,7 +22,7 @@ export default props => (
       backgroundColor: '#1A1B1B50',
       zIndex: 10
    }}
-   onClick={props.handleClose}
+      onClick={props.handleClose}
     />
     { props.children }
   </div>

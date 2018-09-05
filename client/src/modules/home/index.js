@@ -9,6 +9,11 @@ import { SignUpUser, LogInUser, GetLoggedInUser } from '../../actions/users/';
 
 
 class HomeContainer extends Component {
+  constructor(props) {
+    super(props);
+    if(this.props.user) return this.props.history.push('/catalogue');
+    
+  }
   componentDidMount = () => {
     GetLoggedInUser();
   }
@@ -24,6 +29,8 @@ const HomeComponent = ({ history, dispatch }) => (
   </div>
 )
 
+const mapStateToProps = (state) => ({
+    user: state.users.current
+})
 
-
-export default connect()(HomeContainer);
+export default connect(mapStateToProps)(HomeContainer);

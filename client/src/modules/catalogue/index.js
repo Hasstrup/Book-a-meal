@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import '../styles/catalogue.scss';
 import { MainCatalogue } from '../../mixins/cards/singleMenu';
 import { FetchCatalogue } from '../../actions/menus/';
+import NotEmpty from '../../hocs/NonEmpty';
+import { DispatchNotification } from '../../actionTypes/misc';
 
 
 class Catalogue extends Component {
@@ -20,10 +22,29 @@ class Catalogue extends Component {
   fetchMenus = () => this.props.dispatch(FetchCatalogue(this.props.history));
 
   render = () => (
-    <div className="main-body">
+    <div className="main-body" style={{ minHeight: '100vh' }}>
       <CatalogueFirstRow />
       <Selectors />
-      <CatalogueGridMain history={this.props.history} menus={this.props.menus || []} dispatch={this.props.dispatch}  />
+      <CatalogueGridMain
+        history={this.props.history}
+        menus={this.props.menus || []}
+        dispatch={this.props.dispatch}
+        determineRenderBy={[]}
+        text="looks like there are no menus set today"
+        image="pizza"
+        subtitle="add your own menu to the catalogue"
+        callback={() => {
+        this.props.history.push('/profile');
+        if (!this.props.user) return this.props.dispatch(DispatchNotification('Immediately after sign up, you can set up your kitchen and add a menu. Pretty awesome right?'));
+        if (this.props.user && !this.props.user.Kitchen) return this.props.dispatch(DispatchNotification('Set up a kitchen pronto and add your menu to the catalogue'));
+        this.props.dispatch(DispatchNotification('Set a new menu of the day and let your customers order from the catalogue'));
+      }}
+        emptyContainerStyle={{
+        height: '50%',
+        position: 'relative',
+        bottom: '-10vh'
+      }}
+      />
     </div>
   );
 }
@@ -65,8 +86,9 @@ const Selectors = () => (
   </div>
 );
 
+const CatalogueGridMain = NotEmpty(CatalogueGridMainX);
 
-const CatalogueGridMain = props => (
+const CatalogueGridMainX = props => (
   <div className="main-items-grid">
     { /* remember to get some mock || main data to fill in this place */ }
     { MainCatalogue(props.menus)(props) }
@@ -74,7 +96,8 @@ const CatalogueGridMain = props => (
 );
 
 const mapStateToProps = state => ({
-  menus: state.menus.catalog
+  menus: state.menus.catalog,
+  user: state.users.target
 });
 // these should be refactored after the application is completed right
 export default connect(mapStateToProps)(Catalogue);

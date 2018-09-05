@@ -3,8 +3,9 @@ import RenderOverView from './modules/overview';
 import MealDetailsMain from '../meals';
 import RenderOrderHistory from '../orders';
 import MenuOfTheDay from './modules/MenuOfTheDay/';
+import NotNullHOC from '../../../../hocs/NonEmpty';
 
-export default ({ kitchen, handleSubmit, meals }) => (
+const WorkStation = ({ kitchen, handleSubmit, meals }) => (
   <div className="main-workstation">
     {/* this announces the workstation */}
     <div className="announce-workstation">
@@ -19,4 +20,6 @@ export default ({ kitchen, handleSubmit, meals }) => (
     </div>
   </div>
 );
+
+export default NotNullHOC(WorkStation);
 

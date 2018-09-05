@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ToastNotification =  ({ error, status }) => (
-  <div style={{
+const ToastNotification = ({ error, status }) => (
+  <div
+    style={{
         height: '80px',
         width: '300px',
         position: 'fixed',
         right: '40px',
         top: '50px',
         backgroundColor: '#212121',
-        zIndex: 100,
+        zIndex: 100000,
         display: status ? 'block' : 'none',
         paddingRight: '10px',
         paddingLeft: '20px',
@@ -29,17 +30,19 @@ const ToastNotification =  ({ error, status }) => (
     > Jarvis
     </p>
     <p style={{
-        color: 'white', 
+        color: 'white',
         fontFamily: 'apercu',
         fontWeight: '400',
         fontSize: '12px'
-    }}> { error } </p>
+    }}
+    >{ error } 
+    </p>
   </div>
 );
 
-const mapStateToProps = (state) => ({
-    status: state.errors.status,
-    error: state.errors.message
-})
+const mapStateToProps = state => ({
+  status: state.errors.status,
+  error: state.errors.message
+});
 
-export default connect(mapStateToProps)(ToastNotification)
+export default connect(mapStateToProps)(ToastNotification);

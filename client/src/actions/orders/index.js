@@ -48,18 +48,19 @@ const fetchAllOrders = type => id => (dispatch) => {
 };
 
 
-const editOrder = (data = {}) => ({ orderId, mealId }, message) => (dispatch) => {
+const EditOrder = (data = {}) => ({ orderId, mealId, type }, message) => callback => (dispatch) => {
   const successCallback = () => {
     dispatch(EndProcess());
-    dispatch(DispatchNotification(message));
+    swal(message, 'success')
+      .then(() => callback && callback());
   };
   dispatch(StartProcess());
-  dispatch(RequestHandler({ url: `${config.url}/orders/${orderId}/?mealId=${mealId}`, method: 'put', data })(successCallback));
+  dispatch(RequestHandler({ url: `${config.url}/orders/${orderId}/?mealId=${mealId}&type=${type}`, method: 'put', data })(successCallback));
 };
 export {
   AddToCart,
   RemoveFromCart,
   CreateOrder,
   fetchAllOrders,
-  editOrder
+  EditOrder
 };

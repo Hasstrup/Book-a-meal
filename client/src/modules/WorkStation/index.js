@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DispatchNotification } from '../../actionTypes/misc';
 import RenderWorkStationMain from './components/workstation-main';
-import RenderKitchenAndUserBio from './components/UserBio';
-import '../styles/profile.scss';
+import RenderKitchenAndUserBio, { RenderNewKitchen } from './components/UserBio';
 import { FetchUser } from '../../actions/users';
 import { ProcessIndicatorLg } from '../../mixins/ProcessIndicator';
 import KitchenActions from '../../actions/kitchens';
 import MealActions from '../../actions/meals';
 import utils from './utils';
 import AuthOnly from '../../hocs/AuthOnly';
+import '../styles/profile.scss';
+
 
 // TODO: you might want to destructure from the exports itself.
 const { RenderMealForm, GetMealInformation, HideMealForm } = utils;
@@ -43,7 +44,7 @@ class WorkStationContainer extends Component {
 
  // TODO: You might need to extract this so it's accessible to all your components
   /**
- * @description Utility function that checks if input passes a validity check. Checks that none of the fields are 
+ * @description Utility function that checks if input passes a validity check. Checks that none of the fields are
  * default values provided on render
  * @returns {boolean} the result of auth test
  * @private
@@ -74,8 +75,8 @@ class WorkStationContainer extends Component {
    this.state.wantsToAddMeal = true; // doing this to avoid a rerender of the dom;
  }
 
-/**
- * @description This either renders the meal form or dispatches the set up meal 
+  /**
+ * @description This either renders the meal form or dispatches the set up meal
  * variant on the number of times the newMeal button is clicked
  * @returns {null}
  * @private
@@ -116,9 +117,23 @@ class WorkStationContainer extends Component {
     render = () => (
       <div>
         { this.props.user ?
-          <div className="main-profile-body">
+          <div className="main-profile-body" style={this.props.user.Kitchen && {} || { justifyContent: 'start' }}>
             <RenderKitchenAndUserBio user={this.props.user} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-            <RenderWorkStationMain kitchen={this.props.user.Kitchen} handleSubmit={this.handleSubmit} meals={this.props.meals} />
+            <RenderWorkStationMain
+              kitchen={this.props.user.Kitchen}
+              handleSubmit={this.handleSubmit}
+              meals={this.props.meals}
+              determineRenderBy={Object.keys(this.props.kitchen)}
+              image="empty"
+              text="Looks like you need to set up a kitchen"
+              emptyContainerStyle={{
+              height: '10%',
+              width: '100%',
+              position: 'relative',
+              bottom: '-20vh'
+            }}
+              callback={RenderNewKitchen}
+            />
           </div>
         : <ProcessIndicatorLg />
       }
@@ -128,7 +143,8 @@ class WorkStationContainer extends Component {
 
 const mapStateToProps = state => ({
   user: state.users.target,
-  meals: state.meals.belongsToUser
+  meals: state.meals.belongsToUser,
+  kitchen: state.kitchens.target || {}
 });
 
 export default connect(mapStateToProps)(AuthOnly(WorkStationContainer));
