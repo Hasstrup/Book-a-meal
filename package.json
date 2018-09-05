@@ -99,6 +99,7 @@
     "sequelize-cli": "^4.0.0",
     "sinon": "^4.5.0",
     "supertest": "^3.0.0",
+    "sweetalert": "^2.1.0",
     "validator": "^9.4.1",
     "webpack": "^4.10.1",
     "webpack-cli": "^2.1.4",

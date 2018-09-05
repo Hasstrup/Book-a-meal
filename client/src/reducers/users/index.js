@@ -1,10 +1,13 @@
-const userReducer = (state = {}, action) => {
+const userReducer = (state = { requiresPermission: false }, action) => {
   switch (action.type) {
     case 'NEW_SIGN_IN':
       return { ...state, current: action.payload };
 
     case 'TARGET_USER_FETCHED':
       return { ...state, target: action.payload };
+
+    case 'UPDATE_PERMISSIONS':
+      return { ...state, requiresPermission: action.payload };
 
     default:
       return state;

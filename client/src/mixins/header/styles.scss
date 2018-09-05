@@ -34,6 +34,21 @@
     
   }}
 
+  .swal-title {
+    font-family: gotham
+  }
+
+  .swal-text {
+    font-family: apercu
+  }
+
+  .hoverable-item {
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline
+    }
+  }
+
   @font-face {
     font-family: granary;
     src: url('../fonts/granary.otf');

@@ -12,7 +12,7 @@ import _ from 'lodash/array';
  * }
  */
 const currentDate = new Date();
-const CartOps = key => meal => ({ add, remove }) => {
+const CartOps = (key = generateKey()) => meal => ({ add, remove, clear }) => {
   let cart;
   const addItemToCart = () => {
     if (!localStorage.getItem(key)) {
@@ -37,11 +37,14 @@ const CartOps = key => meal => ({ add, remove }) => {
     return [];
   };
 
+  const ClearItemsFromCart = () => localStorage.removeItem(key);
+
   const FetchAllItemsFromCart = () => localStorage.getItem(key) && JSON.parse(localStorage.getItem(key)).meals;
 
 
   if (add) return addItemToCart();
   if (remove) return RemoveItemFromCart();
+  if(clear) return ClearItemsFromCart();
   return FetchAllItemsFromCart(); // the default thing will be to fetch items in cart
 };
 

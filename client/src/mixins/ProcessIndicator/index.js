@@ -12,7 +12,8 @@ const ProcessIndicatorSm = ({ status }) => (
         width: '100%',
         backgroundColor: 'white',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        zIndex: 500
     }}
     >
       <div className="spinner"></div>

@@ -5,6 +5,7 @@ import errors from './errors/';
 import kitchens from './kitchens';
 import meals from './meals';
 import orders from './orders';
+import funcs from './funcs';
 
 const root = combineReducers({
   users,
@@ -12,7 +13,8 @@ const root = combineReducers({
   menus,
   kitchens,
   meals,
-  orders
+  orders,
+  funcs
 });
 
 export default root;

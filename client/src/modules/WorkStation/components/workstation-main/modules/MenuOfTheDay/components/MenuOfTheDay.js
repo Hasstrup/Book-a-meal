@@ -11,6 +11,7 @@ const descriptionInput = React.createRef();
  */
 const generateNames = (args) => {
   if (!args) return '';
+  if(args.length === 1) return args[0].name
   const list = args.reduce((accumulator, item) => `${accumulator.name ? accumulator.name : accumulator }, ${item.name}`);
   if (list.split(' ').length <= 15) return list;
   return `${list.split(' ').splice(0, 15).join(' ')}...`;
