@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import path from 'path';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import cors from 'cors';
@@ -22,8 +23,9 @@ app
   .use(cors())
   .use(logger('dev'))
   // api versioning;
+  .use(express.static('public/dist'))
   .use('/api/v1', api)
-  .get('/*', (_, res) => res.send('Cant find resource').status(400))
+  .get('/*', (_, res) => res.sendFile(path.join(`${__dirname}/public/dist/index.html`)))
   .listen(PORT, () => {
     if (process.env.NODE_ENV === 'development') {
       /* eslint no-console: 0 */

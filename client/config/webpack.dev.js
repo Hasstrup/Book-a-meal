@@ -9,5 +9,4 @@ const devConfig = merge([
   }),
   LoadCSS()
 ]);
-console.log(devConfig)
-module.exports = devConfig
+module.exports = devConfig;

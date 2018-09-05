@@ -35,5 +35,6 @@ export default Component => (props) => {
     }
     </div>
   );
+  console.log(Component);
   return (<Component {...props} />);
 };

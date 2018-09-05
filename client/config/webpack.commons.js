@@ -1,10 +1,10 @@
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { loadJavascript, loadFonts } = require('./webpack.parts');
 
-const NamedModule = new webpack.NamedModulesPlugin()
-const HotModule = new webpack.HotModuleReplacementPlugin()
+const NamedModule = new webpack.NamedModulesPlugin();
+const HotModule = new webpack.HotModuleReplacementPlugin();
 
 const commonConfig = merge([
   {
@@ -27,8 +27,7 @@ const commonConfig = merge([
     ]
   },
   loadJavascript(),
-  // lintJavascript(),
   loadFonts()
-])
+]);
 
-module.exports = commonConfig
+module.exports = commonConfig;

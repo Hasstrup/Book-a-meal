@@ -1,5 +1,5 @@
 const merge = require('webpack-merge');
 
-const ProdConfig = merge([])
+const ProdConfig = merge([]);
 
-module.exports = ProdConfig
+module.exports = ProdConfig;
