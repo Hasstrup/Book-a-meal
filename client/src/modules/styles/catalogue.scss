@@ -86,7 +86,6 @@ body {
       width: 70%;
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-between;
       margin-top: 3%;
       padding-left: 2%;
       @include menu-item-card;

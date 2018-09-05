@@ -26,3 +26,12 @@ services:
 
 after_success:
     - npm run cover
+
+deploy:
+  provider: heroku
+  api_key: 
+    secure: 9af2e9f0-20d0-49ed-a70b-398ee1538e93
+  app: my-book-a-meal-app
+  on:
+    repo: Hasstrup/book-a-meal
+    branch: develop

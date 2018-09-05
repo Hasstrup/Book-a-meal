@@ -16,7 +16,7 @@ class Catalogue extends Component {
   }
 
   componentDidMount = () => {
-    if (!this.props.menus) return this.fetchMenus();
+    if (!this.props.menus.length) return this.fetchMenus();
   }
 
   fetchMenus = () => this.props.dispatch(FetchCatalogue(this.props.history));
@@ -24,12 +24,11 @@ class Catalogue extends Component {
   render = () => (
     <div className="main-body" style={{ minHeight: '100vh' }}>
       <CatalogueFirstRow />
-      <Selectors />
       <CatalogueGridMain
         history={this.props.history}
         menus={this.props.menus || []}
         dispatch={this.props.dispatch}
-        determineRenderBy={[]}
+        determineRenderBy={this.props.menus}
         text="looks like there are no menus set today"
         image="pizza"
         subtitle="add your own menu to the catalogue"
@@ -75,19 +74,6 @@ const CatalogueFirstRow = () => (
   </div>
 );
 
-
-const Selectors = () => (
-  <div className="options-grid">
-    <p> Top </p>
-    <p> Featured </p>
-    <p> All </p>
-    <p> Favourites </p>
-    <p> Promote </p>
-  </div>
-);
-
-const CatalogueGridMain = NotEmpty(CatalogueGridMainX);
-
 const CatalogueGridMainX = props => (
   <div className="main-items-grid">
     { /* remember to get some mock || main data to fill in this place */ }
@@ -95,8 +81,10 @@ const CatalogueGridMainX = props => (
   </div>
 );
 
+const CatalogueGridMain = NotEmpty(CatalogueGridMainX);
+
 const mapStateToProps = state => ({
-  menus: state.menus.catalog,
+  menus: state.menus.catalog || [],
   user: state.users.target
 });
 // these should be refactored after the application is completed right
