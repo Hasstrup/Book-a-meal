@@ -8,7 +8,7 @@
     "build:server": "babel ./server -d ./build/server --copy-files",
     "start:prod": "npm run build:client && npm run build:server && cd build/server && NODE_ENV=production node index",
     "build:client": "webpack --mode production --config webpack.config.js && cp -r ./client/config/dist server/public",
-    "start": "cd server && NODE_ENV=production babel-node index",
+    "start": "cd build/server && NODE_ENV=production node index",
     "dev": "cd server && NODE_ENV=development nodemon --exec babel-node index",
     "coverage": "cross-env && cd server  &&  NODE_ENV=test nyc _mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit && nyc report --reporter=text-lcov | coveralls",
     "report": "npm run coverage &&  codeclimate-test-reporter < ./coverage/lcov.info",
