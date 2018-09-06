@@ -1,7 +1,7 @@
-import { config } from '../../helpers/proxy';
+import config from '../../config';
 import { DispatchNotification, StartProcess, EndProcess } from '../../actionTypes/misc';
 import { RequestHandler } from '../helpers/index';
-import { CatalogueGotten, MenuSelected } from '../../actionTypes/menus/';
+import { CatalogueGotten } from '../../actionTypes/menus/';
 
 /**
  * @returns {function} thunk - an async call that fetches the catalogue from the Server
