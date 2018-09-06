@@ -20,7 +20,7 @@ const { fetchAllMealsBelongingToUser } = MealActions;
 
 export const SignUpUser = body => history => (dispatch, getState) => {
   dispatch(StartProcess());
-  return axios.post('http://localhost:3900/api/v1/auth/signup', body)
+  return axios.post(`${config.url}/auth/signup`, body)
     .then((res) => {
       dispatch(NewSignUp(res.data));
       dispatch(EndProcess());
@@ -46,7 +46,7 @@ export const SignUpUser = body => history => (dispatch, getState) => {
    */
 export const LogInUser = body => history => (dispatch, getState) => {
   dispatch(StartProcess());
-  return axios.post('http://localhost:3900/api/v1/auth/login', body)
+  return axios.post(`${config.url}/auth/login`, body)
     .then((res) => {
       dispatch(NewSignUp(res.data));
       if (res.data.data.Kitchen && res.data.data.Kitchen.name) dispatch(TargetKitchenRetrieved(res.data.data.Kitchen));
