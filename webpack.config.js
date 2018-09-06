@@ -1,5 +1,5 @@
 const merge = require('webpack-merge');
-const commonConfig = require('./client/config/webpack.commons');
+const commonConfig = require('./webpack.commons');
 const devConfig = require('./client/config/webpack.dev');
 const ProdConfig = require('./client/config/webpack.prod');
 

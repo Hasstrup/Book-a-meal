@@ -23,9 +23,9 @@ app
   .use(cors())
   .use(logger('dev'))
   // api versioning;
-  .use(express.static('public/dist'))
+  .use(express.static('public'))
   .use('/api/v1', api)
-  .get('/*', (_, res) => res.sendFile(path.join(`${__dirname}/public/dist/index.html`)))
+  .get('/*', (_, res) => res.sendFile(path.join(`${__dirname}/public/index.html`)))
   .listen(PORT, () => {
     if (process.env.NODE_ENV === 'development') {
       /* eslint no-console: 0 */

@@ -7,7 +7,7 @@
     "test": "npm run test:migrate && cd server && NODE_ENV=test mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit",
     "build:server": "babel ./server -d ./build/server --copy-files",
     "start:prod": "npm run build:client && npm run build:server && cd build/server && NODE_ENV=production node index",
-    "build:client": "webpack --mode production --config webpack.config.js && cp -r ./client/config/dist server/public",
+    "build:client": "webpack --mode production --config webpack.config.js",
     "start": "cd build/server && NODE_ENV=production node index",
     "dev": "cd server && NODE_ENV=development nodemon --exec babel-node index",
     "coverage": "cross-env && cd server  &&  NODE_ENV=test nyc _mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit && nyc report --reporter=text-lcov | coveralls",
@@ -15,6 +15,7 @@
     "report:travis": " npm run coverage && codeclimate-test-reporter < ./coverage/lcov.info",
     "cover": "nyc report --reporter=text-lcov | coveralls",
     "test:migrate": "NODE_ENV=test sequelize db:migrate",
+    "heroku-postbuild": "npm run build:server && npm run build:client",
     "migrate": "sequelize db:migrate",
     "client": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
     "test:client": "jest"
