@@ -11,7 +11,7 @@
   "test": {
     "username": "hasstrupezekiel",
     "password": "PASSWORD",
-    "database": "book-a-meal-test",
+    "database": "book_a_meal_test",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres",
