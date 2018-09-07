@@ -2,15 +2,18 @@ import { expect } from 'chai';
 import { stub } from 'sinon';
 import moment from 'moment';
 import OrderService from '../../../services/orders/';
+import MenuService from '../../../services/menu';
 import models from '../../../models/v2/relationship';
 
 let data;
+let user
 let target;
 let source;
+let targetkitchen;
 let stub1
 
 /* eslint no-unused-expressions: 0, no-underscore-dangle: 0, prefer-destructuring: 0, prefer-const: 0, max-len: 0, arrow-body-style: 0, object-curly-newline: 0 */
-const { User, Meal, Order } = models;
+const { User, Meal, Order, Kitchen } = models;
 
 describe('Order service object', () => {
   it(' The fetch all method should return the details for the kitchen', async () => {
@@ -42,9 +45,12 @@ describe('Order service object', () => {
 
   describe(' DB Persistent methods', () => {
     before(async () => {
+      [targetkitchen] = await Kitchen.findAll({ });
+      await Meal.create({ name: 'This is a meal', description: 'A description', kitchenId: targetkitchen.id, price: 5000 });
       data = await User.findAll();
       target = data[0];
-      source = await Meal.findAll();
+      source = await Meal.findAll({ where: { kitchenId: targetkitchen.id },include: [Kitchen], attributes: ['id', 'kitchenId']});
+      await MenuService.__setMenuOfTheDay(targetkitchen, { name: 'This is the menu of the day', description: 'Nothing', meals: source });
     });
 
     it('__create method should create a new object in the database', async () => {
@@ -61,8 +67,8 @@ describe('Order service object', () => {
     });
 
     it('__updateOne should change the status of a kitchen to processed or not', async () => {
-      data = await OrderService.__updateOne('id', data.id, source[0].kitchen, 'kitchen');
-      expect(data.status[`${source[0].kitchen}`]).to.equal(true);
+      data = await OrderService.__updateOne('id', data.id, targetkitchen.id, 'kitchen');
+      expect(data.status[`${source[0].kitchenId}`]).to.equal(true);
     });
 
     it('__updateOne should change the quantity of an item in an order in the db', async () => {

@@ -4,6 +4,7 @@ import Encrypt from '../../../helpers/encrypt';
 import app from '../../../';
 import models from '../../../models/v2/relationship';
 import OrderService from '../../../services/orders/';
+import MenuService from '../../../services/menu';
 
 let res;
 let valid;
@@ -22,8 +23,10 @@ describe('Orders endpoints', () => {
     data = await User.findAll({ include: [Kitchen] });
     data = data[1];
     const kitchen = await Kitchen.findAll({ limit: 2 });
-    target = await Meal.findAll({ include: [{ all: true }] });
+    target = await Meal.findAll({ where: { kitchenId: kitchen[0].id }, include: [{ all: true }] });
     meals = target.map(meal => ({ id: meal.id, quantity: 4, kitchenId: meal.kitchenId }));
+    // need to add to menu of the day;
+    await MenuService.__setMenuOfTheDay(kitchen[0], { name: 'This is a test', description: 'yeah this is a test', meals });
     token = await Encrypt.issueToken({ id: data.id });
     kitchenToken = await Encrypt.issueToken({ id: kitchen[0].userId });
     test = await OrderService.__create(data.id, { meals });
