@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -151,27 +153,31 @@ var BaseService = function () {
       };
     }();
 
-    this.__fetchAll = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-      return regeneratorRuntime.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.next = 2;
-              return _this.__model.findAll({ include: [{ all: true }] });
+    this.__fetchAll = function () {
+      return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+        var pagination = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return _this.__model.findAll(_extends({ include: [{ all: true }] }, pagination));
 
-            case 2:
-              return _context4.abrupt('return', _context4.sent);
+              case 2:
+                return _context4.abrupt('return', _context4.sent);
 
-            case 3:
-            case 'end':
-              return _context4.stop();
+              case 3:
+              case 'end':
+                return _context4.stop();
+            }
           }
-        }
-      }, _callee4, _this);
-    }));
+        }, _callee4, _this);
+      }));
+    };
 
-    this.__fetchOne = function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(key, value) {
+    this.__fetchOne = function (key, value) {
+      return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+        var pagination = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
         var ref;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
           while (1) {
@@ -182,23 +188,33 @@ var BaseService = function () {
 
                 ref['' + key] = value;
                 _context5.next = 5;
-                return _this.__model.findOne({ where: ref, include: [{ all: true }] });
+                return _this.__model.findOne(_extends({ where: ref, include: [{ all: true, duplicating: false, nested: true }] }, pagination, { subQuery: false }));
 
               case 5:
+                data = _context5.sent;
+
+                if (data) {
+                  _context5.next = 10;
+                  break;
+                }
+
+                _context5.next = 9;
+                return _this.throwError("Looks like we've gotten to the end of the documents", 422);
+
+              case 9:
                 return _context5.abrupt('return', _context5.sent);
 
-              case 6:
+              case 10:
+                return _context5.abrupt('return', data);
+
+              case 11:
               case 'end':
                 return _context5.stop();
             }
           }
         }, _callee5, _this);
       }));
-
-      return function (_x7, _x8) {
-        return _ref5.apply(this, arguments);
-      };
-    }();
+    };
 
     this.__updateOne = function () {
       var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(key, value, changes) {

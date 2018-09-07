@@ -16,6 +16,8 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _sequelize = require('sequelize');
+
 var _baseService = require('../base-service');
 
 var _baseService2 = _interopRequireDefault(_baseService);
@@ -39,6 +41,8 @@ var _relationship2 = _interopRequireDefault(_relationship);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
@@ -199,83 +203,25 @@ var OrderServiceBase = function (_BaseService) {
       }, _callee2, _this2);
     }));
 
-    _this.__create = function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(UserId, body) {
-        var ref, _ref4, validMeals, filter, targetMeals, meals;
-
+    _this.__mustBelongToKitchenSpecified = function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(meals) {
+        var formattedQuery, count;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                if (!UserId || !body || (typeof body === 'undefined' ? 'undefined' : _typeof(body)) !== 'object' || !body.meals || body.meals.constructor !== Array) {
-                  _this.badRequest('The input isnt complete');
-                }
-                // assuming there is a list of meals that comes in the body of the request;
-                ref = {};
-
-                Object.keys(body).forEach(function (key) {
-                  if (key !== 'meals') {
-                    ref['' + key] = body['' + key];
-                  }
+                // format the meals to look like this // hopefully this is not too expensive
+                formattedQuery = meals.map(function (meal) {
+                  return { id: meal.id, kitchenId: meal.kitchenId };
                 });
+                _context3.next = 3;
+                return Meal.count({ where: _defineProperty({}, _sequelize.Op.or, formattedQuery) });
 
-                ref.status = {};
-                // map the kitchen into the ref array // so that kitchens are sorted automatically
-                body.meals.forEach(function (item) {
-                  ref.status['' + item.kitchen] = false;
-                });
-                // creating the actual order;
-                target = Object.assign({}, ref, { UserId: UserId });
-                _context3.next = 8;
-                return _this.__model.create(target);
+              case 3:
+                count = _context3.sent;
+                return _context3.abrupt('return', count === formattedQuery.length);
 
-              case 8:
-                data = _context3.sent;
-
-                // await data.addMeals(body.meals);
-                body.meals = body.meals.map(function (meal) {
-                  if (!meal.id || !meal.quantity) {
-                    return _this.badRequest('Please pass in the right values for the order, including quantity');
-                  }
-                  return { OrderId: data.id, MealId: meal.id, quantity: meal.quantity };
-                });
-                // apply a hook here to make sure they are in the menu of the day
-
-                _context3.next = 12;
-                return _this.__mustBeInMenuOfTheDay(body.meals);
-
-              case 12:
-                _ref4 = _context3.sent;
-                validMeals = _ref4.validMeals;
-                filter = _ref4.filter;
-
-                if (!(process.env.NODE_ENV !== 'test')) {
-                  _context3.next = 18;
-                  break;
-                }
-
-                if (!filter.length) {
-                  _context3.next = 18;
-                  break;
-                }
-
-                return _context3.abrupt('return', _this.badRequest('Sorry you cannot order meals that are not in the menu of the day'));
-
-              case 18:
-                // finally create all the validMeals
-                targetMeals = validMeals.length ? validMeals : body.meals;
-                _context3.next = 21;
-                return MealOrders.bulkCreate(targetMeals);
-
-              case 21:
-                _context3.next = 23;
-                return data.getMeals();
-
-              case 23:
-                meals = _context3.sent;
-                return _context3.abrupt('return', Object.assign({}, data.get({ plain: true }), { meals: meals }));
-
-              case 25:
+              case 5:
               case 'end':
                 return _context3.stop();
             }
@@ -283,25 +229,117 @@ var OrderServiceBase = function (_BaseService) {
         }, _callee3, _this2);
       }));
 
-      return function (_x3, _x4) {
+      return function (_x3) {
         return _ref3.apply(this, arguments);
       };
     }();
 
-    _this.__mustBeInMenuOfTheDay = function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(meals) {
-        var catalogue, mealCatalogue, filter, validMeals;
+    _this.__create = function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(userId, body) {
+        var ref, _ref5, validMeals, filter, targetMeals, meals;
+
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _context4.next = 2;
-                return _menu2.default.__fetchCatalogue();
+                if (!userId || !body || (typeof body === 'undefined' ? 'undefined' : _typeof(body)) !== 'object' || !body.meals || body.meals.constructor !== Array) {
+                  _this.badRequest('The input isnt complete');
+                }
+                // assuming there is a list of meals that comes in the body of the request;
+                ref = {};
+                _context4.next = 4;
+                return _this.__mustBelongToKitchenSpecified(body.meals);
+
+              case 4:
+                if (_context4.sent) {
+                  _context4.next = 6;
+                  break;
+                }
+
+                return _context4.abrupt('return', _this.badRequest('Sorry looks like some of the meals dont belong to the kitchen specified'));
+
+              case 6:
+                ref.status = {};
+                body.meals.forEach(function (item) {
+                  ref.status['' + item.kitchenId] = false;
+                });
+                // creating the actual order;
+                target = Object.assign({}, ref, { userId: userId });
+                _context4.next = 11;
+                return _this.__model.create(target);
+
+              case 11:
+                data = _context4.sent;
+
+                body.meals = body.meals.map(function (meal) {
+                  if (!meal.id || !meal.quantity) {
+                    return _this.badRequest('Please pass in the right values for the order, including quantity');
+                  }
+                  return { orderId: data.id, mealId: meal.id, quantity: meal.quantity };
+                });
+                // apply a hook here to make sure they are in the menu of the day
+
+                _context4.next = 15;
+                return _this.__mustBeInMenuOfTheDay(body.meals);
+
+              case 15:
+                _ref5 = _context4.sent;
+                validMeals = _ref5.validMeals;
+                filter = _ref5.filter;
+
+                if (!(process.env.NODE_ENV !== 'test')) {
+                  _context4.next = 21;
+                  break;
+                }
+
+                if (!filter.length) {
+                  _context4.next = 21;
+                  break;
+                }
+
+                return _context4.abrupt('return', _this.badRequest('Sorry you cannot order meals that are not in the menu of the day'));
+
+              case 21:
+                // finally create all the validMeals
+                targetMeals = validMeals.length ? validMeals : body.meals;
+                _context4.next = 24;
+                return MealOrders.bulkCreate(targetMeals);
+
+              case 24:
+                _context4.next = 26;
+                return data.getMeals();
+
+              case 26:
+                meals = _context4.sent;
+                return _context4.abrupt('return', Object.assign({}, data.get({ plain: true }), { meals: meals }));
+
+              case 28:
+              case 'end':
+                return _context4.stop();
+            }
+          }
+        }, _callee4, _this2);
+      }));
+
+      return function (_x4, _x5) {
+        return _ref4.apply(this, arguments);
+      };
+    }();
+
+    _this.__mustBeInMenuOfTheDay = function () {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(meals) {
+        var catalogue, mealCatalogue, filter, validMeals;
+        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return _menu2.default.__fetchCatalogue()();
 
               case 2:
-                catalogue = _context4.sent;
+                catalogue = _context5.sent;
                 mealCatalogue = catalogue.reduce(function (a, b) {
-                  var mealsIdMap = b.Meals.map(function (item) {
+                  var mealsIdMap = b.meals.map(function (item) {
                     return item.id;
                   });
                   return [].concat(_toConsumableArray(a), _toConsumableArray(mealsIdMap));
@@ -311,110 +349,15 @@ var OrderServiceBase = function (_BaseService) {
                 if (!catalogue.length) _this.badRequest('That order cannot go through, Sorry');
                 filter = [];
                 validMeals = meals.map(function (meal) {
-                  if (mealCatalogue.includes(meal.MealId)) return meal;
+                  if (mealCatalogue.includes(meal.mealId)) return meal;
                   filter.push(meal);
                   return null;
                 }).filter(function (meal) {
                   return meal;
                 });
-                return _context4.abrupt('return', { filter: filter, validMeals: validMeals });
+                return _context5.abrupt('return', { filter: filter, validMeals: validMeals });
 
               case 8:
-              case 'end':
-                return _context4.stop();
-            }
-          }
-        }, _callee4, _this2);
-      }));
-
-      return function (_x5) {
-        return _ref5.apply(this, arguments);
-      };
-    }();
-
-    _this.__updateOne = function () {
-      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(key, value, Id, type, payload) {
-        var ref, diff;
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                _this.checkArguments(key, value, Id);
-                ref = {};
-
-                ref['' + key] = value;
-                _context5.next = 5;
-                return _this.__model.findOne({ where: ref });
-
-              case 5:
-                data = _context5.sent;
-
-                if (!data) {
-                  _this.unprocessableEntity('Sorry, theres no order matching that criteria');
-                }
-
-                if (!(type === 'kitchen')) {
-                  _context5.next = 16;
-                  break;
-                }
-
-                if (Object.keys(data.status).includes(Id)) {
-                  _context5.next = 10;
-                  break;
-                }
-
-                return _context5.abrupt('return', _this.noPermissions(' Sorry your kitchen cant perform this operation'));
-
-              case 10:
-                data.status['' + Id] = true;
-                _context5.next = 13;
-                return data.update({
-                  status: data.status
-                });
-
-              case 13:
-                return _context5.abrupt('return', _extends({}, data.get({ plain: true }), { changedCorrectly: true }));
-
-              case 16:
-                if (!(type === 'user')) {
-                  _context5.next = 28;
-                  break;
-                }
-
-                diff = (0, _moment2.default)().diff(data.createdAt, 'minutes');
-
-                if (!(parseInt(diff) > 10 || !payload || !payload.quantity || isNaN(parseInt(payload.quantity)))) {
-                  _context5.next = 20;
-                  break;
-                }
-
-                return _context5.abrupt('return', _this.badRequest('This request is invalid, time for this might have elapsed or bad input'));
-
-              case 20:
-                _context5.next = 22;
-                return MealOrders.findOne({ where: { OrderId: data.id, MealId: Id } });
-
-              case 22:
-                target = _context5.sent;
-
-                if (target) {
-                  _context5.next = 25;
-                  break;
-                }
-
-                return _context5.abrupt('return', _this.unprocessableEntity('Sorry we cant find any order matching your criteria'));
-
-              case 25:
-                _context5.next = 27;
-                return target.update(payload);
-
-              case 27:
-                return _context5.abrupt('return', target);
-
-              case 28:
-                _this.unprocessableEntity('Please specify who is trying to mutate this object');
-
-              case 29:
               case 'end':
                 return _context5.stop();
             }
@@ -422,43 +365,95 @@ var OrderServiceBase = function (_BaseService) {
         }, _callee5, _this2);
       }));
 
-      return function (_x6, _x7, _x8, _x9, _x10) {
+      return function (_x6) {
         return _ref6.apply(this, arguments);
       };
     }();
 
-    _this.__fetchAll = function () {
-      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(id, type) {
+    _this.__updateOne = function () {
+      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(key, value, Id, type, payload, user) {
+        var ref, orders, diff;
         return regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                _this._validateFetchAllArgs(id, type);
+                _this.checkArguments(key, value, Id);
+                ref = {};
+
+                ref['' + key] = value;
+                _context6.next = 5;
+                return Order.findAll({ where: ref });
+
+              case 5:
+                orders = _context6.sent;
+
+                data = orders[0];
+                if (!data) {
+                  _this.unprocessableEntity('Sorry, theres no order matching that criteria');
+                }
 
                 if (!(type === 'kitchen')) {
-                  _context6.next = 7;
+                  _context6.next = 17;
                   break;
                 }
 
-                _context6.next = 4;
-                return _kitchens2.default.__fetchOrders('id', id);
-
-              case 4:
-                return _context6.abrupt('return', _context6.sent);
-
-              case 7:
-                if (!(type === 'user')) {
+                if (Object.keys(data.status).includes(Id)) {
                   _context6.next = 11;
                   break;
                 }
 
-                _context6.next = 10;
-                return _this.__model.findAll({ where: { UserId: id }, include: [Meal] });
-
-              case 10:
-                return _context6.abrupt('return', _context6.sent);
+                return _context6.abrupt('return', _this.noPermissions(' Sorry your kitchen cant perform this operation'));
 
               case 11:
+                data.status['' + Id] = true;
+                _context6.next = 14;
+                return data.update({
+                  status: data.status
+                });
+
+              case 14:
+                return _context6.abrupt('return', _extends({}, data.get({ plain: true }), { changedCorrectly: true }));
+
+              case 17:
+                if (!(type === 'user')) {
+                  _context6.next = 29;
+                  break;
+                }
+
+                diff = (0, _moment2.default)(Date.now()).diff(data.createdAt, 'minutes');
+
+                if (!(parseInt(diff) > 10 || !payload || !payload.quantity || isNaN(parseInt(payload.quantity)))) {
+                  _context6.next = 21;
+                  break;
+                }
+
+                return _context6.abrupt('return', _this.badRequest('This request is invalid, time for this might have elapsed or bad input'));
+
+              case 21:
+                _context6.next = 23;
+                return MealOrders.findOne({ where: { orderId: data.id, mealId: Id } });
+
+              case 23:
+                target = _context6.sent;
+
+                if (target) {
+                  _context6.next = 26;
+                  break;
+                }
+
+                return _context6.abrupt('return', _this.unprocessableEntity('Sorry we cant find any order matching your criteria'));
+
+              case 26:
+                _context6.next = 28;
+                return target.update(payload);
+
+              case 28:
+                return _context6.abrupt('return', target);
+
+              case 29:
+                _this.unprocessableEntity('Please specify who is trying to mutate this object');
+
+              case 30:
               case 'end':
                 return _context6.stop();
             }
@@ -466,10 +461,51 @@ var OrderServiceBase = function (_BaseService) {
         }, _callee6, _this2);
       }));
 
-      return function (_x11, _x12) {
+      return function (_x7, _x8, _x9, _x10, _x11, _x12) {
         return _ref7.apply(this, arguments);
       };
     }();
+
+    _this.__fetchAll = function (id, type) {
+      return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+        var pagination = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        return regeneratorRuntime.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _this._validateFetchAllArgs(id, type);
+
+                if (!(type === 'kitchen')) {
+                  _context7.next = 7;
+                  break;
+                }
+
+                _context7.next = 4;
+                return _kitchens2.default.__fetchOrders('id', id)(pagination);
+
+              case 4:
+                return _context7.abrupt('return', _context7.sent);
+
+              case 7:
+                if (!(type === 'user')) {
+                  _context7.next = 11;
+                  break;
+                }
+
+                _context7.next = 10;
+                return _this.__model.findAll(_extends({ where: { userId: id }, include: [Meal] }, pagination));
+
+              case 10:
+                return _context7.abrupt('return', _context7.sent);
+
+              case 11:
+              case 'end':
+                return _context7.stop();
+            }
+          }
+        }, _callee7, _this2);
+      }));
+    };
 
     _this.model = model;
     return _this;

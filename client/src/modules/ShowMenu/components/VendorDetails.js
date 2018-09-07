@@ -14,7 +14,7 @@ const generateImageFromMealsInMenu = (meals) => {
 export default ({ menu }) => (
   <div className="menu-title-and-owner-grid">
     <div className="content-details">
-      <img src={generateImageFromMealsInMenu(menu.Meals)} className="content-avatar" alt="menuImage" />
+      <img src={generateImageFromMealsInMenu(menu.meals)} className="content-avatar" alt="menuImage" />
       <div className="menu-details">
         <p className="menu-det-name"> { menu.name || '' } </p>
         <p className="menu-det-details">{menu.description || ''}</p>
@@ -24,10 +24,10 @@ export default ({ menu }) => (
     <div className="vendor-details-def">
       <p className="announce-vendor"> Vendor</p>
       <div className="vendor-details-main">
-        <img src={(menu.Kitchen && menu.Kitchen.image) || config.defaultKitchenImage } className="content-avatar" alt="vendorImage" />
+        <img src={(menu.kitchen && menu.kitchen.image) || config.defaultKitchenImage } className="content-avatar" alt="vendorImage" />
         <div className="vendor-details-brief">
-          <p className="vendor-details-name">{menu.Kitchen && menu.Kitchen.name}</p>
-          <p className="vendor-details-bio-brief">{menu.Kitchen && menu.Kitchen.description}</p>
+          <p className="vendor-details-name">{menu.kitchen && menu.kitchen.name}</p>
+          <p className="vendor-details-bio-brief">{menu.kitchen && menu.kitchen.description}</p>
         </div>
       </div>
       <p className="subscribe-button"> Subscribe </p>

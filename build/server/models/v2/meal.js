@@ -8,7 +8,7 @@ var _sequelize = require('sequelize');
 
 var _ = require('./');
 
-var Meal = _.sequelize.define('Meal', {
+var Meal = _.sequelize.define('meal', {
   name: {
     type: _sequelize.DataTypes.STRING
   },
@@ -18,11 +18,11 @@ var Meal = _.sequelize.define('Meal', {
   image: {
     type: _sequelize.DataTypes.STRING
   },
-  KitchenId: {
+  kitchenId: {
     type: _sequelize.DataTypes.UUID,
     allowNull: false
   },
-  MenuId: {
+  menuId: {
     type: _sequelize.DataTypes.UUID
   },
   price: {

@@ -14,7 +14,7 @@ export default Component => (props) => {
                 width: '100%',
                 position: 'absolute',
                 display: 'flex',
-                flexFlow: "column",
+                flexFlow: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 ...props.emptyContainerStyle
@@ -35,6 +35,6 @@ export default Component => (props) => {
     }
     </div>
   );
-  console.log(Component);
+ 
   return (<Component {...props} />);
 };

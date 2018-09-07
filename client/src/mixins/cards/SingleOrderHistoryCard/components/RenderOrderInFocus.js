@@ -5,7 +5,7 @@ import RenderModal from '../../../../mixins/modals';
 export default ({ data, handleClose }) => (
   <RenderModal display="none" handleClose={handleClose}>
     <DisplayOrderCard
-      meals={data.Meals}
+      meals={data.meals}
       order={data}
       style={{
             height: '55%',

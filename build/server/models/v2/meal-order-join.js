@@ -8,12 +8,12 @@ var _sequelize = require('sequelize');
 
 var _ = require('./');
 
-var MealOrders = _.sequelize.define('MealOrder', {
-  OrderId: {
+var MealOrders = _.sequelize.define('mealOrder', {
+  orderId: {
     type: _sequelize.DataTypes.UUID,
     allowNull: false
   },
-  MealId: {
+  mealId: {
     type: _sequelize.DataTypes.UUID,
     allowNull: false
   },

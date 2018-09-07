@@ -30,17 +30,21 @@ var _menu = require('./routes/menu');
 
 var _menu2 = _interopRequireDefault(_menu);
 
+var _baseMiddleware = require('./middlewares/base-middleware');
+
+var _baseMiddleware2 = _interopRequireDefault(_baseMiddleware);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var api = (0, _express.Router)();
 
 api.get('/heartbeat', function (req, res) {
   return res.send({ ok: true });
-}).use('/auth', _auth2.default).use('/users', _user2.default).use('/kitchens', _kitchens2.default).use('/meals', _meals2.default).use('/menus', _menu2.default).use('/orders', _orders2.default);
+}).use('/auth', _auth2.default).use('/users', _baseMiddleware2.default.formatPaginationQuery, _user2.default).use('/kitchens', _baseMiddleware2.default.formatPaginationQuery, _kitchens2.default).use('/meals', _baseMiddleware2.default.formatPaginationQuery, _meals2.default).use('/menus', _baseMiddleware2.default.formatPaginationQuery, _menu2.default).use('/orders', _baseMiddleware2.default.formatPaginationQuery, _orders2.default);
 
 // No routes matched? 404.
 api.use(function (req, res) {
-  return res.status(404).send('Sorry that route/method doesnt exist');
+  return res.status(404).json({ error: 'Sorry that route/method doesnt exist' });
 });
 
 exports.default = api;

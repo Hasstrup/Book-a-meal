@@ -22,6 +22,10 @@ var _orders = require('../../../services/orders/');
 
 var _orders2 = _interopRequireDefault(_orders);
 
+var _menu = require('../../../services/menu');
+
+var _menu2 = _interopRequireDefault(_menu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -61,31 +65,36 @@ describe('Orders endpoints', function () {
           case 6:
             kitchen = _context.sent;
             _context.next = 9;
-            return Meal.findAll({ include: [{ all: true }] });
+            return Meal.findAll({ where: { kitchenId: kitchen[0].id }, include: [{ all: true }] });
 
           case 9:
             target = _context.sent;
 
             meals = target.map(function (meal) {
-              return { id: meal.id, quantity: Math.floor(Math.random() * 10), kitchen: meal.KitchenId };
+              return { id: meal.id, quantity: 4, kitchenId: meal.kitchenId };
             });
+            // need to add to menu of the day;
             _context.next = 13;
-            return _encrypt2.default.issueToken({ id: data.id });
+            return _menu2.default.__setMenuOfTheDay(kitchen[0], { name: 'This is a test', description: 'yeah this is a test', meals: meals });
 
           case 13:
-            token = _context.sent;
-            _context.next = 16;
-            return _encrypt2.default.issueToken({ id: kitchen[0].UserId });
+            _context.next = 15;
+            return _encrypt2.default.issueToken({ id: data.id });
 
-          case 16:
+          case 15:
+            token = _context.sent;
+            _context.next = 18;
+            return _encrypt2.default.issueToken({ id: kitchen[0].userId });
+
+          case 18:
             kitchenToken = _context.sent;
-            _context.next = 19;
+            _context.next = 21;
             return _orders2.default.__create(data.id, { meals: meals });
 
-          case 19:
+          case 21:
             test = _context.sent;
 
-          case 20:
+          case 22:
           case 'end':
             return _context.stop();
         }
@@ -105,7 +114,7 @@ describe('Orders endpoints', function () {
             res = _context2.sent;
 
             (0, _chai.expect)(res.body.data).to.be.an('array');
-            (0, _chai.expect)(res.body.data[0].UserId).to.equal(data.id);
+            (0, _chai.expect)(res.body.data[0].userId).to.equal(data.id);
             (0, _chai.expect)(res.statusCode).to.equal(200);
 
           case 6:
@@ -151,9 +160,10 @@ describe('Orders endpoints', function () {
             res = _context4.sent;
 
             (0, _chai.expect)(res.body.data).to.be.an('object');
-            (0, _chai.expect)(res.body.data.UserId).to.equal(data.id);
+            (0, _chai.expect)(res.body.data.userId).to.equal(data.id);
+            test = res.body.data;
 
-          case 6:
+          case 7:
           case 'end':
             return _context4.stop();
         }
@@ -167,16 +177,15 @@ describe('Orders endpoints', function () {
         switch (_context5.prev = _context5.next) {
           case 0:
             valid = { quantity: 10 };
-            data = res.body.data;
-            _context5.next = 4;
-            return (0, _supertest2.default)(_2.default).put('/api/v1/orders/' + data.id).set('authorization', token).send(valid).query({ type: 'user', mealId: data.meals[0].id });
+            _context5.next = 3;
+            return (0, _supertest2.default)(_2.default).put('/api/v1/orders/' + test.id).set('authorization', token).send(valid).query({ type: 'user', mealId: test.meals[0].id });
 
-          case 4:
+          case 3:
             res = _context5.sent;
 
             (0, _chai.expect)(res.body.data.quantity).to.equal(10);
 
-          case 6:
+          case 5:
           case 'end':
             return _context5.stop();
         }
