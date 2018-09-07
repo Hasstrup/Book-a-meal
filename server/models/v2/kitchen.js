@@ -17,7 +17,11 @@ const Kitchen = sequelize.define('kitchen', {
     }
   },
   MenuofTheDay: {
-    type: DataTypes.UUID
+    type: DataTypes.UUID,
+    references: {
+      model: Menu,
+      key: 'id'
+    }
   },
   description: {
     type: DataTypes.STRING,

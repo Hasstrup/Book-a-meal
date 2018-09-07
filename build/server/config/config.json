@@ -1,0 +1,33 @@
+{
+  "development": {
+    "username": "hasstrupezekiel",
+    "password": "PASSWORD",
+    "database": "book-a-meal-dev",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "logging": false
+  },
+  "test": {
+    "username": "hasstrupezekiel",
+    "password": "PASSWORD",
+    "database": "book_a_meal_test",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "logging": false
+  },
+  "production": {
+    "username": "ofiggkgonktqjo",
+    "password": "95d874f8fcfd7518befc928281ad7e0cf3d44d827227a7dcfcd7cfaddd910b51",
+    "database": "d7sdg7kq25grnc",
+    "host": "ec2-174-129-41-64.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "port": 5432,
+    "logging": false,
+    "ssl": true,
+       "dialectOptions": {
+           "ssl": true
+       }
+}
+}

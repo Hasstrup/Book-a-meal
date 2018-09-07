@@ -29,4 +29,4 @@ const Meal = sequelize.define('meal', {
   }
 });
 
-export default Meal
+export default Meal;

@@ -13,10 +13,6 @@ const Menu = sequelize.define('menu', {
   kitchenId: {
     type: DataTypes.UUID,
     allowNull: false,
-    references: {
-      model: 'kitchens',
-      key: 'id'
-    }
   },
   id: {
     type: DataTypes.UUID,

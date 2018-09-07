@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { Op } from 'sequelize';
 import BaseService from '../base-service';
 import KitchenService from '../kitchens/';
 import MenuService from '../menu/';
@@ -66,6 +67,13 @@ class OrderServiceBase extends BaseService {
   }
 
 
+  __mustBelongToKitchenSpecified = async (meals) => {
+    // format the meals to look like this // hopefully this is not too expensive
+    const formattedQuery = meals.map(meal => ({ id: meal.id, kitchenId: meal.kitchenId }));
+    const count = await Meal.count({ where: { [Op.or]: formattedQuery } });
+    return count === formattedQuery.length;
+  }
+
   // Persistent Methods
   __create = async (userId, body) => {
     if (!userId || !body || (typeof body) !== 'object' || !body.meals || body.meals.constructor !== Array) {
@@ -73,22 +81,14 @@ class OrderServiceBase extends BaseService {
     }
     // assuming there is a list of meals that comes in the body of the request;
     let ref = {};
-    Object.keys(body).forEach((key) => {
-      if (key !== 'meals') {
-        ref[`${key}`] = body[`${key}`];
-      }
-    });
-
+    if (!(await this.__mustBelongToKitchenSpecified(body.meals))) return this.badRequest('Sorry looks like some of the meals dont belong to the kitchen specified');
     ref.status = {};
-    // map the kitchen into the ref array // so that kitchens are sorted automatically
     body.meals.forEach((item) => {
       ref.status[`${item.kitchenId}`] = false;
     });
     // creating the actual order;
-
     target = Object.assign({}, ref, { userId });
     data = await this.__model.create(target);
-    // await data.addMeals(body.meals);
     body.meals = body.meals.map((meal) => {
       if (!meal.id || !meal.quantity) {
         return this.badRequest('Please pass in the right values for the order, including quantity');
