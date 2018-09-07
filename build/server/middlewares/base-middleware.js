@@ -41,6 +41,13 @@ var BaseMiddleware = function () {
 
     _classCallCheck(this, BaseMiddleware);
 
+    this.allowConfirmedUsersOnly = function (req, _, next) {
+      if (req.user.confirmedEmail || process.env.NODE_ENV === 'test') return next();
+      err = new Error('You need to confirm your email to complete this action');
+      err.status = 401;
+      return next(err);
+    };
+
     this.__filterAccess = function (req, res, next) {
       _encrypt2.default.decodeToken(req.headers.authorization).then(function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(payload) {
@@ -55,7 +62,7 @@ var BaseMiddleware = function () {
                   data = _context.sent;
 
                   req.user = data.get({ plain: true });
-                  req.kitchen = data.Kitchen ? data.Kitchen : null;
+                  req.kitchen = data.kitchen ? data.kitchen : null;
                   return _context.abrupt('return', next());
 
                 case 6:
@@ -70,6 +77,7 @@ var BaseMiddleware = function () {
           return _ref.apply(this, arguments);
         };
       }()).catch(function (err) {
+        console.log(err);
         next(new _validation2.default('Something went wrong trying to grant you access, Token might be deformed', 401));
       });
     };
@@ -227,7 +235,6 @@ var BaseMiddleware = function () {
   _createClass(BaseMiddleware, null, [{
     key: 'checkForNullInput',
 
-
     // ================= methods that matter in challenge 3 ===========================
 
 
@@ -304,6 +311,22 @@ var BaseMiddleware = function () {
 
   return BaseMiddleware;
 }();
+
+BaseMiddleware.formatPaginationQuery = function (req, res, next) {
+  if (req.query.lm && req.query.off) {
+    if (!Number.isInteger(parseInt(req.query.lm)) || !Number.isInteger(parseInt(req.query.off))) {
+      // sending an invalid query
+      err = new Error('Please pass in the right queries to paginate with');
+      err.status = 422;
+      return next(err);
+    }
+    req.paginationQuery = { limit: parseInt(req.query.lm), offset: parseInt(req.query.off) };
+    return next();
+  }
+  // set the default paginationQuery
+  req.paginationQuery = { limit: 10, offset: 0 };
+  return next();
+};
 
 BaseMiddleware.checkAuthorization = function (req, res, next) {
   if (!req.headers || !req.headers.authorization) {

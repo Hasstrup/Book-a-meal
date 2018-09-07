@@ -48,7 +48,7 @@ var MenuControllerBase = function (_BaseController) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _menu2.default.__fetchCatalogue();
+                return _menu2.default.__fetchCatalogue()(req.paginationQuery);
 
               case 2:
                 data = _context.sent;
@@ -69,7 +69,7 @@ var MenuControllerBase = function (_BaseController) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _menu2.default.__fetchOne('id', req.params.mmid);
+                return _menu2.default.__fetchOne('id', req.params.mmid)(req.paginationQuery);
 
               case 2:
                 data = _context2.sent;

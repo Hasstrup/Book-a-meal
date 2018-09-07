@@ -31,7 +31,7 @@ router.get('/', _baseMiddleware2.default.checkPopulateQuery, _kitchen2.default.f
 
 router.get('/:ktid', _baseMiddleware2.default.checkPopulateQuery, _baseMiddleware2.default.__checkParams, _kitchen2.default.fetchSingle, _error2.default.dispatch);
 
-router.post('/', _baseMiddleware2.default.checkAuthorization, _kitchen4.default.__filterAccess, _baseMiddleware2.default.checkForNullInput, _kitchen4.default.checkRequired, _kitchen2.default.create, _error2.default.dispatch);
+router.post('/', _baseMiddleware2.default.checkAuthorization, _kitchen4.default.__filterAccess, _kitchen4.default.allowConfirmedUsersOnly, _baseMiddleware2.default.checkForNullInput, _kitchen4.default.checkRequired, _kitchen2.default.create, _error2.default.dispatch);
 
 router.put('/:ktid', _baseMiddleware2.default.checkAuthorization, _kitchen4.default.__filterAccess, _baseMiddleware2.default.__checkParams, _kitchen4.default.__revokeAccess, _baseMiddleware2.default.checkForNullInput, _kitchen2.default.updateOne, _error2.default.dispatch);
 

@@ -8,8 +8,8 @@ var _sequelize = require('sequelize');
 
 var _ = require('./');
 
-var Order = _.sequelize.define('Order', {
-  UserId: {
+var Order = _.sequelize.define('order', {
+  userId: {
     type: _sequelize.DataTypes.UUID,
     allowNull: false
   },

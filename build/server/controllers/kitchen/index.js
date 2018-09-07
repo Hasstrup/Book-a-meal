@@ -74,7 +74,7 @@ var KitchenControllerBase = function (_BaseController) {
                 }
 
                 _context2.next = 3;
-                return _kitchens2.default.__fetchAll('populate');
+                return _kitchens2.default.__fetchAll('populate')(req.paginationQuery);
 
               case 3:
                 _context2.t0 = _context2.sent;
@@ -83,7 +83,7 @@ var KitchenControllerBase = function (_BaseController) {
 
               case 6:
                 _context2.next = 8;
-                return _kitchens2.default.__fetchAll();
+                return _kitchens2.default.__fetchAll()(req.paginationQuery);
 
               case 8:
                 _context2.t0 = _context2.sent;
@@ -112,7 +112,7 @@ var KitchenControllerBase = function (_BaseController) {
                 }
 
                 _context3.next = 3;
-                return _kitchens2.default.fetchOne('id', req.params.ktid, 'populate');
+                return _kitchens2.default.__fetchOne('id', req.params.ktid, 'populate')(req.paginationQuery);
 
               case 3:
                 _context3.t0 = _context3.sent;
@@ -121,7 +121,7 @@ var KitchenControllerBase = function (_BaseController) {
 
               case 6:
                 _context3.next = 8;
-                return _kitchens2.default.fetchOne('id', req.params.ktid);
+                return _kitchens2.default.__fetchOne('id', req.params.ktid, false)(req.paginationQuery);
 
               case 8:
                 _context3.t0 = _context3.sent;
@@ -180,13 +180,12 @@ var KitchenControllerBase = function (_BaseController) {
       })), next);
     }, _this.fetchOrders = function (req, res, next) {
       _this.wrapInTryCatch(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
-        var data;
         return regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 _context6.next = 2;
-                return _kitchens2.default.fetchOrders('id', req.query.ktid);
+                return _kitchens2.default.fetchOrders('id', req.query.ktid)(req.paginationQuery);
 
               case 2:
                 data = _context6.sent;
@@ -202,13 +201,12 @@ var KitchenControllerBase = function (_BaseController) {
       })), next);
     }, _this.fetchMenus = function (req, res, next) {
       _this.wrapInTryCatch(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
-        var data;
         return regeneratorRuntime.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
                 _context7.next = 2;
-                return _kitchens2.default.fetchMenus('id', parseInt(req.query.ktid));
+                return _kitchens2.default.fetchMenus('id', parseInt(req.query.ktid))(req.paginationQuery);
 
               case 2:
                 data = _context7.sent;
@@ -224,7 +222,6 @@ var KitchenControllerBase = function (_BaseController) {
       })), next);
     }, _this.fetchSubscribers = function (req, res, next) {
       _this.wrapInTryCatch(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
-        var data;
         return regeneratorRuntime.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {

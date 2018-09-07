@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 require('babel-polyfill');
 
 var _sequelize = require('sequelize');
@@ -67,34 +69,44 @@ var MenuService = function (_BaseService) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MenuService.__proto__ || Object.getPrototypeOf(MenuService)).call.apply(_ref, [this].concat(args))), _this), _this.__fetchCatalogue = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return Kitchen.findAll();
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MenuService.__proto__ || Object.getPrototypeOf(MenuService)).call.apply(_ref, [this].concat(args))), _this), _this.__fetchCatalogue = function () {
+      return function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(pagination) {
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.next = 2;
+                  return Kitchen.findAll({
+                    where: { MenuofTheDay: _defineProperty({}, _sequelize.Op.not, null) },
+                    attributes: ['MenuofTheDay']
+                  });
 
-            case 2:
-              data = _context.sent;
+                case 2:
+                  data = _context.sent;
 
-              data = data.map(function (kitchen) {
-                return kitchen.ofTheDay;
-              });
-              _context.next = 6;
-              return Menu.findAll({ where: { id: _defineProperty({}, _sequelize.Op.in, data) }, include: [Meal, Kitchen] });
+                  data = data.map(function (kitchen) {
+                    return kitchen.MenuofTheDay;
+                  });
+                  _context.next = 6;
+                  return Menu.findAll(_extends({ where: { id: _defineProperty({}, _sequelize.Op.in, data) }, include: [Meal, Kitchen] }, pagination));
 
-            case 6:
-              target = _context.sent;
-              return _context.abrupt('return', target);
+                case 6:
+                  return _context.abrupt('return', _context.sent);
 
-            case 8:
-            case 'end':
-              return _context.stop();
-          }
-        }
-      }, _callee, _this2);
-    })), _this.__setMenuOfTheDay = function () {
+                case 7:
+                case 'end':
+                  return _context.stop();
+              }
+            }
+          }, _callee, _this2);
+        }));
+
+        return function (_x) {
+          return _ref2.apply(this, arguments);
+        };
+      }();
+    }, _this.__setMenuOfTheDay = function () {
       var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(kitchen, menu) {
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
@@ -114,7 +126,7 @@ var MenuService = function (_BaseService) {
         }, _callee2, _this2);
       }));
 
-      return function (_x, _x2) {
+      return function (_x2, _x3) {
         return _ref3.apply(this, arguments);
       };
     }(), _this.fetchCatalogue = function () {
@@ -166,12 +178,11 @@ var MenuService = function (_BaseService) {
         }, _callee3, _this2);
       }));
 
-      return function (_x3, _x4, _x5, _x6) {
+      return function (_x4, _x5, _x6, _x7) {
         return _ref4.apply(this, arguments);
       };
     }(), _temp), _possibleConstructorReturn(_this, _ret);
   }
-
   // ================== methods that matter in challenge 3 ===================
 
 

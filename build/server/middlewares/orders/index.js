@@ -34,6 +34,8 @@ var _kitchen2 = _interopRequireDefault(_kitchen);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -55,6 +57,8 @@ var OrdersMiddlewareBase = function (_BaseMiddleware) {
   _inherits(OrdersMiddlewareBase, _BaseMiddleware);
 
   function OrdersMiddlewareBase(model) {
+    var _this2 = this;
+
     _classCallCheck(this, OrdersMiddlewareBase);
 
     var _this = _possibleConstructorReturn(this, (OrdersMiddlewareBase.__proto__ || Object.getPrototypeOf(OrdersMiddlewareBase)).call(this, model));
@@ -69,7 +73,6 @@ var OrdersMiddlewareBase = function (_BaseMiddleware) {
       if (req.qualifier === 'kitchen') {
         if (_this.__ensureKitchenOwner(req, res)) {
           req.key = req.kitchen.id;
-          console.log(req.key);
           if (req.method === 'PUT') {
             req.target = req.kitchen.id;
           }
@@ -101,31 +104,79 @@ var OrdersMiddlewareBase = function (_BaseMiddleware) {
       next();
     };
 
-    _this.__revokeAccess = function (req, res, next) {
-      if (req.qualifier === 'kitchen' && !req.kitchen) {
-        err = new _validation2.default('You need to have a kitchen set up', 403);
-        return next(err);
-      } else if (req.qualifier === 'kitchen' && req.kitchen) {
-        return Order.findOne({ where: { id: req.params.ooid } }).then(function (order) {
-          if (!order || !Object.keys(order.status).includes(req.kitchen.id)) {
-            err = new _validation2.default('Your kitchen is not permitted to do that', 401);
-            return next(err);
+    _this.__revokeAccess = function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res, next) {
+        var orders, order;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return Order.findAll({ where: { id: req.params.ooid } });
+
+              case 2:
+                orders = _context.sent;
+                order = orders[0];
+
+                if (!(req.qualifier === 'kitchen' && !req.kitchen)) {
+                  _context.next = 9;
+                  break;
+                }
+
+                err = new _validation2.default('You need to have a kitchen set up', 403);
+                return _context.abrupt('return', next(err));
+
+              case 9:
+                if (!(req.qualifier === 'kitchen' && req.kitchen)) {
+                  _context.next = 16;
+                  break;
+                }
+
+                if (!(!order || !Object.keys(order.status).includes(req.kitchen.id))) {
+                  _context.next = 13;
+                  break;
+                }
+
+                err = new _validation2.default('Your kitchen is not permitted to do that', 401);
+                return _context.abrupt('return', next(err));
+
+              case 13:
+                return _context.abrupt('return', next());
+
+              case 16:
+                if (!(req.qualifier === 'user' && req.user)) {
+                  _context.next = 21;
+                  break;
+                }
+
+                if (!(!order || order.userId !== req.user.id)) {
+                  _context.next = 20;
+                  break;
+                }
+
+                err = new _validation2.default('You are not permitted to do that', 401);
+                return _context.abrupt('return', next(err));
+
+              case 20:
+                return _context.abrupt('return', _baseMiddleware2.default.checkForNullInput(req, res, next));
+
+              case 21:
+                err = new Error('Please sign in to continue this action');
+                err.status = 403;
+                next(err);
+
+              case 24:
+              case 'end':
+                return _context.stop();
+            }
           }
-          return next();
-        });
-      } else if (req.qualifier === 'user' && req.user) {
-        return Order.findOne({ where: { id: req.params.ooid } }).then(function (order) {
-          if (!order || order.UserId !== req.user.id) {
-            err = new _validation2.default('You are not permitted to do that', 401);
-            return next(err);
-          }
-          return _baseMiddleware2.default.checkForNullInput(req, res, next);
-        });
-      }
-      err = new Error('Please sign in to continue this action');
-      err.status = 403;
-      next(err);
-    };
+        }, _callee, _this2);
+      }));
+
+      return function (_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+      };
+    }();
 
     _this.__checkRequired = function (req, res, next) {
       if (!req.body.meals || req.body.meals.constructor !== Array || req.body.meals.length < 1) {
@@ -133,7 +184,7 @@ var OrdersMiddlewareBase = function (_BaseMiddleware) {
         return next(err);
       }
       if (!req.body.meals.some(function (item) {
-        if (item.id && item.quantity && item.kitchen && (0, _validator.isUUID)(item.id) && (0, _validator.isUUID)(item.kitchen) && item.quantity.constructor === Number && item.quantity > 0) {
+        if (item.id && item.quantity && item.kitchenId && (0, _validator.isUUID)(item.id) && (0, _validator.isUUID)(item.kitchenId) && item.quantity.constructor === Number && item.quantity > 0) {
           return true;
         }return false;
       })) {
@@ -142,7 +193,7 @@ var OrdersMiddlewareBase = function (_BaseMiddleware) {
       }
       if (_this.__ensureKitchenOwner(req, res)) {
         req.body.meals.forEach(function (item) {
-          if (item.kitchen === req.kitchen.id) {
+          if (item.kitchenId === req.kitchen.id) {
             valid = false;
           }
         });
