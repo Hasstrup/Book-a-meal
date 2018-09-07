@@ -117,10 +117,10 @@ class WorkStationContainer extends Component {
     render = () => (
       <div>
         { this.props.user ?
-          <div className="main-profile-body" style={this.props.user.Kitchen && {} || { justifyContent: 'start' }}>
+          <div className="main-profile-body" style={this.props.user.kitchen && {} || { justifyContent: 'start' }}>
             <RenderKitchenAndUserBio user={this.props.user} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
             <RenderWorkStationMain
-              kitchen={this.props.user.Kitchen}
+              kitchen={this.props.kitchen || this.props.user.kitchen || {}}
               handleSubmit={this.handleSubmit}
               meals={this.props.meals}
               determineRenderBy={Object.keys(this.props.kitchen)}

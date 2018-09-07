@@ -27,7 +27,7 @@ const SingleMealCard = ({ meal, kitchen, handleDelete, handleEdit, displayText, 
         </div>
         <div className="buttons-array-and-togglers">
           {
-          kitchen && kitchen.id === meal.KitchenId ?
+          kitchen && kitchen.id === meal.kitchenId ?
           <p className="option-options"> { renderEditable && <span className="edit-meal-option" onClick={handleEdit} id={`target${meal.id}`}> {displayText} </span> } { wantsToEdit ? null : <span className="delete-meal-option" onClick={handleDelete}> Delete </span> } </p>
           : <p className="option-options" onClick={() => dispatch(AddToCart()(meal))}> Order </p>
         }

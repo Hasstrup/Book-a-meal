@@ -23,7 +23,8 @@ const CreateOrder = ({ meals }) => history => (dispatch, getState) => {
   }
   const successCallback = (newOrder) => {
     dispatch(EndProcess());
-    const orders = getState().orders[`${getState().users.current.id}`];
+    const orders = getState().orders.allOrders[`${getState().users.current.id}`];
+    console.log(orders);
     dispatch({ type: 'SET_ALL_ORDERS', payload: [newOrder, ...orders], id: getState().users.current.id });
     swal(`Great Job, ${getState().users.current.firstname}`, `You have placed an order for ${meals.length} meals`, 'success');
     CartOps()()({ clear: true }); // remove the cart items from cache;

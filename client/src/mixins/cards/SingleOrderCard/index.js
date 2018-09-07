@@ -8,7 +8,7 @@ import './styles/index.scss';
 class DisplayOrderCard extends Component {
     handleCreateOrder = () => {
       const { meals, dispatch, history } = this.props;
-      const mealsWithQuantity = meals.map(meal => ({ ...meal, quantity: 1, kitchen: meal.KitchenId }));
+      const mealsWithQuantity = meals.map(meal => ({ ...meal, quantity: 1, kitchen: meal.kitchenId }));
       dispatch(CreateOrder({ meals: mealsWithQuantity })(history));
     }
 
@@ -31,10 +31,10 @@ class DisplayOrderCard extends Component {
             handleConfirm={this.handleConfirmOrder}
             kitchen={this.props.kitchen}
             order={this.props.order}
-            confirmable={this.props.kitchen && Object.keys(this.props.order.status).includes(this.props.kitchen.id)}
+            confirmable={this.props.kitchen && this.props.order && Object.keys(this.props.order.status).includes(this.props.kitchen.id)}
           />
           <div className="current-order-stack-main-card">
-            { MultipleOrders(this.props.meals || [])({})}
+            { MultipleOrders(this.props.meals || [])({ editable: this.props.editable })}
           </div>
         </div>
       </div>

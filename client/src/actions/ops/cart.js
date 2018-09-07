@@ -14,6 +14,7 @@ import _ from 'lodash/array';
 const currentDate = new Date();
 const CartOps = (key = generateKey()) => meal => ({ add, remove, clear }) => {
   let cart;
+  meal = { ...meal, quantity: 1 };
   const addItemToCart = () => {
     if (!localStorage.getItem(key)) {
       cart = { meals: [meal] };

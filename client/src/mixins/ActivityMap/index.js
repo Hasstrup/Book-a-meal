@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { RemoveFromCart, CreateOrder } from '../../actions/orders';
+import { CartOps } from '../../actions/ops/';
 import '../../modules/styles/menu.scss';
 
 
-const ActivityMap = ({ dispatch, cart, showCart }) => (
+const ActivityMap = ({ dispatch, cart, showCart , history}) => (
   <section className="activity-bar" style={{ display: showCart ? 'flex' : 'none' }}>
     <div className="activity-side-one">
       <div className="summary-tab">
         <p className="activity-tab-def"> Activity </p>
         <p className="current-orders-def move-down"> Current orders  <span> { cart && cart.length}</span> </p>
         <p className="display-total-def move-down"> Total <span> N{!cart.length ? 0 : generatePrice(cart) } </span> </p>
-        <p className="go-to-cart-button move-down"> Go to cart </p>
+        <p className="go-to-cart-button move-down" onClick={() => history.push('/orders')}> Go to cart </p>
         <p className="share-a-menu-button move-down"> Share a menu </p>
       </div>
       <p className="point-to-items">   Cart </p>
@@ -20,7 +22,7 @@ const ActivityMap = ({ dispatch, cart, showCart }) => (
       </div>
     </div>
     <div className="activity-side-two">
-      <div className="check-out-button" onClick={() => dispatch(CreateOrder()())}>
+      <div className="check-out-button" onClick={() => history.push('/orders')}>
          Pay Now
       </div>
       <p className="close-item" onClick={() => dispatch({ type: 'MODIFY_ACTIVITY_MAP' })}> close </p>
@@ -53,4 +55,4 @@ const mapStateToProps = state => ({
   cart: state.orders.cart
 });
 
-export default connect(mapStateToProps)(ActivityMap);
+export default connect(mapStateToProps)(withRouter(ActivityMap));

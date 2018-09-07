@@ -7,13 +7,18 @@ import { liftCard, dropCard } from '../utils';
 
 export const SingleMenuCard = ({ data, history, dispatch }) => {
   // return the menu names: YOU might want to splice this
-  const generateMealNames = () => data.Meals.map(meal => (<p>{ meal.name }</p>));
+  const generateMealNames = () => data.meals.map(meal => (<p>{ meal.name }</p>));
 
   // seems neater but will iterate through every item, so not scsalable, TODO: fix
-  const generateImage = () => data.Meals.reduce((a, b) => {
-    if (a.image) return a.image;
-    return a;
-  });
+  const generateImage = () => {
+    if (data.meals.length === 1) {
+      return data.meals[0].image ? data.meals[0].image : 'https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60';
+    }
+    return data.meals.reduce((a, b) => {
+      if (b.image) return b.image;
+      return 'https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60';
+    });
+  };
 
   const animateMenuComponent = () => liftCard(`content-${data.id}`);
 
@@ -39,7 +44,7 @@ export const SingleMenuCard = ({ data, history, dispatch }) => {
           <p className="content-desc-title">{data.description}</p>
         </div>
         <div className="content-owner-image-and-time">
-          <p className="caterer-name"> {data.Kitchen.name}</p>
+          <p className="caterer-name"> {data.kitchen.name}</p>
           <p className="time-posted"> {moment(new Date(data.createdAt)).fromNow()}</p>
         </div>
       </div>

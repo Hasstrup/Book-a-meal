@@ -72,7 +72,7 @@ class BaseService {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;
-    data = await this.__model.findOne({ where: ref, include: [{ all: true, duplicating: false }], ...pagination, subQuery: false });
+    data = await this.__model.findOne({ where: ref, include: [{ all: true, duplicating: false, nested: true }], ...pagination, subQuery: false });
     if (!data) return await this.throwError("Looks like we've gotten to the end of the documents", 422);
     return data;
   }

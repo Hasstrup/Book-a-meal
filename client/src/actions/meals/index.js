@@ -14,7 +14,7 @@ description and image to be sent to cloudinary
 const createNewMeal = data => hideForm => async (dispatch, getState) => {
   try {
     dispatch(StartProcess());
-    const image = await uploadImage(data.image);
+    const image = data.image ? await uploadImage(data.image) : null;
     const successCallback = (meal) => {
       const meals = getState().meals.belongsToUser;
       // shift the meals to the current user's meals so it appears at the top; TODO: PAGINATION
