@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { Op } from 'sequelize';
 import BaseService from '../base-service';
 import KitchenService from '../kitchens/';
 import MenuService from '../menu/';
@@ -66,33 +67,33 @@ class OrderServiceBase extends BaseService {
   }
 
 
+  __mustBelongToKitchenSpecified = async (meals) => {
+    // format the meals to look like this // hopefully this is not too expensive
+    const formattedQuery = meals.map(meal => ({ id: meal.id, kitchenId: meal.kitchenId }));
+    const count = await Meal.count({ where: { [Op.or]: formattedQuery } });
+    return count === formattedQuery.length;
+  }
+
   // Persistent Methods
-  __create = async (UserId, body) => {
-    if (!UserId || !body || (typeof body) !== 'object' || !body.meals || body.meals.constructor !== Array) {
+  __create = async (userId, body) => {
+    if (!userId || !body || (typeof body) !== 'object' || !body.meals || body.meals.constructor !== Array) {
       this.badRequest('The input isnt complete');
     }
     // assuming there is a list of meals that comes in the body of the request;
     let ref = {};
-    Object.keys(body).forEach((key) => {
-      if (key !== 'meals') {
-        ref[`${key}`] = body[`${key}`];
-      }
-    });
-
+    if (!(await this.__mustBelongToKitchenSpecified(body.meals))) return this.badRequest('Sorry looks like some of the meals dont belong to the kitchen specified');
     ref.status = {};
-    // map the kitchen into the ref array // so that kitchens are sorted automatically
     body.meals.forEach((item) => {
-      ref.status[`${item.kitchen}`] = false;
+      ref.status[`${item.kitchenId}`] = false;
     });
     // creating the actual order;
-    target = Object.assign({}, ref, { UserId });
+    target = Object.assign({}, ref, { userId });
     data = await this.__model.create(target);
-    // await data.addMeals(body.meals);
     body.meals = body.meals.map((meal) => {
       if (!meal.id || !meal.quantity) {
         return this.badRequest('Please pass in the right values for the order, including quantity');
       }
-      return { OrderId: data.id, MealId: meal.id, quantity: meal.quantity };
+      return { orderId: data.id, mealId: meal.id, quantity: meal.quantity };
     });
     // apply a hook here to make sure they are in the menu of the day
 
@@ -108,27 +109,28 @@ class OrderServiceBase extends BaseService {
   }
 
   __mustBeInMenuOfTheDay = async (meals) => {
-    let catalogue = await MenuService.__fetchCatalogue();
+    let catalogue = await MenuService.__fetchCatalogue()();
     const mealCatalogue = catalogue.reduce((a, b) => {
-      const mealsIdMap = b.Meals.map(item => item.id);
+      const mealsIdMap = b.meals.map(item => item.id);
       return [...a, ...mealsIdMap];
     }, []);
 
     if (!catalogue.length) this.badRequest('That order cannot go through, Sorry');
     let filter = [];
     const validMeals = meals.map((meal) => {
-      if (mealCatalogue.includes(meal.MealId)) return meal;
+      if (mealCatalogue.includes(meal.mealId)) return meal;
       filter.push(meal);
       return null;
     }).filter(meal => meal);
     return { filter, validMeals };
   }
 
-  __updateOne = async (key, value, Id, type, payload) => {
+  __updateOne = async (key, value, Id, type, payload, user) => {
     this.checkArguments(key, value, Id);
     let ref = {};
     ref[`${key}`] = value;
-    data = await this.__model.findOne({ where: ref });
+    const orders = await Order.findAll({ where: ref });
+    data = orders[0];
     if (!data) {
       this.unprocessableEntity('Sorry, theres no order matching that criteria');
     }
@@ -142,11 +144,11 @@ class OrderServiceBase extends BaseService {
       });
       return { ...data.get({ plain: true }), changedCorrectly: true };
     } else if (type === 'user') {
-      const diff = (moment().diff(data.createdAt, 'minutes'));
+      const diff = (moment(Date.now()).diff(data.createdAt, 'minutes'));
       if (parseInt(diff) > 10 || !payload || !payload.quantity || isNaN(parseInt(payload.quantity))) {
         return this.badRequest('This request is invalid, time for this might have elapsed or bad input');
       }
-      target = await MealOrders.findOne({ where: { OrderId: data.id, MealId: Id } });
+      target = await MealOrders.findOne({ where: { orderId: data.id, mealId: Id } });
       if (!target) {
         return this.unprocessableEntity('Sorry we cant find any order matching your criteria');
       }
@@ -156,12 +158,12 @@ class OrderServiceBase extends BaseService {
     this.unprocessableEntity('Please specify who is trying to mutate this object');
   }
 
-  __fetchAll = async (id, type) => {
+  __fetchAll = (id, type) => async (pagination = {}) => {
     this._validateFetchAllArgs(id, type);
     if (type === 'kitchen') {
-      return await KitchenService.__fetchOrders('id', id);
+      return await KitchenService.__fetchOrders('id', id)(pagination);
     } else if (type === 'user') {
-      return await this.__model.findAll({ where: { UserId: id }, include: [Meal] });
+      return await this.__model.findAll({ where: { userId: id }, include: [Meal], ...pagination });
     }
   }
 }

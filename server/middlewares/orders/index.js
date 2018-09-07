@@ -23,7 +23,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
 
   // ================= methods that matter in challenge 3 ====================
   checkType = (req, res, next) => {
-    const allowed = ['user', 'kitchen']
+    const allowed = ['user', 'kitchen'];
     if (!req.query || !req.query.type || !allowed.includes(req.query.type)) {
       return next(new ValidatorError('This request requires a type query which should be user or kitchen', 400));
     }
@@ -32,7 +32,6 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     if (req.qualifier === 'kitchen') {
       if (this.__ensureKitchenOwner(req, res)) {
         req.key = req.kitchen.id;
-        console.log(req.key);
         if (req.method === 'PUT') {
           req.target = req.kitchen.id;
         }
@@ -64,28 +63,24 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     next();
   }
 
-  __revokeAccess = (req, res, next) => {
+  __revokeAccess = async (req, res, next) => {
+    const orders = await Order.findAll({ where: { id: req.params.ooid } });
+    const order = orders[0];
     if (req.qualifier === 'kitchen' && !req.kitchen) {
       err = new ValidatorError('You need to have a kitchen set up', 403);
       return next(err);
     } else if (req.qualifier === 'kitchen' && req.kitchen) {
-      return Order.findOne({ where: { id: req.params.ooid } })
-        .then((order) => {
-          if (!order || !Object.keys(order.status).includes(req.kitchen.id)) {
-            err = new ValidatorError('Your kitchen is not permitted to do that', 401);
-            return next(err);
-          }
-          return next();
-        });
+      if (!order || !Object.keys(order.status).includes(req.kitchen.id)) {
+        err = new ValidatorError('Your kitchen is not permitted to do that', 401);
+        return next(err);
+      }
+      return next();
     } else if (req.qualifier === 'user' && req.user) {
-      return Order.findOne({ where: { id: req.params.ooid } })
-        .then((order) => {
-          if (!order || order.UserId !== req.user.id) {
-            err = new ValidatorError('You are not permitted to do that', 401);
-            return next(err);
-          }
-          return BaseMiddleware.checkForNullInput(req, res, next);
-        });
+      if (!order || order.userId !== req.user.id) {
+        err = new ValidatorError('You are not permitted to do that', 401);
+        return next(err);
+      }
+      return BaseMiddleware.checkForNullInput(req, res, next);
     }
     err = new Error('Please sign in to continue this action');
     err.status = 403;
@@ -98,7 +93,7 @@ class OrdersMiddlewareBase extends BaseMiddleware {
       return next(err);
     }
     if (!req.body.meals.some((item) => {
-      if (item.id && item.quantity && item.kitchen && isUUID(item.id) && isUUID(item.kitchen) && item.quantity.constructor === Number && item.quantity > 0) {
+      if (item.id && item.quantity && item.kitchenId && isUUID(item.id) && isUUID(item.kitchenId) && item.quantity.constructor === Number && item.quantity > 0) {
         return true;
       } return false;
     })) {
@@ -107,8 +102,8 @@ class OrdersMiddlewareBase extends BaseMiddleware {
     }
     if (this.__ensureKitchenOwner(req, res)) {
       req.body.meals.forEach((item) => {
-        if (item.kitchen === req.kitchen.id) {
-          valid = false
+        if (item.kitchenId === req.kitchen.id) {
+          valid = false;
         }
       });
       if (!valid) {

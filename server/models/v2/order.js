@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from './';
 
-const Order = sequelize.define('Order', {
-  UserId: {
+const Order = sequelize.define('order', {
+  userId: {
     type: DataTypes.UUID,
     allowNull: false,
   },

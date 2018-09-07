@@ -6,23 +6,24 @@ import KitchenModel from '../../models/v1/kitchen';
 import KitchenServiceObject from '../kitchens';
 import models from '../../models/v2/relationship';
 
-const { Menu, Kitchen, Meal } = models
+const { Menu, Kitchen, Meal } = models;
 
 
 let source;
 let target;
 let data;
-let ref = {};
+const ref = {};
 
 /* eslint radix: 0, no-underscore-dangle: 0, max-len: 0, no-return-await: 0, arrow-body-style: 0 */
 class MenuService extends BaseService {
-
   // ================== methods that matter in challenge 3 ===================
-  __fetchCatalogue = async () => {
-    data = await Kitchen.findAll();
-    data = data.map(kitchen => kitchen.ofTheDay);
-    target = await Menu.findAll({ where: { id: { [Op.in]: data } }, include: [Meal, Kitchen] });
-    return target;
+  __fetchCatalogue = () => async (pagination) => {
+    data = await Kitchen.findAll({
+      where: { MenuofTheDay: { [Op.not]: null } },
+      attributes: ['MenuofTheDay'],
+    });
+    data = data.map(kitchen => kitchen.MenuofTheDay);
+    return await Menu.findAll({ where: { id: { [Op.in]: data } }, include: [Meal, Kitchen], ...pagination });
   }
 
   __setMenuOfTheDay = async (kitchen, menu) => {

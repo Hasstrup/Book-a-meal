@@ -4,7 +4,7 @@ import Menu from './menu';
 import Meal from './meal';
 
 
-const Kitchen = sequelize.define('Kitchen', {
+const Kitchen = sequelize.define('kitchen', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -16,8 +16,12 @@ const Kitchen = sequelize.define('Kitchen', {
       }
     }
   },
-  ofTheDay: {
-    type: DataTypes.UUID
+  MenuofTheDay: {
+    type: DataTypes.UUID,
+    references: {
+      model: Menu,
+      key: 'id'
+    }
   },
   description: {
     type: DataTypes.STRING,
@@ -31,7 +35,7 @@ const Kitchen = sequelize.define('Kitchen', {
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true
   },
-  UserId: {
+  userId: {
     type: DataTypes.UUID,
     allowNull: false
   }
@@ -41,7 +45,7 @@ const Kitchen = sequelize.define('Kitchen', {
 
 /* eslint func-names: 0, no-return-await: 0 */
 Kitchen.prototype.getMenuOfTheDay = async function () {
-  const value = this.getDataValue('ofTheDay');
+  const value = this.getDataValue('MenuofTheDay');
   const menu = await Menu.findOne({ where: { id: value }, include: [Meal] });
   return menu;
 };

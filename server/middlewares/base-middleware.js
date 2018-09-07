@@ -7,12 +7,11 @@ const { User } = models;
 
 let err;
 let data;
-const allowed = [ 'password', 'quantity', 'price' ];
+const allowed = ['password', 'quantity', 'price'];
 let valid = true;
 let culprit;
 
 class BaseMiddleware {
-
 // ================= methods that matter in challenge 3 ===========================
 
 
@@ -47,7 +46,7 @@ class BaseMiddleware {
       // check string fields for numbers
       Object.keys(req.body).forEach((key) => {
         if (!isNaN(parseInt(req.body[`${key}`])) && !allowed.includes(key)) {
-          culprit = key
+          culprit = key;
           valid = false;
         }
       });
@@ -72,16 +71,40 @@ class BaseMiddleware {
     return next(err);
   }
 
+   allowConfirmedUsersOnly = (req, _, next) => {
+     if (req.user.confirmedEmail || process.env.NODE_ENV === 'test') return next();
+     err = new Error('You need to confirm your email to complete this action');
+     err.status = 401;
+     return next(err);
+   }
+
+  static formatPaginationQuery = (req, res, next) => {
+    if (req.query.lm && req.query.off) {
+      if (!Number.isInteger(parseInt(req.query.lm)) || !Number.isInteger(parseInt(req.query.off))) {
+        // sending an invalid query
+        err = new Error('Please pass in the right queries to paginate with');
+        err.status = 422;
+        return next(err);
+      }
+      req.paginationQuery = { limit: parseInt(req.query.lm), offset: parseInt(req.query.off) };
+      return next();
+    }
+    // set the default paginationQuery
+    req.paginationQuery = { limit: 10, offset: 0 };
+    return next();
+  }
+
   __filterAccess = (req, res, next) => {
     Encrypt.decodeToken(req.headers.authorization)
       .then(async (payload) => {
         data = await this.getCurrentUser(payload, next);
         req.user = data.get({ plain: true });
-        req.kitchen = data.Kitchen ? data.Kitchen : null;
+        req.kitchen = data.kitchen ? data.kitchen : null;
         return next();
       })
       .catch((err) => {
-        next(new ValidatorError('Something went wrong trying to grant you access, Token might be deformed', 401))
+        console.log(err);
+        next(new ValidatorError('Something went wrong trying to grant you access, Token might be deformed', 401));
       });
   }
 
@@ -96,7 +119,7 @@ class BaseMiddleware {
     if (next) {
       return next();
     }
-    return true
+    return true;
   }
 
 
@@ -158,7 +181,7 @@ class BaseMiddleware {
     }
     data = this.model.required.map((key) => {
       if (req.body[`${key}`] && req.body[`${key}`].constructor === this.model.keys[`${key}`]) {
-        return { status: true, key }
+        return { status: true, key };
       } else if (req.body[`${key}`] && key === 'price' && !isNaN(parseInt(req.body[`${key}`]))) {
         return { status: true, key };
       }

@@ -14,14 +14,14 @@ class KitchenControllerBase extends BaseController {
 
     fetchAll = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        data = req.populate ? await KitchenModule.__fetchAll('populate') : await KitchenModule.__fetchAll();
+        data = req.populate ? await KitchenModule.__fetchAll('populate')(req.paginationQuery) : await KitchenModule.__fetchAll()(req.paginationQuery);
         this.returnContent(res, data);
       }, next);
     }
 
     fetchSingle = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        data = req.populate ? await KitchenModule.fetchOne('id', req.params.ktid, 'populate') : await KitchenModule.fetchOne('id', req.params.ktid);
+        data = req.populate ? await KitchenModule.__fetchOne('id', req.params.ktid, 'populate')(req.paginationQuery) : await KitchenModule.__fetchOne('id', req.params.ktid, false)(req.paginationQuery);
         this.returnContent(res, data);
       }, next);
     }
@@ -42,21 +42,21 @@ class KitchenControllerBase extends BaseController {
 
     fetchOrders = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        const data = await KitchenModule.fetchOrders('id', req.query.ktid);
+        data = await KitchenModule.fetchOrders('id', req.query.ktid)(req.paginationQuery);
         this.returnContent(res, data);
       }, next);
     }
 
     fetchMenus = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        const data = await KitchenModule.fetchMenus('id', parseInt(req.query.ktid));
+        data = await KitchenModule.fetchMenus('id', parseInt(req.query.ktid))(req.paginationQuery);
         this.returnContent(res, data);
       }, next);
     }
 
     fetchSubscribers = (req, res, next) => {
       this.wrapInTryCatch(async () => {
-        const data = await KitchenModule.fetchMenus('id', parseInt(req.query.ktid));
+        data = await KitchenModule.fetchMenus('id', parseInt(req.query.ktid));
         this.returnContent(res, data);
       }, next);
     }

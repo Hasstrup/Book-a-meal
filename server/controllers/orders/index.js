@@ -14,14 +14,15 @@ class OrderControllerBase extends BaseController {
 
   fetchOrders = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await OrderService.__fetchAll(req.key, req.qualifier);
+      data = await OrderService.__fetchAll(req.key, req.qualifier)(req.paginationQuery);
       this.returnContent(res, data)
     }, next);
   }
 
-  updateOne = (req, res, next) => {
+  __updateOne = (req, res, next) => {
+    console.log('boom')
     this.wrapInTryCatch(async () => {
-      data = await OrderService.__updateOne('id', req.params.ooid, req.target, req.qualifier, req.body);
+      data = await OrderService.__updateOne('id', req.params.ooid, req.target, req.qualifier, req.body, req.user);
       this.resourceCreated(res, data);
     }, next)
   }

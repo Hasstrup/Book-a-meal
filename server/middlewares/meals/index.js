@@ -21,7 +21,7 @@ class MealMiddlewareBase extends BaseMiddleware {
   __revokeAccess = (req, res, next) => {
     Meal.findOne({ where: { id: req.params.mealId } })
       .then((meal) => {
-        if (!meal || meal.KitchenId !== req.kitchen.id) {
+        if (!meal || meal.kitchenId !== req.kitchen.id) {
           return next(new ValidatorError('You do not have permissions to do that', 401));
         }
         return next();

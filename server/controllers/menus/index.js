@@ -7,14 +7,14 @@ let data;
 class MenuControllerBase extends BaseController {
   fetchCatalogue = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await MenuServiceObject.__fetchCatalogue();
+      data = await MenuServiceObject.__fetchCatalogue()(req.paginationQuery);
       this.returnContent(res, data);
     }, next);
   }
 
   fetchSingle = (req, res, next) => {
     this.wrapInTryCatch(async () => {
-      data = await MenuServiceObject.__fetchOne('id', req.params.mmid);
+      data = await MenuServiceObject.__fetchOne('id', req.params.mmid)(req.paginationQuery);
       this.returnContent(res, data);
     }, next);
   }

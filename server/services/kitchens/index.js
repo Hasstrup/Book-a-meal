@@ -21,7 +21,7 @@ class KitchenService extends BaseService {
     if (!id || !body || (typeof body) !== 'object') {
       return this.badRequest('please pass in the right values :)');
     }
-    data = Object.assign({}, body, { UserId: id });
+    data = Object.assign({}, body, { userId: id });
     return await this.__model.create(data);
   }
 
@@ -43,12 +43,12 @@ class KitchenService extends BaseService {
   }
 
   // The logic should be to fetch all the orders and include
-  __fetchOrders = async (key, value) => {
+  __fetchOrders = (key, value) => async (pagination={}) => {
     this.checkArguments(key, value);
     let ref = {};
     ref[`${key}`] = value;
     target = await this.__model.findOne({ where: ref });
-    source = await Order.findAll({ include: { model: Meal, include: [Kitchen] } });
+    source = await Order.findAll({ include: { model: Meal, include: [Kitchen] }, ...pagination });
     // so source  returns an array of Meals in the Meals field since it's 1:m rel
     dataTree = source.filter(order => Object.keys(order.status).includes(target.id));
     // remember to filter the order's content
@@ -60,7 +60,7 @@ class KitchenService extends BaseService {
     let ref = {};
     ref[`${key}`] = value;
     target = await this.__model.findOne({ where: ref, include: [Menu] });
-    return target.Menus;
+    return target.menus;
   }
 
   _getMenus = (node) => {
@@ -143,12 +143,12 @@ class KitchenService extends BaseService {
       if (newMenu.meals) {
         const { meals } = newMenu;
         meals.forEach((meal) => {
-          const { KitchenId } = meal;
-          if (KitchenId !== source.id) {
+          const { kitchenId } = meal;
+          if (kitchenId !== source.id) {
             let err;
             err = new Error(`You do not own this meal : ${meal.name}`);
             err.status = 401;
-            throw err
+            throw err;
           }
           mealPresent = true;
         });
@@ -156,14 +156,14 @@ class KitchenService extends BaseService {
 
       // Try finding or creating the menu;
       await Menu.findOrCreate({
-        where: { name: data.name, KitchenId: source.id },
-        defaults: { ...data, KitchenId: source.id }
+        where: { name: data.name, kitchenId: source.id },
+        defaults: { ...data, kitchenId: source.id }
       }).spread(async (menu) => {
         if (mealPresent) {
           newMenu.meals = newMenu.meals.map(meal => meal.id);
-          await Meal.update({ MenuId: menu.id }, { where: { id: { [Op.in]: newMenu.meals }, KitchenId: source.id } });
+          await Meal.update({ menuId: menu.id }, { where: { id: { [Op.in]: newMenu.meals }, kitchenId: source.id } });
         }
-        await source.update({ ofTheDay: menu.id });
+        await source.update({ MenuofTheDay: menu.id });
       });
       return await source.getMenuOfTheDay();
     }
