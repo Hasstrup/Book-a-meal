@@ -48,7 +48,7 @@ var MealControllerBase = function (_BaseController) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _meals2.default.__fetchOne('id', req.params.mealId);
+                return _meals2.default.__fetchOne('id', req.params.mealId)();
 
               case 2:
                 data = _context.sent;
@@ -69,7 +69,7 @@ var MealControllerBase = function (_BaseController) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _meals2.default.__fetchMealsForKitchen(req.kitchen);
+                return _meals2.default.__fetchMealsForKitchen(req.kitchen)(req.paginationQuery);
 
               case 2:
                 data = _context2.sent;

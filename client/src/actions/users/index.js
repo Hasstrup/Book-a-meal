@@ -4,6 +4,7 @@ import { DispatchNotification, StartProcess, EndProcess } from '../../actionType
 import { fetchMenuOfTheDayOfUser } from '../../actions/menus';
 import { TargetKitchenRetrieved } from '../../actionTypes/kitchens';
 import MealActions from '../meals';
+import { CartOps } from '../ops/';
 import { CacheHandler, RequestHandler } from '../helpers';
 import config from '../../config';
 
@@ -22,12 +23,14 @@ export const SignUpUser = body => history => (dispatch, getState) => {
   dispatch(StartProcess());
   return axios.post(`${config.url}/auth/signup`, body)
     .then((res) => {
-      dispatch(NewSignUp(res.data));
+      dispatch(NewSignUp(res.data.data));
       dispatch(EndProcess());
       CacheHandler().setContent(res.data.data, '#user!!@##$');
       CacheHandler().setContent(res.data.data.token, '#token!!#$3');
       if (getState().funcs && getState().funcs.pending) return getState().funcs.pending();
       history.push('/catalogue');
+      window.location.reload();
+      dispatch(DispatchNotification(`Welcome to Book A Meal ${res.data.data.firstname}. I'm jarvis, here to help :)`));
       // only dispatch if the user has a kitchen
     })
     .catch((err) => {
@@ -49,12 +52,13 @@ export const LogInUser = body => history => (dispatch, getState) => {
   return axios.post(`${config.url}/auth/login`, body)
     .then((res) => {
       dispatch(NewSignUp(res.data));
-      if (res.data.data.Kitchen && res.data.data.Kitchen.name) dispatch(TargetKitchenRetrieved(res.data.data.Kitchen));
+      if (res.data.data.kitchen && res.data.data.kitchen.name) dispatch(TargetKitchenRetrieved(res.data.data.kitchen));
       dispatch(EndProcess());
       CacheHandler().setContent(res.data.data.token, '#token!!#$3');
       CacheHandler().setContent(res.data.data, '#user!!@##$');
       if (getState().funcs && getState().funcs.pending) return getState().funcs.pending();
       history.push('/catalogue');
+      window.location.reload();
     })
     .catch((err) => {
       dispatch(EndProcess());
@@ -66,6 +70,7 @@ export const LogInUser = body => history => (dispatch, getState) => {
 export const LogOutUser = (history) => {
   localStorage.removeItem('#token!!#$3');
   localStorage.removeItem('#user!!@##$');
+  CartOps()()({ clear: true });
   history.push('/');
   window.location.reload();
 };
@@ -90,8 +95,8 @@ export const GetLoggedInUser = () => CacheHandler().getContent('#user!!@##$');
 export const FetchUser = () => (dispatch, getState) => {
   const callBack = (user) => {
     dispatch(SpecificUserFetched(user));
-    if (user.Kitchen && user.Kitchen.name) {
-      dispatch(TargetKitchenRetrieved(user.Kitchen));
+    if (user.kitchen && user.kitchen.name) {
+      dispatch(TargetKitchenRetrieved(user.kitchen));
       dispatch(fetchMenuOfTheDayOfUser());
       return dispatch(fetchAllMealsBelongingToUser()); // should work after the Kitchen is set up
     }

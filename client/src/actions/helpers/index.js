@@ -35,6 +35,7 @@ export const RequestHandler = requestBody => successCallback => (dispatch) => {
     })
     .then(response => successCallback(response.data.data))
     .catch((err) => {
+      console.log(err);
       dispatch(EndProcess());
       if (err.response) return dispatch(DispatchNotification(err.response.data.error));
       return dispatch(DispatchNotification('Sorry, that didnt go through'));

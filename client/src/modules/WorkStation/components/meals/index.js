@@ -18,9 +18,8 @@ export default ({ handleSubmit, meals }) => {
       <div className="announce-item item-menu-options">
       <p className="announce-item-key motd-main"> Meal Options </p>
       <p className="announce-item-description motd-description">
-                 Here are some insights on how you've fared
-                 today and generally how well you've done so far
-                 with us! Enjoy
+                Here you get to manage your meals, Add some and delete as you please.
+                Remember to save some for later :).
       </p>
     </div>
       <div className="menu-options-comp-two">

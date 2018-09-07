@@ -8,7 +8,7 @@ var _sequelize = require('sequelize');
 
 var _index = require('./index');
 
-var Menu = _index.sequelize.define('Menu', {
+var Menu = _index.sequelize.define('menu', {
   name: {
     type: _sequelize.DataTypes.STRING,
     allowNull: false
@@ -17,13 +17,9 @@ var Menu = _index.sequelize.define('Menu', {
     type: _sequelize.DataTypes.STRING,
     allowNull: false
   },
-  KitchenId: {
+  kitchenId: {
     type: _sequelize.DataTypes.UUID,
-    allowNull: false,
-    references: {
-      model: 'Kitchens',
-      key: 'id'
-    }
+    allowNull: false
   },
   id: {
     type: _sequelize.DataTypes.UUID,

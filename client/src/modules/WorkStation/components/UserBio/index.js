@@ -4,7 +4,7 @@ export default ({ user, handleChange, handleSubmit }) => (
   <div className="show-user-and-kitchen-profile">
     <RenderUserBio user={user} />
     <SetUpNewKitchen handleChange={handleChange} handleSubmit={handleSubmit} />
-    { user.Kitchen && <RenderKitchenProfileMain kitchen={user.Kitchen} /> }
+    { user.kitchen && <RenderKitchenProfileMain kitchen={user.kitchen} /> }
   </div>
 );
 

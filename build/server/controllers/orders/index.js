@@ -68,7 +68,7 @@ var OrderControllerBase = function (_BaseController) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _orders2.default.__fetchAll(req.key, req.qualifier);
+                return _orders2.default.__fetchAll(req.key, req.qualifier)(req.paginationQuery);
 
               case 2:
                 data = _context2.sent;
@@ -82,14 +82,15 @@ var OrderControllerBase = function (_BaseController) {
           }
         }, _callee2, _this2);
       })), next);
-    }, _this.updateOne = function (req, res, next) {
+    }, _this.__updateOne = function (req, res, next) {
+      console.log('boom');
       _this.wrapInTryCatch(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return _orders2.default.__updateOne('id', req.params.ooid, req.target, req.qualifier, req.body);
+                return _orders2.default.__updateOne('id', req.params.ooid, req.target, req.qualifier, req.body, req.user);
 
               case 2:
                 data = _context3.sent;

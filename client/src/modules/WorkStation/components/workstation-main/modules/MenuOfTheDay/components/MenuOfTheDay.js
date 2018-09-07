@@ -34,8 +34,8 @@ export default ({ handleClick, buttonText, ofTheDay, openModal, previewImage }) 
         <div className="motd-card-def">
           <p className="motd-name motd1" ref={nameInput}> { ofTheDay && ofTheDay.name ? ofTheDay.name : 'Good Morning Burrito' } </p>
           {
-                    ofTheDay && ofTheDay.Meals ?
-                      <p className="motd-items motd1">{ generateNames(ofTheDay.Meals) }<span className="motd-count"> {`(${ofTheDay.Meals.length})`} </span></p>
+                    ofTheDay && ofTheDay.meals ?
+                      <p className="motd-items motd1">{ generateNames(ofTheDay.meals) }<span className="motd-count"> {`(${ofTheDay.meals.length})`} </span></p>
                     : <p className="motd-items motd1" style={{ textDecoration: 'underline' }} onClick={openModal}> Click here to select meal options </p>
                 }
 

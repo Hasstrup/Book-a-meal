@@ -56,7 +56,7 @@ class OrderHistoryPage extends Component {
             this.props.history.push('/catalogue');
             swal(`Here you go ${this.props.user.firstname}, make your from here`, 'PS: they are all yummy', 'success');
           }}
-            text={` Aw schucks, ${this.state.target.firstname} hasn't made an order yet`}
+            text={this.state.target.id === this.props.user.id ? ` Aw schucks, ${this.state.target.firstname} hasn't made an order yet` : 'Looks like no one has made an order yet'}
             subtitle="order your first item"
             emptyContainerStyle={{
             height: '10%',

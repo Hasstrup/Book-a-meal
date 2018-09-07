@@ -76,7 +76,7 @@ class MenuOfTheDayContainer extends Component {
   generateImageFromMenuOfTheDay = () => {
     const { ofTheDay } = this.props;
     if (!ofTheDay) return;
-    this.generatePreviewImage({ selectedMealsForMenuOfTheDay: ofTheDay.Meals });
+    this.generatePreviewImage({ selectedMealsForMenuOfTheDay: ofTheDay.meals });
   }
 
   /**

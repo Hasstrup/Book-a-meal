@@ -20,7 +20,7 @@ var isString = function isString(value) {
   }
 };
 
-var User = _index.sequelize.define('User', {
+var User = _index.sequelize.define('user', {
   firstname: {
     type: _sequelize.DataTypes.STRING,
     validate: {

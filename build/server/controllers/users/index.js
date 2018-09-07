@@ -53,7 +53,7 @@ var UserControllerBase = function (_BaseController) {
                 }
 
                 _context.next = 3;
-                return _users2.default.__fetchAll();
+                return _users2.default.__fetchAll()(req.paginationQuery);
 
               case 3:
                 data = _context.sent;
@@ -62,7 +62,7 @@ var UserControllerBase = function (_BaseController) {
 
               case 6:
                 _context.next = 8;
-                return _users2.default.__fetchAll('populate');
+                return _users2.default.__fetchAll('populate')(req.paginationQuery);
 
               case 8:
                 data = _context.sent;
@@ -94,7 +94,7 @@ var UserControllerBase = function (_BaseController) {
 
               case 4:
                 _context2.next = 6;
-                return _users2.default.__fetchOne('id', req.params.user_id, 'populate');
+                return _users2.default.__fetchOne('id', req.params.user_id, 'populate')();
 
               case 6:
                 data = _context2.sent;
@@ -111,7 +111,6 @@ var UserControllerBase = function (_BaseController) {
       })), next);
     }, _this.updateOne = function (req, res, next) {
       _this.wrapInTryCatch(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-        var data;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {

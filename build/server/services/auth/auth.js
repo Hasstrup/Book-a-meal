@@ -97,7 +97,7 @@ var AuthModuleBase = function (_BaseService) {
 
                 _users2.default.__sendConfirmMail(data.id, data.email);
                 _context.next = 11;
-                return _encrypt2.default.issueToken({ id: data.id });
+                return _encrypt2.default.issueToken({ id: data.id, confirmedEmail: data.confirmedEmail });
 
               case 11:
                 token = _context.sent;
@@ -223,7 +223,7 @@ var AuthModuleBase = function (_BaseService) {
                 }
 
                 _context3.next = 9;
-                return _encrypt2.default.issueToken({ id: dbuser.id });
+                return _encrypt2.default.issueToken({ id: dbuser.id, confirmedEmail: dbuser.confirmedEmail });
 
               case 9:
                 token = _context3.sent;

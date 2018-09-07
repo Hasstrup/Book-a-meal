@@ -54,7 +54,7 @@ describe('Kitchen endpoints', function () {
             data = _context.sent;
             user = data[0].get({ plain: true });
             _context.next = 10;
-            return _encrypt2.default.issueToken({ id: user.id });
+            return _encrypt2.default.issueToken({ id: user.id, confirmedEmail: true });
 
           case 10:
             token = _context.sent;
@@ -102,7 +102,7 @@ describe('Kitchen endpoints', function () {
 
             (0, _chai.expect)(res.statusCode).to.equal(200);
             (0, _chai.expect)(res.body.data.name).to.equal('This is Hasstrups test kitchen');
-            (0, _chai.expect)(res.body.data.User).to.be.an('object');
+            (0, _chai.expect)(res.body.data.user).to.be.an('object');
 
           case 6:
           case 'end':
@@ -125,9 +125,10 @@ describe('Kitchen endpoints', function () {
             res = _context4.sent;
 
             (0, _chai.expect)(res.statusCode).to.equal(201);
+            test = res.body.data;
             (0, _chai.expect)(res.body.data.name).to.equal('Hello Hasstrup Ezekiel kitchen');
 
-          case 6:
+          case 7:
           case 'end':
             return _context4.stop();
         }

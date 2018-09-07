@@ -82,7 +82,7 @@ var KitchenService = function (_BaseService) {
                 return _context.abrupt('return', _this.badRequest('please pass in the right values :)'));
 
               case 2:
-                data = Object.assign({}, body, { UserId: id });
+                data = Object.assign({}, body, { userId: id });
                 _context.next = 5;
                 return _this.__model.create(data);
 
@@ -176,8 +176,9 @@ var KitchenService = function (_BaseService) {
       return function (_x4, _x5, _x6) {
         return _ref4.apply(this, arguments);
       };
-    }(), _this.__fetchOrders = function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(key, value) {
+    }(), _this.__fetchOrders = function (key, value) {
+      return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+        var pagination = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
         var ref;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
@@ -193,7 +194,7 @@ var KitchenService = function (_BaseService) {
               case 5:
                 target = _context4.sent;
                 _context4.next = 8;
-                return Order.findAll({ include: { model: Meal, include: [Kitchen] } });
+                return Order.findAll(_extends({ include: { model: Meal, include: [Kitchen] } }, pagination));
 
               case 8:
                 source = _context4.sent;
@@ -212,11 +213,7 @@ var KitchenService = function (_BaseService) {
           }
         }, _callee4, _this2);
       }));
-
-      return function (_x7, _x8) {
-        return _ref5.apply(this, arguments);
-      };
-    }(), _this.__fetchMenus = function () {
+    }, _this.__fetchMenus = function () {
       var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(key, value) {
         var ref;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
@@ -232,7 +229,7 @@ var KitchenService = function (_BaseService) {
 
               case 5:
                 target = _context5.sent;
-                return _context5.abrupt('return', target.Menus);
+                return _context5.abrupt('return', target.menus);
 
               case 7:
               case 'end':
@@ -242,7 +239,7 @@ var KitchenService = function (_BaseService) {
         }, _callee5, _this2);
       }));
 
-      return function (_x9, _x10) {
+      return function (_x8, _x9) {
         return _ref6.apply(this, arguments);
       };
     }(), _this._getMenus = function (node) {
@@ -288,7 +285,7 @@ var KitchenService = function (_BaseService) {
         }, _callee6, _this2);
       }));
 
-      return function (_x11) {
+      return function (_x10) {
         return _ref7.apply(this, arguments);
       };
     }(), _this.__updateOne = function () {
@@ -330,7 +327,7 @@ var KitchenService = function (_BaseService) {
         }, _callee7, _this2);
       }));
 
-      return function (_x12, _x13, _x14) {
+      return function (_x11, _x12, _x13) {
         return _ref8.apply(this, arguments);
       };
     }(), _this.__deleteOne = function () {
@@ -363,7 +360,7 @@ var KitchenService = function (_BaseService) {
         }, _callee8, _this2);
       }));
 
-      return function (_x15, _x16) {
+      return function (_x14, _x15) {
         return _ref9.apply(this, arguments);
       };
     }(), _this.setMenuOfTheDay = function () {
@@ -404,7 +401,7 @@ var KitchenService = function (_BaseService) {
         }, _callee9, _this2);
       }));
 
-      return function (_x17, _x18, _x19) {
+      return function (_x16, _x17, _x18) {
         return _ref10.apply(this, arguments);
       };
     }(), _this.__setMenuOfTheDay = function () {
@@ -445,9 +442,9 @@ var KitchenService = function (_BaseService) {
                   meals = newMenu.meals;
 
                   meals.forEach(function (meal) {
-                    var KitchenId = meal.KitchenId;
+                    var kitchenId = meal.kitchenId;
 
-                    if (KitchenId !== source.id) {
+                    if (kitchenId !== source.id) {
                       var err = void 0;
                       err = new Error('You do not own this meal : ' + meal.name);
                       err.status = 401;
@@ -460,8 +457,8 @@ var KitchenService = function (_BaseService) {
                 // Try finding or creating the menu;
                 _context11.next = 12;
                 return Menu.findOrCreate({
-                  where: { name: data.name, KitchenId: source.id },
-                  defaults: _extends({}, data, { KitchenId: source.id })
+                  where: { name: data.name, kitchenId: source.id },
+                  defaults: _extends({}, data, { kitchenId: source.id })
                 }).spread(function () {
                   var _ref12 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(menu) {
                     return regeneratorRuntime.wrap(function _callee10$(_context10) {
@@ -477,11 +474,11 @@ var KitchenService = function (_BaseService) {
                               return meal.id;
                             });
                             _context10.next = 4;
-                            return Meal.update({ MenuId: menu.id }, { where: { id: _defineProperty({}, _sequelize.Op.in, newMenu.meals), KitchenId: source.id } });
+                            return Meal.update({ menuId: menu.id }, { where: { id: _defineProperty({}, _sequelize.Op.in, newMenu.meals), kitchenId: source.id } });
 
                           case 4:
                             _context10.next = 6;
-                            return source.update({ ofTheDay: menu.id });
+                            return source.update({ MenuofTheDay: menu.id });
 
                           case 6:
                           case 'end':
@@ -491,7 +488,7 @@ var KitchenService = function (_BaseService) {
                     }, _callee10, _this2);
                   }));
 
-                  return function (_x23) {
+                  return function (_x22) {
                     return _ref12.apply(this, arguments);
                   };
                 }());
@@ -515,7 +512,7 @@ var KitchenService = function (_BaseService) {
         }, _callee11, _this2);
       }));
 
-      return function (_x20, _x21, _x22) {
+      return function (_x19, _x20, _x21) {
         return _ref11.apply(this, arguments);
       };
     }(), _temp), _possibleConstructorReturn(_this, _ret);

@@ -50,7 +50,8 @@ export const fetchMenuOfTheDayOfUser = () => (dispatch, getState) => {
   const request = { method: 'get', url: `${config.url}/kitchens/${getState().kitchens.target.id}?populate=populate` };
   const successCallBack = (kitchen) => {
     // since the payload of doesnt populate the ofTheDay; TODO: make this server side;
-    const payload = kitchen.Menus.filter(item => item.id === kitchen.ofTheDay)[0];
+    const payload = kitchen.menus.filter(item => item.id === kitchen.MenuofTheDay)[0];
+    console.log(payload);
     dispatch({ type: 'MENU_OF_THE_DAY', payload });
   };
   dispatch(RequestHandler(request)(successCallBack));

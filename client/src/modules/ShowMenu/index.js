@@ -23,8 +23,7 @@ class RenderMenuContainer extends Component {
   }
 
   generateImageFromMenu = () => {
-    if(!this.state.menu && !this.state.menu.Meals.length) return null;
-  
+    if(!this.state.menu && !this.state.menu.meals.length) return null;
   }
 
   render = () => (
@@ -39,7 +38,7 @@ class RenderMenuContainer extends Component {
 const MenuPage = ({ menu }) => (
   <div className="main-menu-page-body">
     <VendorDetails menu={menu} />
-    <ShowMenuDetails meals={menu.Meals} />
+    <ShowMenuDetails meals={menu.meals} />
   </div>
 );
 
