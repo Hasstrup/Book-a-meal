@@ -15,7 +15,9 @@ export const PleaseWait = () => ({
 });
 
 export const DispatchNotification = (message) => {
-  setTimeout(CloseNotification, 3000);
+  if (process.env.NODE_ENV !== 'test') {
+    setTimeout(CloseNotification, 3000);
+  }
   return {
     type: 'NEW_ERROR',
     message
