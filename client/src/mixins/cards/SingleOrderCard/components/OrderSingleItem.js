@@ -13,4 +13,4 @@ const SingleOrderItem = ({ data, editable }) => (
 );
 
 
-export default Iterator(SingleOrderItem);
+export default Iterator(SingleOrderItem)([ // iterable aray ])({ props });

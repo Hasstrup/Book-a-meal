@@ -1,5 +1,11 @@
 const ref = {};
 
+/**
+ * @name OrderReducer
+ * @param {object} state the current state of the reducer
+ * @param {object} action the action being propagated along the event cycle;
+ * @returns {object} the current state of the application
+ */
 export default (state = { cart: [], showCart: false }, action) => {
   switch (action.type) {
     case 'CHANGE_CART_ITEMS':

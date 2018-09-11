@@ -15,6 +15,7 @@ export const SingleMenuCard = ({ data, history, dispatch }) => {
       return data.meals[0].image ? data.meals[0].image : 'https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60';
     }
     return data.meals.reduce((a, b) => {
+      // b is a meal
       if (b.image) return b.image;
       return 'https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60';
     });
