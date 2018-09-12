@@ -8,7 +8,7 @@ import { SignUpUser, LogInUser, GetLoggedInUser } from '../../actions/users/';
 /* eslint-disable */
 
 
-class HomeContainer extends Component {
+export class HomeContainer extends Component {
   constructor(props) {
     super(props);
     if(this.props.user) return this.props.history.push('/catalogue');
@@ -21,7 +21,7 @@ class HomeContainer extends Component {
   render = () => (<HomeComponent history={this.props.history} dispatch={this.props.dispatch} />)
 }
 
-const HomeComponent = ({ history, dispatch }) => (
+export const HomeComponent = ({ history, dispatch }) => (
   <div>
   <AnimatingBannerComponent />
   <ImageFloatingComponent />

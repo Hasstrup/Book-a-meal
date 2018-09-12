@@ -7,7 +7,7 @@ import { liftCard, dropCard } from '../utils';
 
 export const SingleMenuCard = ({ data, history, dispatch }) => {
   // return the menu names: YOU might want to splice this
-  const generateMealNames = () => data.meals.map(meal => (<p>{ meal.name }</p>));
+  const generateMealNames = () => data.meals.map((meal, index) => (<p key={`key-item-${meal.id || index}`}>{ meal.name }</p>));
 
   // seems neater but will iterate through every item, so not scsalable, TODO: fix
   const generateImage = () => {
@@ -22,7 +22,6 @@ export const SingleMenuCard = ({ data, history, dispatch }) => {
   };
 
   const animateMenuComponent = () => liftCard(`content-${data.id}`);
-
   return (
     <div
       className="menu-item"

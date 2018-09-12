@@ -1,0 +1,2612 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Catalogue page Animating Banner Component should match snapshot 1`] = `
+ReactWrapper {
+  "length": 1,
+  Symbol(enzyme.__unrendered__): <Unknown
+    determineRenderBy={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "determineRenderBy": Array [],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="render-empty-component"
+        style="height: 100%; width: 100%; position: absolute; display: flex; flex-flow: column; justify-content: center; align-items: center;"
+      >
+        <img
+          src="https://png.icons8.com/ios/50/000000/empty-set.png"
+        />
+        <p
+          style="font-size: 16px; font-family: apercu; color: rgb(166, 172, 175);"
+        >
+          Looks like we are not set up here
+        </p>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <img
+            src="https://png.icons8.com/ios/50/000000/empty-set.png"
+          />,
+          <p
+            style={
+              Object {
+                "color": "#A6ACAF",
+                "fontFamily": "apercu",
+                "fontSize": "16px",
+              }
+            }
+          >
+            Looks like we are not set up here
+          </p>,
+          undefined,
+        ],
+        "className": "render-empty-component",
+        "style": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexFlow": "column",
+          "height": "100%",
+          "justifyContent": "center",
+          "position": "absolute",
+          "width": "100%",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <img
+            src="https://png.icons8.com/ios/50/000000/empty-set.png"
+          />,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "src": "https://png.icons8.com/ios/50/000000/empty-set.png",
+          },
+          "ref": null,
+          "rendered": Array [
+            undefined,
+          ],
+          "type": "img",
+        },
+        Object {
+          "instance": <p
+            style="font-size: 16px; font-family: apercu; color: rgb(166, 172, 175);"
+          >
+            Looks like we are not set up here
+          </p>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Looks like we are not set up here",
+            "style": Object {
+              "color": "#A6ACAF",
+              "fontFamily": "apercu",
+              "fontSize": "16px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            "Looks like we are not set up here",
+          ],
+          "type": "p",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "determineRenderBy": Array [],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="render-empty-component"
+          style="height: 100%; width: 100%; position: absolute; display: flex; flex-flow: column; justify-content: center; align-items: center;"
+        >
+          <img
+            src="https://png.icons8.com/ios/50/000000/empty-set.png"
+          />
+          <p
+            style="font-size: 16px; font-family: apercu; color: rgb(166, 172, 175);"
+          >
+            Looks like we are not set up here
+          </p>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <img
+              src="https://png.icons8.com/ios/50/000000/empty-set.png"
+            />,
+            <p
+              style={
+                Object {
+                  "color": "#A6ACAF",
+                  "fontFamily": "apercu",
+                  "fontSize": "16px",
+                }
+              }
+            >
+              Looks like we are not set up here
+            </p>,
+            undefined,
+          ],
+          "className": "render-empty-component",
+          "style": Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexFlow": "column",
+            "height": "100%",
+            "justifyContent": "center",
+            "position": "absolute",
+            "width": "100%",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <img
+              src="https://png.icons8.com/ios/50/000000/empty-set.png"
+            />,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "src": "https://png.icons8.com/ios/50/000000/empty-set.png",
+            },
+            "ref": null,
+            "rendered": Array [
+              undefined,
+            ],
+            "type": "img",
+          },
+          Object {
+            "instance": <p
+              style="font-size: 16px; font-family: apercu; color: rgb(166, 172, 175);"
+            >
+              Looks like we are not set up here
+            </p>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Looks like we are not set up here",
+              "style": Object {
+                "color": "#A6ACAF",
+                "fontFamily": "apercu",
+                "fontSize": "16px",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              "Looks like we are not set up here",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Catalogue page Catalogue first row components should match snapshot 1`] = `
+ReactWrapper {
+  "length": 1,
+  Symbol(enzyme.__unrendered__): <CatalogueFirstRow
+    createUser={[Function]}
+    logInUser={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "createUser": [Function],
+      "logInUser": [Function],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="introductory-grid"
+      >
+        <div
+          class="side-one-IT"
+        >
+          <div
+            class="side-one-child-1"
+          >
+            <p
+              class="side-one-IT-cat"
+            >
+               Catalogue 
+            </p>
+            <div
+              class="side-one-trending"
+            >
+               Today
+            </div>
+          </div>
+          <p
+            class="side-one-IT-option"
+          >
+             
+            <span>
+               237 
+            </span>
+             Menus 
+          </p>
+          <p
+            class="side-one-IT-option"
+          >
+             
+            <span>
+               1034
+            </span>
+             Meal options 
+          </p>
+          <p
+            class="side-one-IT-option"
+          >
+             
+            <span>
+               101 
+            </span>
+             Vendors
+          </p>
+        </div>
+        <div
+          class="side-two-IT"
+        >
+          <p
+            class="side-two-IT-info"
+          >
+            Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+          </p>
+          <p
+            class="side-two-IT-info"
+            id="side-two-share-button"
+          >
+             Share your menu now
+          </p>
+        </div>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="side-one-IT"
+          >
+            <div
+              className="side-one-child-1"
+            >
+              <p
+                className="side-one-IT-cat"
+              >
+                 Catalogue 
+              </p>
+              <div
+                className="side-one-trending"
+              >
+                 Today
+              </div>
+            </div>
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 237 
+              </span>
+               Menus 
+            </p>
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 1034
+              </span>
+               Meal options 
+            </p>
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 101 
+              </span>
+               Vendors
+            </p>
+          </div>,
+          <div
+            className="side-two-IT"
+          >
+            <p
+              className="side-two-IT-info"
+            >
+              Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+            </p>
+            <p
+              className="side-two-IT-info"
+              id="side-two-share-button"
+            >
+               Share your menu now
+            </p>
+          </div>,
+        ],
+        "className": "introductory-grid",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <div
+            class="side-one-IT"
+          >
+            <div
+              class="side-one-child-1"
+            >
+              <p
+                class="side-one-IT-cat"
+              >
+                 Catalogue 
+              </p>
+              <div
+                class="side-one-trending"
+              >
+                 Today
+              </div>
+            </div>
+            <p
+              class="side-one-IT-option"
+            >
+               
+              <span>
+                 237 
+              </span>
+               Menus 
+            </p>
+            <p
+              class="side-one-IT-option"
+            >
+               
+              <span>
+                 1034
+              </span>
+               Meal options 
+            </p>
+            <p
+              class="side-one-IT-option"
+            >
+               
+              <span>
+                 101 
+              </span>
+               Vendors
+            </p>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="side-one-child-1"
+              >
+                <p
+                  className="side-one-IT-cat"
+                >
+                   Catalogue 
+                </p>
+                <div
+                  className="side-one-trending"
+                >
+                   Today
+                </div>
+              </div>,
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   237 
+                </span>
+                 Menus 
+              </p>,
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   1034
+                </span>
+                 Meal options 
+              </p>,
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   101 
+                </span>
+                 Vendors
+              </p>,
+            ],
+            "className": "side-one-IT",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <div
+                class="side-one-child-1"
+              >
+                <p
+                  class="side-one-IT-cat"
+                >
+                   Catalogue 
+                </p>
+                <div
+                  class="side-one-trending"
+                >
+                   Today
+                </div>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="side-one-IT-cat"
+                  >
+                     Catalogue 
+                  </p>,
+                  <div
+                    className="side-one-trending"
+                  >
+                     Today
+                  </div>,
+                ],
+                "className": "side-one-child-1",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <p
+                    class="side-one-IT-cat"
+                  >
+                     Catalogue 
+                  </p>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Catalogue ",
+                    "className": "side-one-IT-cat",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Catalogue ",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": <div
+                    class="side-one-trending"
+                  >
+                     Today
+                  </div>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Today",
+                    "className": "side-one-trending",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Today",
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": <p
+                class="side-one-IT-option"
+              >
+                 
+                <span>
+                   237 
+                </span>
+                 Menus 
+              </p>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  <span>
+                     237 
+                  </span>,
+                  " Menus ",
+                ],
+                "className": "side-one-IT-option",
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                Object {
+                  "instance": <span>
+                     237 
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " 237 ",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " 237 ",
+                  ],
+                  "type": "span",
+                },
+                " Menus ",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": <p
+                class="side-one-IT-option"
+              >
+                 
+                <span>
+                   1034
+                </span>
+                 Meal options 
+              </p>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  <span>
+                     1034
+                  </span>,
+                  " Meal options ",
+                ],
+                "className": "side-one-IT-option",
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                Object {
+                  "instance": <span>
+                     1034
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " 1034",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " 1034",
+                  ],
+                  "type": "span",
+                },
+                " Meal options ",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": <p
+                class="side-one-IT-option"
+              >
+                 
+                <span>
+                   101 
+                </span>
+                 Vendors
+              </p>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  <span>
+                     101 
+                  </span>,
+                  " Vendors",
+                ],
+                "className": "side-one-IT-option",
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                Object {
+                  "instance": <span>
+                     101 
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " 101 ",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " 101 ",
+                  ],
+                  "type": "span",
+                },
+                " Vendors",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <div
+            class="side-two-IT"
+          >
+            <p
+              class="side-two-IT-info"
+            >
+              Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+            </p>
+            <p
+              class="side-two-IT-info"
+              id="side-two-share-button"
+            >
+               Share your menu now
+            </p>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="side-two-IT-info"
+              >
+                Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+              </p>,
+              <p
+                className="side-two-IT-info"
+                id="side-two-share-button"
+              >
+                 Share your menu now
+              </p>,
+            ],
+            "className": "side-two-IT",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <p
+                class="side-two-IT-info"
+              >
+                Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+              </p>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .",
+                "className": "side-two-IT-info",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": <p
+                class="side-two-IT-info"
+                id="side-two-share-button"
+              >
+                 Share your menu now
+              </p>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Share your menu now",
+                "className": "side-two-IT-info",
+                "id": "side-two-share-button",
+              },
+              "ref": null,
+              "rendered": Array [
+                " Share your menu now",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "createUser": [Function],
+        "logInUser": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="introductory-grid"
+        >
+          <div
+            class="side-one-IT"
+          >
+            <div
+              class="side-one-child-1"
+            >
+              <p
+                class="side-one-IT-cat"
+              >
+                 Catalogue 
+              </p>
+              <div
+                class="side-one-trending"
+              >
+                 Today
+              </div>
+            </div>
+            <p
+              class="side-one-IT-option"
+            >
+               
+              <span>
+                 237 
+              </span>
+               Menus 
+            </p>
+            <p
+              class="side-one-IT-option"
+            >
+               
+              <span>
+                 1034
+              </span>
+               Meal options 
+            </p>
+            <p
+              class="side-one-IT-option"
+            >
+               
+              <span>
+                 101 
+              </span>
+               Vendors
+            </p>
+          </div>
+          <div
+            class="side-two-IT"
+          >
+            <p
+              class="side-two-IT-info"
+            >
+              Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+            </p>
+            <p
+              class="side-two-IT-info"
+              id="side-two-share-button"
+            >
+               Share your menu now
+            </p>
+          </div>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="side-one-IT"
+            >
+              <div
+                className="side-one-child-1"
+              >
+                <p
+                  className="side-one-IT-cat"
+                >
+                   Catalogue 
+                </p>
+                <div
+                  className="side-one-trending"
+                >
+                   Today
+                </div>
+              </div>
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   237 
+                </span>
+                 Menus 
+              </p>
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   1034
+                </span>
+                 Meal options 
+              </p>
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   101 
+                </span>
+                 Vendors
+              </p>
+            </div>,
+            <div
+              className="side-two-IT"
+            >
+              <p
+                className="side-two-IT-info"
+              >
+                Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+              </p>
+              <p
+                className="side-two-IT-info"
+                id="side-two-share-button"
+              >
+                 Share your menu now
+              </p>
+            </div>,
+          ],
+          "className": "introductory-grid",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <div
+              class="side-one-IT"
+            >
+              <div
+                class="side-one-child-1"
+              >
+                <p
+                  class="side-one-IT-cat"
+                >
+                   Catalogue 
+                </p>
+                <div
+                  class="side-one-trending"
+                >
+                   Today
+                </div>
+              </div>
+              <p
+                class="side-one-IT-option"
+              >
+                 
+                <span>
+                   237 
+                </span>
+                 Menus 
+              </p>
+              <p
+                class="side-one-IT-option"
+              >
+                 
+                <span>
+                   1034
+                </span>
+                 Meal options 
+              </p>
+              <p
+                class="side-one-IT-option"
+              >
+                 
+                <span>
+                   101 
+                </span>
+                 Vendors
+              </p>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="side-one-child-1"
+                >
+                  <p
+                    className="side-one-IT-cat"
+                  >
+                     Catalogue 
+                  </p>
+                  <div
+                    className="side-one-trending"
+                  >
+                     Today
+                  </div>
+                </div>,
+                <p
+                  className="side-one-IT-option"
+                >
+                   
+                  <span>
+                     237 
+                  </span>
+                   Menus 
+                </p>,
+                <p
+                  className="side-one-IT-option"
+                >
+                   
+                  <span>
+                     1034
+                  </span>
+                   Meal options 
+                </p>,
+                <p
+                  className="side-one-IT-option"
+                >
+                   
+                  <span>
+                     101 
+                  </span>
+                   Vendors
+                </p>,
+              ],
+              "className": "side-one-IT",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <div
+                  class="side-one-child-1"
+                >
+                  <p
+                    class="side-one-IT-cat"
+                  >
+                     Catalogue 
+                  </p>
+                  <div
+                    class="side-one-trending"
+                  >
+                     Today
+                  </div>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="side-one-IT-cat"
+                    >
+                       Catalogue 
+                    </p>,
+                    <div
+                      className="side-one-trending"
+                    >
+                       Today
+                    </div>,
+                  ],
+                  "className": "side-one-child-1",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <p
+                      class="side-one-IT-cat"
+                    >
+                       Catalogue 
+                    </p>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Catalogue ",
+                      "className": "side-one-IT-cat",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " Catalogue ",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": <div
+                      class="side-one-trending"
+                    >
+                       Today
+                    </div>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Today",
+                      "className": "side-one-trending",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " Today",
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": <p
+                  class="side-one-IT-option"
+                >
+                   
+                  <span>
+                     237 
+                  </span>
+                   Menus 
+                </p>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " ",
+                    <span>
+                       237 
+                    </span>,
+                    " Menus ",
+                  ],
+                  "className": "side-one-IT-option",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " ",
+                  Object {
+                    "instance": <span>
+                       237 
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " 237 ",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " 237 ",
+                    ],
+                    "type": "span",
+                  },
+                  " Menus ",
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": <p
+                  class="side-one-IT-option"
+                >
+                   
+                  <span>
+                     1034
+                  </span>
+                   Meal options 
+                </p>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " ",
+                    <span>
+                       1034
+                    </span>,
+                    " Meal options ",
+                  ],
+                  "className": "side-one-IT-option",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " ",
+                  Object {
+                    "instance": <span>
+                       1034
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " 1034",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " 1034",
+                    ],
+                    "type": "span",
+                  },
+                  " Meal options ",
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": <p
+                  class="side-one-IT-option"
+                >
+                   
+                  <span>
+                     101 
+                  </span>
+                   Vendors
+                </p>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " ",
+                    <span>
+                       101 
+                    </span>,
+                    " Vendors",
+                  ],
+                  "className": "side-one-IT-option",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " ",
+                  Object {
+                    "instance": <span>
+                       101 
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " 101 ",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " 101 ",
+                    ],
+                    "type": "span",
+                  },
+                  " Vendors",
+                ],
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <div
+              class="side-two-IT"
+            >
+              <p
+                class="side-two-IT-info"
+              >
+                Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+              </p>
+              <p
+                class="side-two-IT-info"
+                id="side-two-share-button"
+              >
+                 Share your menu now
+              </p>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p
+                  className="side-two-IT-info"
+                >
+                  Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+                </p>,
+                <p
+                  className="side-two-IT-info"
+                  id="side-two-share-button"
+                >
+                   Share your menu now
+                </p>,
+              ],
+              "className": "side-two-IT",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <p
+                  class="side-two-IT-info"
+                >
+                  Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+                </p>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .",
+                  "className": "side-two-IT-info",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .",
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": <p
+                  class="side-two-IT-info"
+                  id="side-two-share-button"
+                >
+                   Share your menu now
+                </p>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Share your menu now",
+                  "className": "side-two-IT-info",
+                  "id": "side-two-share-button",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " Share your menu now",
+                ],
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Catalogue page Single Menu Card should match snapshot with the data in place 1`] = `
+ReactWrapper {
+  "length": 1,
+  Symbol(enzyme.__unrendered__): <SingleMenuCard
+    data={
+      Object {
+        "description": "This is a test menu",
+        "kitchen": Object {
+          "description": "This is my test menu",
+          "name": "This is great",
+        },
+        "meals": Array [
+          Object {
+            "description": "",
+            "name": "This is a menu",
+            "price": 5000,
+          },
+        ],
+        "name": "Test Menu",
+      }
+    }
+    dispatch={[Function]}
+    history={
+      Object {
+        "push": [Function],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "data": Object {
+        "description": "This is a test menu",
+        "kitchen": Object {
+          "description": "This is my test menu",
+          "name": "This is great",
+        },
+        "meals": Array [
+          Object {
+            "description": "",
+            "name": "This is a menu",
+            "price": 5000,
+          },
+        ],
+        "name": "Test Menu",
+      },
+      "dispatch": [Function],
+      "history": Object {
+        "push": [Function],
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="menu-item"
+        id="content-undefined"
+      >
+        <div
+          class="img-item-and-description"
+        >
+          <img
+            class="content-item-img"
+            src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+          />
+          <div
+            class="content-item-description"
+            name="content-undefined"
+          >
+            <p>
+              This is a menu
+            </p>
+            <div
+              class="explore-content-button"
+            />
+          </div>
+        </div>
+        <div
+          class="content-details-and-desc"
+        >
+          <div
+            class="item-card-desc"
+          >
+            <p
+              class="content-desc-name"
+            >
+               
+              Test Menu
+               
+            </p>
+            <p
+              class="content-desc-title"
+            >
+              This is a test menu
+            </p>
+          </div>
+          <div
+            class="content-owner-image-and-time"
+          >
+            <p
+              class="caterer-name"
+            >
+               
+              This is great
+            </p>
+            <p
+              class="time-posted"
+            >
+               
+              Invalid date
+            </p>
+          </div>
+        </div>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="img-item-and-description"
+          >
+            <img
+              className="content-item-img"
+              src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+            />
+            <div
+              className="content-item-description"
+              name="content-undefined"
+            >
+              <p>
+                This is a menu
+              </p>
+              <div
+                className="explore-content-button"
+              />
+            </div>
+          </div>,
+          <div
+            className="content-details-and-desc"
+          >
+            <div
+              className="item-card-desc"
+            >
+              <p
+                className="content-desc-name"
+              >
+                 
+                Test Menu
+                 
+              </p>
+              <p
+                className="content-desc-title"
+              >
+                This is a test menu
+              </p>
+            </div>
+            <div
+              className="content-owner-image-and-time"
+            >
+              <p
+                className="caterer-name"
+              >
+                 
+                This is great
+              </p>
+              <p
+                className="time-posted"
+              >
+                 
+                Invalid date
+              </p>
+            </div>
+          </div>,
+        ],
+        "className": "menu-item",
+        "id": "content-undefined",
+        "onClick": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <div
+            class="img-item-and-description"
+          >
+            <img
+              class="content-item-img"
+              src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+            />
+            <div
+              class="content-item-description"
+              name="content-undefined"
+            >
+              <p>
+                This is a menu
+              </p>
+              <div
+                class="explore-content-button"
+              />
+            </div>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <img
+                className="content-item-img"
+                src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+              />,
+              <div
+                className="content-item-description"
+                name="content-undefined"
+              >
+                <p>
+                  This is a menu
+                </p>
+                <div
+                  className="explore-content-button"
+                />
+              </div>,
+            ],
+            "className": "img-item-and-description",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <img
+                class="content-item-img"
+                src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "content-item-img",
+                "src": "https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60",
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "img",
+            },
+            Object {
+              "instance": <div
+                class="content-item-description"
+                name="content-undefined"
+              >
+                <p>
+                  This is a menu
+                </p>
+                <div
+                  class="explore-content-button"
+                />
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  Array [
+                    <p>
+                      This is a menu
+                    </p>,
+                  ],
+                  <div
+                    className="explore-content-button"
+                  />,
+                ],
+                "className": "content-item-description",
+                "name": "content-undefined",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <p>
+                    This is a menu
+                  </p>,
+                  "key": "key-item-0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "This is a menu",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "This is a menu",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": <div
+                    class="explore-content-button"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "explore-content-button",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <div
+            class="content-details-and-desc"
+          >
+            <div
+              class="item-card-desc"
+            >
+              <p
+                class="content-desc-name"
+              >
+                 
+                Test Menu
+                 
+              </p>
+              <p
+                class="content-desc-title"
+              >
+                This is a test menu
+              </p>
+            </div>
+            <div
+              class="content-owner-image-and-time"
+            >
+              <p
+                class="caterer-name"
+              >
+                 
+                This is great
+              </p>
+              <p
+                class="time-posted"
+              >
+                 
+                Invalid date
+              </p>
+            </div>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="item-card-desc"
+              >
+                <p
+                  className="content-desc-name"
+                >
+                   
+                  Test Menu
+                   
+                </p>
+                <p
+                  className="content-desc-title"
+                >
+                  This is a test menu
+                </p>
+              </div>,
+              <div
+                className="content-owner-image-and-time"
+              >
+                <p
+                  className="caterer-name"
+                >
+                   
+                  This is great
+                </p>
+                <p
+                  className="time-posted"
+                >
+                   
+                  Invalid date
+                </p>
+              </div>,
+            ],
+            "className": "content-details-and-desc",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <div
+                class="item-card-desc"
+              >
+                <p
+                  class="content-desc-name"
+                >
+                   
+                  Test Menu
+                   
+                </p>
+                <p
+                  class="content-desc-title"
+                >
+                  This is a test menu
+                </p>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="content-desc-name"
+                  >
+                     
+                    Test Menu
+                     
+                  </p>,
+                  <p
+                    className="content-desc-title"
+                  >
+                    This is a test menu
+                  </p>,
+                ],
+                "className": "item-card-desc",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <p
+                    class="content-desc-name"
+                  >
+                     
+                    Test Menu
+                     
+                  </p>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "Test Menu",
+                      " ",
+                    ],
+                    "className": "content-desc-name",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "Test Menu",
+                    " ",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": <p
+                    class="content-desc-title"
+                  >
+                    This is a test menu
+                  </p>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "This is a test menu",
+                    "className": "content-desc-title",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "This is a test menu",
+                  ],
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": <div
+                class="content-owner-image-and-time"
+              >
+                <p
+                  class="caterer-name"
+                >
+                   
+                  This is great
+                </p>
+                <p
+                  class="time-posted"
+                >
+                   
+                  Invalid date
+                </p>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="caterer-name"
+                  >
+                     
+                    This is great
+                  </p>,
+                  <p
+                    className="time-posted"
+                  >
+                     
+                    Invalid date
+                  </p>,
+                ],
+                "className": "content-owner-image-and-time",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <p
+                    class="caterer-name"
+                  >
+                     
+                    This is great
+                  </p>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "This is great",
+                    ],
+                    "className": "caterer-name",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "This is great",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": <p
+                    class="time-posted"
+                  >
+                     
+                    Invalid date
+                  </p>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "Invalid date",
+                    ],
+                    "className": "time-posted",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "Invalid date",
+                  ],
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "data": Object {
+          "description": "This is a test menu",
+          "kitchen": Object {
+            "description": "This is my test menu",
+            "name": "This is great",
+          },
+          "meals": Array [
+            Object {
+              "description": "",
+              "name": "This is a menu",
+              "price": 5000,
+            },
+          ],
+          "name": "Test Menu",
+        },
+        "dispatch": [Function],
+        "history": Object {
+          "push": [Function],
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="menu-item"
+          id="content-undefined"
+        >
+          <div
+            class="img-item-and-description"
+          >
+            <img
+              class="content-item-img"
+              src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+            />
+            <div
+              class="content-item-description"
+              name="content-undefined"
+            >
+              <p>
+                This is a menu
+              </p>
+              <div
+                class="explore-content-button"
+              />
+            </div>
+          </div>
+          <div
+            class="content-details-and-desc"
+          >
+            <div
+              class="item-card-desc"
+            >
+              <p
+                class="content-desc-name"
+              >
+                 
+                Test Menu
+                 
+              </p>
+              <p
+                class="content-desc-title"
+              >
+                This is a test menu
+              </p>
+            </div>
+            <div
+              class="content-owner-image-and-time"
+            >
+              <p
+                class="caterer-name"
+              >
+                 
+                This is great
+              </p>
+              <p
+                class="time-posted"
+              >
+                 
+                Invalid date
+              </p>
+            </div>
+          </div>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="img-item-and-description"
+            >
+              <img
+                className="content-item-img"
+                src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+              />
+              <div
+                className="content-item-description"
+                name="content-undefined"
+              >
+                <p>
+                  This is a menu
+                </p>
+                <div
+                  className="explore-content-button"
+                />
+              </div>
+            </div>,
+            <div
+              className="content-details-and-desc"
+            >
+              <div
+                className="item-card-desc"
+              >
+                <p
+                  className="content-desc-name"
+                >
+                   
+                  Test Menu
+                   
+                </p>
+                <p
+                  className="content-desc-title"
+                >
+                  This is a test menu
+                </p>
+              </div>
+              <div
+                className="content-owner-image-and-time"
+              >
+                <p
+                  className="caterer-name"
+                >
+                   
+                  This is great
+                </p>
+                <p
+                  className="time-posted"
+                >
+                   
+                  Invalid date
+                </p>
+              </div>
+            </div>,
+          ],
+          "className": "menu-item",
+          "id": "content-undefined",
+          "onClick": [Function],
+          "onMouseEnter": [Function],
+          "onMouseLeave": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <div
+              class="img-item-and-description"
+            >
+              <img
+                class="content-item-img"
+                src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+              />
+              <div
+                class="content-item-description"
+                name="content-undefined"
+              >
+                <p>
+                  This is a menu
+                </p>
+                <div
+                  class="explore-content-button"
+                />
+              </div>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  className="content-item-img"
+                  src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+                />,
+                <div
+                  className="content-item-description"
+                  name="content-undefined"
+                >
+                  <p>
+                    This is a menu
+                  </p>
+                  <div
+                    className="explore-content-button"
+                  />
+                </div>,
+              ],
+              "className": "img-item-and-description",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <img
+                  class="content-item-img"
+                  src="https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "content-item-img",
+                  "src": "https://images.unsplash.com/photo-1514536338919-cd001f6dc6b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48f4f1385c293d8520c1f9c3233a98d6&auto=format&fit=crop&w=800&q=60",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "img",
+              },
+              Object {
+                "instance": <div
+                  class="content-item-description"
+                  name="content-undefined"
+                >
+                  <p>
+                    This is a menu
+                  </p>
+                  <div
+                    class="explore-content-button"
+                  />
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    Array [
+                      <p>
+                        This is a menu
+                      </p>,
+                    ],
+                    <div
+                      className="explore-content-button"
+                    />,
+                  ],
+                  "className": "content-item-description",
+                  "name": "content-undefined",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <p>
+                      This is a menu
+                    </p>,
+                    "key": "key-item-0",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "This is a menu",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "This is a menu",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": <div
+                      class="explore-content-button"
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "explore-content-button",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <div
+              class="content-details-and-desc"
+            >
+              <div
+                class="item-card-desc"
+              >
+                <p
+                  class="content-desc-name"
+                >
+                   
+                  Test Menu
+                   
+                </p>
+                <p
+                  class="content-desc-title"
+                >
+                  This is a test menu
+                </p>
+              </div>
+              <div
+                class="content-owner-image-and-time"
+              >
+                <p
+                  class="caterer-name"
+                >
+                   
+                  This is great
+                </p>
+                <p
+                  class="time-posted"
+                >
+                   
+                  Invalid date
+                </p>
+              </div>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="item-card-desc"
+                >
+                  <p
+                    className="content-desc-name"
+                  >
+                     
+                    Test Menu
+                     
+                  </p>
+                  <p
+                    className="content-desc-title"
+                  >
+                    This is a test menu
+                  </p>
+                </div>,
+                <div
+                  className="content-owner-image-and-time"
+                >
+                  <p
+                    className="caterer-name"
+                  >
+                     
+                    This is great
+                  </p>
+                  <p
+                    className="time-posted"
+                  >
+                     
+                    Invalid date
+                  </p>
+                </div>,
+              ],
+              "className": "content-details-and-desc",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <div
+                  class="item-card-desc"
+                >
+                  <p
+                    class="content-desc-name"
+                  >
+                     
+                    Test Menu
+                     
+                  </p>
+                  <p
+                    class="content-desc-title"
+                  >
+                    This is a test menu
+                  </p>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="content-desc-name"
+                    >
+                       
+                      Test Menu
+                       
+                    </p>,
+                    <p
+                      className="content-desc-title"
+                    >
+                      This is a test menu
+                    </p>,
+                  ],
+                  "className": "item-card-desc",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <p
+                      class="content-desc-name"
+                    >
+                       
+                      Test Menu
+                       
+                    </p>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        "Test Menu",
+                        " ",
+                      ],
+                      "className": "content-desc-name",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "Test Menu",
+                      " ",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": <p
+                      class="content-desc-title"
+                    >
+                      This is a test menu
+                    </p>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "This is a test menu",
+                      "className": "content-desc-title",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "This is a test menu",
+                    ],
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": <div
+                  class="content-owner-image-and-time"
+                >
+                  <p
+                    class="caterer-name"
+                  >
+                     
+                    This is great
+                  </p>
+                  <p
+                    class="time-posted"
+                  >
+                     
+                    Invalid date
+                  </p>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="caterer-name"
+                    >
+                       
+                      This is great
+                    </p>,
+                    <p
+                      className="time-posted"
+                    >
+                       
+                      Invalid date
+                    </p>,
+                  ],
+                  "className": "content-owner-image-and-time",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <p
+                      class="caterer-name"
+                    >
+                       
+                      This is great
+                    </p>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        "This is great",
+                      ],
+                      "className": "caterer-name",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "This is great",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": <p
+                      class="time-posted"
+                    >
+                       
+                      Invalid date
+                    </p>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        "Invalid date",
+                      ],
+                      "className": "time-posted",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "Invalid date",
+                    ],
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Catalogue page should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Catalogue
+    dispatch={[Function]}
+    history={
+      Object {
+        "push": [Function],
+      }
+    }
+    menus={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <CatalogueFirstRow />,
+        <Unknown
+          callback={[Function]}
+          determineRenderBy={Array []}
+          dispatch={[Function]}
+          emptyContainerStyle={
+            Object {
+              "bottom": "-10vh",
+              "height": "50%",
+              "position": "relative",
+            }
+          }
+          history={
+            Object {
+              "push": [Function],
+            }
+          }
+          image="pizza"
+          menus={Array []}
+          subtitle="add your own menu to the catalogue"
+          text="looks like there are no menus set today"
+        />,
+      ],
+      "className": "main-body",
+      "style": Object {
+        "minHeight": "100vh",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "callback": [Function],
+          "determineRenderBy": Array [],
+          "dispatch": [Function],
+          "emptyContainerStyle": Object {
+            "bottom": "-10vh",
+            "height": "50%",
+            "position": "relative",
+          },
+          "history": Object {
+            "push": [Function],
+          },
+          "image": "pizza",
+          "menus": Array [],
+          "subtitle": "add your own menu to the catalogue",
+          "text": "looks like there are no menus set today",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <CatalogueFirstRow />,
+          <Unknown
+            callback={[Function]}
+            determineRenderBy={Array []}
+            dispatch={[Function]}
+            emptyContainerStyle={
+              Object {
+                "bottom": "-10vh",
+                "height": "50%",
+                "position": "relative",
+              }
+            }
+            history={
+              Object {
+                "push": [Function],
+              }
+            }
+            image="pizza"
+            menus={Array []}
+            subtitle="add your own menu to the catalogue"
+            text="looks like there are no menus set today"
+          />,
+        ],
+        "className": "main-body",
+        "style": Object {
+          "minHeight": "100vh",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "callback": [Function],
+            "determineRenderBy": Array [],
+            "dispatch": [Function],
+            "emptyContainerStyle": Object {
+              "bottom": "-10vh",
+              "height": "50%",
+              "position": "relative",
+            },
+            "history": Object {
+              "push": [Function],
+            },
+            "image": "pizza",
+            "menus": Array [],
+            "subtitle": "add your own menu to the catalogue",
+            "text": "looks like there are no menus set today",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
