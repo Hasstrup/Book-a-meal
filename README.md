@@ -52,6 +52,9 @@ Get on the go with Book-A-Meal:
 * [Webpack](https://webpack.js.org/) A JavaScript tool for bundling scripts, images, styles and other assets
 * [Babel](https://babeljs.io/) A JavaScript compiler for converting code written in ES6 or JSX to ES5 that is supported by many browsers
 
+### API DOCUMENTATION
+The API documentation is currently hosted here
+[here](https://documenter.getpostman.com/view/5333808/RWaHxpPg)
 
 ### Pivotal Tracker
 Project is being developed with the Project Management Tool, Pivotal Tracker. Check out the template here [https://www.pivotaltracker.com/n/projects/2165532](https://www.pivotaltracker.com/n/projects/2165532)
