@@ -1,0 +1,729 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show Orders Components Current Order should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    history={[Function]}
+    meals={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="display-current-order-heading"
+        >
+          <p
+            className="display-current-order-heading-head"
+          >
+             Current Order 
+          </p>
+          <p
+            className="display-current-order-heading-desc"
+          >
+            This contains all the meal options you have placed orders for in this current session.
+          </p>
+        </div>,
+        <Connect(DisplayOrderCard)
+          editable={true}
+          history={[Function]}
+          meals={Array []}
+        />,
+      ],
+      "className": "display-current-order",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="display-current-order-heading-head"
+            >
+               Current Order 
+            </p>,
+            <p
+              className="display-current-order-heading-desc"
+            >
+              This contains all the meal options you have placed orders for in this current session.
+            </p>,
+          ],
+          "className": "display-current-order-heading",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Current Order ",
+              "className": "display-current-order-heading-head",
+            },
+            "ref": null,
+            "rendered": " Current Order ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "This contains all the meal options you have placed orders for in this current session.",
+              "className": "display-current-order-heading-desc",
+            },
+            "ref": null,
+            "rendered": "This contains all the meal options you have placed orders for in this current session.",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "editable": true,
+          "history": [Function],
+          "meals": Array [],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="display-current-order-heading"
+          >
+            <p
+              className="display-current-order-heading-head"
+            >
+               Current Order 
+            </p>
+            <p
+              className="display-current-order-heading-desc"
+            >
+              This contains all the meal options you have placed orders for in this current session.
+            </p>
+          </div>,
+          <Connect(DisplayOrderCard)
+            editable={true}
+            history={[Function]}
+            meals={Array []}
+          />,
+        ],
+        "className": "display-current-order",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="display-current-order-heading-head"
+              >
+                 Current Order 
+              </p>,
+              <p
+                className="display-current-order-heading-desc"
+              >
+                This contains all the meal options you have placed orders for in this current session.
+              </p>,
+            ],
+            "className": "display-current-order-heading",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Current Order ",
+                "className": "display-current-order-heading-head",
+              },
+              "ref": null,
+              "rendered": " Current Order ",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "This contains all the meal options you have placed orders for in this current session.",
+                "className": "display-current-order-heading-desc",
+              },
+              "ref": null,
+              "rendered": "This contains all the meal options you have placed orders for in this current session.",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "editable": true,
+            "history": [Function],
+            "meals": Array [],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Show Orders Components OrderHistoryGrid should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    orders={Array []}
+    title=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="today-text"
+        >
+          <div
+            className="today-introduction"
+          >
+            <p
+              className="today-intro"
+            >
+               
+              
+               
+            </p>
+            <p
+              className="today-intro-desc"
+            >
+              This is a collection of all the batches of items you paid for today. Had dinner yet?
+            </p>
+          </div>
+        </div>,
+        <div
+          className="order-story-grid"
+        />,
+      ],
+      "className": "today-story",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="today-introduction"
+          >
+            <p
+              className="today-intro"
+            >
+               
+              
+               
+            </p>
+            <p
+              className="today-intro-desc"
+            >
+              This is a collection of all the batches of items you paid for today. Had dinner yet?
+            </p>
+          </div>,
+          "className": "today-text",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="today-intro"
+              >
+                 
+                
+                 
+              </p>,
+              <p
+                className="today-intro-desc"
+              >
+                This is a collection of all the batches of items you paid for today. Had dinner yet?
+              </p>,
+            ],
+            "className": "today-introduction",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "",
+                  " ",
+                ],
+                "className": "today-intro",
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "",
+                " ",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "This is a collection of all the batches of items you paid for today. Had dinner yet?",
+                "className": "today-intro-desc",
+              },
+              "ref": null,
+              "rendered": "This is a collection of all the batches of items you paid for today. Had dinner yet?",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [],
+          "className": "order-story-grid",
+        },
+        "ref": null,
+        "rendered": Array [],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="today-text"
+          >
+            <div
+              className="today-introduction"
+            >
+              <p
+                className="today-intro"
+              >
+                 
+                
+                 
+              </p>
+              <p
+                className="today-intro-desc"
+              >
+                This is a collection of all the batches of items you paid for today. Had dinner yet?
+              </p>
+            </div>
+          </div>,
+          <div
+            className="order-story-grid"
+          />,
+        ],
+        "className": "today-story",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="today-introduction"
+            >
+              <p
+                className="today-intro"
+              >
+                 
+                
+                 
+              </p>
+              <p
+                className="today-intro-desc"
+              >
+                This is a collection of all the batches of items you paid for today. Had dinner yet?
+              </p>
+            </div>,
+            "className": "today-text",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p
+                  className="today-intro"
+                >
+                   
+                  
+                   
+                </p>,
+                <p
+                  className="today-intro-desc"
+                >
+                  This is a collection of all the batches of items you paid for today. Had dinner yet?
+                </p>,
+              ],
+              "className": "today-introduction",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " ",
+                    "",
+                    " ",
+                  ],
+                  "className": "today-intro",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " ",
+                  "",
+                  " ",
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "This is a collection of all the batches of items you paid for today. Had dinner yet?",
+                  "className": "today-intro-desc",
+                },
+                "ref": null,
+                "rendered": "This is a collection of all the batches of items you paid for today. Had dinner yet?",
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [],
+            "className": "order-story-grid",
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Show Orders Components RenderMainHistory should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <OrderHistoryComponent
+    orders={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="introduce-history"
+        >
+          <p
+            className="introduce-history-main"
+          >
+             History 
+          </p>
+          <p
+            className="introduce-history-desc"
+          >
+            So we've been trying to help you enjoy the experience on this service, that's why we took the time to stack all your orders together, so you have some insights on things you like. Enjoy
+          </p>
+        </div>,
+        <div
+          className="main-history-storybook"
+        />,
+      ],
+      "className": "history-section",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="introduce-history-main"
+            >
+               History 
+            </p>,
+            <p
+              className="introduce-history-desc"
+            >
+              So we've been trying to help you enjoy the experience on this service, that's why we took the time to stack all your orders together, so you have some insights on things you like. Enjoy
+            </p>,
+          ],
+          "className": "introduce-history",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " History ",
+              "className": "introduce-history-main",
+            },
+            "ref": null,
+            "rendered": " History ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "So we've been trying to help you enjoy the experience on this service, that's why we took the time to stack all your orders together, so you have some insights on things you like. Enjoy",
+              "className": "introduce-history-desc",
+            },
+            "ref": null,
+            "rendered": "So we've been trying to help you enjoy the experience on this service, that's why we took the time to stack all your orders together, so you have some insights on things you like. Enjoy",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            null,
+            null,
+          ],
+          "className": "main-history-storybook",
+        },
+        "ref": null,
+        "rendered": Array [
+          null,
+          null,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="introduce-history"
+          >
+            <p
+              className="introduce-history-main"
+            >
+               History 
+            </p>
+            <p
+              className="introduce-history-desc"
+            >
+              So we've been trying to help you enjoy the experience on this service, that's why we took the time to stack all your orders together, so you have some insights on things you like. Enjoy
+            </p>
+          </div>,
+          <div
+            className="main-history-storybook"
+          />,
+        ],
+        "className": "history-section",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="introduce-history-main"
+              >
+                 History 
+              </p>,
+              <p
+                className="introduce-history-desc"
+              >
+                So we've been trying to help you enjoy the experience on this service, that's why we took the time to stack all your orders together, so you have some insights on things you like. Enjoy
+              </p>,
+            ],
+            "className": "introduce-history",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " History ",
+                "className": "introduce-history-main",
+              },
+              "ref": null,
+              "rendered": " History ",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "So we've been trying to help you enjoy the experience on this service, that's why we took the time to stack all your orders together, so you have some insights on things you like. Enjoy",
+                "className": "introduce-history-desc",
+              },
+              "ref": null,
+              "rendered": "So we've been trying to help you enjoy the experience on this service, that's why we took the time to stack all your orders together, so you have some insights on things you like. Enjoy",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              null,
+              null,
+            ],
+            "className": "main-history-storybook",
+          },
+          "ref": null,
+          "rendered": Array [
+            null,
+            null,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

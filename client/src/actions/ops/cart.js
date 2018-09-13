@@ -41,7 +41,7 @@ const CartOps = (key = generateKey()) => meal => ({ add, remove, clear }) => {
 
   const ClearItemsFromCart = () => localStorage && localStorage.removeItem(key);
 
-  const FetchAllItemsFromCart = () => localStorage.getItem(key) && JSON.parse(localStorage.getItem(key)).meals;
+  const FetchAllItemsFromCart = () => localStorage && localStorage.getItem(key) && JSON.parse(localStorage.getItem(key)).meals;
 
 
   if (add) return addItemToCart();

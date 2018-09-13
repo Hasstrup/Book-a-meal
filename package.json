@@ -37,6 +37,7 @@
       "\\.(css|less|scss)$": "identity-obj-proxy"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/src/setup.js",
+    "testMatch": ["**/__tests__/**/*.spec.js?(x)", "**/?(*.)+(spec|test).js?(x)"],
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/../node_modules/babel-jest",
       ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/../node_modules/jest-css-modules-transform"

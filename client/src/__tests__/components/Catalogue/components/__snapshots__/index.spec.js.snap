@@ -1,0 +1,721 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Catalogue Components Catalogue Grid should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CatalogueGridMainX
+    menus={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [],
+      "className": "main-items-grid",
+    },
+    "ref": null,
+    "rendered": Array [],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [],
+        "className": "main-items-grid",
+      },
+      "ref": null,
+      "rendered": Array [],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Catalogue Components Catalogue Preamble should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CatalogueFirstRow />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="side-one-IT"
+        >
+          <div
+            className="side-one-child-1"
+          >
+            <p
+              className="side-one-IT-cat"
+            >
+               Catalogue 
+            </p>
+            <div
+              className="side-one-trending"
+            >
+               Today
+            </div>
+          </div>
+          <p
+            className="side-one-IT-option"
+          >
+             
+            <span>
+               237 
+            </span>
+             Menus 
+          </p>
+          <p
+            className="side-one-IT-option"
+          >
+             
+            <span>
+               1034
+            </span>
+             Meal options 
+          </p>
+          <p
+            className="side-one-IT-option"
+          >
+             
+            <span>
+               101 
+            </span>
+             Vendors
+          </p>
+        </div>,
+        <div
+          className="side-two-IT"
+        >
+          <p
+            className="side-two-IT-info"
+          >
+            Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+          </p>
+          <p
+            className="side-two-IT-info"
+            id="side-two-share-button"
+          >
+             Share your menu now
+          </p>
+        </div>,
+      ],
+      "className": "introductory-grid",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="side-one-child-1"
+            >
+              <p
+                className="side-one-IT-cat"
+              >
+                 Catalogue 
+              </p>
+              <div
+                className="side-one-trending"
+              >
+                 Today
+              </div>
+            </div>,
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 237 
+              </span>
+               Menus 
+            </p>,
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 1034
+              </span>
+               Meal options 
+            </p>,
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 101 
+              </span>
+               Vendors
+            </p>,
+          ],
+          "className": "side-one-IT",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p
+                  className="side-one-IT-cat"
+                >
+                   Catalogue 
+                </p>,
+                <div
+                  className="side-one-trending"
+                >
+                   Today
+                </div>,
+              ],
+              "className": "side-one-child-1",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Catalogue ",
+                  "className": "side-one-IT-cat",
+                },
+                "ref": null,
+                "rendered": " Catalogue ",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Today",
+                  "className": "side-one-trending",
+                },
+                "ref": null,
+                "rendered": " Today",
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                <span>
+                   237 
+                </span>,
+                " Menus ",
+              ],
+              "className": "side-one-IT-option",
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " 237 ",
+                },
+                "ref": null,
+                "rendered": " 237 ",
+                "type": "span",
+              },
+              " Menus ",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                <span>
+                   1034
+                </span>,
+                " Meal options ",
+              ],
+              "className": "side-one-IT-option",
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " 1034",
+                },
+                "ref": null,
+                "rendered": " 1034",
+                "type": "span",
+              },
+              " Meal options ",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                <span>
+                   101 
+                </span>,
+                " Vendors",
+              ],
+              "className": "side-one-IT-option",
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " 101 ",
+                },
+                "ref": null,
+                "rendered": " 101 ",
+                "type": "span",
+              },
+              " Vendors",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="side-two-IT-info"
+            >
+              Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+            </p>,
+            <p
+              className="side-two-IT-info"
+              id="side-two-share-button"
+            >
+               Share your menu now
+            </p>,
+          ],
+          "className": "side-two-IT",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .",
+              "className": "side-two-IT-info",
+            },
+            "ref": null,
+            "rendered": "Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Share your menu now",
+              "className": "side-two-IT-info",
+              "id": "side-two-share-button",
+            },
+            "ref": null,
+            "rendered": " Share your menu now",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="side-one-IT"
+          >
+            <div
+              className="side-one-child-1"
+            >
+              <p
+                className="side-one-IT-cat"
+              >
+                 Catalogue 
+              </p>
+              <div
+                className="side-one-trending"
+              >
+                 Today
+              </div>
+            </div>
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 237 
+              </span>
+               Menus 
+            </p>
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 1034
+              </span>
+               Meal options 
+            </p>
+            <p
+              className="side-one-IT-option"
+            >
+               
+              <span>
+                 101 
+              </span>
+               Vendors
+            </p>
+          </div>,
+          <div
+            className="side-two-IT"
+          >
+            <p
+              className="side-two-IT-info"
+            >
+              Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+            </p>
+            <p
+              className="side-two-IT-info"
+              id="side-two-share-button"
+            >
+               Share your menu now
+            </p>
+          </div>,
+        ],
+        "className": "introductory-grid",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="side-one-child-1"
+              >
+                <p
+                  className="side-one-IT-cat"
+                >
+                   Catalogue 
+                </p>
+                <div
+                  className="side-one-trending"
+                >
+                   Today
+                </div>
+              </div>,
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   237 
+                </span>
+                 Menus 
+              </p>,
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   1034
+                </span>
+                 Meal options 
+              </p>,
+              <p
+                className="side-one-IT-option"
+              >
+                 
+                <span>
+                   101 
+                </span>
+                 Vendors
+              </p>,
+            ],
+            "className": "side-one-IT",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="side-one-IT-cat"
+                  >
+                     Catalogue 
+                  </p>,
+                  <div
+                    className="side-one-trending"
+                  >
+                     Today
+                  </div>,
+                ],
+                "className": "side-one-child-1",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Catalogue ",
+                    "className": "side-one-IT-cat",
+                  },
+                  "ref": null,
+                  "rendered": " Catalogue ",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Today",
+                    "className": "side-one-trending",
+                  },
+                  "ref": null,
+                  "rendered": " Today",
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  <span>
+                     237 
+                  </span>,
+                  " Menus ",
+                ],
+                "className": "side-one-IT-option",
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " 237 ",
+                  },
+                  "ref": null,
+                  "rendered": " 237 ",
+                  "type": "span",
+                },
+                " Menus ",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  <span>
+                     1034
+                  </span>,
+                  " Meal options ",
+                ],
+                "className": "side-one-IT-option",
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " 1034",
+                  },
+                  "ref": null,
+                  "rendered": " 1034",
+                  "type": "span",
+                },
+                " Meal options ",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  <span>
+                     101 
+                  </span>,
+                  " Vendors",
+                ],
+                "className": "side-one-IT-option",
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " 101 ",
+                  },
+                  "ref": null,
+                  "rendered": " 101 ",
+                  "type": "span",
+                },
+                " Vendors",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="side-two-IT-info"
+              >
+                Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .
+              </p>,
+              <p
+                className="side-two-IT-info"
+                id="side-two-share-button"
+              >
+                 Share your menu now
+              </p>,
+            ],
+            "className": "side-two-IT",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .",
+                "className": "side-two-IT-info",
+              },
+              "ref": null,
+              "rendered": "Sharing a menu is super easy! There's no restrictions whatsoever, all you have to do set up your kitchen/catering service, add some meal options, set up a menu and we're good to go .",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Share your menu now",
+                "className": "side-two-IT-info",
+                "id": "side-two-share-button",
+              },
+              "ref": null,
+              "rendered": " Share your menu now",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

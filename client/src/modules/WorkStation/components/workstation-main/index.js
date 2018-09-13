@@ -5,7 +5,7 @@ import RenderOrderHistory from '../orders';
 import MenuOfTheDay from './modules/MenuOfTheDay/';
 import NotNullHOC from '../../../../hocs/NonEmpty';
 
-const WorkStation = ({ kitchen, handleSubmit, meals }) => (
+export const WorkStation = ({ kitchen, handleSubmit, meals }) => (
   <div className="main-workstation">
     {/* this announces the workstation */}
     <div className="announce-workstation">

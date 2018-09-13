@@ -14,8 +14,5 @@ const AnimatingBannerComponent = () => (
   </div>
 )
 
-const clickedMe = () => {
-  console.log('clicked')
-}
 
 export default AnimatingBannerComponent

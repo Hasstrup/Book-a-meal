@@ -9,7 +9,7 @@ import checkForNullInput from '../../../helpers/formsHelpers';
  * @desc contains the log in and sign up form that dynamically renders on click.
  * @returns
  */
-class AuthComponent extends Component {
+ class AuthComponent extends Component {
   static propTypes = {
     logInUser: PropTypes.func.isRequired,
     createUser: PropTypes.func.isRequired

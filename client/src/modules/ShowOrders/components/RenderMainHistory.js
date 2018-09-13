@@ -3,7 +3,7 @@ import OrderHistoryGrid from './OrderHistoryGrid';
 import SortableHOC from '../helpers/SortOrdersByDate';
 import NotEmptyHOC from '../../../hocs/NonEmpty';
 
-const OrderHistoryComponent = ({ orders }) => (
+export const OrderHistoryComponent = ({ orders }) => (
   <div className="history-section">
     <div className="introduce-history">
       <p className="introduce-history-main"> History </p>
