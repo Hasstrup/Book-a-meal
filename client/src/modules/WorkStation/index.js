@@ -17,7 +17,7 @@ const { RenderMealForm, GetMealInformation, HideMealForm } = utils;
 const { createNewMeal, fetchAllMealsBelongingToUser } = MealActions;
 const { SetUpNewKitchen } = KitchenActions;
 
-class WorkStationContainer extends Component {
+export class WorkStationContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};

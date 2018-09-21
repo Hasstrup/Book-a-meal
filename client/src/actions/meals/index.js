@@ -24,7 +24,7 @@ const createNewMeal = data => hideForm => async (dispatch, getState) => {
       // you should probably hide the meal form after this;
       hideForm();
     };
-    dispatch(RequestHandler({ method: 'post', url: `${config.url}/meals`, data: { ...data, image } })(successCallback));
+    return dispatch(RequestHandler({ method: 'post', url: `${config.url}/meals`, data: { ...data, image } })(successCallback));
   } catch (err) {
     dispatch(EndProcess());
     dispatch(DispatchNotification(`Something went wrong ${getState().users.current.firstname} :(, Try again`));
@@ -43,7 +43,7 @@ const fetchAllMealsBelongingToUser = () => (dispatch, getState) => {
   // the user hasnt set up a kitchen; hence no meals;
   if (!getState().kitchens.target) return null;
   const request = { method: 'get', url: `${config.url}/meals` };
-  dispatch(RequestHandler(request)(meals => dispatch(AllMealsFetchedForUser(meals))));
+  return dispatch(RequestHandler(request)(meals => dispatch(AllMealsFetchedForUser(meals))));
 };
 
 
@@ -67,7 +67,7 @@ export const editMealInformation = id => changes => (dispatch, getState) => {
     dispatch(DispatchNotification('Awesome, that was edited successfully'));
   };
   const request = { method: 'put', url: `${config.url}/meals/${id}`, data: changes };
-  dispatch(RequestHandler(request)(successCallBack));
+  return dispatch(RequestHandler(request)(successCallBack));
 };
 
 /**
@@ -83,7 +83,7 @@ export const deleteMeal = id => (dispatch, getState) => {
     dispatch(AllMealsFetchedForUser(meals));
     dispatch(EndProcess());
   };
-  dispatch(RequestHandler({ method: 'delete', url: `${config.url}/meals/${id}` })(successCallBack));
+  return dispatch(RequestHandler({ method: 'delete', url: `${config.url}/meals/${id}` })(successCallBack));
 };
 
 export default {

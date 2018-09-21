@@ -1,3 +1,9 @@
+/**
+ * @name menuReducer
+ * @param {object} state The current state ofg the application
+ * @param {object} action The action being propagated along the event chain
+ * @returns {object}
+ */
 const menuReducer = (state = {}, action) => {
   switch (action.type) {
     case 'CATALOGUE_FETCHED':

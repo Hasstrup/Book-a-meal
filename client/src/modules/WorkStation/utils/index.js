@@ -11,9 +11,14 @@ const defaultImageUrl = 'https://images.unsplash.com/photo-1432139509613-5c42558
 const RenderMealForm = () => {
   node = document.getElementsByClassName('new-meal-form')[0];
   const target = document.getElementById('show-menu');
-  node.style.display = 'flex';
-  document.getElementsByClassName('new-meal-title')[0].focus();
-  target.innerText = 'Save';
+  if (node) {
+    node.style.display = 'flex';
+  }
+  /* eslint-disable-next-line */
+  document.getElementsByClassName('new-meal-title')[0] && document.getElementsByClassName('new-meal-title')[0].focus();
+  if (target) {
+    target.innerText = 'Save';
+  }
 };
 
 // TODO: is there a way to get this.ref from the dom?

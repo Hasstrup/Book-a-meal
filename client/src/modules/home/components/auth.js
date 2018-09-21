@@ -9,7 +9,7 @@ import checkForNullInput from '../../../helpers/formsHelpers';
  * @desc contains the log in and sign up form that dynamically renders on click.
  * @returns
  */
-class AuthComponent extends Component {
+ class AuthComponent extends Component {
   static propTypes = {
     logInUser: PropTypes.func.isRequired,
     createUser: PropTypes.func.isRequired
@@ -28,7 +28,10 @@ class AuthComponent extends Component {
   }
 
   // methods and event listeners
-  handleClick = () => this.setState({ wantsToLogIn: !this.state.wantsToLogIn })
+  handleClick = () => {
+    console.log('clicking')
+    this.setState({ wantsToLogIn: !this.state.wantsToLogIn })
+  }
 
   handleSubmit = () => {
     this.state.wantsToLogIn ? this.handleLogin() : this.handleSignUp();
@@ -73,7 +76,7 @@ handleChange = (e) => {
       <div className='submit-button' onClick={() => { this.handleSubmit(); }}>
         Log In
       </div>
-      <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
+      <p id='switch-accounts' className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
       <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> { this.state.errorMessage } </p>
     </div>
   )
@@ -86,7 +89,7 @@ handleChange = (e) => {
      <div className='submit-button' onClick={() => { this.handleSubmit(); }}>
         Sign Up
      </div>
-     <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
+     <p id='switch-xx-accounts' className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
      <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> { this.state.errorMessage } </p>
    </div>
  );
@@ -125,7 +128,7 @@ handleChange = (e) => {
       <div className='submit-button' onClick={() => { this.handleSubmit(); }}>
         Sign Up
       </div>
-      <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
+      <p id="switch-accounts" className='got-an-account-id' onClick={() => { this.handleClick(); }}> I already have an account </p>
       <p className='got-an-account-id' onClick={() => { this.handleClick(); }}> { this.state.errorMessage } </p>
     </div>
   )

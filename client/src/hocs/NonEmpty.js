@@ -19,6 +19,7 @@ export default Component => (props) => {
                 alignItems: 'center',
                 ...props.emptyContainerStyle
             }}
+            className="render-empty-component"
     >
       <img src={images[`${props.image || 'empty' }`]} />
       <p

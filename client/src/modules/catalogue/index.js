@@ -8,7 +8,7 @@ import NotEmpty from '../../hocs/NonEmpty';
 import { DispatchNotification } from '../../actionTypes/misc';
 
 
-class Catalogue extends Component {
+export class Catalogue extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     menus: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -50,7 +50,7 @@ class Catalogue extends Component {
 
 /*= ========== Components ============================ */
 
-const CatalogueFirstRow = () => (
+export const CatalogueFirstRow = () => (
   <div className="introductory-grid">
     <div className="side-one-IT">
       <div className="side-one-child-1">
@@ -74,14 +74,14 @@ const CatalogueFirstRow = () => (
   </div>
 );
 
-const CatalogueGridMainX = props => (
+export const CatalogueGridMainX = props => (
   <div className="main-items-grid">
     { /* remember to get some mock || main data to fill in this place */ }
     { MainCatalogue(props.menus)(props) }
   </div>
 );
 
-const CatalogueGridMain = NotEmpty(CatalogueGridMainX);
+export const CatalogueGridMain = NotEmpty(CatalogueGridMainX);
 
 const mapStateToProps = state => ({
   menus: state.menus.catalog || [],

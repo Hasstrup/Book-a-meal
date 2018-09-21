@@ -1,0 +1,1320 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkStation Components MenuOfTheDayContainer should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MenuOfTheDayContainer
+    dispatch={[Function]}
+    meals={Array []}
+    ofTheDay={
+      Object {
+        "description": "",
+        "meals": Array [],
+        "name": "",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Unknown
+          buttonText="Change"
+          handleClick={[Function]}
+          ofTheDay={
+            Object {
+              "description": "",
+              "meals": Array [],
+              "name": "",
+            }
+          }
+          openModal={[Function]}
+          previewImage="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c75e0437e819afdceeb3050a6bcdd71b&auto=format&fit=crop&w=653&q=80"
+        />,
+        <SelectMealModal
+          closeModal={[Function]}
+          handleSelect={[Function]}
+          meals={Array []}
+          selectedMeals={Array []}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "buttonText": "Change",
+          "handleClick": [Function],
+          "ofTheDay": Object {
+            "description": "",
+            "meals": Array [],
+            "name": "",
+          },
+          "openModal": [Function],
+          "previewImage": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c75e0437e819afdceeb3050a6bcdd71b&auto=format&fit=crop&w=653&q=80",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "closeModal": [Function],
+          "handleSelect": [Function],
+          "isVisible": undefined,
+          "meals": Array [],
+          "selectedMeals": Array [],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Unknown
+            buttonText="Change"
+            handleClick={[Function]}
+            ofTheDay={
+              Object {
+                "description": "",
+                "meals": Array [],
+                "name": "",
+              }
+            }
+            openModal={[Function]}
+            previewImage="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c75e0437e819afdceeb3050a6bcdd71b&auto=format&fit=crop&w=653&q=80"
+          />,
+          <SelectMealModal
+            closeModal={[Function]}
+            handleSelect={[Function]}
+            meals={Array []}
+            selectedMeals={Array []}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "buttonText": "Change",
+            "handleClick": [Function],
+            "ofTheDay": Object {
+              "description": "",
+              "meals": Array [],
+              "name": "",
+            },
+            "openModal": [Function],
+            "previewImage": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c75e0437e819afdceeb3050a6bcdd71b&auto=format&fit=crop&w=653&q=80",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "closeModal": [Function],
+            "handleSelect": [Function],
+            "isVisible": undefined,
+            "meals": Array [],
+            "selectedMeals": Array [],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`WorkStation Components RenderMeals should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    handleSubmit={[Function]}
+    meals={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="announce-item item-menu-options"
+        >
+          <p
+            className="announce-item-key motd-main"
+          >
+             Meal Options 
+          </p>
+          <p
+            className="announce-item-description motd-description"
+          >
+            Here you get to manage your meals, Add some and delete as you please. Remember to save some for later :).
+          </p>
+        </div>,
+        <div
+          className="menu-options-comp-two"
+        >
+          <div
+            className="menu-options-grid list-grid"
+          />
+          <Unknown />
+          <div
+            className="edit-button"
+            id="show-menu"
+            onClick={[Function]}
+          >
+            New meal
+          </div>
+        </div>,
+      ],
+      "className": "menu-options-def",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="announce-item-key motd-main"
+            >
+               Meal Options 
+            </p>,
+            <p
+              className="announce-item-description motd-description"
+            >
+              Here you get to manage your meals, Add some and delete as you please. Remember to save some for later :).
+            </p>,
+          ],
+          "className": "announce-item item-menu-options",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Meal Options ",
+              "className": "announce-item-key motd-main",
+            },
+            "ref": null,
+            "rendered": " Meal Options ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Here you get to manage your meals, Add some and delete as you please. Remember to save some for later :).",
+              "className": "announce-item-description motd-description",
+            },
+            "ref": null,
+            "rendered": "Here you get to manage your meals, Add some and delete as you please. Remember to save some for later :).",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="menu-options-grid list-grid"
+            />,
+            <Unknown />,
+            <div
+              className="edit-button"
+              id="show-menu"
+              onClick={[Function]}
+            >
+              New meal
+            </div>,
+          ],
+          "className": "menu-options-comp-two",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": null,
+              "className": "menu-options-grid list-grid",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "New meal",
+              "className": "edit-button",
+              "id": "show-menu",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "New meal",
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="announce-item item-menu-options"
+          >
+            <p
+              className="announce-item-key motd-main"
+            >
+               Meal Options 
+            </p>
+            <p
+              className="announce-item-description motd-description"
+            >
+              Here you get to manage your meals, Add some and delete as you please. Remember to save some for later :).
+            </p>
+          </div>,
+          <div
+            className="menu-options-comp-two"
+          >
+            <div
+              className="menu-options-grid list-grid"
+            />
+            <Unknown />
+            <div
+              className="edit-button"
+              id="show-menu"
+              onClick={[Function]}
+            >
+              New meal
+            </div>
+          </div>,
+        ],
+        "className": "menu-options-def",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="announce-item-key motd-main"
+              >
+                 Meal Options 
+              </p>,
+              <p
+                className="announce-item-description motd-description"
+              >
+                Here you get to manage your meals, Add some and delete as you please. Remember to save some for later :).
+              </p>,
+            ],
+            "className": "announce-item item-menu-options",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Meal Options ",
+                "className": "announce-item-key motd-main",
+              },
+              "ref": null,
+              "rendered": " Meal Options ",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Here you get to manage your meals, Add some and delete as you please. Remember to save some for later :).",
+                "className": "announce-item-description motd-description",
+              },
+              "ref": null,
+              "rendered": "Here you get to manage your meals, Add some and delete as you please. Remember to save some for later :).",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="menu-options-grid list-grid"
+              />,
+              <Unknown />,
+              <div
+                className="edit-button"
+                id="show-menu"
+                onClick={[Function]}
+              >
+                New meal
+              </div>,
+            ],
+            "className": "menu-options-comp-two",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": null,
+                "className": "menu-options-grid list-grid",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "New meal",
+                "className": "edit-button",
+                "id": "show-menu",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "New meal",
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`WorkStation Components RenderOrdersComponent should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="announce-item item-order-history"
+        >
+          <p
+            className="announce-item-key order-history-heading"
+          >
+             Order history 
+          </p>
+          <p
+            className="announce-item-description order-history-description"
+          >
+            Here are some insights on how you've fared today, it updates real time, so best believe we've got you! Enjoy
+          </p>
+        </div>,
+        <div
+          className="direct-to-order-page"
+        >
+          <p
+            className="main-order-text"
+          >
+            Hey! so we built a whole new page for you to explore your orders on the fly. You can switch roles while in that page so you can see your orders as a regular user or as a caterer. Each comes with a different suite of capabilities. Enjoy!
+            <br />
+            <span
+              className="order-history"
+            >
+               Visit order history
+            </span>
+          </p>
+        </div>,
+      ],
+      "className": "direct-order-history",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="announce-item-key order-history-heading"
+            >
+               Order history 
+            </p>,
+            <p
+              className="announce-item-description order-history-description"
+            >
+              Here are some insights on how you've fared today, it updates real time, so best believe we've got you! Enjoy
+            </p>,
+          ],
+          "className": "announce-item item-order-history",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Order history ",
+              "className": "announce-item-key order-history-heading",
+            },
+            "ref": null,
+            "rendered": " Order history ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Here are some insights on how you've fared today, it updates real time, so best believe we've got you! Enjoy",
+              "className": "announce-item-description order-history-description",
+            },
+            "ref": null,
+            "rendered": "Here are some insights on how you've fared today, it updates real time, so best believe we've got you! Enjoy",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <p
+            className="main-order-text"
+          >
+            Hey! so we built a whole new page for you to explore your orders on the fly. You can switch roles while in that page so you can see your orders as a regular user or as a caterer. Each comes with a different suite of capabilities. Enjoy!
+            <br />
+            <span
+              className="order-history"
+            >
+               Visit order history
+            </span>
+          </p>,
+          "className": "direct-to-order-page",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Hey! so we built a whole new page for you to explore your orders on the fly. You can switch roles while in that page so you can see your orders as a regular user or as a caterer. Each comes with a different suite of capabilities. Enjoy!",
+              <br />,
+              <span
+                className="order-history"
+              >
+                 Visit order history
+              </span>,
+            ],
+            "className": "main-order-text",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Hey! so we built a whole new page for you to explore your orders on the fly. You can switch roles while in that page so you can see your orders as a regular user or as a caterer. Each comes with a different suite of capabilities. Enjoy!",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Visit order history",
+                "className": "order-history",
+              },
+              "ref": null,
+              "rendered": " Visit order history",
+              "type": "span",
+            },
+          ],
+          "type": "p",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="announce-item item-order-history"
+          >
+            <p
+              className="announce-item-key order-history-heading"
+            >
+               Order history 
+            </p>
+            <p
+              className="announce-item-description order-history-description"
+            >
+              Here are some insights on how you've fared today, it updates real time, so best believe we've got you! Enjoy
+            </p>
+          </div>,
+          <div
+            className="direct-to-order-page"
+          >
+            <p
+              className="main-order-text"
+            >
+              Hey! so we built a whole new page for you to explore your orders on the fly. You can switch roles while in that page so you can see your orders as a regular user or as a caterer. Each comes with a different suite of capabilities. Enjoy!
+              <br />
+              <span
+                className="order-history"
+              >
+                 Visit order history
+              </span>
+            </p>
+          </div>,
+        ],
+        "className": "direct-order-history",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="announce-item-key order-history-heading"
+              >
+                 Order history 
+              </p>,
+              <p
+                className="announce-item-description order-history-description"
+              >
+                Here are some insights on how you've fared today, it updates real time, so best believe we've got you! Enjoy
+              </p>,
+            ],
+            "className": "announce-item item-order-history",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Order history ",
+                "className": "announce-item-key order-history-heading",
+              },
+              "ref": null,
+              "rendered": " Order history ",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Here are some insights on how you've fared today, it updates real time, so best believe we've got you! Enjoy",
+                "className": "announce-item-description order-history-description",
+              },
+              "ref": null,
+              "rendered": "Here are some insights on how you've fared today, it updates real time, so best believe we've got you! Enjoy",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <p
+              className="main-order-text"
+            >
+              Hey! so we built a whole new page for you to explore your orders on the fly. You can switch roles while in that page so you can see your orders as a regular user or as a caterer. Each comes with a different suite of capabilities. Enjoy!
+              <br />
+              <span
+                className="order-history"
+              >
+                 Visit order history
+              </span>
+            </p>,
+            "className": "direct-to-order-page",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Hey! so we built a whole new page for you to explore your orders on the fly. You can switch roles while in that page so you can see your orders as a regular user or as a caterer. Each comes with a different suite of capabilities. Enjoy!",
+                <br />,
+                <span
+                  className="order-history"
+                >
+                   Visit order history
+                </span>,
+              ],
+              "className": "main-order-text",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Hey! so we built a whole new page for you to explore your orders on the fly. You can switch roles while in that page so you can see your orders as a regular user or as a caterer. Each comes with a different suite of capabilities. Enjoy!",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Visit order history",
+                  "className": "order-history",
+                },
+                "ref": null,
+                "rendered": " Visit order history",
+                "type": "span",
+              },
+            ],
+            "type": "p",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`WorkStation Components User Bio should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    handleChange={[Function]}
+    handleSubmit={[Function]}
+    user={
+      Object {
+        "bio": "",
+        "email": "",
+        "firstname": "",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <RenderUserBio
+          user={
+            Object {
+              "bio": "",
+              "email": "",
+              "firstname": "",
+            }
+          }
+        />,
+        <SetUpNewKitchen
+          handleChange={[Function]}
+          handleSubmit={[Function]}
+        />,
+        undefined,
+      ],
+      "className": "show-user-and-kitchen-profile",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "user": Object {
+            "bio": "",
+            "email": "",
+            "firstname": "",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleChange": [Function],
+          "handleSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      undefined,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <RenderUserBio
+            user={
+              Object {
+                "bio": "",
+                "email": "",
+                "firstname": "",
+              }
+            }
+          />,
+          <SetUpNewKitchen
+            handleChange={[Function]}
+            handleSubmit={[Function]}
+          />,
+          undefined,
+        ],
+        "className": "show-user-and-kitchen-profile",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "user": Object {
+              "bio": "",
+              "email": "",
+              "firstname": "",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleChange": [Function],
+            "handleSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        undefined,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`WorkStation Components WorkStation Main should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <WorkStation
+    handleSubmit={[Function]}
+    kitchen={
+      Object {
+        "bio": "",
+        "description": "",
+        "name": "",
+      }
+    }
+    meals={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="announce-workstation"
+        >
+          <p
+            className="announce-workstation-title"
+          >
+             Workstation 
+          </p>
+          <p
+            className="announce-workstation-desc"
+          >
+             Control center for 
+            
+          </p>
+        </div>,
+        <div
+          className="main-workstation-main"
+        >
+          <Unknown />
+          <Connect(MenuOfTheDayContainer) />
+          <Unknown
+            handleSubmit={[Function]}
+            meals={Array []}
+          />
+          <Unknown />
+        </div>,
+      ],
+      "className": "main-workstation",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="announce-workstation-title"
+            >
+               Workstation 
+            </p>,
+            <p
+              className="announce-workstation-desc"
+            >
+               Control center for 
+              
+            </p>,
+          ],
+          "className": "announce-workstation",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Workstation ",
+              "className": "announce-workstation-title",
+            },
+            "ref": null,
+            "rendered": " Workstation ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " Control center for ",
+                "",
+              ],
+              "className": "announce-workstation-desc",
+            },
+            "ref": null,
+            "rendered": Array [
+              " Control center for ",
+              "",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Unknown />,
+            <Connect(MenuOfTheDayContainer) />,
+            <Unknown
+              handleSubmit={[Function]}
+              meals={Array []}
+            />,
+            <Unknown />,
+          ],
+          "className": "main-workstation-main",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "handleSubmit": [Function],
+              "meals": Array [],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="announce-workstation"
+          >
+            <p
+              className="announce-workstation-title"
+            >
+               Workstation 
+            </p>
+            <p
+              className="announce-workstation-desc"
+            >
+               Control center for 
+              
+            </p>
+          </div>,
+          <div
+            className="main-workstation-main"
+          >
+            <Unknown />
+            <Connect(MenuOfTheDayContainer) />
+            <Unknown
+              handleSubmit={[Function]}
+              meals={Array []}
+            />
+            <Unknown />
+          </div>,
+        ],
+        "className": "main-workstation",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="announce-workstation-title"
+              >
+                 Workstation 
+              </p>,
+              <p
+                className="announce-workstation-desc"
+              >
+                 Control center for 
+                
+              </p>,
+            ],
+            "className": "announce-workstation",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Workstation ",
+                "className": "announce-workstation-title",
+              },
+              "ref": null,
+              "rendered": " Workstation ",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " Control center for ",
+                  "",
+                ],
+                "className": "announce-workstation-desc",
+              },
+              "ref": null,
+              "rendered": Array [
+                " Control center for ",
+                "",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Unknown />,
+              <Connect(MenuOfTheDayContainer) />,
+              <Unknown
+                handleSubmit={[Function]}
+                meals={Array []}
+              />,
+              <Unknown />,
+            ],
+            "className": "main-workstation-main",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "handleSubmit": [Function],
+                "meals": Array [],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

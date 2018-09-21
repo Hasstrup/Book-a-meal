@@ -12,10 +12,12 @@ dotenv.config();
 const PORT = process.env.PORT || 3900;
 const app = express();
 
-// sync()
-//   .then(() => {
-//     console.log('DB is done syncing');
-//   });
+// if (process.env.NODE_ENV === 'test') {
+//   sync()
+//     .then(() => {
+//       console.log('DB is done syncing');
+//     });
+// }
 
 app
   .use(bodyParser.urlencoded({ extended: true }))
@@ -24,6 +26,7 @@ app
   .use(logger('dev'))
   // api versioning;
   .use(express.static('public'))
+  .get('/docs', (req, res) => res.redirect('https://documenter.getpostman.com/view/5333808/RWaHxpPg'))
   .use('/api/v1', api)
   .get('/*', (_, res) => res.sendFile(path.join(`${__dirname}/public/index.html`)))
   .use('*', (_, res) => res.status(400).json({ error: 'Sorry we cant find that resource' }))

@@ -5,7 +5,7 @@ import ShowMenuDetails from './components/ShowMenuDetails';
 import VendorDetails from './components/VendorDetails';
 import '../styles/menu.scss';
 
-class RenderMenuContainer extends Component {
+export class RenderMenuContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -14,7 +14,7 @@ class RenderMenuContainer extends Component {
   componentDidMount = () => {
     const { dispatch, history, match } = this.props;
     const { menu } = this.state;
-    if (!menu) {
+    if (!menu && match ) {
       const { menuId } = match.params;
       return dispatch(FetchSpecificMenu(menuId)(history)((payload) => {
         this.setState({ menu: payload });
@@ -24,7 +24,6 @@ class RenderMenuContainer extends Component {
 
   generateImageFromMenu = () => {
     if(!this.state.menu && !this.state.menu.meals.length) return null;
-  
   }
 
   render = () => (
@@ -36,7 +35,7 @@ class RenderMenuContainer extends Component {
 }
 
 
-const MenuPage = ({ menu }) => (
+export const MenuPage = ({ menu }) => (
   <div className="main-menu-page-body">
     <VendorDetails menu={menu} />
     <ShowMenuDetails meals={menu.meals} />

@@ -1,0 +1,1270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show Menu Components Show Meal should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <img
+          alt=""
+          className="main-meal-item-img"
+          src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0a9cacdd6a4e7e408b8ba89d3d6e91d3&auto=format&fit=crop&w=500&q=60"
+        />,
+        <div
+          className="item-details"
+        >
+          <div
+            className="item-title-and-description"
+          >
+            <p
+              className="item-title-main"
+            >
+               Breakfast on the moon
+            </p>
+            <p
+              className="item-description"
+            >
+               Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+            </p>
+          </div>
+          <div
+            className="buttons-array-and-togglers"
+          >
+            <p
+              className="option-options"
+            >
+               Place an order 
+            </p>
+            <p
+              className="option-options2"
+            >
+               N3000 
+            </p>
+          </div>
+        </div>,
+      ],
+      "className": "display-menu-item",
+      "id": "item-4",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "",
+          "className": "main-meal-item-img",
+          "src": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0a9cacdd6a4e7e408b8ba89d3d6e91d3&auto=format&fit=crop&w=500&q=60",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="item-title-and-description"
+            >
+              <p
+                className="item-title-main"
+              >
+                 Breakfast on the moon
+              </p>
+              <p
+                className="item-description"
+              >
+                 Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+              </p>
+            </div>,
+            <div
+              className="buttons-array-and-togglers"
+            >
+              <p
+                className="option-options"
+              >
+                 Place an order 
+              </p>
+              <p
+                className="option-options2"
+              >
+                 N3000 
+              </p>
+            </div>,
+          ],
+          "className": "item-details",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p
+                  className="item-title-main"
+                >
+                   Breakfast on the moon
+                </p>,
+                <p
+                  className="item-description"
+                >
+                   Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+                </p>,
+              ],
+              "className": "item-title-and-description",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Breakfast on the moon",
+                  "className": "item-title-main",
+                },
+                "ref": null,
+                "rendered": " Breakfast on the moon",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.",
+                  "className": "item-description",
+                },
+                "ref": null,
+                "rendered": " Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.",
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p
+                  className="option-options"
+                >
+                   Place an order 
+                </p>,
+                <p
+                  className="option-options2"
+                >
+                   N3000 
+                </p>,
+              ],
+              "className": "buttons-array-and-togglers",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Place an order ",
+                  "className": "option-options",
+                },
+                "ref": null,
+                "rendered": " Place an order ",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " N3000 ",
+                  "className": "option-options2",
+                },
+                "ref": null,
+                "rendered": " N3000 ",
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <img
+            alt=""
+            className="main-meal-item-img"
+            src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0a9cacdd6a4e7e408b8ba89d3d6e91d3&auto=format&fit=crop&w=500&q=60"
+          />,
+          <div
+            className="item-details"
+          >
+            <div
+              className="item-title-and-description"
+            >
+              <p
+                className="item-title-main"
+              >
+                 Breakfast on the moon
+              </p>
+              <p
+                className="item-description"
+              >
+                 Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+              </p>
+            </div>
+            <div
+              className="buttons-array-and-togglers"
+            >
+              <p
+                className="option-options"
+              >
+                 Place an order 
+              </p>
+              <p
+                className="option-options2"
+              >
+                 N3000 
+              </p>
+            </div>
+          </div>,
+        ],
+        "className": "display-menu-item",
+        "id": "item-4",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "",
+            "className": "main-meal-item-img",
+            "src": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0a9cacdd6a4e7e408b8ba89d3d6e91d3&auto=format&fit=crop&w=500&q=60",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="item-title-and-description"
+              >
+                <p
+                  className="item-title-main"
+                >
+                   Breakfast on the moon
+                </p>
+                <p
+                  className="item-description"
+                >
+                   Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+                </p>
+              </div>,
+              <div
+                className="buttons-array-and-togglers"
+              >
+                <p
+                  className="option-options"
+                >
+                   Place an order 
+                </p>
+                <p
+                  className="option-options2"
+                >
+                   N3000 
+                </p>
+              </div>,
+            ],
+            "className": "item-details",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="item-title-main"
+                  >
+                     Breakfast on the moon
+                  </p>,
+                  <p
+                    className="item-description"
+                  >
+                     Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.
+                  </p>,
+                ],
+                "className": "item-title-and-description",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Breakfast on the moon",
+                    "className": "item-title-main",
+                  },
+                  "ref": null,
+                  "rendered": " Breakfast on the moon",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.",
+                    "className": "item-description",
+                  },
+                  "ref": null,
+                  "rendered": " Bacon ipsum dolor amet doner fatback capicola salami jerky spare ribs andouille frankfurter sausage chuck prosciutto. tip flank cow biltong porchetta.",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="option-options"
+                  >
+                     Place an order 
+                  </p>,
+                  <p
+                    className="option-options2"
+                  >
+                     N3000 
+                  </p>,
+                ],
+                "className": "buttons-array-and-togglers",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Place an order ",
+                    "className": "option-options",
+                  },
+                  "ref": null,
+                  "rendered": " Place an order ",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " N3000 ",
+                    "className": "option-options2",
+                  },
+                  "ref": null,
+                  "rendered": " N3000 ",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Show Menu Components ShowMenuDetails should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    meals={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Preamble />,
+        <div
+          className="main-menu-options-list"
+        >
+          0
+        </div>,
+      ],
+      "className": "main-meal-list",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": 0,
+          "className": "main-menu-options-list",
+        },
+        "ref": null,
+        "rendered": 0,
+        "type": "div",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Preamble />,
+          <div
+            className="main-menu-options-list"
+          >
+            0
+          </div>,
+        ],
+        "className": "main-meal-list",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": 0,
+            "className": "main-menu-options-list",
+          },
+          "ref": null,
+          "rendered": 0,
+          "type": "div",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Show Menu Components VendorDetails should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    menu={
+      Object {
+        "description": "",
+        "kitchen": Object {
+          "description": "",
+          "image": "",
+          "name": "",
+        },
+        "meals": Array [],
+        "name": "",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="content-details"
+        >
+          <img
+            alt="menuImage"
+            className="content-avatar"
+            src="https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d7d856d142419fe0000798f4928aa7b2&auto=format&fit=crop&w=1015&q=80"
+          />
+          <div
+            className="menu-details"
+          >
+            <p
+              className="menu-det-name"
+            >
+               
+              
+               
+            </p>
+            <p
+              className="menu-det-details"
+            >
+              
+            </p>
+          </div>
+        </div>,
+        <div
+          className="vendor-details-def"
+        >
+          <p
+            className="announce-vendor"
+          >
+             Vendor
+          </p>
+          <div
+            className="vendor-details-main"
+          >
+            <img
+              alt="vendorImage"
+              className="content-avatar"
+              src="https://images.unsplash.com/photo-1505870448719-02104776482b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3cfc2915c5fa5748e5d6017c3d0ab41e&auto=format&fit=crop&w=1100&q=80"
+            />
+            <div
+              className="vendor-details-brief"
+            >
+              <p
+                className="vendor-details-name"
+              >
+                
+              </p>
+              <p
+                className="vendor-details-bio-brief"
+              >
+                
+              </p>
+            </div>
+          </div>
+          <p
+            className="subscribe-button"
+          >
+             Subscribe 
+          </p>
+        </div>,
+      ],
+      "className": "menu-title-and-owner-grid",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <img
+              alt="menuImage"
+              className="content-avatar"
+              src="https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d7d856d142419fe0000798f4928aa7b2&auto=format&fit=crop&w=1015&q=80"
+            />,
+            <div
+              className="menu-details"
+            >
+              <p
+                className="menu-det-name"
+              >
+                 
+                
+                 
+              </p>
+              <p
+                className="menu-det-details"
+              >
+                
+              </p>
+            </div>,
+          ],
+          "className": "content-details",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "menuImage",
+              "className": "content-avatar",
+              "src": "https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d7d856d142419fe0000798f4928aa7b2&auto=format&fit=crop&w=1015&q=80",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p
+                  className="menu-det-name"
+                >
+                   
+                  
+                   
+                </p>,
+                <p
+                  className="menu-det-details"
+                >
+                  
+                </p>,
+              ],
+              "className": "menu-details",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " ",
+                    "",
+                    " ",
+                  ],
+                  "className": "menu-det-name",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " ",
+                  "",
+                  " ",
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "",
+                  "className": "menu-det-details",
+                },
+                "ref": null,
+                "rendered": "",
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="announce-vendor"
+            >
+               Vendor
+            </p>,
+            <div
+              className="vendor-details-main"
+            >
+              <img
+                alt="vendorImage"
+                className="content-avatar"
+                src="https://images.unsplash.com/photo-1505870448719-02104776482b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3cfc2915c5fa5748e5d6017c3d0ab41e&auto=format&fit=crop&w=1100&q=80"
+              />
+              <div
+                className="vendor-details-brief"
+              >
+                <p
+                  className="vendor-details-name"
+                >
+                  
+                </p>
+                <p
+                  className="vendor-details-bio-brief"
+                >
+                  
+                </p>
+              </div>
+            </div>,
+            <p
+              className="subscribe-button"
+            >
+               Subscribe 
+            </p>,
+          ],
+          "className": "vendor-details-def",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Vendor",
+              "className": "announce-vendor",
+            },
+            "ref": null,
+            "rendered": " Vendor",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt="vendorImage"
+                  className="content-avatar"
+                  src="https://images.unsplash.com/photo-1505870448719-02104776482b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3cfc2915c5fa5748e5d6017c3d0ab41e&auto=format&fit=crop&w=1100&q=80"
+                />,
+                <div
+                  className="vendor-details-brief"
+                >
+                  <p
+                    className="vendor-details-name"
+                  >
+                    
+                  </p>
+                  <p
+                    className="vendor-details-bio-brief"
+                  >
+                    
+                  </p>
+                </div>,
+              ],
+              "className": "vendor-details-main",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "vendorImage",
+                  "className": "content-avatar",
+                  "src": "https://images.unsplash.com/photo-1505870448719-02104776482b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3cfc2915c5fa5748e5d6017c3d0ab41e&auto=format&fit=crop&w=1100&q=80",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="vendor-details-name"
+                    >
+                      
+                    </p>,
+                    <p
+                      className="vendor-details-bio-brief"
+                    >
+                      
+                    </p>,
+                  ],
+                  "className": "vendor-details-brief",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "",
+                      "className": "vendor-details-name",
+                    },
+                    "ref": null,
+                    "rendered": "",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "",
+                      "className": "vendor-details-bio-brief",
+                    },
+                    "ref": null,
+                    "rendered": "",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Subscribe ",
+              "className": "subscribe-button",
+            },
+            "ref": null,
+            "rendered": " Subscribe ",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="content-details"
+          >
+            <img
+              alt="menuImage"
+              className="content-avatar"
+              src="https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d7d856d142419fe0000798f4928aa7b2&auto=format&fit=crop&w=1015&q=80"
+            />
+            <div
+              className="menu-details"
+            >
+              <p
+                className="menu-det-name"
+              >
+                 
+                
+                 
+              </p>
+              <p
+                className="menu-det-details"
+              >
+                
+              </p>
+            </div>
+          </div>,
+          <div
+            className="vendor-details-def"
+          >
+            <p
+              className="announce-vendor"
+            >
+               Vendor
+            </p>
+            <div
+              className="vendor-details-main"
+            >
+              <img
+                alt="vendorImage"
+                className="content-avatar"
+                src="https://images.unsplash.com/photo-1505870448719-02104776482b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3cfc2915c5fa5748e5d6017c3d0ab41e&auto=format&fit=crop&w=1100&q=80"
+              />
+              <div
+                className="vendor-details-brief"
+              >
+                <p
+                  className="vendor-details-name"
+                >
+                  
+                </p>
+                <p
+                  className="vendor-details-bio-brief"
+                >
+                  
+                </p>
+              </div>
+            </div>
+            <p
+              className="subscribe-button"
+            >
+               Subscribe 
+            </p>
+          </div>,
+        ],
+        "className": "menu-title-and-owner-grid",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <img
+                alt="menuImage"
+                className="content-avatar"
+                src="https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d7d856d142419fe0000798f4928aa7b2&auto=format&fit=crop&w=1015&q=80"
+              />,
+              <div
+                className="menu-details"
+              >
+                <p
+                  className="menu-det-name"
+                >
+                   
+                  
+                   
+                </p>
+                <p
+                  className="menu-det-details"
+                >
+                  
+                </p>
+              </div>,
+            ],
+            "className": "content-details",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "menuImage",
+                "className": "content-avatar",
+                "src": "https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d7d856d142419fe0000798f4928aa7b2&auto=format&fit=crop&w=1015&q=80",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="menu-det-name"
+                  >
+                     
+                    
+                     
+                  </p>,
+                  <p
+                    className="menu-det-details"
+                  >
+                    
+                  </p>,
+                ],
+                "className": "menu-details",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                    "className": "menu-det-name",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "",
+                    " ",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "",
+                    "className": "menu-det-details",
+                  },
+                  "ref": null,
+                  "rendered": "",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="announce-vendor"
+              >
+                 Vendor
+              </p>,
+              <div
+                className="vendor-details-main"
+              >
+                <img
+                  alt="vendorImage"
+                  className="content-avatar"
+                  src="https://images.unsplash.com/photo-1505870448719-02104776482b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3cfc2915c5fa5748e5d6017c3d0ab41e&auto=format&fit=crop&w=1100&q=80"
+                />
+                <div
+                  className="vendor-details-brief"
+                >
+                  <p
+                    className="vendor-details-name"
+                  >
+                    
+                  </p>
+                  <p
+                    className="vendor-details-bio-brief"
+                  >
+                    
+                  </p>
+                </div>
+              </div>,
+              <p
+                className="subscribe-button"
+              >
+                 Subscribe 
+              </p>,
+            ],
+            "className": "vendor-details-def",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Vendor",
+                "className": "announce-vendor",
+              },
+              "ref": null,
+              "rendered": " Vendor",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt="vendorImage"
+                    className="content-avatar"
+                    src="https://images.unsplash.com/photo-1505870448719-02104776482b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3cfc2915c5fa5748e5d6017c3d0ab41e&auto=format&fit=crop&w=1100&q=80"
+                  />,
+                  <div
+                    className="vendor-details-brief"
+                  >
+                    <p
+                      className="vendor-details-name"
+                    >
+                      
+                    </p>
+                    <p
+                      className="vendor-details-bio-brief"
+                    >
+                      
+                    </p>
+                  </div>,
+                ],
+                "className": "vendor-details-main",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "vendorImage",
+                    "className": "content-avatar",
+                    "src": "https://images.unsplash.com/photo-1505870448719-02104776482b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3cfc2915c5fa5748e5d6017c3d0ab41e&auto=format&fit=crop&w=1100&q=80",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p
+                        className="vendor-details-name"
+                      >
+                        
+                      </p>,
+                      <p
+                        className="vendor-details-bio-brief"
+                      >
+                        
+                      </p>,
+                    ],
+                    "className": "vendor-details-brief",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "",
+                        "className": "vendor-details-name",
+                      },
+                      "ref": null,
+                      "rendered": "",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "",
+                        "className": "vendor-details-bio-brief",
+                      },
+                      "ref": null,
+                      "rendered": "",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Subscribe ",
+                "className": "subscribe-button",
+              },
+              "ref": null,
+              "rendered": " Subscribe ",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

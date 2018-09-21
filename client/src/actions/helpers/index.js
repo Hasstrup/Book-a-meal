@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { DispatchNotification, EndProcess } from '../../actionTypes/misc';
 
+const { localStorage } = window;
 
 export const wrapInTryCatch = async (func) => {
   try {
@@ -12,9 +13,9 @@ export const wrapInTryCatch = async (func) => {
 
 export const CacheHandler = () => ({
   setContent: (item, name) => {
-    localStorage.setItem(name, JSON.stringify(item));
+    localStorage && localStorage.setItem(name, JSON.stringify(item));
   },
-  getContent: name => localStorage.getItem(name)
+  getContent: name => localStorage && localStorage.getItem(name)
 });
 
 /**
@@ -23,15 +24,14 @@ export const CacheHandler = () => ({
  */
 export const RequestHandler = requestBody => successCallback => (dispatch) => {
   // you may want to filter the request as well:  TODO
-  const token = CacheHandler().getContent('#token!!#$3')
-  axios
+  const token = CacheHandler().getContent('#token!!#$3');
+  return axios
     .request({
       ...requestBody,
       headers: {
         Authorization: token && JSON.parse(token.toString()),
         'Cache-Control': 'no-cache'
       }
-      
     })
     .then(response => successCallback(response.data.data))
     .catch((err) => {

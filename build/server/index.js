@@ -43,13 +43,18 @@ _dotenv2.default.config();
 var PORT = process.env.PORT || 3900;
 var app = (0, _express2.default)();
 
-(0, _sync2.default)().then(function () {
-  console.log('DB is done syncing');
-});
+// if (process.env.NODE_ENV === 'test') {
+//   sync()
+//     .then(() => {
+//       console.log('DB is done syncing');
+//     });
+// }
 
 app.use(_bodyParser2.default.urlencoded({ extended: true })).use(_bodyParser2.default.json()).use((0, _cors2.default)()).use((0, _morgan2.default)('dev'))
 // api versioning;
-.use(_express2.default.static('public')).use('/api/v1', _api2.default).get('/*', function (_, res) {
+.use(_express2.default.static('public')).get('/docs', function (req, res) {
+  return res.redirect('https://documenter.getpostman.com/view/5333808/RWaHxpPg');
+}).use('/api/v1', _api2.default).get('/*', function (_, res) {
   return res.sendFile(_path2.default.join(__dirname + '/public/index.html'));
 }).use('*', function (_, res) {
   return res.status(400).json({ error: 'Sorry we cant find that resource' });

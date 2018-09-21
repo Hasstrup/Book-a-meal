@@ -11,7 +11,7 @@ import { CartOps } from '../../actions/ops/cart';
 import '../styles/orders.scss';
 
 
-class OrderHistoryPage extends Component {
+export class OrderHistoryPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};

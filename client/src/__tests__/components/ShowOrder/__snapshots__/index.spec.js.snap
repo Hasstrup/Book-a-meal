@@ -1,0 +1,933 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Order History Page should match snapshot on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <OrderHistoryPage
+    dispatch={[Function]}
+    history={
+      Object {
+        "push": [Function],
+      }
+    }
+    kitchen={
+      Object {
+        "MenuofTheDay": null,
+        "description": "This is my test menu",
+        "id": 3,
+        "name": "This is great",
+      }
+    }
+    meals={
+      Array [
+        Object {
+          "description": "",
+          "kitchenId": 2,
+          "name": "This is a menu",
+          "price": 5000,
+        },
+      ]
+    }
+    orders={
+      Object {
+        "1": Array [
+          Object {
+            "meal": 1,
+          },
+        ],
+      }
+    }
+    user={
+      Object {
+        "email": "hass@mail.com",
+        "firstname": "Hasstru",
+        "id": 1,
+        "kitchen": Object {
+          "MenuofTheDay": null,
+          "description": "This is my test menu",
+          "id": 3,
+          "name": "This is great",
+        },
+        "lastname": "Ezekiel",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Unknown
+          handleChange={[Function]}
+          kitchen={
+            Object {
+              "MenuofTheDay": null,
+              "description": "This is my test menu",
+              "id": 3,
+              "name": "This is great",
+            }
+          }
+          target={
+            Object {
+              "email": "hass@mail.com",
+              "firstname": "Hasstru",
+              "id": 1,
+              "kitchen": Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              },
+              "lastname": "Ezekiel",
+            }
+          }
+          user={
+            Object {
+              "email": "hass@mail.com",
+              "firstname": "Hasstru",
+              "id": 1,
+              "kitchen": Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              },
+              "lastname": "Ezekiel",
+            }
+          }
+        />,
+        <div
+          className="orders-page-side-one-main"
+        >
+          <Unknown
+            callback={[Function]}
+            determineRenderBy={
+              Array [
+                Object {
+                  "meal": 1,
+                },
+              ]
+            }
+            emptyContainerStyle={
+              Object {
+                "bottom": "-14vh",
+                "height": "10%",
+                "position": "relative",
+              }
+            }
+            orders={
+              Array [
+                Object {
+                  "meal": 1,
+                },
+              ]
+            }
+            subtitle="order your first item"
+            text=" Aw schucks, Hasstru hasn't made an order yet"
+          />
+        </div>,
+      ],
+      "className": "main-body-component",
+      "style": Object {
+        "minHeight": "100vh",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleChange": [Function],
+          "kitchen": Object {
+            "MenuofTheDay": null,
+            "description": "This is my test menu",
+            "id": 3,
+            "name": "This is great",
+          },
+          "target": Object {
+            "email": "hass@mail.com",
+            "firstname": "Hasstru",
+            "id": 1,
+            "kitchen": Object {
+              "MenuofTheDay": null,
+              "description": "This is my test menu",
+              "id": 3,
+              "name": "This is great",
+            },
+            "lastname": "Ezekiel",
+          },
+          "user": Object {
+            "email": "hass@mail.com",
+            "firstname": "Hasstru",
+            "id": 1,
+            "kitchen": Object {
+              "MenuofTheDay": null,
+              "description": "This is my test menu",
+              "id": 3,
+              "name": "This is great",
+            },
+            "lastname": "Ezekiel",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            undefined,
+            <Unknown
+              callback={[Function]}
+              determineRenderBy={
+                Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ]
+              }
+              emptyContainerStyle={
+                Object {
+                  "bottom": "-14vh",
+                  "height": "10%",
+                  "position": "relative",
+                }
+              }
+              orders={
+                Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ]
+              }
+              subtitle="order your first item"
+              text=" Aw schucks, Hasstru hasn't made an order yet"
+            />,
+          ],
+          "className": "orders-page-side-one-main",
+        },
+        "ref": null,
+        "rendered": Array [
+          undefined,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "callback": [Function],
+              "determineRenderBy": Array [
+                Object {
+                  "meal": 1,
+                },
+              ],
+              "emptyContainerStyle": Object {
+                "bottom": "-14vh",
+                "height": "10%",
+                "position": "relative",
+              },
+              "orders": Array [
+                Object {
+                  "meal": 1,
+                },
+              ],
+              "subtitle": "order your first item",
+              "text": " Aw schucks, Hasstru hasn't made an order yet",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Unknown
+            handleChange={[Function]}
+            kitchen={
+              Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              }
+            }
+            target={
+              Object {
+                "email": "hass@mail.com",
+                "firstname": "Hasstru",
+                "id": 1,
+                "kitchen": Object {
+                  "MenuofTheDay": null,
+                  "description": "This is my test menu",
+                  "id": 3,
+                  "name": "This is great",
+                },
+                "lastname": "Ezekiel",
+              }
+            }
+            user={
+              Object {
+                "email": "hass@mail.com",
+                "firstname": "Hasstru",
+                "id": 1,
+                "kitchen": Object {
+                  "MenuofTheDay": null,
+                  "description": "This is my test menu",
+                  "id": 3,
+                  "name": "This is great",
+                },
+                "lastname": "Ezekiel",
+              }
+            }
+          />,
+          <div
+            className="orders-page-side-one-main"
+          >
+            <Unknown
+              callback={[Function]}
+              determineRenderBy={
+                Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ]
+              }
+              emptyContainerStyle={
+                Object {
+                  "bottom": "-14vh",
+                  "height": "10%",
+                  "position": "relative",
+                }
+              }
+              orders={
+                Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ]
+              }
+              subtitle="order your first item"
+              text=" Aw schucks, Hasstru hasn't made an order yet"
+            />
+          </div>,
+        ],
+        "className": "main-body-component",
+        "style": Object {
+          "minHeight": "100vh",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleChange": [Function],
+            "kitchen": Object {
+              "MenuofTheDay": null,
+              "description": "This is my test menu",
+              "id": 3,
+              "name": "This is great",
+            },
+            "target": Object {
+              "email": "hass@mail.com",
+              "firstname": "Hasstru",
+              "id": 1,
+              "kitchen": Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              },
+              "lastname": "Ezekiel",
+            },
+            "user": Object {
+              "email": "hass@mail.com",
+              "firstname": "Hasstru",
+              "id": 1,
+              "kitchen": Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              },
+              "lastname": "Ezekiel",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              undefined,
+              <Unknown
+                callback={[Function]}
+                determineRenderBy={
+                  Array [
+                    Object {
+                      "meal": 1,
+                    },
+                  ]
+                }
+                emptyContainerStyle={
+                  Object {
+                    "bottom": "-14vh",
+                    "height": "10%",
+                    "position": "relative",
+                  }
+                }
+                orders={
+                  Array [
+                    Object {
+                      "meal": 1,
+                    },
+                  ]
+                }
+                subtitle="order your first item"
+                text=" Aw schucks, Hasstru hasn't made an order yet"
+              />,
+            ],
+            "className": "orders-page-side-one-main",
+          },
+          "ref": null,
+          "rendered": Array [
+            undefined,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "callback": [Function],
+                "determineRenderBy": Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ],
+                "emptyContainerStyle": Object {
+                  "bottom": "-14vh",
+                  "height": "10%",
+                  "position": "relative",
+                },
+                "orders": Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ],
+                "subtitle": "order your first item",
+                "text": " Aw schucks, Hasstru hasn't made an order yet",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Order History Page should render successfully on deep mounting 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <OrderHistoryPage
+    dispatch={[Function]}
+    history={
+      Object {
+        "push": [Function],
+      }
+    }
+    kitchen={
+      Object {
+        "MenuofTheDay": null,
+        "description": "This is my test menu",
+        "id": 3,
+        "name": "This is great",
+      }
+    }
+    meals={
+      Array [
+        Object {
+          "description": "",
+          "kitchenId": 2,
+          "name": "This is a menu",
+          "price": 5000,
+        },
+      ]
+    }
+    orders={
+      Object {
+        "1": Array [
+          Object {
+            "meal": 1,
+          },
+        ],
+      }
+    }
+    user={
+      Object {
+        "email": "hass@mail.com",
+        "firstname": "Hasstru",
+        "id": 1,
+        "kitchen": Object {
+          "MenuofTheDay": null,
+          "description": "This is my test menu",
+          "id": 3,
+          "name": "This is great",
+        },
+        "lastname": "Ezekiel",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Unknown
+          handleChange={[Function]}
+          kitchen={
+            Object {
+              "MenuofTheDay": null,
+              "description": "This is my test menu",
+              "id": 3,
+              "name": "This is great",
+            }
+          }
+          target={
+            Object {
+              "email": "hass@mail.com",
+              "firstname": "Hasstru",
+              "id": 1,
+              "kitchen": Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              },
+              "lastname": "Ezekiel",
+            }
+          }
+          user={
+            Object {
+              "email": "hass@mail.com",
+              "firstname": "Hasstru",
+              "id": 1,
+              "kitchen": Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              },
+              "lastname": "Ezekiel",
+            }
+          }
+        />,
+        <div
+          className="orders-page-side-one-main"
+        >
+          <Unknown
+            callback={[Function]}
+            determineRenderBy={
+              Array [
+                Object {
+                  "meal": 1,
+                },
+              ]
+            }
+            emptyContainerStyle={
+              Object {
+                "bottom": "-14vh",
+                "height": "10%",
+                "position": "relative",
+              }
+            }
+            orders={
+              Array [
+                Object {
+                  "meal": 1,
+                },
+              ]
+            }
+            subtitle="order your first item"
+            text=" Aw schucks, Hasstru hasn't made an order yet"
+          />
+        </div>,
+      ],
+      "className": "main-body-component",
+      "style": Object {
+        "minHeight": "100vh",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleChange": [Function],
+          "kitchen": Object {
+            "MenuofTheDay": null,
+            "description": "This is my test menu",
+            "id": 3,
+            "name": "This is great",
+          },
+          "target": Object {
+            "email": "hass@mail.com",
+            "firstname": "Hasstru",
+            "id": 1,
+            "kitchen": Object {
+              "MenuofTheDay": null,
+              "description": "This is my test menu",
+              "id": 3,
+              "name": "This is great",
+            },
+            "lastname": "Ezekiel",
+          },
+          "user": Object {
+            "email": "hass@mail.com",
+            "firstname": "Hasstru",
+            "id": 1,
+            "kitchen": Object {
+              "MenuofTheDay": null,
+              "description": "This is my test menu",
+              "id": 3,
+              "name": "This is great",
+            },
+            "lastname": "Ezekiel",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            undefined,
+            <Unknown
+              callback={[Function]}
+              determineRenderBy={
+                Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ]
+              }
+              emptyContainerStyle={
+                Object {
+                  "bottom": "-14vh",
+                  "height": "10%",
+                  "position": "relative",
+                }
+              }
+              orders={
+                Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ]
+              }
+              subtitle="order your first item"
+              text=" Aw schucks, Hasstru hasn't made an order yet"
+            />,
+          ],
+          "className": "orders-page-side-one-main",
+        },
+        "ref": null,
+        "rendered": Array [
+          undefined,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "callback": [Function],
+              "determineRenderBy": Array [
+                Object {
+                  "meal": 1,
+                },
+              ],
+              "emptyContainerStyle": Object {
+                "bottom": "-14vh",
+                "height": "10%",
+                "position": "relative",
+              },
+              "orders": Array [
+                Object {
+                  "meal": 1,
+                },
+              ],
+              "subtitle": "order your first item",
+              "text": " Aw schucks, Hasstru hasn't made an order yet",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Unknown
+            handleChange={[Function]}
+            kitchen={
+              Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              }
+            }
+            target={
+              Object {
+                "email": "hass@mail.com",
+                "firstname": "Hasstru",
+                "id": 1,
+                "kitchen": Object {
+                  "MenuofTheDay": null,
+                  "description": "This is my test menu",
+                  "id": 3,
+                  "name": "This is great",
+                },
+                "lastname": "Ezekiel",
+              }
+            }
+            user={
+              Object {
+                "email": "hass@mail.com",
+                "firstname": "Hasstru",
+                "id": 1,
+                "kitchen": Object {
+                  "MenuofTheDay": null,
+                  "description": "This is my test menu",
+                  "id": 3,
+                  "name": "This is great",
+                },
+                "lastname": "Ezekiel",
+              }
+            }
+          />,
+          <div
+            className="orders-page-side-one-main"
+          >
+            <Unknown
+              callback={[Function]}
+              determineRenderBy={
+                Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ]
+              }
+              emptyContainerStyle={
+                Object {
+                  "bottom": "-14vh",
+                  "height": "10%",
+                  "position": "relative",
+                }
+              }
+              orders={
+                Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ]
+              }
+              subtitle="order your first item"
+              text=" Aw schucks, Hasstru hasn't made an order yet"
+            />
+          </div>,
+        ],
+        "className": "main-body-component",
+        "style": Object {
+          "minHeight": "100vh",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleChange": [Function],
+            "kitchen": Object {
+              "MenuofTheDay": null,
+              "description": "This is my test menu",
+              "id": 3,
+              "name": "This is great",
+            },
+            "target": Object {
+              "email": "hass@mail.com",
+              "firstname": "Hasstru",
+              "id": 1,
+              "kitchen": Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              },
+              "lastname": "Ezekiel",
+            },
+            "user": Object {
+              "email": "hass@mail.com",
+              "firstname": "Hasstru",
+              "id": 1,
+              "kitchen": Object {
+                "MenuofTheDay": null,
+                "description": "This is my test menu",
+                "id": 3,
+                "name": "This is great",
+              },
+              "lastname": "Ezekiel",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              undefined,
+              <Unknown
+                callback={[Function]}
+                determineRenderBy={
+                  Array [
+                    Object {
+                      "meal": 1,
+                    },
+                  ]
+                }
+                emptyContainerStyle={
+                  Object {
+                    "bottom": "-14vh",
+                    "height": "10%",
+                    "position": "relative",
+                  }
+                }
+                orders={
+                  Array [
+                    Object {
+                      "meal": 1,
+                    },
+                  ]
+                }
+                subtitle="order your first item"
+                text=" Aw schucks, Hasstru hasn't made an order yet"
+              />,
+            ],
+            "className": "orders-page-side-one-main",
+          },
+          "ref": null,
+          "rendered": Array [
+            undefined,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "callback": [Function],
+                "determineRenderBy": Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ],
+                "emptyContainerStyle": Object {
+                  "bottom": "-14vh",
+                  "height": "10%",
+                  "position": "relative",
+                },
+                "orders": Array [
+                  Object {
+                    "meal": 1,
+                  },
+                ],
+                "subtitle": "order your first item",
+                "text": " Aw schucks, Hasstru hasn't made an order yet",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

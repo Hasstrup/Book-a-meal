@@ -51,13 +51,18 @@ export const fetchMenuOfTheDayOfUser = () => (dispatch, getState) => {
   const successCallBack = (kitchen) => {
     // since the payload of doesnt populate the ofTheDay; TODO: make this server side;
     const payload = kitchen.menus.filter(item => item.id === kitchen.MenuofTheDay)[0];
-    console.log(payload);
     dispatch({ type: 'MENU_OF_THE_DAY', payload });
   };
-  dispatch(RequestHandler(request)(successCallBack));
+  return dispatch(RequestHandler(request)(successCallBack));
 };
 
-// remember to edit this next;
+// remember to edit this next
+/**
+ * @name FetchSpecificMenu
+ * @param {*} id the menu to be fetched
+ * @returns {null}
+ * @description This feth
+ */
 export const FetchSpecificMenu = id => history => callback => (dispatch) => {
   dispatch(StartProcess());
   const request = { method: 'get', url: `${config.url}/menus/${id}` };
@@ -67,5 +72,5 @@ export const FetchSpecificMenu = id => history => callback => (dispatch) => {
     if (callback) return callback(menu);
     history.push(`/menu/${id}`);
   };
-  dispatch(RequestHandler(request)(success));
+  return dispatch(RequestHandler(request)(success));
 };

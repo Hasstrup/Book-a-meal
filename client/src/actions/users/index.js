@@ -29,7 +29,7 @@ export const SignUpUser = body => history => (dispatch, getState) => {
       CacheHandler().setContent(res.data.data.token, '#token!!#$3');
       if (getState().funcs && getState().funcs.pending) return getState().funcs.pending();
       history.push('/catalogue');
-      window.location.reload();
+      process.env.NODE_ENV !== 'test' && window.location.reload();
       dispatch(DispatchNotification(`Welcome to Book A Meal ${res.data.data.firstname}. I'm jarvis, here to help :)`));
       // only dispatch if the user has a kitchen
     })
@@ -58,7 +58,7 @@ export const LogInUser = body => history => (dispatch, getState) => {
       CacheHandler().setContent(res.data.data, '#user!!@##$');
       if (getState().funcs && getState().funcs.pending) return getState().funcs.pending();
       history.push('/catalogue');
-      window.location.reload();
+      process.env.NODE_ENV !== 'test' && window.location.reload();
     })
     .catch((err) => {
       dispatch(EndProcess());
@@ -101,5 +101,5 @@ export const FetchUser = () => (dispatch, getState) => {
       return dispatch(fetchAllMealsBelongingToUser()); // should work after the Kitchen is set up
     }
   };
-  dispatch(RequestHandler({ method: 'get', url: `${config.url}/users/${getState().users.current.id}` })(callBack));
+  return dispatch(RequestHandler({ method: 'get', url: `${config.url}/users/${getState().users.current.id}` })(callBack));
 };

@@ -11,6 +11,7 @@ import _ from 'lodash/array';
  * ]
  * }
  */
+ const { localStorage } = window;
 const currentDate = new Date();
 const CartOps = (key = generateKey()) => meal => ({ add, remove, clear }) => {
   let cart;
@@ -38,9 +39,9 @@ const CartOps = (key = generateKey()) => meal => ({ add, remove, clear }) => {
     return [];
   };
 
-  const ClearItemsFromCart = () => localStorage.removeItem(key);
+  const ClearItemsFromCart = () => localStorage && localStorage.removeItem(key);
 
-  const FetchAllItemsFromCart = () => localStorage.getItem(key) && JSON.parse(localStorage.getItem(key)).meals;
+  const FetchAllItemsFromCart = () => localStorage && localStorage.getItem(key) && JSON.parse(localStorage.getItem(key)).meals;
 
 
   if (add) return addItemToCart();

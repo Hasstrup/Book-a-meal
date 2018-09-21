@@ -22,7 +22,7 @@ const router = Router();
 router.get('/', BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, OrdersMiddleware.checkType, OrdersController.fetchOrders, ErrorHandler.dispatch);
 
 /* this route is exclusive to only type=user as only users should be able to make new orders */
-router.post('/', BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, OrdersMiddleware.allowConfirmedUsersOnly, BaseMiddleware.checkForNullInput, OrdersMiddleware.__checkRequired, OrdersController.create, ErrorHandler.dispatch);
+router.post('/', BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, BaseMiddleware.checkForNullInput, OrdersMiddleware.__checkRequired, OrdersController.create, ErrorHandler.dispatch);
 
 //  this method should only allow kitchens change the processed key from false to true;
 router.put('/:ooid', BaseMiddleware.checkAuthorization, OrdersMiddleware.__filterAccess, OrdersMiddleware.checkType, BaseMiddleware.__checkParams, OrdersMiddleware.__revokeAccess, OrdersController.__updateOne, ErrorHandler.dispatch);

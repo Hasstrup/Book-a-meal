@@ -1,0 +1,4148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Components Auth Component should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AuthComponent
+    createUser={[Function]}
+    logInUser={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="preamble-text"
+        >
+          <p
+            className="main-bold-text"
+          >
+            Sign Up. Get fed
+          </p>
+          <p
+            className="extras"
+          >
+             Create an account with 
+            <span>
+               Book A Meal
+            </span>
+            , get the best menu options and the most ridiculous deals you might find anywhere else, and you have our word for that. Let's have you join us!
+          </p>
+        </div>,
+        <div
+          className="form-group"
+        >
+          <div
+            className="section"
+          >
+            <div
+              className="form-input-group"
+            >
+              <label
+                htmlFor="fullName"
+              >
+                 Full Name 
+              </label>
+              <input
+                className="type-input"
+                name="fullName"
+                onChange={[Function]}
+                type="text"
+              />
+            </div>
+            <div
+              className="form-input-group type-2"
+            >
+              <label
+                htmlFor="email"
+              >
+                 Email 
+              </label>
+              <input
+                className="type-input"
+                name="email"
+                onChange={[Function]}
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            className="section"
+          >
+            <div
+              className="form-input-group"
+            >
+              <label
+                htmlFor="password"
+              >
+                 Password 
+              </label>
+              <input
+                className="type-input"
+                name="password"
+                onChange={[Function]}
+                type="password"
+              />
+            </div>
+            <div
+              className="form-input-group type-2"
+            >
+              <label
+                htmlFor="confirmPassword"
+              >
+                 Username 
+              </label>
+              <input
+                className="type-input"
+                name="username"
+                onChange={[Function]}
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            className="submit-button"
+            onClick={[Function]}
+          >
+            Sign Up
+          </div>
+          <p
+            className="got-an-account-id"
+            id="switch-xx-accounts"
+            onClick={[Function]}
+          >
+             I already have an account 
+          </p>
+          <p
+            className="got-an-account-id"
+            onClick={[Function]}
+          >
+             
+            
+             
+          </p>
+        </div>,
+      ],
+      "className": "create-account-center",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="main-bold-text"
+            >
+              Sign Up. Get fed
+            </p>,
+            <p
+              className="extras"
+            >
+               Create an account with 
+              <span>
+                 Book A Meal
+              </span>
+              , get the best menu options and the most ridiculous deals you might find anywhere else, and you have our word for that. Let's have you join us!
+            </p>,
+          ],
+          "className": "preamble-text",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sign Up. Get fed",
+              "className": "main-bold-text",
+            },
+            "ref": null,
+            "rendered": "Sign Up. Get fed",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " Create an account with ",
+                <span>
+                   Book A Meal
+                </span>,
+                ", get the best menu options and the most ridiculous deals you might find anywhere else, and you have our word for that. Let's have you join us!",
+              ],
+              "className": "extras",
+            },
+            "ref": null,
+            "rendered": Array [
+              " Create an account with ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Book A Meal",
+                },
+                "ref": null,
+                "rendered": " Book A Meal",
+                "type": "span",
+              },
+              ", get the best menu options and the most ridiculous deals you might find anywhere else, and you have our word for that. Let's have you join us!",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="section"
+            >
+              <div
+                className="form-input-group"
+              >
+                <label
+                  htmlFor="fullName"
+                >
+                   Full Name 
+                </label>
+                <input
+                  className="type-input"
+                  name="fullName"
+                  onChange={[Function]}
+                  type="text"
+                />
+              </div>
+              <div
+                className="form-input-group type-2"
+              >
+                <label
+                  htmlFor="email"
+                >
+                   Email 
+                </label>
+                <input
+                  className="type-input"
+                  name="email"
+                  onChange={[Function]}
+                  type="text"
+                />
+              </div>
+            </div>,
+            <div
+              className="section"
+            >
+              <div
+                className="form-input-group"
+              >
+                <label
+                  htmlFor="password"
+                >
+                   Password 
+                </label>
+                <input
+                  className="type-input"
+                  name="password"
+                  onChange={[Function]}
+                  type="password"
+                />
+              </div>
+              <div
+                className="form-input-group type-2"
+              >
+                <label
+                  htmlFor="confirmPassword"
+                >
+                   Username 
+                </label>
+                <input
+                  className="type-input"
+                  name="username"
+                  onChange={[Function]}
+                  type="text"
+                />
+              </div>
+            </div>,
+            <div
+              className="submit-button"
+              onClick={[Function]}
+            >
+              Sign Up
+            </div>,
+            <p
+              className="got-an-account-id"
+              id="switch-xx-accounts"
+              onClick={[Function]}
+            >
+               I already have an account 
+            </p>,
+            <p
+              className="got-an-account-id"
+              onClick={[Function]}
+            >
+               
+              
+               
+            </p>,
+          ],
+          "className": "form-group",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="form-input-group"
+                >
+                  <label
+                    htmlFor="fullName"
+                  >
+                     Full Name 
+                  </label>
+                  <input
+                    className="type-input"
+                    name="fullName"
+                    onChange={[Function]}
+                    type="text"
+                  />
+                </div>,
+                <div
+                  className="form-input-group type-2"
+                >
+                  <label
+                    htmlFor="email"
+                  >
+                     Email 
+                  </label>
+                  <input
+                    className="type-input"
+                    name="email"
+                    onChange={[Function]}
+                    type="text"
+                  />
+                </div>,
+              ],
+              "className": "section",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      htmlFor="fullName"
+                    >
+                       Full Name 
+                    </label>,
+                    <input
+                      className="type-input"
+                      name="fullName"
+                      onChange={[Function]}
+                      type="text"
+                    />,
+                  ],
+                  "className": "form-input-group",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Full Name ",
+                      "htmlFor": "fullName",
+                    },
+                    "ref": null,
+                    "rendered": " Full Name ",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "type-input",
+                      "name": "fullName",
+                      "onChange": [Function],
+                      "type": "text",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      htmlFor="email"
+                    >
+                       Email 
+                    </label>,
+                    <input
+                      className="type-input"
+                      name="email"
+                      onChange={[Function]}
+                      type="text"
+                    />,
+                  ],
+                  "className": "form-input-group type-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Email ",
+                      "htmlFor": "email",
+                    },
+                    "ref": null,
+                    "rendered": " Email ",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "type-input",
+                      "name": "email",
+                      "onChange": [Function],
+                      "type": "text",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="form-input-group"
+                >
+                  <label
+                    htmlFor="password"
+                  >
+                     Password 
+                  </label>
+                  <input
+                    className="type-input"
+                    name="password"
+                    onChange={[Function]}
+                    type="password"
+                  />
+                </div>,
+                <div
+                  className="form-input-group type-2"
+                >
+                  <label
+                    htmlFor="confirmPassword"
+                  >
+                     Username 
+                  </label>
+                  <input
+                    className="type-input"
+                    name="username"
+                    onChange={[Function]}
+                    type="text"
+                  />
+                </div>,
+              ],
+              "className": "section",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      htmlFor="password"
+                    >
+                       Password 
+                    </label>,
+                    <input
+                      className="type-input"
+                      name="password"
+                      onChange={[Function]}
+                      type="password"
+                    />,
+                  ],
+                  "className": "form-input-group",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Password ",
+                      "htmlFor": "password",
+                    },
+                    "ref": null,
+                    "rendered": " Password ",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "type-input",
+                      "name": "password",
+                      "onChange": [Function],
+                      "type": "password",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      htmlFor="confirmPassword"
+                    >
+                       Username 
+                    </label>,
+                    <input
+                      className="type-input"
+                      name="username"
+                      onChange={[Function]}
+                      type="text"
+                    />,
+                  ],
+                  "className": "form-input-group type-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Username ",
+                      "htmlFor": "confirmPassword",
+                    },
+                    "ref": null,
+                    "rendered": " Username ",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "type-input",
+                      "name": "username",
+                      "onChange": [Function],
+                      "type": "text",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sign Up",
+              "className": "submit-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Sign Up",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " I already have an account ",
+              "className": "got-an-account-id",
+              "id": "switch-xx-accounts",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": " I already have an account ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                "",
+                " ",
+              ],
+              "className": "got-an-account-id",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              "",
+              " ",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="preamble-text"
+          >
+            <p
+              className="main-bold-text"
+            >
+              Sign Up. Get fed
+            </p>
+            <p
+              className="extras"
+            >
+               Create an account with 
+              <span>
+                 Book A Meal
+              </span>
+              , get the best menu options and the most ridiculous deals you might find anywhere else, and you have our word for that. Let's have you join us!
+            </p>
+          </div>,
+          <div
+            className="form-group"
+          >
+            <div
+              className="section"
+            >
+              <div
+                className="form-input-group"
+              >
+                <label
+                  htmlFor="fullName"
+                >
+                   Full Name 
+                </label>
+                <input
+                  className="type-input"
+                  name="fullName"
+                  onChange={[Function]}
+                  type="text"
+                />
+              </div>
+              <div
+                className="form-input-group type-2"
+              >
+                <label
+                  htmlFor="email"
+                >
+                   Email 
+                </label>
+                <input
+                  className="type-input"
+                  name="email"
+                  onChange={[Function]}
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              className="section"
+            >
+              <div
+                className="form-input-group"
+              >
+                <label
+                  htmlFor="password"
+                >
+                   Password 
+                </label>
+                <input
+                  className="type-input"
+                  name="password"
+                  onChange={[Function]}
+                  type="password"
+                />
+              </div>
+              <div
+                className="form-input-group type-2"
+              >
+                <label
+                  htmlFor="confirmPassword"
+                >
+                   Username 
+                </label>
+                <input
+                  className="type-input"
+                  name="username"
+                  onChange={[Function]}
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              className="submit-button"
+              onClick={[Function]}
+            >
+              Sign Up
+            </div>
+            <p
+              className="got-an-account-id"
+              id="switch-xx-accounts"
+              onClick={[Function]}
+            >
+               I already have an account 
+            </p>
+            <p
+              className="got-an-account-id"
+              onClick={[Function]}
+            >
+               
+              
+               
+            </p>
+          </div>,
+        ],
+        "className": "create-account-center",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="main-bold-text"
+              >
+                Sign Up. Get fed
+              </p>,
+              <p
+                className="extras"
+              >
+                 Create an account with 
+                <span>
+                   Book A Meal
+                </span>
+                , get the best menu options and the most ridiculous deals you might find anywhere else, and you have our word for that. Let's have you join us!
+              </p>,
+            ],
+            "className": "preamble-text",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign Up. Get fed",
+                "className": "main-bold-text",
+              },
+              "ref": null,
+              "rendered": "Sign Up. Get fed",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " Create an account with ",
+                  <span>
+                     Book A Meal
+                  </span>,
+                  ", get the best menu options and the most ridiculous deals you might find anywhere else, and you have our word for that. Let's have you join us!",
+                ],
+                "className": "extras",
+              },
+              "ref": null,
+              "rendered": Array [
+                " Create an account with ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Book A Meal",
+                  },
+                  "ref": null,
+                  "rendered": " Book A Meal",
+                  "type": "span",
+                },
+                ", get the best menu options and the most ridiculous deals you might find anywhere else, and you have our word for that. Let's have you join us!",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="section"
+              >
+                <div
+                  className="form-input-group"
+                >
+                  <label
+                    htmlFor="fullName"
+                  >
+                     Full Name 
+                  </label>
+                  <input
+                    className="type-input"
+                    name="fullName"
+                    onChange={[Function]}
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="form-input-group type-2"
+                >
+                  <label
+                    htmlFor="email"
+                  >
+                     Email 
+                  </label>
+                  <input
+                    className="type-input"
+                    name="email"
+                    onChange={[Function]}
+                    type="text"
+                  />
+                </div>
+              </div>,
+              <div
+                className="section"
+              >
+                <div
+                  className="form-input-group"
+                >
+                  <label
+                    htmlFor="password"
+                  >
+                     Password 
+                  </label>
+                  <input
+                    className="type-input"
+                    name="password"
+                    onChange={[Function]}
+                    type="password"
+                  />
+                </div>
+                <div
+                  className="form-input-group type-2"
+                >
+                  <label
+                    htmlFor="confirmPassword"
+                  >
+                     Username 
+                  </label>
+                  <input
+                    className="type-input"
+                    name="username"
+                    onChange={[Function]}
+                    type="text"
+                  />
+                </div>
+              </div>,
+              <div
+                className="submit-button"
+                onClick={[Function]}
+              >
+                Sign Up
+              </div>,
+              <p
+                className="got-an-account-id"
+                id="switch-xx-accounts"
+                onClick={[Function]}
+              >
+                 I already have an account 
+              </p>,
+              <p
+                className="got-an-account-id"
+                onClick={[Function]}
+              >
+                 
+                
+                 
+              </p>,
+            ],
+            "className": "form-group",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="form-input-group"
+                  >
+                    <label
+                      htmlFor="fullName"
+                    >
+                       Full Name 
+                    </label>
+                    <input
+                      className="type-input"
+                      name="fullName"
+                      onChange={[Function]}
+                      type="text"
+                    />
+                  </div>,
+                  <div
+                    className="form-input-group type-2"
+                  >
+                    <label
+                      htmlFor="email"
+                    >
+                       Email 
+                    </label>
+                    <input
+                      className="type-input"
+                      name="email"
+                      onChange={[Function]}
+                      type="text"
+                    />
+                  </div>,
+                ],
+                "className": "section",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        htmlFor="fullName"
+                      >
+                         Full Name 
+                      </label>,
+                      <input
+                        className="type-input"
+                        name="fullName"
+                        onChange={[Function]}
+                        type="text"
+                      />,
+                    ],
+                    "className": "form-input-group",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Full Name ",
+                        "htmlFor": "fullName",
+                      },
+                      "ref": null,
+                      "rendered": " Full Name ",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "type-input",
+                        "name": "fullName",
+                        "onChange": [Function],
+                        "type": "text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        htmlFor="email"
+                      >
+                         Email 
+                      </label>,
+                      <input
+                        className="type-input"
+                        name="email"
+                        onChange={[Function]}
+                        type="text"
+                      />,
+                    ],
+                    "className": "form-input-group type-2",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Email ",
+                        "htmlFor": "email",
+                      },
+                      "ref": null,
+                      "rendered": " Email ",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "type-input",
+                        "name": "email",
+                        "onChange": [Function],
+                        "type": "text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="form-input-group"
+                  >
+                    <label
+                      htmlFor="password"
+                    >
+                       Password 
+                    </label>
+                    <input
+                      className="type-input"
+                      name="password"
+                      onChange={[Function]}
+                      type="password"
+                    />
+                  </div>,
+                  <div
+                    className="form-input-group type-2"
+                  >
+                    <label
+                      htmlFor="confirmPassword"
+                    >
+                       Username 
+                    </label>
+                    <input
+                      className="type-input"
+                      name="username"
+                      onChange={[Function]}
+                      type="text"
+                    />
+                  </div>,
+                ],
+                "className": "section",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        htmlFor="password"
+                      >
+                         Password 
+                      </label>,
+                      <input
+                        className="type-input"
+                        name="password"
+                        onChange={[Function]}
+                        type="password"
+                      />,
+                    ],
+                    "className": "form-input-group",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Password ",
+                        "htmlFor": "password",
+                      },
+                      "ref": null,
+                      "rendered": " Password ",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "type-input",
+                        "name": "password",
+                        "onChange": [Function],
+                        "type": "password",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        htmlFor="confirmPassword"
+                      >
+                         Username 
+                      </label>,
+                      <input
+                        className="type-input"
+                        name="username"
+                        onChange={[Function]}
+                        type="text"
+                      />,
+                    ],
+                    "className": "form-input-group type-2",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Username ",
+                        "htmlFor": "confirmPassword",
+                      },
+                      "ref": null,
+                      "rendered": " Username ",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "type-input",
+                        "name": "username",
+                        "onChange": [Function],
+                        "type": "text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign Up",
+                "className": "submit-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Sign Up",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " I already have an account ",
+                "className": "got-an-account-id",
+                "id": "switch-xx-accounts",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": " I already have an account ",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "",
+                  " ",
+                ],
+                "className": "got-an-account-id",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "",
+                " ",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Home Components Banner Component should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AnimatingBannerComponent />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="dangling-shapes"
+        >
+          <div
+            className="triangle-up"
+          />
+          <div
+            className="cone"
+          />
+          <div
+            className="triangle-down"
+          />
+        </div>,
+        <p
+          className="text-landing"
+          onClick={[Function]}
+        >
+          Food so good.
+          <br />
+          You couldn't live without it.
+        </p>,
+      ],
+      "className": "landing-jumbo",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="triangle-up"
+            />,
+            <div
+              className="cone"
+            />,
+            <div
+              className="triangle-down"
+            />,
+          ],
+          "className": "dangling-shapes",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "triangle-up",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "cone",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "triangle-down",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Food so good.",
+            <br />,
+            "You couldn't live without it.",
+          ],
+          "className": "text-landing",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Food so good.",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          "You couldn't live without it.",
+        ],
+        "type": "p",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="dangling-shapes"
+          >
+            <div
+              className="triangle-up"
+            />
+            <div
+              className="cone"
+            />
+            <div
+              className="triangle-down"
+            />
+          </div>,
+          <p
+            className="text-landing"
+            onClick={[Function]}
+          >
+            Food so good.
+            <br />
+            You couldn't live without it.
+          </p>,
+        ],
+        "className": "landing-jumbo",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="triangle-up"
+              />,
+              <div
+                className="cone"
+              />,
+              <div
+                className="triangle-down"
+              />,
+            ],
+            "className": "dangling-shapes",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "triangle-up",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "cone",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "triangle-down",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Food so good.",
+              <br />,
+              "You couldn't live without it.",
+            ],
+            "className": "text-landing",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Food so good.",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            "You couldn't live without it.",
+          ],
+          "type": "p",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Home Components Floating Component should render correctly on shallow render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ImageFloatingComponent />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="first-image-grid"
+        >
+          <div
+            className="details-container"
+          >
+            <img
+              className="bg-img"
+              name="id-1"
+              src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+            />
+            <div
+              className="menu-details"
+              id="id-1"
+            >
+              <p
+                className="show-title"
+              >
+                 Soca Mocha
+              </p>
+              <p
+                className="meal-options"
+              >
+                 Fried Rice, Jollof Rice
+              </p>
+              <p
+                className="caterers-name"
+              >
+                 Ruutos Kitchen
+              </p>
+            </div>
+          </div>
+          <div
+            className="details-container"
+          >
+            <img
+              className="bg-img"
+              name="id-2"
+              src="https://images.unsplash.com/photo-1512620053409-d1cb57676f2e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65dceae4e34e9514577cc8dc129db438&auto=format&fit=crop&w=500&q=60"
+            />
+            <div
+              className="menu-details"
+              id="id-2"
+            >
+              <p
+                className="show-title"
+              >
+                 Pale Honey
+              </p>
+              <p
+                className="meal-options"
+              >
+                 Eba, Soup, and alladat 
+              </p>
+              <p
+                className="caterers-name"
+              >
+                 The Place, Lekki 
+              </p>
+            </div>
+          </div>
+        </div>,
+        <div
+          className="second-image-grid"
+        >
+          <div
+            className="details-container"
+          >
+            <img
+              className="bg-img"
+              name="image-3"
+              src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+            />
+            <div
+              className="menu-details"
+              id="id-2"
+            >
+              <p
+                className="show-title"
+              >
+                 Pale Honey
+              </p>
+              <p
+                className="meal-options"
+              >
+                 Eba, Soup, and alladat 
+              </p>
+              <p
+                className="caterers-name"
+              >
+                 The Place, Lekki 
+              </p>
+            </div>
+          </div>
+          <div
+            className="details-container"
+          >
+            <img
+              className="bg-img"
+              name="image-4"
+              src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=190067166ef6ae574ca9104c98f1f0c2&auto=format&fit=crop&w=634&q=80"
+            />
+            <div
+              className="menu-details"
+              id="id-2"
+            >
+              <p
+                className="show-title"
+              >
+                 Pale Honey
+              </p>
+              <p
+                className="meal-options"
+              >
+                 Eba, Soup, and alladat 
+              </p>
+              <p
+                className="caterers-name"
+              >
+                 The Place, Lekki 
+              </p>
+            </div>
+          </div>
+          <div
+            className="details-container"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1521294102048-6cb73602dc43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=62290477f0f0db4d5be6ad7834781f39&auto=format&fit=crop&w=1050&q=80"
+            />
+            <div
+              className="menu-details"
+              id="id-2"
+            >
+              <p
+                className="show-title"
+              >
+                 Pale Honey
+              </p>
+              <p
+                className="meal-options"
+              >
+                 Eba, Soup, and alladat 
+              </p>
+              <p
+                className="caterers-name"
+              >
+                 The Place, Lekki 
+              </p>
+            </div>
+          </div>
+        </div>,
+        <div
+          className="first-image-grid"
+        >
+          <div
+            className="details-container"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f0038573a81b1169576b6674a3ce202&auto=format&fit=crop&w=776&q=80"
+            />
+            <div
+              className="menu-details"
+              id="id-2"
+            >
+              <p
+                className="show-title"
+              >
+                 Pale Honey
+              </p>
+              <p
+                className="meal-options"
+              >
+                 Eba, Soup, and alladat 
+              </p>
+              <p
+                className="caterers-name"
+              >
+                 The Place, Lekki 
+              </p>
+            </div>
+          </div>
+          <div
+            className="details-container"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ec77eae2b7b81c8beab9e87bbd3a01&auto=format&fit=crop&w=1050&q=80"
+            />
+            <div
+              className="menu-details"
+              id="id-2"
+            >
+              <p
+                className="show-title"
+              >
+                 Pale Honey
+              </p>
+              <p
+                className="meal-options"
+              >
+                 Eba, Soup, and alladat 
+              </p>
+              <p
+                className="caterers-name"
+              >
+                 The Place, Lekki 
+              </p>
+            </div>
+          </div>
+        </div>,
+      ],
+      "className": "image-grid",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="details-container"
+            >
+              <img
+                className="bg-img"
+                name="id-1"
+                src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+              />
+              <div
+                className="menu-details"
+                id="id-1"
+              >
+                <p
+                  className="show-title"
+                >
+                   Soca Mocha
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Fried Rice, Jollof Rice
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   Ruutos Kitchen
+                </p>
+              </div>
+            </div>,
+            <div
+              className="details-container"
+            >
+              <img
+                className="bg-img"
+                name="id-2"
+                src="https://images.unsplash.com/photo-1512620053409-d1cb57676f2e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65dceae4e34e9514577cc8dc129db438&auto=format&fit=crop&w=500&q=60"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>,
+          ],
+          "className": "first-image-grid",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  className="bg-img"
+                  name="id-1"
+                  src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+                />,
+                <div
+                  className="menu-details"
+                  id="id-1"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Soca Mocha
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Fried Rice, Jollof Rice
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     Ruutos Kitchen
+                  </p>
+                </div>,
+              ],
+              "className": "details-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "bg-img",
+                  "name": "id-1",
+                  "src": "https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="show-title"
+                    >
+                       Soca Mocha
+                    </p>,
+                    <p
+                      className="meal-options"
+                    >
+                       Fried Rice, Jollof Rice
+                    </p>,
+                    <p
+                      className="caterers-name"
+                    >
+                       Ruutos Kitchen
+                    </p>,
+                  ],
+                  "className": "menu-details",
+                  "id": "id-1",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Soca Mocha",
+                      "className": "show-title",
+                    },
+                    "ref": null,
+                    "rendered": " Soca Mocha",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Fried Rice, Jollof Rice",
+                      "className": "meal-options",
+                    },
+                    "ref": null,
+                    "rendered": " Fried Rice, Jollof Rice",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Ruutos Kitchen",
+                      "className": "caterers-name",
+                    },
+                    "ref": null,
+                    "rendered": " Ruutos Kitchen",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  className="bg-img"
+                  name="id-2"
+                  src="https://images.unsplash.com/photo-1512620053409-d1cb57676f2e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65dceae4e34e9514577cc8dc129db438&auto=format&fit=crop&w=500&q=60"
+                />,
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>,
+              ],
+              "className": "details-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "bg-img",
+                  "name": "id-2",
+                  "src": "https://images.unsplash.com/photo-1512620053409-d1cb57676f2e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65dceae4e34e9514577cc8dc129db438&auto=format&fit=crop&w=500&q=60",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>,
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>,
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>,
+                  ],
+                  "className": "menu-details",
+                  "id": "id-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Pale Honey",
+                      "className": "show-title",
+                    },
+                    "ref": null,
+                    "rendered": " Pale Honey",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Eba, Soup, and alladat ",
+                      "className": "meal-options",
+                    },
+                    "ref": null,
+                    "rendered": " Eba, Soup, and alladat ",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " The Place, Lekki ",
+                      "className": "caterers-name",
+                    },
+                    "ref": null,
+                    "rendered": " The Place, Lekki ",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="details-container"
+            >
+              <img
+                className="bg-img"
+                name="image-3"
+                src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>,
+            <div
+              className="details-container"
+            >
+              <img
+                className="bg-img"
+                name="image-4"
+                src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=190067166ef6ae574ca9104c98f1f0c2&auto=format&fit=crop&w=634&q=80"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>,
+            <div
+              className="details-container"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1521294102048-6cb73602dc43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=62290477f0f0db4d5be6ad7834781f39&auto=format&fit=crop&w=1050&q=80"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>,
+          ],
+          "className": "second-image-grid",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  className="bg-img"
+                  name="image-3"
+                  src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+                />,
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>,
+              ],
+              "className": "details-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "bg-img",
+                  "name": "image-3",
+                  "src": "https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>,
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>,
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>,
+                  ],
+                  "className": "menu-details",
+                  "id": "id-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Pale Honey",
+                      "className": "show-title",
+                    },
+                    "ref": null,
+                    "rendered": " Pale Honey",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Eba, Soup, and alladat ",
+                      "className": "meal-options",
+                    },
+                    "ref": null,
+                    "rendered": " Eba, Soup, and alladat ",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " The Place, Lekki ",
+                      "className": "caterers-name",
+                    },
+                    "ref": null,
+                    "rendered": " The Place, Lekki ",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  className="bg-img"
+                  name="image-4"
+                  src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=190067166ef6ae574ca9104c98f1f0c2&auto=format&fit=crop&w=634&q=80"
+                />,
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>,
+              ],
+              "className": "details-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "bg-img",
+                  "name": "image-4",
+                  "src": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=190067166ef6ae574ca9104c98f1f0c2&auto=format&fit=crop&w=634&q=80",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>,
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>,
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>,
+                  ],
+                  "className": "menu-details",
+                  "id": "id-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Pale Honey",
+                      "className": "show-title",
+                    },
+                    "ref": null,
+                    "rendered": " Pale Honey",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Eba, Soup, and alladat ",
+                      "className": "meal-options",
+                    },
+                    "ref": null,
+                    "rendered": " Eba, Soup, and alladat ",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " The Place, Lekki ",
+                      "className": "caterers-name",
+                    },
+                    "ref": null,
+                    "rendered": " The Place, Lekki ",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  src="https://images.unsplash.com/photo-1521294102048-6cb73602dc43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=62290477f0f0db4d5be6ad7834781f39&auto=format&fit=crop&w=1050&q=80"
+                />,
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>,
+              ],
+              "className": "details-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "src": "https://images.unsplash.com/photo-1521294102048-6cb73602dc43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=62290477f0f0db4d5be6ad7834781f39&auto=format&fit=crop&w=1050&q=80",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>,
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>,
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>,
+                  ],
+                  "className": "menu-details",
+                  "id": "id-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Pale Honey",
+                      "className": "show-title",
+                    },
+                    "ref": null,
+                    "rendered": " Pale Honey",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Eba, Soup, and alladat ",
+                      "className": "meal-options",
+                    },
+                    "ref": null,
+                    "rendered": " Eba, Soup, and alladat ",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " The Place, Lekki ",
+                      "className": "caterers-name",
+                    },
+                    "ref": null,
+                    "rendered": " The Place, Lekki ",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="details-container"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f0038573a81b1169576b6674a3ce202&auto=format&fit=crop&w=776&q=80"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>,
+            <div
+              className="details-container"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ec77eae2b7b81c8beab9e87bbd3a01&auto=format&fit=crop&w=1050&q=80"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>,
+          ],
+          "className": "first-image-grid",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  src="https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f0038573a81b1169576b6674a3ce202&auto=format&fit=crop&w=776&q=80"
+                />,
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>,
+              ],
+              "className": "details-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "src": "https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f0038573a81b1169576b6674a3ce202&auto=format&fit=crop&w=776&q=80",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>,
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>,
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>,
+                  ],
+                  "className": "menu-details",
+                  "id": "id-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Pale Honey",
+                      "className": "show-title",
+                    },
+                    "ref": null,
+                    "rendered": " Pale Honey",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Eba, Soup, and alladat ",
+                      "className": "meal-options",
+                    },
+                    "ref": null,
+                    "rendered": " Eba, Soup, and alladat ",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " The Place, Lekki ",
+                      "className": "caterers-name",
+                    },
+                    "ref": null,
+                    "rendered": " The Place, Lekki ",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ec77eae2b7b81c8beab9e87bbd3a01&auto=format&fit=crop&w=1050&q=80"
+                />,
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>,
+              ],
+              "className": "details-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "src": "https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ec77eae2b7b81c8beab9e87bbd3a01&auto=format&fit=crop&w=1050&q=80",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>,
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>,
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>,
+                  ],
+                  "className": "menu-details",
+                  "id": "id-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Pale Honey",
+                      "className": "show-title",
+                    },
+                    "ref": null,
+                    "rendered": " Pale Honey",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " Eba, Soup, and alladat ",
+                      "className": "meal-options",
+                    },
+                    "ref": null,
+                    "rendered": " Eba, Soup, and alladat ",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " The Place, Lekki ",
+                      "className": "caterers-name",
+                    },
+                    "ref": null,
+                    "rendered": " The Place, Lekki ",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="first-image-grid"
+          >
+            <div
+              className="details-container"
+            >
+              <img
+                className="bg-img"
+                name="id-1"
+                src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+              />
+              <div
+                className="menu-details"
+                id="id-1"
+              >
+                <p
+                  className="show-title"
+                >
+                   Soca Mocha
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Fried Rice, Jollof Rice
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   Ruutos Kitchen
+                </p>
+              </div>
+            </div>
+            <div
+              className="details-container"
+            >
+              <img
+                className="bg-img"
+                name="id-2"
+                src="https://images.unsplash.com/photo-1512620053409-d1cb57676f2e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65dceae4e34e9514577cc8dc129db438&auto=format&fit=crop&w=500&q=60"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>
+          </div>,
+          <div
+            className="second-image-grid"
+          >
+            <div
+              className="details-container"
+            >
+              <img
+                className="bg-img"
+                name="image-3"
+                src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>
+            <div
+              className="details-container"
+            >
+              <img
+                className="bg-img"
+                name="image-4"
+                src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=190067166ef6ae574ca9104c98f1f0c2&auto=format&fit=crop&w=634&q=80"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>
+            <div
+              className="details-container"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1521294102048-6cb73602dc43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=62290477f0f0db4d5be6ad7834781f39&auto=format&fit=crop&w=1050&q=80"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>
+          </div>,
+          <div
+            className="first-image-grid"
+          >
+            <div
+              className="details-container"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f0038573a81b1169576b6674a3ce202&auto=format&fit=crop&w=776&q=80"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>
+            <div
+              className="details-container"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ec77eae2b7b81c8beab9e87bbd3a01&auto=format&fit=crop&w=1050&q=80"
+              />
+              <div
+                className="menu-details"
+                id="id-2"
+              >
+                <p
+                  className="show-title"
+                >
+                   Pale Honey
+                </p>
+                <p
+                  className="meal-options"
+                >
+                   Eba, Soup, and alladat 
+                </p>
+                <p
+                  className="caterers-name"
+                >
+                   The Place, Lekki 
+                </p>
+              </div>
+            </div>
+          </div>,
+        ],
+        "className": "image-grid",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="details-container"
+              >
+                <img
+                  className="bg-img"
+                  name="id-1"
+                  src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+                />
+                <div
+                  className="menu-details"
+                  id="id-1"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Soca Mocha
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Fried Rice, Jollof Rice
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     Ruutos Kitchen
+                  </p>
+                </div>
+              </div>,
+              <div
+                className="details-container"
+              >
+                <img
+                  className="bg-img"
+                  name="id-2"
+                  src="https://images.unsplash.com/photo-1512620053409-d1cb57676f2e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65dceae4e34e9514577cc8dc129db438&auto=format&fit=crop&w=500&q=60"
+                />
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>
+              </div>,
+            ],
+            "className": "first-image-grid",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    className="bg-img"
+                    name="id-1"
+                    src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+                  />,
+                  <div
+                    className="menu-details"
+                    id="id-1"
+                  >
+                    <p
+                      className="show-title"
+                    >
+                       Soca Mocha
+                    </p>
+                    <p
+                      className="meal-options"
+                    >
+                       Fried Rice, Jollof Rice
+                    </p>
+                    <p
+                      className="caterers-name"
+                    >
+                       Ruutos Kitchen
+                    </p>
+                  </div>,
+                ],
+                "className": "details-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "bg-img",
+                    "name": "id-1",
+                    "src": "https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p
+                        className="show-title"
+                      >
+                         Soca Mocha
+                      </p>,
+                      <p
+                        className="meal-options"
+                      >
+                         Fried Rice, Jollof Rice
+                      </p>,
+                      <p
+                        className="caterers-name"
+                      >
+                         Ruutos Kitchen
+                      </p>,
+                    ],
+                    "className": "menu-details",
+                    "id": "id-1",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Soca Mocha",
+                        "className": "show-title",
+                      },
+                      "ref": null,
+                      "rendered": " Soca Mocha",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Fried Rice, Jollof Rice",
+                        "className": "meal-options",
+                      },
+                      "ref": null,
+                      "rendered": " Fried Rice, Jollof Rice",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Ruutos Kitchen",
+                        "className": "caterers-name",
+                      },
+                      "ref": null,
+                      "rendered": " Ruutos Kitchen",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    className="bg-img"
+                    name="id-2"
+                    src="https://images.unsplash.com/photo-1512620053409-d1cb57676f2e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65dceae4e34e9514577cc8dc129db438&auto=format&fit=crop&w=500&q=60"
+                  />,
+                  <div
+                    className="menu-details"
+                    id="id-2"
+                  >
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>
+                  </div>,
+                ],
+                "className": "details-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "bg-img",
+                    "name": "id-2",
+                    "src": "https://images.unsplash.com/photo-1512620053409-d1cb57676f2e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65dceae4e34e9514577cc8dc129db438&auto=format&fit=crop&w=500&q=60",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p
+                        className="show-title"
+                      >
+                         Pale Honey
+                      </p>,
+                      <p
+                        className="meal-options"
+                      >
+                         Eba, Soup, and alladat 
+                      </p>,
+                      <p
+                        className="caterers-name"
+                      >
+                         The Place, Lekki 
+                      </p>,
+                    ],
+                    "className": "menu-details",
+                    "id": "id-2",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Pale Honey",
+                        "className": "show-title",
+                      },
+                      "ref": null,
+                      "rendered": " Pale Honey",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Eba, Soup, and alladat ",
+                        "className": "meal-options",
+                      },
+                      "ref": null,
+                      "rendered": " Eba, Soup, and alladat ",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " The Place, Lekki ",
+                        "className": "caterers-name",
+                      },
+                      "ref": null,
+                      "rendered": " The Place, Lekki ",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="details-container"
+              >
+                <img
+                  className="bg-img"
+                  name="image-3"
+                  src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+                />
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>
+              </div>,
+              <div
+                className="details-container"
+              >
+                <img
+                  className="bg-img"
+                  name="image-4"
+                  src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=190067166ef6ae574ca9104c98f1f0c2&auto=format&fit=crop&w=634&q=80"
+                />
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>
+              </div>,
+              <div
+                className="details-container"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1521294102048-6cb73602dc43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=62290477f0f0db4d5be6ad7834781f39&auto=format&fit=crop&w=1050&q=80"
+                />
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>
+              </div>,
+            ],
+            "className": "second-image-grid",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    className="bg-img"
+                    name="image-3"
+                    src="https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60"
+                  />,
+                  <div
+                    className="menu-details"
+                    id="id-2"
+                  >
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>
+                  </div>,
+                ],
+                "className": "details-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "bg-img",
+                    "name": "image-3",
+                    "src": "https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=773f7b4874ac27d219e2b714cff45fb3&auto=format&fit=crop&w=500&q=60",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p
+                        className="show-title"
+                      >
+                         Pale Honey
+                      </p>,
+                      <p
+                        className="meal-options"
+                      >
+                         Eba, Soup, and alladat 
+                      </p>,
+                      <p
+                        className="caterers-name"
+                      >
+                         The Place, Lekki 
+                      </p>,
+                    ],
+                    "className": "menu-details",
+                    "id": "id-2",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Pale Honey",
+                        "className": "show-title",
+                      },
+                      "ref": null,
+                      "rendered": " Pale Honey",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Eba, Soup, and alladat ",
+                        "className": "meal-options",
+                      },
+                      "ref": null,
+                      "rendered": " Eba, Soup, and alladat ",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " The Place, Lekki ",
+                        "className": "caterers-name",
+                      },
+                      "ref": null,
+                      "rendered": " The Place, Lekki ",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    className="bg-img"
+                    name="image-4"
+                    src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=190067166ef6ae574ca9104c98f1f0c2&auto=format&fit=crop&w=634&q=80"
+                  />,
+                  <div
+                    className="menu-details"
+                    id="id-2"
+                  >
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>
+                  </div>,
+                ],
+                "className": "details-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "bg-img",
+                    "name": "image-4",
+                    "src": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=190067166ef6ae574ca9104c98f1f0c2&auto=format&fit=crop&w=634&q=80",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p
+                        className="show-title"
+                      >
+                         Pale Honey
+                      </p>,
+                      <p
+                        className="meal-options"
+                      >
+                         Eba, Soup, and alladat 
+                      </p>,
+                      <p
+                        className="caterers-name"
+                      >
+                         The Place, Lekki 
+                      </p>,
+                    ],
+                    "className": "menu-details",
+                    "id": "id-2",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Pale Honey",
+                        "className": "show-title",
+                      },
+                      "ref": null,
+                      "rendered": " Pale Honey",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Eba, Soup, and alladat ",
+                        "className": "meal-options",
+                      },
+                      "ref": null,
+                      "rendered": " Eba, Soup, and alladat ",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " The Place, Lekki ",
+                        "className": "caterers-name",
+                      },
+                      "ref": null,
+                      "rendered": " The Place, Lekki ",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    src="https://images.unsplash.com/photo-1521294102048-6cb73602dc43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=62290477f0f0db4d5be6ad7834781f39&auto=format&fit=crop&w=1050&q=80"
+                  />,
+                  <div
+                    className="menu-details"
+                    id="id-2"
+                  >
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>
+                  </div>,
+                ],
+                "className": "details-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "src": "https://images.unsplash.com/photo-1521294102048-6cb73602dc43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=62290477f0f0db4d5be6ad7834781f39&auto=format&fit=crop&w=1050&q=80",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p
+                        className="show-title"
+                      >
+                         Pale Honey
+                      </p>,
+                      <p
+                        className="meal-options"
+                      >
+                         Eba, Soup, and alladat 
+                      </p>,
+                      <p
+                        className="caterers-name"
+                      >
+                         The Place, Lekki 
+                      </p>,
+                    ],
+                    "className": "menu-details",
+                    "id": "id-2",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Pale Honey",
+                        "className": "show-title",
+                      },
+                      "ref": null,
+                      "rendered": " Pale Honey",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Eba, Soup, and alladat ",
+                        "className": "meal-options",
+                      },
+                      "ref": null,
+                      "rendered": " Eba, Soup, and alladat ",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " The Place, Lekki ",
+                        "className": "caterers-name",
+                      },
+                      "ref": null,
+                      "rendered": " The Place, Lekki ",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="details-container"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f0038573a81b1169576b6674a3ce202&auto=format&fit=crop&w=776&q=80"
+                />
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>
+              </div>,
+              <div
+                className="details-container"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ec77eae2b7b81c8beab9e87bbd3a01&auto=format&fit=crop&w=1050&q=80"
+                />
+                <div
+                  className="menu-details"
+                  id="id-2"
+                >
+                  <p
+                    className="show-title"
+                  >
+                     Pale Honey
+                  </p>
+                  <p
+                    className="meal-options"
+                  >
+                     Eba, Soup, and alladat 
+                  </p>
+                  <p
+                    className="caterers-name"
+                  >
+                     The Place, Lekki 
+                  </p>
+                </div>
+              </div>,
+            ],
+            "className": "first-image-grid",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    src="https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f0038573a81b1169576b6674a3ce202&auto=format&fit=crop&w=776&q=80"
+                  />,
+                  <div
+                    className="menu-details"
+                    id="id-2"
+                  >
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>
+                  </div>,
+                ],
+                "className": "details-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "src": "https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f0038573a81b1169576b6674a3ce202&auto=format&fit=crop&w=776&q=80",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p
+                        className="show-title"
+                      >
+                         Pale Honey
+                      </p>,
+                      <p
+                        className="meal-options"
+                      >
+                         Eba, Soup, and alladat 
+                      </p>,
+                      <p
+                        className="caterers-name"
+                      >
+                         The Place, Lekki 
+                      </p>,
+                    ],
+                    "className": "menu-details",
+                    "id": "id-2",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Pale Honey",
+                        "className": "show-title",
+                      },
+                      "ref": null,
+                      "rendered": " Pale Honey",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Eba, Soup, and alladat ",
+                        "className": "meal-options",
+                      },
+                      "ref": null,
+                      "rendered": " Eba, Soup, and alladat ",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " The Place, Lekki ",
+                        "className": "caterers-name",
+                      },
+                      "ref": null,
+                      "rendered": " The Place, Lekki ",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ec77eae2b7b81c8beab9e87bbd3a01&auto=format&fit=crop&w=1050&q=80"
+                  />,
+                  <div
+                    className="menu-details"
+                    id="id-2"
+                  >
+                    <p
+                      className="show-title"
+                    >
+                       Pale Honey
+                    </p>
+                    <p
+                      className="meal-options"
+                    >
+                       Eba, Soup, and alladat 
+                    </p>
+                    <p
+                      className="caterers-name"
+                    >
+                       The Place, Lekki 
+                    </p>
+                  </div>,
+                ],
+                "className": "details-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "src": "https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ec77eae2b7b81c8beab9e87bbd3a01&auto=format&fit=crop&w=1050&q=80",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p
+                        className="show-title"
+                      >
+                         Pale Honey
+                      </p>,
+                      <p
+                        className="meal-options"
+                      >
+                         Eba, Soup, and alladat 
+                      </p>,
+                      <p
+                        className="caterers-name"
+                      >
+                         The Place, Lekki 
+                      </p>,
+                    ],
+                    "className": "menu-details",
+                    "id": "id-2",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Pale Honey",
+                        "className": "show-title",
+                      },
+                      "ref": null,
+                      "rendered": " Pale Honey",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " Eba, Soup, and alladat ",
+                        "className": "meal-options",
+                      },
+                      "ref": null,
+                      "rendered": " Eba, Soup, and alladat ",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": " The Place, Lekki ",
+                        "className": "caterers-name",
+                      },
+                      "ref": null,
+                      "rendered": " The Place, Lekki ",
+                      "type": "p",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -7,6 +7,7 @@
     "test": "npm run test:migrate && cd server && NODE_ENV=test mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit",
     "build:server": "babel ./server -d ./build/server --copy-files",
     "start:prod": "npm run build:client && npm run build:server && cd build/server && NODE_ENV=production node index",
+    "start:test": "cd server && NODE_ENV=test nodemon --exec babel-node index",
     "build:client": "webpack --mode production --config webpack.config.js",
     "start": "cd build/server && NODE_ENV=production node index",
     "dev": "cd server && NODE_ENV=development nodemon --exec babel-node index",
@@ -18,7 +19,9 @@
     "heroku-postbuild": "npm run build:server && npm run build:client",
     "migrate": "sequelize db:migrate",
     "client": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
-    "test:client": "jest"
+    "test:client": "jest --verbose",
+    "test:e2e": "concurrently 'npm run start:test' 'nightwatch'",
+    "test:main": "npm run test && npm run test:client && npm run test:e2e"
   },
   "nyc": {
     "require": [
@@ -37,6 +40,10 @@
       "\\.(css|less|scss)$": "identity-obj-proxy"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/src/setup.js",
+    "testMatch": [
+      "**/__tests__/**/*.spec.js?(x)",
+      "**/?(*.)+(spec|test).js?(x)"
+    ],
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/../node_modules/babel-jest",
       ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/../node_modules/jest-css-modules-transform"
@@ -142,10 +149,12 @@
     "jsdoc": "^3.5.5",
     "mini-css-extract-plugin": "^0.4.0",
     "moxios": "^0.4.0",
+    "nightwatch": "^0.9.21",
     "node-sass": "^4.9.0",
     "nyc": "^11.7.1",
     "redux-mock-store": "^1.5.3",
     "sass-loader": "^7.0.2",
+    "selenium-standalone": "^6.15.2",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1"
   }

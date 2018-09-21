@@ -6,7 +6,7 @@ import { makeEditable, getMealInformation } from './utils';
 import SingleMealCard from './components';
 import SendToCloudinary from '../../../actions/helpers/cloudinaryProcessor';
 
-class SingleMealCardContainer extends Component {
+export class SingleMealCardContainer extends Component {
   state = {
     wantsToEdit: false,
     displayText: 'Modify'

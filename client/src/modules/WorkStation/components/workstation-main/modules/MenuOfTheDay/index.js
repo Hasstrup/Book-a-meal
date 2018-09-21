@@ -10,7 +10,7 @@ import { makeEditable } from '../../../../../../mixins/cards/singleMeal/utils';
 const defaultImageUrl = 'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c75e0437e819afdceeb3050a6bcdd71b&auto=format&fit=crop&w=653&q=80';
 let counter = 0;
 
-class MenuOfTheDayContainer extends Component {
+export class MenuOfTheDayContainer extends Component {
   state = {
     buttonText: 'Change',
     wantsToEdit: false,
