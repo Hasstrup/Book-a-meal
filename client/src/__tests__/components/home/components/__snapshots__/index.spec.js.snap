@@ -118,6 +118,7 @@ ShallowWrapper {
           </div>
           <p
             className="got-an-account-id"
+            id="switch-xx-accounts"
             onClick={[Function]}
           >
              I already have an account 
@@ -290,6 +291,7 @@ ShallowWrapper {
             </div>,
             <p
               className="got-an-account-id"
+              id="switch-xx-accounts"
               onClick={[Function]}
             >
                I already have an account 
@@ -619,6 +621,7 @@ ShallowWrapper {
             "props": Object {
               "children": " I already have an account ",
               "className": "got-an-account-id",
+              "id": "switch-xx-accounts",
               "onClick": [Function],
             },
             "ref": null,
@@ -756,6 +759,7 @@ ShallowWrapper {
             </div>
             <p
               className="got-an-account-id"
+              id="switch-xx-accounts"
               onClick={[Function]}
             >
                I already have an account 
@@ -928,6 +932,7 @@ ShallowWrapper {
               </div>,
               <p
                 className="got-an-account-id"
+                id="switch-xx-accounts"
                 onClick={[Function]}
               >
                  I already have an account 
@@ -1257,6 +1262,7 @@ ShallowWrapper {
               "props": Object {
                 "children": " I already have an account ",
                 "className": "got-an-account-id",
+                "id": "switch-xx-accounts",
                 "onClick": [Function],
               },
               "ref": null,
@@ -1336,9 +1342,9 @@ ShallowWrapper {
           className="text-landing"
           onClick={[Function]}
         >
-          Enjoy the really really 
+          Food so good.
           <br />
-          good things. Today.
+          You couldn't live without it.
         </p>,
       ],
       "className": "landing-jumbo",
@@ -1407,16 +1413,16 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            "Enjoy the really really ",
+            "Food so good.",
             <br />,
-            "good things. Today.",
+            "You couldn't live without it.",
           ],
           "className": "text-landing",
           "onClick": [Function],
         },
         "ref": null,
         "rendered": Array [
-          "Enjoy the really really ",
+          "Food so good.",
           Object {
             "instance": null,
             "key": undefined,
@@ -1426,7 +1432,7 @@ ShallowWrapper {
             "rendered": null,
             "type": "br",
           },
-          "good things. Today.",
+          "You couldn't live without it.",
         ],
         "type": "p",
       },
@@ -1457,9 +1463,9 @@ ShallowWrapper {
             className="text-landing"
             onClick={[Function]}
           >
-            Enjoy the really really 
+            Food so good.
             <br />
-            good things. Today.
+            You couldn't live without it.
           </p>,
         ],
         "className": "landing-jumbo",
@@ -1528,16 +1534,16 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              "Enjoy the really really ",
+              "Food so good.",
               <br />,
-              "good things. Today.",
+              "You couldn't live without it.",
             ],
             "className": "text-landing",
             "onClick": [Function],
           },
           "ref": null,
           "rendered": Array [
-            "Enjoy the really really ",
+            "Food so good.",
             Object {
               "instance": null,
               "key": undefined,
@@ -1547,7 +1553,7 @@ ShallowWrapper {
               "rendered": null,
               "type": "br",
             },
-            "good things. Today.",
+            "You couldn't live without it.",
           ],
           "type": "p",
         },

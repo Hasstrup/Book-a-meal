@@ -24,7 +24,6 @@ export class HomeContainer extends Component {
 export const HomeComponent = ({ history, dispatch }) => (
   <div>
   <AnimatingBannerComponent />
-  <ImageFloatingComponent />
   <LoginFormComponent logInUser={(body) => dispatch(LogInUser(body)(history))} createUser={(body) => dispatch(SignUpUser(body)(history))}/>
   </div>
 )

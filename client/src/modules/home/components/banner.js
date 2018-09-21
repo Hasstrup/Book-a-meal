@@ -8,8 +8,8 @@ const AnimatingBannerComponent = () => (
       <div className='triangle-down' />
     </div>
     <p className='text-landing' onClick={() => clickedMe()}>
-        Enjoy the really really <br />
-        good things. Today.
+       Food so good.<br />
+        You couldn't live without it.
     </p>
   </div>
 )

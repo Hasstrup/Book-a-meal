@@ -51,7 +51,7 @@ var router = (0, _express.Router)();
 router.get('/', _baseMiddleware2.default.checkAuthorization, _orders2.default.__filterAccess, _orders2.default.checkType, _orders4.default.fetchOrders, _error2.default.dispatch);
 
 /* this route is exclusive to only type=user as only users should be able to make new orders */
-router.post('/', _baseMiddleware2.default.checkAuthorization, _orders2.default.__filterAccess, _orders2.default.allowConfirmedUsersOnly, _baseMiddleware2.default.checkForNullInput, _orders2.default.__checkRequired, _orders4.default.create, _error2.default.dispatch);
+router.post('/', _baseMiddleware2.default.checkAuthorization, _orders2.default.__filterAccess, _baseMiddleware2.default.checkForNullInput, _orders2.default.__checkRequired, _orders4.default.create, _error2.default.dispatch);
 
 //  this method should only allow kitchens change the processed key from false to true;
 router.put('/:ooid', _baseMiddleware2.default.checkAuthorization, _orders2.default.__filterAccess, _orders2.default.checkType, _baseMiddleware2.default.__checkParams, _orders2.default.__revokeAccess, _orders4.default.__updateOne, _error2.default.dispatch);

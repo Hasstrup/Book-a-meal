@@ -44,9 +44,9 @@ ReactWrapper {
         <p
           class="text-landing"
         >
-          Enjoy the really really 
+          Food so good.
           <br />
-          good things. Today.
+          You couldn't live without it.
         </p>
       </div>,
       "key": undefined,
@@ -70,9 +70,9 @@ ReactWrapper {
             className="text-landing"
             onClick={[Function]}
           >
-            Enjoy the really really 
+            Food so good.
             <br />
-            good things. Today.
+            You couldn't live without it.
           </p>,
         ],
         "className": "landing-jumbo",
@@ -163,24 +163,24 @@ ReactWrapper {
           "instance": <p
             class="text-landing"
           >
-            Enjoy the really really 
+            Food so good.
             <br />
-            good things. Today.
+            You couldn't live without it.
           </p>,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              "Enjoy the really really ",
+              "Food so good.",
               <br />,
-              "good things. Today.",
+              "You couldn't live without it.",
             ],
             "className": "text-landing",
             "onClick": [Function],
           },
           "ref": null,
           "rendered": Array [
-            "Enjoy the really really ",
+            "Food so good.",
             Object {
               "instance": <br />,
               "key": undefined,
@@ -192,7 +192,7 @@ ReactWrapper {
               ],
               "type": "br",
             },
-            "good things. Today.",
+            "You couldn't live without it.",
           ],
           "type": "p",
         },
@@ -231,9 +231,9 @@ ReactWrapper {
           <p
             class="text-landing"
           >
-            Enjoy the really really 
+            Food so good.
             <br />
-            good things. Today.
+            You couldn't live without it.
           </p>
         </div>,
         "key": undefined,
@@ -257,9 +257,9 @@ ReactWrapper {
               className="text-landing"
               onClick={[Function]}
             >
-              Enjoy the really really 
+              Food so good.
               <br />
-              good things. Today.
+              You couldn't live without it.
             </p>,
           ],
           "className": "landing-jumbo",
@@ -350,24 +350,24 @@ ReactWrapper {
             "instance": <p
               class="text-landing"
             >
-              Enjoy the really really 
+              Food so good.
               <br />
-              good things. Today.
+              You couldn't live without it.
             </p>,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                "Enjoy the really really ",
+                "Food so good.",
                 <br />,
-                "good things. Today.",
+                "You couldn't live without it.",
               ],
               "className": "text-landing",
               "onClick": [Function],
             },
             "ref": null,
             "rendered": Array [
-              "Enjoy the really really ",
+              "Food so good.",
               Object {
                 "instance": <br />,
                 "key": undefined,
@@ -379,7 +379,7 @@ ReactWrapper {
                 ],
                 "type": "br",
               },
-              "good things. Today.",
+              "You couldn't live without it.",
             ],
             "type": "p",
           },
@@ -4825,7 +4825,6 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <AnimatingBannerComponent />,
-        <ImageFloatingComponent />,
         <AuthComponent
           createUser={[Function]}
           logInUser={[Function]}
@@ -4834,15 +4833,6 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
       Object {
         "instance": null,
         "key": undefined,
@@ -4875,7 +4865,6 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <AnimatingBannerComponent />,
-          <ImageFloatingComponent />,
           <AuthComponent
             createUser={[Function]}
             logInUser={[Function]}
@@ -4884,15 +4873,6 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
         Object {
           "instance": null,
           "key": undefined,

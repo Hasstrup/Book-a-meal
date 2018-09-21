@@ -19,7 +19,6 @@ describe('Home component', () => {
 
   it('Should have three children on shallow render', () => {
     expect(wrapper.find(LoginFormComponent)).toHaveLength(1);
-    expect(wrapper.find(ImageFloatingComponent)).toHaveLength(1);
     expect(wrapper.find(AnimatingBannerComponent)).toHaveLength(1);
   });
 
